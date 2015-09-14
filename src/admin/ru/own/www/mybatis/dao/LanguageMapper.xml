@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.LanguageMapper">
+ <!--  
+  <select id="selectAdminUserById" resultType="admin.ru.own.www.entity.AdminUser">
+    select u_id  as "UId", u_name as "UName" from admin_user where u_id = #{id}
+  </select>getAllLanguage
+ -->
+ 
+     <!--配置一个resultMap 指定返回的类型 -->
+    <resultMap id="allLanguage" type="admin.ru.own.www.entity.Language">
+        <id column="lan_id" property="id" />
+        <result column="language_name" property="languageName" />
+        <result column="foreign_name" property="foreignerName" />
+        <result column="lan_code" property="languageCode" />
+        <result column="lan_country" property="countryCode" />
+        <result column="status" property="status" />
+        <result column="defaultlanuage" property="defaultlanuage" />
+        <result column="createtime" property="createTime" />
+    </resultMap>
+ 
+   <insert id="insertLanguage" useGeneratedKeys="true" keyProperty="id" parameterType="admin.ru.own.www.entity.Language">
+     insert  into language(language_name,foreign_name,lan_code,lan_country,status,createtime)
+        values(#{languageName},#{foreignerName},#{languageCode},#{countryCode},#{show},now())
+  </insert>
+  
+  <select id="getAllLanguage" resultMap="allLanguage">
+    select * from language
+  </select>
+  
+  
+  <select id="getDefaultLanguage" resultMap="allLanguage">
+        select * from language where defaultlanuage=1;
+  </select>
+  
+  <select id="getLanguageById" resultMap="allLanguage">
+        select * from language where lan_id=#{id};
+  </select>
+  
+  <select id="getShowLanguage" resultMap="allLanguage">
+        select * from language where status=1;
+  </select>
+  
+</mapper>

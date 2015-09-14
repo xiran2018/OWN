@@ -1,0 +1,60 @@
+/* focus */
+
+
+#focus {width:100%; height:480px; overflow:hidden; position:relative;}
+#focus ul {height:480px; position:absolute;width: 100%;}
+#focus ul li {width:100%; height:480px; overflow:; position:relative; background:#000;}
+
+#focus .btnBg {position:absolute; width:100%; height:20px; left:0; bottom:0; background:#000;}
+#focus .btn {position:absolute; width:100%; height:10px; padding:5px 0px; right:0; bottom:0; text-align:center;}
+#focus .btn span {display:inline-block; _display:inline; _zoom:1; width:25px; height:10px; _font-size:0; margin-left:5px; cursor:pointer; background:#fff;}
+#focus .btn span.on {background:#fff;}
+#focus .preNext {width:45px; height:100px; position:absolute; top:180px; background:url(img/sprite.png) no-repeat 0 0; cursor:pointer;}
+#focus .pre {left:0;}
+#focus .next {right:0; background-position:right top;}
+
+#focus  .mid 
+{
+	position:relative;
+	float:left;
+	width:1190px;
+	height:480px;
+	overflow: hidden;	
+}
+
+#focus  .mid  .container
+{
+
+	margin-left:190px;	
+	margin-right: 190px;
+}
+.rightsmall
+{
+	position:absolute;
+	top:0;
+	right:0;	
+}
+#focus  .left 
+{
+	height:480px;
+    width:50%;
+	float:left;
+	margin-left:-595px;
+
+}
+#focus  .left .container {
+	height:480px;
+    margin-left:595px;
+	
+}
+#focus  .right {
+	height:480px;
+    width:50%;
+	float:right;
+	margin-right:-595px;   
+}
+#focus  .right .container {
+	height:480px;
+    margin-right:595px;	
+    
+}

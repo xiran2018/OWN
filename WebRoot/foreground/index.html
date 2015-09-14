@@ -1,0 +1,633 @@
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>淘宝
+</title>
+
+<!-- header布局 -->
+<link  href="css/header.css" rel="stylesheet" type="text/css"/>
+
+<!-- header以下布局 -->
+<link  href="css/style.css" rel="stylesheet" type="text/css"/>
+
+<!--商品分类侧边栏 -->
+<link  href="css/silder.css" rel="stylesheet" type="text/css"/>
+
+
+
+<!-- 首页header页面滚动图布局样式css -->
+<link  href="css/leftmidright.css" rel="stylesheet" type="text/css"/>
+
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+//！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！silder
+	$("#sidebar-menu > ul > li").hover(function() { 
+	$(this).addClass("selected"); 
+	$(".menu-panel", this).addClass("selected"); 
+	var bgImg = $(".menu-item", this).css("background-image"); 
+	bgImg = bgImg.replace(".", "-hover."); 
+	//$(".menu-item", this).css("background-image", bgImg); 
+	}, function() { 
+	$(this).removeClass("selected"); 
+	$(".menu-panel", this).removeClass("selected"); 
+	var bgImg = $(".menu-item", this).css("background-image"); 
+	bgImg = bgImg.replace("-hover.", "."); 
+	//$(".menu-item", this).css("background-image", bgImg); 
+	});
+//！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！end of sileder
+//！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！图片轮播
+    var sWidth = $("#focus").width(); //获取焦点图的宽度（显示面积）
+    var len = $("#focus ul li").length; //获取焦点图个数
+    var index = 1;   //默认这个地方为0
+    var picTimer;
+    
+    //以下代码添加数字按钮和按钮后的半透明条，还有上一页、下一页两个按钮
+    var btn = "<div class='btnBg'></div><div class='btn'><div class='left'><div class='container'></div></div><div class='mid'><div class='container'>";
+    for(var i=0; i < len; i++) {
+		if(i==0)
+		{
+			btn += "<span class='firstbtn'></span>";
+		}
+		else
+		{
+			btn += "<span></span>";
+		}
+        
+    }
+    btn += "</div></div><div class='right'><div class='container'></div></div></div><div class='preNext pre'></div><div class='preNext next'></div>";
+    $("#focus").append(btn);
+    $("#focus .btnBg").css("opacity",0.5);
+
+    //为小按钮添加鼠标滑入事件，以显示相应的内容
+    $("#focus .btn span").css("opacity",0.4).mouseenter(function() {
+        index = $("#focus .btn span").index(this);
+        showPics(index);
+    });
+	$("#focus .btn span:first").animate({"opacity":"1"},300);;
+	
+
+    //上一页、下一页按钮透明度处理
+    $("#focus .preNext").css("opacity",0.2).hover(function() {
+        $(this).stop(true,false).animate({"opacity":"0.5"},300);
+    },function() {
+        $(this).stop(true,false).animate({"opacity":"0.2"},300);
+    });
+
+    //上一页按钮
+    $("#focus .pre").click(function() {
+        index -= 1;
+        if(index == -1) {index = len - 1;}
+        showPics(index);
+    });
+
+    //下一页按钮
+    $("#focus .next").click(function() {
+        index += 1;
+        if(index == len) {index = 0;}
+        showPics(index);
+    });
+
+    //本例为左右滚动，即所有li元素都是在同一排向左浮动，所以这里需要计算出外围ul元素的宽度
+    //$("#focus ul").css("width",sWidth * (len));  //用了隐藏的方式，所以这里不需要了
+ 
+	
+    $("#focus").hover(function() {
+		console.log("foucus hover in  取消轮播");
+		$("#focus ul").stop(true,true);
+        clearInterval(picTimer);
+    },function() {
+        picTimer = setInterval(function() {
+			console.log("foucus hover out  开始轮播");
+			console.log("foucus index="+index);
+			showPics(index);
+			index++;
+			if(index == len) {index = 0;}
+			
+
+            
+        },2000); //此4000代表自动播放的间隔，单位：毫秒
+    });
+    
+    //显示图片函数，根据接收的index值显示相应的内容
+    function showPics(index) { //普通切换
+       // var nowLeft = -index*sWidth; //根据index值计算ul元素的left值  //用了隐藏的方式，所以这里不需要了
+       // $("#focus ul").stop(true,false).animate({"left":nowLeft},300); //通过animate()调整ul元素滚动到计算出的position  //用了隐藏的方式，所以这里不需要了
+		$("#focus ul").stop(true,true);
+		$("#focus ul li").filter(":visible").fadeOut(500).parent().children().eq(index).stop(true,true).fadeIn(500);
+        //$("#focus .btn span").removeClass("on").eq(index).addClass("on"); //为当前的按钮切换到选中的效果
+        $("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
+    }
+	
+	//add by  jql
+	
+	picTimer = setInterval(function() {
+			console.log("start index="+index);
+            showPics(index);
+            index++;
+            if(index == len) {index = 0;}
+        },2000); //此4000代表自动播放的间隔，单位：毫秒
+});
+
+</script>
+<style type="text/css">
+/* focus */
+
+
+#focus {width:100%; height:480px; overflow:hidden; position:relative;}
+#focus ul {height:480px; position:absolute;width: 100%;}
+#focus ul li {width:100%; height:480px; overflow:; position:relative; background:#000;}
+
+#focus .btnBg {position:absolute; width:100%; height:20px; left:0; bottom:0; background:#000;}
+#focus .btn {position:absolute; width:100%; height:10px; padding:5px 0px; right:0; bottom:0; text-align:center;}
+#focus .btn span {display:inline-block; _display:inline; _zoom:1; width:25px; height:10px; _font-size:0; margin-left:5px; cursor:pointer; background:#fff;}
+#focus .btn span.on {background:#fff;}
+#focus .preNext {width:45px; height:100px; position:absolute; top:180px; background:url(img/sprite.png) no-repeat 0 0; cursor:pointer;}
+#focus .pre {left:0;}
+#focus .next {right:0; background-position:right top;}
+
+</style>
+</head>
+
+<body>  
+  <div id="site-nov">
+     <div class="site-nov-con">
+        <p class="phone"><a href="#">手机版</a></p>
+        <p class="login">亲，欢迎来淘宝！<a href="#">请登录</a><a href="">免费注册</a></p>
+        <ul class="quick-menu">
+           <li><a href=""#>我要买</a></li>
+           <li   class="downmenu">
+                <a href="" class="downmenu">我的淘宝</a>
+                <ul>
+                   <li><a href="#">新闻</a></li>
+                   <li><a href="#">新闻</a></li>
+                   <li><a href="#">新闻</a></li>
+                   <li><a href="#">新闻</a></li>                                     
+                 </ul>
+           </li>
+           <li class="service"><a href=""#>联系客服</a></li>
+           <li><a href="" ><span></span>购物车<strong>0</strong>件</a></li>
+           <li   class="downmenu">
+                <a href=""   class="downmenu">收藏夹</a>
+                <ul>
+                   <li><a href="#">新闻</a></li>
+                   <li><a href="#">新闻</a></li>
+                   <li><a href="#">新闻</a></li>
+                   <li><a href="#">新闻</a></li>                                     
+                 </ul>
+           
+           </li>
+           <li><a href="" >网站导航</a></li>
+           <li class=" no-bg"><a href=""#>网站导航</a></li>
+   
+        </ul>
+     </div>
+  </div>
+  <div id="layout-one">
+     <h2><a href="#"><img src="images/logo.jpg" width="294" height="65" /></a></h2>
+     <div class="search">
+         <ul>
+            <li class="current">宝贝</li>
+         </ul>
+         <div class="sea-cen">
+             <span></span>
+             <input name="" type="text"  class="txt"/>
+             <input name="" type="button"  class="btn"/>
+         </div>
+     </div>
+  </div>
+  <div id="lagout-two">
+      <ul class="lagout-two-l">
+        
+        <li><a href="#">首页</a></li>
+        <li><a href="#">最新上架</a></li>
+        <li><a href="#">所有品牌</a></li>
+        <li><a href="#">热卖商品</a></li>
+        <li><a href="#">推荐商品</a></li>
+      </ul>
+      <div class="lagout-two-r">
+         <a href="#"><img src="images/new.gif" width="70" height="40" /></a><a href="#" class="txt">会员俱乐部</a><a href="#" class="txt">消费者保障</a>
+    </div>
+  </div>
+         
+  <div id="category-menu">
+     <div id="category-image-paly">
+        <div id="focus">
+            <ul nowrap="nowrap">
+                <li>
+
+					<div class="left">
+						<div class="container" style="background-color: rgb(232, 232, 232);">
+							left 宽度自适应11111111111111111111
+						</div>
+					</div>
+					<div class="mid">
+						<div class="container">
+								<a href="http://www.divcss5.com/" target="_blank"><img src="img/01.jpg" alt="CSS" /></a>
+						</div>
+						<div class="rightsmall">
+								<a href="http://www.divcss5.com/" target="_blank"><img src="img/smallright.jpg" alt="CSS" /></a>
+						</div>
+						
+					</div>
+					<div class="right">
+						<div class="container" style="background-color: rgb(232, 232, 232);">
+							right 宽度自适应1111111111111111111
+						</div>
+					</div>
+				</li>
+                <li>
+
+					<div class="left">
+						<div class="container" style="background-color: rgb(232, 232, 232);">
+							left 宽度自适应2222222222222222222
+						</div>
+					</div>
+						<div class="mid">
+							<div class="container">
+								<a href="http://www.divcss5.com/" target="_blank"><img src="img/02.jpg" alt="DIV CSS" /></a>
+							</div>
+							<div class="rightsmall">
+								<a href="http://www.divcss5.com/" target="_blank"><img src="img/smallright.jpg" alt="CSS" /></a>
+							</div>
+						</div>
+					<div class="right">
+						<div class="container" style="background-color: rgb(232, 232, 232);">
+							right 宽度自适应22222222222222
+						</div>
+					</div>
+				</li>
+                <li>
+
+					<div class="left">
+						<div class="container" style="background-color: rgb(232, 232, 232);">
+							left 宽度自适应333333333333333
+						</div>
+					</div>
+					<div class="mid">
+							<div class="container">
+								<a href="http://www.divcss5.com/" target="_blank"><img src="img/03.jpg" alt="DIV+CSS" /></a>
+							</div>
+							<div class="rightsmall">
+								<a href="http://www.divcss5.com/" target="_blank"><img src="img/smallright.jpg" alt="CSS" /></a>
+							</div>
+						
+					</div>
+					<div class="right">
+						<div class="container" style="background-color: rgb(232, 232, 232);">
+							right 宽度自适应333333333333333
+						</div>
+					</div>
+				</li>
+                <li>
+
+					<div class="left">
+						<div class="container" style="background-color: rgb(232, 232, 232);">
+							left 宽度自适应444444444444444
+						</div>
+					</div>
+					<div class="mid">
+							<div class="container">
+								<a href="http://www.divcss5.com/html/" target="_blank"><img src="img/04.jpg" alt="HTML" /></a>
+							</div>
+							<div class="rightsmall">
+								<a href="http://www.divcss5.com/" target="_blank"><img src="img/smallright.jpg" alt="CSS" /></a>
+							</div>
+						
+					</div>
+					<div class="right">
+						<div class="container" style="background-color: rgb(232, 232, 232);">
+							right 宽度自适应44444444444444
+						</div>
+					</div>
+				</li>
+                <li>
+
+					<div class="left">
+						<div class="container" style="background-color: rgb(232, 232, 232);">
+							left 宽度自适应555555555
+						</div>
+					</div>
+					<div class="mid">
+							<div class="container">
+								<a href="#" target="_blank"><img src="img/05.jpg" alt="jquery商城焦点图展示" /></a>
+							</div>
+							<div class="rightsmall">
+								<a href="http://www.divcss5.com/" target="_blank"><img src="img/smallright.jpg" alt="CSS" /></a>
+							</div>
+						
+					</div>
+					<div class="right">
+						<div class="container" style="background-color: rgb(232, 232, 232);">
+							right 宽度自适应555555555
+						</div>
+					</div>
+				</li>
+            </ul>
+        </div>
+     </div><!-- end of category-image-paly -->
+    <div id="lagout-three">
+	
+	<div class="lagout-three-r">
+	 							<div class="rightsmall">
+								<a href="http://www.divcss5.com/" target="_blank"><img src="img/smallright.jpg" alt="CSS" /></a>
+							</div>
+	</div>
+	
+     <div class="lagout-three-l">
+       <h2 class="menu-title">商品服务分类</h2>
+       <div class="product-list">                                                 
+                <div id="sidebar-menu"> 
+					<ul> 
+					<li class="first"> 
+					<div class="menu-item" style="background-image : url(images/tubiao.jpg);"> 
+					<span class="category-smallimg"><img  src="img/test.png"/></span>
+					<span>图书音像</span> 
+					</div> 
+					<div class="menu-panel"> 
+					<ul> 
+					<li> 
+					<h2>高考图书</h2> 
+					<div class="link-list"> 
+					<div class="link-wrapper"><span>|</span><a href="#">物理习题</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">生物</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">高考复习题</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">语文作文大全</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">政治时事</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">历年高考真题解析与答案</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">考试题</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">化学实验测试</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">生物测试</a></div> 
+					</div> 
+					<div class="clear"></div> 
+					</li> 
+					<li> 
+					<h2>专辑</h2> 
+					<div class="link-list"> 
+					<div class="link-wrapper"><span>|</span><a href="#">郑智化专辑</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">台湾伍佰</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">大陆张含韵</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">刘德华</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">成龙</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">王菲</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">最新歌曲排行榜</a></div> 
+					</div> 
+					<div class="clear"></div> 
+					</li> 
+					<li> 
+					<h2>生活图书</h2> 
+					<div class="link-list"> 
+					<div class="link-wrapper"><span>|</span><a href="#">领悟人生</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">天文地理</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">旅游百科</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">炒菜一本通</a></div> 
+					</div> 
+					<div class="clear"></div> 
+					</li> 
+					</ul> 
+					</div> 
+					</li> 
+					<li> 
+					<div class="menu-item" style="background-image : url(images/tubiao.jpg);"> 
+					<span>生活类</span> 
+					</div> 
+					<div class="menu-panel"> 
+					<ul> 
+					<li> 
+					<h2>炒菜宝典</h2> 
+					<div class="link-list"> 
+					<div class="link-wrapper"><span>|</span><a href="#">领悟人生</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">天文地理</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">旅游百科</a></div> 
+					<div class="link-wrapper"><span>|</span><a href="#">炒菜一本通</a></div> 
+					</div> 
+					<div class="clear"></div> 
+					</li> 
+					</ul> 
+					</div> 
+					</li> 
+					<li> 
+					<div class="menu-item"> 
+					<span>商品分类</span> 
+					</div> 
+					<div class="menu-panel"> 
+					商品分类内容...... 
+					</div> 
+					</li> 
+					<li> 
+					<div class="menu-item"> 
+					<span>商品分类</span> 
+					</div> 
+					<div class="menu-panel"> 
+					商品分类内容...... 
+					</div> 
+					</li> 
+					<li> 
+					<div class="menu-item"> 
+					<span>商品分类</span> 
+					</div> 
+					<div class="menu-panel"> 
+					商品分类内容...... 
+					</div> 
+					</li> 
+					<li> 
+					<div class="menu-item"> 
+					<span>商品分类</span> 
+					</div> 
+					<div class="menu-panel"> 
+					商品分类内容...... 
+					</div> 
+					</li> 
+					<li> 
+					<div class="menu-item"> 
+					<span>商品分类</span> 
+					</div> 
+					<div class="menu-panel"> 
+					商品分类内容...... 
+					</div> 
+					</li> 
+					<li> 
+					<div class="menu-item"> 
+					<span>商品分类</span> 
+					</div> 
+					<div class="menu-panel"> 
+					商品分类内容...... 
+					</div> 
+					</li> 
+					<li> 
+					<div class="menu-item"> 
+					<span>商品分类</span> 
+					</div> 
+					<div class="menu-panel"> 
+					商品分类内容...... 
+					</div> 
+					</li> 
+					<li> 
+					<div class="menu-item"> 
+					<span>商品分类</span> 
+					</div> 
+					<div class="menu-panel"> 
+					商品分类内容...... 
+					</div> 
+					</li> 
+					<li class="last"> 
+					<div class="menu-item"> 
+					<span>商品分类</span> 
+					</div> 
+					<div class="menu-panel"> 
+					商品分类内容...... 
+					</div> 
+					</li> 
+					</ul> 
+					</div> <!--  end of menu sidebar-menu-->
+       </div><!-- end of product-list -->
+       </div>
+  </div> <!-- end of lagout-three -->
+  </div>
+  
+  <div id="shopping">
+	  <span class="floor-number">
+	                    <em class="solid-color-arrow"></em>
+	                    1F
+	  </span>
+	  <h2 class="floor-title  ctr-track-a">
+	  <a href="http://www.lightinthebox.com/c/fashion_71" ctr="{&quot;entity&quot;:&quot;view_all&quot;}">
+                    Fashion &amp; Clothing 
+       </a>
+       </h2>
+  </div>
+  <div id="seller">
+    <ul>
+    	<li>
+         <a href="#"><img src="images/sale1.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#" class="orange">59.90</a></a>
+         <a href="#" class="current">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale2.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#" class="orange">59.90</a></a>
+         <a href="#" class="current1">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale3.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#">￥59.90</a></a>
+         <a href="#" class="current">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale4.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#" class="orange">59.90</a></a>
+         <a href="#" class="current1">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale5.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#" class="orange">59.90</a></a>
+         <a href="#" class="current">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale6.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span><a href="#" class="orange">￥59.90</a></a>
+         <a href="#" class="current">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale7.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#" class="orange">59.90</a></a>
+         <a href="#" class="current1">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale8.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#" class="orange">59.90</a></a>
+         <a href="#" class="current">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale9.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#" class="orange">59.90</a></a>
+         <a href="#" class="current">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale10.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#" class="orange">59.90</a></a>
+         <a href="#" class="current1">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale11.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#" class="orange">59.90</a></a>
+         <a href="#" class="current1">月销1821</a>
+        </li>
+        <li>
+         <a href="#"><img src="images/sale12.jpg" width="120" height="120" /></a> 
+         <a href="#">玫瑰睡眠面膜美白保湿</a>
+         <a href="#">￥<span>590.90</span>￥<a href="#" class="orange">59.90</a></a>
+         <a href="#" class="current">月销1821</a>
+        </li>
+    </ul>
+  </div>
+  <div id="banner">
+  <a href="#" class="a1"><img src="images/adv6.jpg" width="728" height="90" /></a>
+  <a href="#" class="a2"><img src="images/adv7.jpg" width="190" height="90" /></a>
+  </div>
+  <div id="foot">
+    <ul>
+    	<li>
+           <a href="#" class="current">消费者保障</a>
+           <a href="#">保障范围</a>
+           <a href="#">退货退款流程</a>
+           <a href="#">我要发起维权</a>
+           <a href="#">服务中心</a>
+        </li>
+    	<li>
+           <a href="#" class="current">新手上路</a>
+           <a href="#">新手专区</a>
+           <a href="#">安全交易</a>
+           <a href="#">消费权利</a>
+           <a href="#">新手注册</a>
+           <a href="#">新手学堂</a>
+           <a href="#">24小说在线帮助</a>
+        </li>
+    	<li>
+             <img src="images/bottom-xf.png" width="80" height="82" />
+        </li>
+    	<li>
+           <a href="#" class="current">付款方式</a>
+           <a href="#">信用卡快捷支付</a>
+           <a href="#">退货退款流程</a>
+           <a href="#">我要发起维权</a>
+           <a href="#">货到付款</a>
+           <a href="#">新人支付</a>
+        </li>
+    	<li>
+           <a href="#" class="current">淘宝特色</a>
+           <a href="#">淘公仔</a>
+           <a href="#">手机淘宝</a>
+           <a href="#">淘宝指数</a>
+           <a href="#">旺兴</a>
+        </li>
+    </ul>
+  </div>
+  <div id="foot-c">
+     <div class="foot-c1">
+     <a href="#">阿里巴巴集团</a>|<a href="#">阿里巴巴网络</a>|<a href="#">阿里巴巴中国络</a>|<a href="#">全球速卖通</a>|<a href="#">淘宝网</a>|<a href="#">天网</a>|<a href="#">一淘</a>|<a href="#">阿里云</a>|<a href="#">中国雅虎</a>|<a href="#">支付宝</a>|<a href="#">聚划算</a>|<a href="#">阿里妈妈</a>|<a href="#">万网</a>|<a href="#">云SO</a>|<a href="#">天猫</a>|<a href="#">聚划算</a>
+     </div>
+     <div class="foot-c2">
+     <a href="#">关于淘宝</a><a href="#">合作伙伴</a><a href="#">营销中心</a><a href="#">联系客服</a><a href="#">开放平台</a><a href="#">诚聘英才</a><a href="#">联系我们</a><a href="#">网站地图</a><a href="#">法律声明</a><a href="#" class="current">2013 Taobao.com 版权所有</a>
+     </div>
+    <div class="foot-c3">
+     <a href="#">网络文化经营许可证：</a><a href="#">文网文[2010]040号</a>|<a href="#">增值电信业务经营许可证：浙B2-20080224-1</a>|<a href="#">信息网络传播视听节目许可证：1109364号
+</a>
+     </div>
+         <img src="images/foot-bg.png" width="444" height="36" /> 
+     </div>
+</body>
+</html>

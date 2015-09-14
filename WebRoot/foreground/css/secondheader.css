@@ -1,0 +1,166 @@
+@charset "utf-8";
+/* CSS Document */
+/*全局控制*/
+body{ margin:0; padding:0; font-size:12px; font-family: 'Microsoft YaHei';color:#3E3E3E;}
+/*默认样式*/
+h1,h2,h3,h4,h5,p,ul,li,ol,dl,dt,dd,img,input,form,button{ margin:0; padding:0; list-style:none; border:0;}
+/*公共样式*/
+a:link,a:visited{ text-decoration:none;color:#3E3E3E;}
+a:hover{ text-decoration:underline; color:#FF6600;}
+.orange:link,.orange:visited{ color:#F60;}
+.blue:link,.blue:visited{ color:#0B72A4;}
+.red:link,.red:visited{ color:#BF060C;}
+.green:link,.green:visited{ color:#4B9808;}
+img {border:0;}
+/*site-nov*/
+#site-nov{width:100%; height:26px; background:#F5F5F5; border-bottom:1px solid #DCDCDC;}
+.site-nov-con{ width:1190px; height:26px; margin: 0 auto; line-height:26px;}
+.phone{ width:63px;height:26px; background:url(../images/site-nav-bg.png) no-repeat right 7px; float:left; }
+.phone a{ background:url(../images/mobile.gif) no-repeat 0 5px; float:left; display:block; padding-left:18px;}
+.login{ width:192px; height:26px;float:left; padding-left:5px;}
+.login a{ padding-right:5px;}
+.quick-menu{ width:580px; height:26px;float:right;}
+.quick-menu li{ float:left; margin-right:5px; padding-right:10px;position:relative}
+.quick-menu li a.downmenu{ background:url(../images/arrow.gif) no-repeat right center;padding-right:8px}
+.quick-menu li.service a{background:none; padding:0;}
+.quick-menu li.no-bg{ background:none;}
+.quick-menu li a strong{color:#f60; padding:0 3px;}
+.quick-menu span{ background:url(../images/gw.png) no-repeat 0 4px ; width:14px; height:26px; display:block; float:left; margin-right:3px;}
+
+/*下拉菜单*/
+#site-nov  ul  li.downmenu:hover {
+    background:#F1FBEC;
+    border:1px solid #9CDD75;
+    border-bottom:none;
+    color:#666;
+}
+
+
+#site-nov  ul  li  ul 
+{
+    border:1px solid #9CDD75;
+    border-top:none;
+    float:left;
+    background:#F1FBEC;
+    position:absolute;
+    top:26px;
+    left:-1px;
+    display:none;
+    
+}
+
+
+#site-nov  ul  li  ul li {
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    line-height: 20px;
+}
+
+#site-nov  ul  li  ul li a {
+    color:#666;
+    text-decoration:none;
+    display:inline-block;
+    width:100px;
+    margin: 0;
+    padding: 0;
+}
+
+#site-nov  ul  li  ul li a:hover {
+    color:#333;
+    font-weight:bold;
+    background:lightgreen;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+#site-nov   ul  li ul
+{
+	opacity: 0.90;
+    background: #fbfbfb;
+	
+}
+
+#site-nov   ul  li:hover ul {
+    display:block;
+}
+
+
+/*layout-one*/
+#layout-one{ width:1190px; height:86px; margin:0 auto; padding-top:16px;}
+#layout-one h2{width:294px;height:65px; float:left;}
+#layout-one .search{width:660px; height:86px; float:right; overflow:hidden;}
+#layout-one .search ul{ height:23px;}
+#layout-one .search ul li{ float:left; height:23px; line-height:23px; padding-right:16px;}
+#layout-one .search ul .current{ width:56px; height:23px; background:url(../images/search-bg1.jpg) no-repeat; text-align:center; color:#FFF; font-weight:bold;}
+#layout-one .search ul span{color:#D84600;}
+#layout-one .search .sea-cen{  height:34px;}
+.sea-cen span{ width:7px; height:34px; float:left; display:block; background:url(../images/search-bg2.jpg) no-repeat;}
+.sea-cen .txt{ width:434px; height:20px; float:left; border-bottom:3px solid #F27B04;border-top:3px solid #F27B04; background:url(../images/search-bg3.jpg) no-repeat left center; padding:4px 15px; line-height:20px}
+.sea-cen .btn{width:132px; height:34px; float:left; background:url(../images/search-bg4.jpg) no-repeat;}
+.sea-cen p{ width:50px; height:28px;padding-left:7px; float:left;}
+.search .sea-bot{height:21px; padding-top:8px}
+.search .sea-bot .more{ width:38px; height:17px; display:inline-block; border:1px solid #D8D8D8; background:url(../images/arrow1.gif) no-repeat 35px center;_padding-top:2px; padding-left:7px; line-height:17px}
+
+/*lagout-two*/
+#lagout-two{width:1190px; height:35px; margin:0 auto;}
+#lagout-two .lagout-two-l{float:left;width:693px; height:33px;font-size:14px; font-weight:700;}
+.lagout-two-l li.headeritem{ float:left; height:33px; line-height:33px;}
+.lagout-two-l li.headeritem a.oneitem{padding:0 15px; color:#000; height:33px; display:inline-block;float:left;}
+
+/*全部分类的下拉箭头图标*/
+.lagout-two-l li.headeritem b  
+{
+	width: 20px;
+	height: 20px;
+	padding:0 10px; 
+	background-image: url(../img/arrow.png);
+	background-repeat: no-repeat;
+	margin-left: 35px;
+}
+.lagout-two-l li.headeritem b {background-position: -65px  0px;}
+.lagout-two-l li.headeritem:hover  b {background-position: -65px -23px;}
+
+
+/*首页等边框*/
+.lagout-two-l li.menu-title  a.oneitem{color:#fff;}
+.lagout-two-l li.headeritem a.oneitem:hover{border:1px solid #D74700; border-bottom:0; background:#FFF8ED; text-decoration:none;}
+.lagout-two-l li.menu-title  a.oneitem:hover{border:0; background:#CD2A2C; text-decoration:none;}
+.lagout-two-l .current{ width:58px; height:33px; line-height:33px ;border:1px solid #D74700; border-bottom:0;text-align:center; background:#F37C06; color:#FFF; margin-right:10px;}
+
+
+/*商品分类*/
+.menu-title 
+{
+    position: relative;
+    left: 0;
+    width: 190px;
+    height: 33px;
+    line-height: 33px;
+    background: #CD2A2C;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}
+.category-list{
+width:190px; height:477px;color: #fff;background: url('../img/category_backgr.png') #181818 no-repeat;
+position: absolute;
+z-index: 2000;
+top: 33px;
+display:none;}
+
+.lagout-two-l li:hover  .category-list{display:block;}
+
+.category-list h2{font-size:14px; height:35px; line-height:35px; background:url(../images/arrow1.gif) no-repeat right center; padding-right:5px;}
+.category-list h2 a{font-size:12px; font-weight:normal; float:right;}
+.category-list h3{font-size:12px; height:30px; line-height:30px; border-top:1px solid #FCDFBE; background:url(../images/icon.png) no-repeat 0 4px; padding-left:24px;}
+.category-list .box{padding: 0 8px 6px 8px; overflow:hidden;}
+.category-list .box a{height:20px; display:inline-block; line-height:20px;}
+
+
+/*右边轮播图*/
+#lagout-two .lagout-two-r{width:240px; height:40px; float:right;display:none}
+.lagout-two-r a{ float:left;}
+.lagout-two-r .txt:link,.lagout-two-r .txt:visited{color:#DB4701; padding:19px 5px 0 5px; font-weight:bold;}

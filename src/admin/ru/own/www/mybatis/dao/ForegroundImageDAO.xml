@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.ForegroundImageDAO">
+	<select id="getAll" resultType="admin.ru.own.www.entity.ForegroundImage">
+		select * from own.foregroundimage
+	</select>
+	<select id="getForegroundImageByID" parameterType="int" resultType="admin.ru.own.www.entity.ForegroundImage">
+		select * from own.foregroundimage where id=#{id}
+	</select>
+	
+	<select id="getShowIndexPlayImage"  resultType="admin.ru.own.www.entity.ForegroundImage">
+        select * from own.foregroundimage where used=1 and foregroundimage.type=0
+    </select>
+    
+    
+    <select id="getShowIndexSmallImage"  resultType="admin.ru.own.www.entity.ForegroundImage">
+        select * from own.foregroundimage where used=1 and foregroundimage.type=1
+    </select>
+	
+	<insert id="insert" parameterType="admin.ru.own.www.entity.ForegroundImage">
+		insert into own.foregroundimage (imgsrc, imghref,rightcolor,leftcolor,type,used)
+		values (#{imgsrc},#{imghref},#{rightcolor},#{leftcolor},#{type},#{used})
+	</insert>
+	<update id="updateImgSrc">
+		update own.foregroundimage set imgsrc=#{imgsrc} where id=#{id}
+	</update>
+	<update id="update" parameterType="admin.ru.own.www.entity.ForegroundImage">
+		update own.foregroundimage set imghref=#{imghref},rightcolor=#{rightcolor},leftcolor=#{leftcolor},type=#{type},used=#{used} where id=#{id}
+	</update>
+	
+	<delete id="delete" parameterType="admin.ru.own.www.entity.Currency">
+		delete from own.foregroundimage where id=#{id}
+    </delete>
+</mapper>

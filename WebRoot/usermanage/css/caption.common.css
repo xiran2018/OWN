@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+
+.util-clearfix, .clearfix {
+zoom: 1;
+}
+.caption {
+margin-bottom: 10px;
+padding: 10px;
+border-bottom: 5px solid #e6e6e6;
+}
+
+.util-clearfix:after, .clearfix:after {
+visibility: hidden;
+display: block;
+height: 0;
+font-size: 0;
+content: '\0020';
+clear: both;
+}
+
+.caption h2 {
+margin-bottom: 0;
+float: left;
+}
+.caption h2 {
+display: inline;
+font: 700 18px Arial;
+}

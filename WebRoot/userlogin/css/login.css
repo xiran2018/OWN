@@ -1,0 +1,104 @@
+@charset "UTF-8";
+/* header */
+#header {
+height: 80px;
+background: #B20000;
+width: 100%;
+margin-bottom: 0;
+}
+
+#header {
+padding: 0;
+}
+
+#page, #header, #main-content, #footer {
+margin-left: auto;
+margin-right: auto;
+}
+
+#header {
+margin-bottom: 10px;
+}
+
+body, button, input, select, textarea {
+font: 12px/1.5 tahoma,arial,\5b8b\4f53;
+}
+
+div {
+display: block;
+}
+
+#header-inner {
+position: relative;
+width: 990px;
+height: 80px;
+margin: 0 auto;
+}
+
+#header .logo {
+padding-top: 30px;
+margin-left: 50px;
+}
+a {
+text-decoration: none;
+}
+
+#header .logo img {
+width: 142px;
+height: 20px;
+}
+
+fieldset, img {
+border: 0;
+}
+
+/* content */
+#site-nav, #mall-category, #header .layout-inner, #main-content, #mall-desc, #copyright {
+width: 990px;
+margin: auto;
+}
+
+#main-content {
+width: 990px;
+margin: 0 auto;
+padding-top: 49px;
+}
+
+#main-content .pic {
+width: 528px;
+float: left;
+display: inline;
+_position: relative;
+}
+
+#main-content .pic img {
+float: right;
+}
+
+#main-content .form {
+float: left;
+display: inline;
+width: 312px;
+}
+
+.clearfix:after {
+content: '\20';
+display: block;
+height: 0;
+clear: both;
+}
+
+.form-inner {
+background: url("http://img01.taobaocdn.com/tps/i1/T1O.q5XdVqXXXXXXXX-70-20.png") 50% 0 no-repeat;
+padding-top: 20px;
+}
+
+#main-content .form-content {
+position: relative;
+}
+
+#main-content .form iframe {
+width: 320px;
+height: 383px;
+overflow: hidden;
+}

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<properties resource="configfile/mybatis-jdbc-core.properties">
+	</properties>
+	
+	<typeAliases>
+		<typeAlias alias="pdtvo" type="admin.ru.own.www.vo.ProductsVO"/>
+		<typeAlias alias="pbavo" type="admin.ru.own.www.vo.Product_Basic_Attr_VO"/>
+		<typeAlias alias="pdt" type="admin.ru.own.www.entity.Products"/>
+		<typeAlias alias="pdtimg" type="admin.ru.own.www.entity.productImage"/>
+		<typeAlias alias="pba" type="admin.ru.own.www.entity.Product_Basic_Attr"/>
+	</typeAliases>
+	<!-- <typeAliases> <typeAlias alias="AdminUser" type="admin.ru.own.www.entity.AdminUser"/> 
+		</typeAliases> -->
+	<environments default="development">
+		<environment id="development">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driver}" />
+				<property name="url" value="${jdbc.url}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+				<property name="poolMaximumActiveConnections" value="20" />
+				<property name="poolMaximumCheckoutTime" value="60000" />
+				<property name="poolTimeToWait" value="60000" />
+				<property name="poolPingQuery" value="select 100 as num" />
+				<property name="poolPingEnabled" value="false" />
+				<property name="poolPingConnectionsNotUsedFor" value="120000" />
+			</dataSource>
+
+		</environment>
+	</environments>
+		
+	<mappers>
+		<mapper resource="admin/ru/own/www/mybatis/dao/ProductsDAO.xml" />
+		<mapper resource="admin/ru/own/www/mybatis/dao/AttributeDAO.xml" />
+		
+		<mapper resource="admin/ru/own/www/mybatis/dao/AdminUserMapper.xml" />
+		<mapper resource="admin/ru/own/www/mybatis/dao/LanguageMapper.xml" />
+		<mapper resource="admin/ru/own/www/mybatis/dao/BrandSeriesMapper.xml" />
+		<mapper resource="admin/ru/own/www/mybatis/dao/ProductOperationMapper.xml" />
+		<mapper resource="admin/ru/own/www/mybatis/dao/CategoryMapper.xml" />
+		<mapper resource="admin/ru/own/www/mybatis/dao/ProductAttrMapper.xml" />
+		<mapper resource="admin/ru/own/www/mybatis/dao/AttrValueMapper.xml" />
+		<mapper resource="admin/ru/own/www/mybatis/dao/ShippingMapper.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/ProductImageDAO.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/ShippingCountryMapper.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/ShippingTemplateMapper.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/ProductBasicAttrDAO.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/ProductSkuDAO.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/Sku_AtrValueDAO.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/CurrencyDAO.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/ForegroundImageDAO.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/CategoryImageDAO.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/UserOperateMapper.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/StoreOperateMapper.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/AtrValueMultiLangDAO.xml"/>
+		<mapper resource="ru/own/www/mybatis/dao/CartOperateMapper.xml"/>
+		<mapper resource="ru/own/www/mybatis/dao/CartProductImageMapper.xml"/>
+		<mapper resource="ru/own/www/mybatis/dao/MailAddressOperateMapper.xml"/>
+		<mapper resource="ru/own/www/mybatis/dao/OrderOperateMapper.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/ProductMultiLanguageDAO.xml"/>
+		<mapper resource="admin/ru/own/www/mybatis/dao/productfilter/ProductFilterDAO.xml"/>
+	</mappers>
+ 
+</configuration>

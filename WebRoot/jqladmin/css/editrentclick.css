@@ -1,0 +1,35 @@
+/*添加属性值时需要的css*/  
+#moddetailedcontainer{position:relative;width:800px;}
+
+#moddetailedcontainer ul{margin:0;padding:0;list-style:none;}
+
+#modnavigation{height:26px;}
+
+#modnavigation li{float:left;}
+
+#modnavigation li a,#modnavigation li span{display:inline-block;border:solid 1px #fff;border-bottom:none;height:26px;padding:0 6px;line-height:20px;overflow:hidden}
+
+#modnavigation li.show .content{display:block;}
+
+#modnavigation li.show a.index{background:#DBF3FE;border-color:#0a0;position:relative;top:0px;z-index:2;}
+
+#modnavigation li .content{position:absolute;left:0;top:26px;background:#DBF3FE;border:solid 1px #0a0;width:760px;padding:20px;display:none;}
+
+
+
+/*修改在页面中的属性值时需要的css*/  
+#editdetailedcontainer{position:relative;width:800px;}
+
+#editdetailedcontainer ul{margin:0;padding:0;list-style:none;}
+
+#editnavigation{height:26px;}
+
+#editnavigation li{float:left;}
+
+#editnavigation li a,#editnavigation li span{display:inline-block;border:solid 1px #fff;border-bottom:none;height:26px;padding:0 6px;line-height:20px;overflow:hidden}
+
+#editnavigation li.show .content{display:block;}
+
+#editnavigation li.show a.index{background:#DBF3FE;border-color:#0a0;position:relative;top:0px;z-index:2;}
+
+#editnavigation li .content{position:absolute;left:0;top:26px;background:#DBF3FE;border:solid 1px #0a0;width:760px;padding:20px;display:none;}

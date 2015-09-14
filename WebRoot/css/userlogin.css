@@ -1,0 +1,278 @@
+@charset "UTF-8";
+body {
+font: 12px/1.5 Tahoma,Helvetica,Arial,'\5B8B\4F53',sans-serif;
+}
+#content .login-box {
+width: 312px;
+}
+
+.login-box {
+width: 310px;
+overflow: hidden;
+margin: 0 auto;
+}
+
+.login-box .bd {
+padding: 10px 30px 0;
+}
+
+/*错误提示信息*/
+.login-box .msg {
+margin-bottom: 5px;
+}
+
+#content .login-box .msg p.error {
+background-image: url(images/stuff-tmall.png);
+line-height: 20px;
+background-position: -319px -448px;
+}
+
+.login-box .msg p.error {
+background-position: -319px -449px;
+background-color: #FFF2F2;
+border-color: #FF8080;
+line-height: 18px;
+padding: 2px 10px 2px 23px;
+}
+
+.login-box .login-msg p {
+float: none;
+white-space: normal;
+word-wrap: break-word;
+}
+
+
+.login-box .msg p {
+border: 1px solid #ccc;
+float: none;
+white-space: normal;
+word-wrap: break-word;
+}
+
+/*USENAME*/
+.login-box .field {
+padding-bottom: 5px;
+vertical-align: middle;
+zoom: 1;
+}
+
+.login-box .field {
+position: relative;
+z-index: 1;
+}
+
+#content .login-box .field label {
+color: #606060;
+}
+
+.login-box .field label {
+display: block;
+font-weight: 700;
+padding-bottom: 3px;
+color: #666;
+}
+
+.ph-hide .ph-label {
+opacity: 0;
+visibility: hidden;
+}
+
+.ph-label {
+position: absolute;
+padding: 0 0 0 6px;
+line-height: 26px;
+height: 26px;
+color: #999;
+opacity: 1;
+transition: all .2s ease-out;
+-webkit-transition: all .2s ease-in;
+-moz-transition: all .2s ease-out;
+}
+
+/*username input*/
+.login-box .login-text {
+width: 242px;
+height: 18px;
+line-height: 18px;
+margin-right: 3px;
+padding: 3px;
+border: solid 1px #c8c8c8;
+vertical-align: middle;
+}
+
+#content .login-box .login-text {
+border-color: #cbcbcb;
+color: #9b9b9b;
+}
+
+button, input, select, textarea {
+font: 100% Tahoma,Helvetica,Arial,sans-serif;
+}
+
+.nickx {
+display: none;
+width: 16px;
+height: 16px;
+background: url(images/c.png) no-repeat 4px -310px;
+position: absolute;
+left: 230px;
+top: 26px;
+z-index: 1000;
+cursor: pointer;
+filter: alpha(opacity=70);
+opacity: .7;
+}
+
+.login-box .field {
+padding-bottom: 5px;
+vertical-align: middle;
+zoom: 1;
+}
+
+.login-box .field {
+position: relative;
+z-index: 1;
+}
+
+/*密码*/
+.login-box .dynamic-link, .login-box .forget-pw {
+position: absolute;
+right: 0;
+top: 0;
+}
+
+#content .login-box .dynamic-link:hover, #content .login-box .static-link:hover, #content .login-box .change-code:hover, #content .login-box .forget-pw, #content .login-box .register a {
+color: #36c;
+}
+
+a {
+color: #6d6d6d;
+text-decoration: none;
+}
+
+#J_StandardPwd {
+display: inline-block;
+height: 28px;
+vertical-align: middle;
+}
+
+
+.login-box .password-edit {
+display: inline-block;
+height: 28px;
+overflow: hidden;
+margin-left: -1px;
+_margin-left: -1px;
+vertical-align: middle;
+}
+
+.login-box .field .warning-tip {
+display: block;
+padding: 0;
+color: #ff0a0a;
+font-weight: 400;
+line-height: 1.2;
+}
+
+/*check code*/
+.login-box .field-checkcode {
+padding-top: 0;
+padding-bottom: 0;
+}
+.field-checkcode .ph-label {
+margin-top: 6px;
+}
+
+.login-box .checkcode {
+ime-mode: disabled;
+width: 48px;
+margin: 0;
+}
+
+.login-box .check-code-img {
+width: 150px;
+height: 40px;
+border: none;
+vertical-align: middle;
+margin: 0;
+}
+
+.login-box img {
+padding-top: 2px;
+}
+
+.login-box .change-code {
+display: inline-block;
+line-height: 14px;
+margin: 0;
+vertical-align: middle;
+color: #666;
+}
+
+.login-box .submit {
+padding-top: 5px;
+overflow: hidden;
+zoom: 1;
+}
+
+#content .login-box .submit button {
+width: 254px;
+height: 30px;
+line-height: 30px;
+background-position: 0 0;
+}
+
+#content .login-box .submit button, #content .login-box .static .dynamic-link, #content .login-box .dynamic .static-link {
+background: url(images/btn.png) no-repeat -99999em -99999em;
+}
+
+.login-box .submit button {
+width: 250px;
+height: 33px;
+border: 0;
+display: inline-block;
+overflow: hidden;
+vertical-align: middle;
+line-height: 31px;
+font-size: 14px;
+font-weight: 700;
+color: #FFF;
+background: url(images/c.png) no-repeat 0 0;
+cursor: pointer;
+zoom: 1;
+}
+
+.login-box ul.entries {
+overflow: hidden;
+zoom: 1;
+padding: 2px 0 0;
+}
+
+.login-box .entries li,.login-box ul.entries, .long-login-help {
+background: url(images/stuff.png) no-repeat 1000px 1000px;
+}
+
+.login-box ul.entries .register {
+float: right;
+}
+
+.login-box ul.entries li {
+word-break: keep-all;
+float: left;
+}
+
+li {
+list-style: none;
+}
+
+/*快速登录*/
+.ql-box {
+padding: 10px 0 0;
+}
+
+.ql-box .userlist {
+height: 8em;
+overflow: auto;
+margin: 10px 0 0;
+padding: 0;
+}

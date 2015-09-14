@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+
+/*订单信息主页面*/
+#page {
+margin: 0 auto;
+width: 100%;
+position: relative;
+}
+/*进度条*/
+.ui-step {
+margin: 20px 0;
+}
+.ui-step:after {
+content: '';
+display: table;
+clear: both;
+}
+ol, ul {
+list-style: none;
+}
+
+ol {
+list-style: decimal;
+}
+
+.ui-step-normal .col4 li {
+width: 33.3%;
+}
+
+.ui-step .col4 li {
+width: 24.9%;
+}
+
+li {
+margin-left: 0;
+}
+
+li {
+margin-left: 30px;
+display: list-item;
+}
+
+.ui-step-normal li {
+list-style: none;
+float: left;
+margin: 0;
+}
+
+/*当前状态*/
+.ui-step-normal li.current span {
+background-color: #F90;
+color: #FFF;
+}
+
+.ui-step-normal li span {
+background: #E8E8E8 url(../images/sprite-step.png) no-repeat 100% 0;
+color: #666;
+}
+
+.ui-step-normal li span {
+font-size: 12px;
+font-weight: 700;
+height: 20px;
+line-height: 20px;
+overflow: hidden;
+padding: 0 15px 0 0;
+text-align: center;
+display: block;
+}
+
+.ui-step-normal li {
+list-style: none;
+float: left;
+margin: 0;
+}
+
+/*last*/
+.ui-step-normal li span.last, .ui-step-normal li.last span {
+background-position: 100% -200px;
+}
+
+/*feedback*/
+p.ui-feedback-addon.ui-feedback-body {
+font-size: 12px;
+color: #333;
+line-height: 16px;
+}
+
+p.ui-feedback-addon.ui-feedback-error {
+border: 1px solid #ffd4d2;
+background-color: #ffefee;
+background-position: -110px 0;
+}
+
+p.ui-feedback-addon.ui-feedback-error, p.ui-feedback-addon.ui-feedback-alert, p.ui-feedback-addon.ui-feedback-success {
+padding: 4px 10px 4px 37px;
+background: transparent url(../images/sprite-feedback-addon.png) no-repeat 0 0;
+}
+
+.order-warn-tips .ui-feedback, .order-warn-tips .ui-notice {
+margin-bottom: 10px;
+}
+
+
+
+.ui-notice .ui-notice-prompt, p.ui-notice.ui-notice-normal.ui-notice-prompt {
+position: relative;
+padding: 4px 30px 4px 10px;
+border: 2px solid #cee6ff;
+}
+
+.ui-notice-normal .ui-notice-prompt, p.ui-notice.ui-notice-normal.ui-notice-prompt {
+padding-left: 35px;
+background-position: 10px -82px;
+}
+
+p.ui-notice.ui-notice-normal, .ui-notice-normal .ui-notice-alert, .ui-notice-normal .ui-notice-help, .ui-notice-normal .ui-notice-prompt {
+background: #fff url(../images/sprite-notice-addon.png?t=c41fb6f4_0) no-repeat 0 0;
+}
+
+.ui-notice {
+font-size: 12px;
+line-height: 18px;
+}
+
+.ui-notice .ui-notice-body, p.ui-notice .ui-notice-body {
+color: #333;
+}
+
+.ui-notice .ui-notice-body {
+color: #666;
+font-size: 12px;
+line-height: 18px;
+}
+

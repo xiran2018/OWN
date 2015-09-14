@@ -1,0 +1,17 @@
+/*确保超链接没有任何样式*/
+a:link {
+ color: #12509E;
+ text-decoration: none;
+}
+a:visited {
+ color: #12509E;
+ text-decoration: none;
+}
+a:hover {
+ color: #12509E;
+ text-decoration: none;
+}
+a:active {
+ color: #12509E;
+ text-decoration: none;
+}

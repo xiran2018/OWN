@@ -1,0 +1,509 @@
+@charset "utf-8";
+
+.main-wrap:after, .col-sub:after, .col-extra:after {
+content: '\0020';
+display: block;
+height: 0;
+clear: both;
+}
+
+/*header*/
+.caption {
+margin-bottom: 10px;
+padding: 10px;
+border-bottom: 5px solid #e6e6e6;
+}
+
+.util-clearfix, .clearfix {
+zoom: 1;
+}
+
+.util-clearfix:after, .clearfix:after {
+visibility: hidden;
+display: block;
+height: 0;
+font-size: 0;
+content: '\0020';
+clear: both;
+}
+.caption h2 {
+display: inline;
+font: 700 18px Arial;
+}
+.caption h2 {
+margin-bottom: 0;
+float: left;
+}
+
+/*reminder tips*/
+.remide-box {
+background-color: #F6F9FE;
+margin-bottom: 10px;
+overflow: hidden;
+border: 1px solid #DAE6F8;
+padding: 7px 10px;
+}
+
+.remide-box ul, .remide-box li {
+display: inline-block;
+}
+ul, ol {
+list-style: none;
+}
+
+.remide-box li {
+margin: 0 40px 0 0;
+zoom: 1;
+}
+
+.remide-box ul, .remide-box li {
+display: inline-block;
+}
+
+.remide-box a {
+color: #06C;
+cursor: pointer;
+}
+a:visited {
+color: #969;
+text-decoration: none;
+}
+a:visited {
+text-decoration: none;
+}
+
+a:link {
+color: #06c;
+text-decoration: none;
+}
+
+.remide-box .num {
+color: #F60;
+}
+
+/*order-list-search*/
+.order-list-search {
+line-height: 30px;
+margin-bottom: 20px;
+position: relative;
+}
+
+#simple-search {
+overflow: hidden;
+}
+
+.search-option {
+float: left;
+}
+
+.order-list-search label {
+color: #666;
+font: 400 bold 12px/24px arial;
+}
+
+label {
+cursor: default;
+}
+button, input {
+overflow: visible;
+line-height: normal;
+}
+orderList.htmmedia="all"
+button, input, select, textarea {
+margin: 0;
+font-size: 100%;
+vertical-align: middle;
+}
+input#product-name {
+width: 127px;
+margin-right: 10px;
+}
+.order-list-search input, .order-list-search select {
+border: 1px solid #CCC;
+font: 400 normal 12px/18px arial;
+padding: 2px;
+}
+
+.order-list-search #order-no {
+margin-right: 10px;
+width: 90px;
+}
+
+.order-list-search select {
+width: 195px;
+}
+
+/*advanced search*/
+.order-list-search #buyer-name, .order-list-search #seller-name, .order-list-search #shipping-no {
+margin-right: 10px;
+width: 65px;
+}
+
+
+.lang-en .order-list-search #buyer-name, .lang-en .order-list-search #seller-name, .lang-en .order-list-search #shipping-no {
+width: 65px;
+}
+
+.calendarItem {
+display: inline;
+}
+
+.order-list-search input.sourceData {
+margin-right: 2px;
+}
+
+
+/*search button*/
+.ui-button-primary, .ui-button-normal, .ui-button-primary-s, .ui-button-normal-s, .ui-button-primary-l, .ui-button-normal-l {
+margin: 0;
+font-family: Arial;
+text-align: center;
+vertical-align: middle;
+color: #333;
+border: solid 1px #bcbcbc;
+background-color: #f7f7f7;
+cursor: pointer;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+-moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+}
+.ui-button-primary, .ui-button-normal {
+font-size: 14px;
+font-weight: 700;
+line-height: 18px;
+padding: 3px 15px;
+}
+.ui-button-primary, .ui-button-primary-s, .ui-button-primary-l, .ui-button-primary:active, .ui-button-primary-s:active, .ui-button-primary-l:active {
+color: #fff;
+border: solid 1px #e87b0e;
+background-color: #ff9917;
+background-image: -moz-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -ms-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -webkit-gradient(linear,0 0,0 100%,from(#ffab02),to(#ff8a28));
+background-image: -webkit-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -o-linear-gradient(top,#ffab02,#ff8a28);
+background-image: linear-gradient(top,#ffab02,#ff8a28);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab02', endColorstr='#ff8a28', GradientType=0);
+}
+.ui-button-primary, .ui-button-primary:link, .ui-button-primary:visited, .ui-button-primary:active {
+color: #fff;
+border: 1px solid #e87b0e;
+background-color: #ff9917;
+background-image: -moz-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -ms-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -webkit-gradient(linear,0 0,0 100%,from(#ffab02),to(#ff8a28));
+background-image: -webkit-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -o-linear-gradient(top,#ffab02,#ff8a28);
+background-image: linear-gradient(top,#ffab02,#ff8a28);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab02', endColorstr='#ff8a28', GradientType=0);
+}
+orderList.htmmedia="all"
+.ui-button {
+display: inline-block;
+position: relative;
+overflow: visible;
+}
+.ui-button.ui-button-primary, .ui-button.ui-button-normal {
+margin: 0;
+font-family: inherit;
+font-weight: 700;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+-moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+}
+#search-btn {
+padding: 3px 10px;
+margin-left: 10px;
+}
+
+/*order display*/
+table, caption, tbody, tfoot, thead, tr, th, td {
+margin: 0;
+padding: 0;
+font-size: 100%;
+font: inherit;
+vertical-align: baseline;
+}
+table {
+border-collapse: collapse;
+border-spacing: 0;
+}
+.bought-table {
+border-collapse: collapse;
+table-layout: fixed;
+width: 100%;
+}
+
+.bought-table .toolbar {
+height: 30px;
+}
+caption, th, td {
+font-weight: 400;
+float: none!important;
+}
+.bought-table td {
+border: 1px solid #C86767;
+line-height: 1.5;
+}
+.bought-table .toolbar td {
+border: none;
+}
+
+/*thead header*/
+.bought-table .col-name th {
+background-color: #f5f5f5;
+}
+.bought-table .col-name th {
+background-repeat: repeat-x;
+border-bottom: 1px solid #CDCDCD;
+/* border-top: 1px solid #CDCDCD; */
+color: #000;
+height: 33px;
+text-align: center;
+}
+.bought-table .col-name th.baobei {
+text-align: left;
+}
+
+/*tbody 每一个订单，一个tbody*/
+.bought-table .order-hd .no, .bought-table .order-hd .seller, .bought-table .order-hd .deal-time, .bought-table .order-hd .order-num {
+display: inline-block;
+}
+.bought-table .order-hd td {
+height: 29px;
+line-height: 29px;
+padding-bottom: 1px;
+}
+.bought-table .order-hd {
+background: none repeat scroll 0 0 #EAF4FE;
+color: #404040;
+}
+
+.bought-table .order-hd .order-num {
+margin-right: 10px;
+}
+
+.order-hd .deal-time {
+color: #999;
+}
+
+.bought-table .order-hd .seller {
+margin-left: 10px;
+}
+
+span.separator {
+display: inline-block;
+margin: 0 3px;
+color: #999;
+}
+
+a.message strong.none {
+color: #999;
+}
+
+b, strong {
+font-weight: 700;
+}
+
+.feedback {
+display: inline-block;
+padding: 2px 2px 2px 20px;
+line-height: 20px;
+background: url(../images/icon-message.png) no-repeat 0 5px;
+}
+
+.amount {
+display: inline-block;
+margin-left: 10px;
+}
+
+.amount strong {
+color: #bd1a1d;
+}
+
+/*product item*/
+.bought-table .order-bd td {
+border-left-color: #E6E6E6;
+border-right-color: #C86767;
+overflow: hidden;
+padding: 8px 5px;
+text-align: left;
+vertical-align: top;
+}
+.bought-table .order-bd .baobei {
+border-left-color: #FFF;
+border-right-color: #C86767;
+}
+.bought-table .order-bd .baobei {
+padding-left: 10px;
+padding-right: 0;
+text-align: left;
+}
+
+img {
+color: transparent;
+font-size: 0;
+vertical-align: middle;
+-ms-interpolation-mode: bicubic;
+}
+a img {
+border: 0;
+}
+
+.s50 img {
+max-height: 50px;
+max-width: 50px;
+}
+.bought-table .baobei .pic img {
+height: 50px;
+width: 50px;
+line-height: 0;
+}
+.bought-table .baobei .pic {
+display: inline;
+float: left;
+border: 1px solid #E9E9E9;
+margin-right: 10px;
+}
+
+
+
+
+
+.bought-table .baobei .desc {
+margin-left: 60px;
+width: auto;
+word-wrap: break-word;
+display: block;
+}
+.bought-table .baobei .baobei-name {
+display: block;
+line-height: 18px;
+overflow: hidden;
+color: #06c;
+}
+
+.bought-table .baobei .spec {
+margin-left: 60px;
+color: gray;
+line-height: 18px;
+overflow: hidden;
+}
+
+.bought-table .baobei .spec span {
+margin-right: 5px;
+}
+
+.bought-table .baobei .seller-sign, .bought-table .baobei .other-info {
+margin-left: 60px;
+word-wrap: break-word;
+}
+
+.bought-table .order-bd .price, .bought-table .order-bd .quantity {
+border-right-color: #C86767;
+}
+
+.bought-table .order-bd .quantity {
+font-weight: 400;
+}
+
+.bought-table .other a, .bought-table .trade-status .status, .bought-table .trade-status span, .bought-table .amount span, .bought-table .after-service a {
+display: block;
+margin-top: 2px;
+}
+
+.bought-table .order-bd .operate {
+border-right-color: #C86767;
+text-align: left;
+}
+/*operate button*/
+button, input, select, textarea {
+margin: 0;
+font-size: 100%;
+vertical-align: middle;
+}
+button, input[type=button], input[type=reset], input[type=submit] {
+cursor: pointer;
+-webkit-appearance: button;
+}
+button, input {
+overflow: visible;
+line-height: normal;
+}
+.ui-button {
+display: inline-block;
+position: relative;
+overflow: visible;
+}
+.ui-button-primary, .ui-button-normal, .ui-button-primary-s, .ui-button-normal-s, .ui-button-primary-l, .ui-button-normal-l {
+margin: 0;
+font-family: Arial;
+text-align: center;
+vertical-align: middle;
+color: #333;
+border: solid 1px #bcbcbc;
+background-color: #f7f7f7;
+cursor: pointer;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+-moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+}
+.ui-button-primary-s, .ui-button-normal-s {
+font-size: 12px;
+font-weight: 700;
+line-height: 14px;
+padding: 2px 10px;
+}
+.ui-button-normal, .ui-button-normal-s, .ui-button-normal-l, .ui-button-normal:active, .ui-button-normal-s:active, .ui-button-normal-l:active {
+background-color: #eee;
+background-image: -moz-linear-gradient(top,#fafafa,#e8e8e8);
+background-image: -ms-linear-gradient(top,#fafafa,#e8e8e8);
+background-image: -webkit-gradient(linear,0 0,0 100%,from(#fafafa),to(#e8e8e8));
+background-image: -webkit-linear-gradient(top,#fafafa,#e8e8e8);
+background-image: -o-linear-gradient(top,#fafafa,#e8e8e8);
+background-image: linear-gradient(top,#fafafa,#e8e8e8);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fafafa', endColorstr='#e8e8e8', GradientType=0);
+}
+.ui-button {
+display: inline-block;
+position: relative;
+overflow: visible;
+}
+.bought-table .order-bd .operate .ui-button-normal-s {
+margin-bottom: 5px;
+display: block;
+}
+
+#order-number,.message,.feedback{
+color: #06c !important;
+text-decoration: none;
+}
+
+.order-num a {
+color: #06c;
+text-decoration: none;
+}
+.order-num a:visited {
+color: #969;
+text-decoration: none;
+}
+
+.order-num a:link {
+color: #06c;
+text-decoration: none;
+}

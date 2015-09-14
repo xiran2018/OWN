@@ -1,0 +1,238 @@
+.fontStyle7 {
+	COLOR: black; FONT-SIZE: 10pt; FONT-WEIGHT: bolder
+}
+.fontStyle8 {
+	COLOR: black; FONT-SIZE: 9pt
+}
+.fontBolder {
+	FONT-WEIGHT: bolder
+}
+.fontColorBlack {
+	COLOR: black
+}
+.fontColorWhite {
+	COLOR: white
+}
+.fontColor1 {
+	COLOR: #ffb400
+}
+.fontSize9pt {
+	FONT-SIZE: 9pt
+}
+.fontSize10pt {
+	FONT-SIZE: 10pt
+}
+.fontSize11pt {
+	FONT-SIZE: 11pt
+}
+.fontSize12pt {
+	FONT-SIZE: 12pt
+}
+.fontSize14pt {
+	FONT-SIZE: 14pt
+}
+.fontSize22pt {
+	FONT-SIZE: 22pt
+}
+.fontSize28pt {
+	FONT-SIZE: 28pt
+}
+.buttonStyle1 {
+	BORDER-BOTTOM: 0px; BORDER-LEFT: 0px; BACKGROUND-COLOR: transparent; BORDER-TOP: 0px; BORDER-RIGHT: 0px
+}
+.searchBtn {
+	BACKGROUND-IMAGE: url(../images/search.png); TEXT-ALIGN: center; WIDTH: 54px; HEIGHT: 28px; CURSOR: pointer
+}
+.lwsBtn {
+	BACKGROUND-IMAGE: url(../images/lwsBtn.png); TEXT-ALIGN: center; WIDTH: 54px; HEIGHT: 23px; CURSOR: pointer
+}
+.bigBtn {
+	BACKGROUND-IMAGE: url(../images/bigBtn.png); TEXT-ALIGN: center; WIDTH: 131px; HEIGHT: 38px; CURSOR: pointer
+}
+.midBtn {
+	BACKGROUND-IMAGE: url(../images/midBtn.png); TEXT-ALIGN: center; WIDTH: 91px; HEIGHT: 32px; CURSOR: pointer
+}
+.lwBtn {
+	BACKGROUND-IMAGE: url(../images/lwBtn.png); TEXT-ALIGN: center; WIDTH: 108px; HEIGHT: 30px; CURSOR: pointer
+}
+.borderBottom {
+	BORDER-BOTTOM: black 1px solid
+}
+.controlBtnSl {
+	BACKGROUND-IMAGE: url(../images/slCtlBg.png); BORDER-BOTTOM: red 0px solid; BORDER-LEFT: red 0px solid; WIDTH: 200px; HEIGHT: 29px; COLOR: #ffffff; BORDER-TOP: red 0px solid; BORDER-RIGHT: red 0px solid
+}
+.controlBtnClick {
+	BACKGROUND-IMAGE: url(../images/slCtlBg.png); WIDTH: 200px; HEIGHT: 29px; COLOR: #ffffff
+}
+.controlBtn {
+	BORDER-BOTTOM: red 0px solid; TEXT-ALIGN: center; BORDER-LEFT: red 0px solid; WIDTH: 124px; FLOAT: left; HEIGHT: 35px; BORDER-TOP: red 0px solid; CURSOR: pointer; BORDER-RIGHT: red 0px solid
+}
+.controlSpan {
+	POSITION: relative; TOP: 6px
+}
+.controlSplit {
+	BACKGROUND-IMAGE: url(../images/ctlSplit.png); WIDTH: 2px; FLOAT: left; HEIGHT: 35px
+}
+.detailTd {
+	BACKGROUND-COLOR: white; HEIGHT: 270px
+}
+.detailTbl {
+	BORDER-BOTTOM: red 0px solid; BORDER-LEFT: red 0px solid; BACKGROUND-COLOR: white; MARGIN-TOP: 10px; WIDTH: 180px; BORDER-TOP: red 0px solid; BORDER-RIGHT: red 0px solid
+}
+.battery {
+	BACKGROUND-IMAGE: url(../images/battery.png); WIDTH: 61px; HEIGHT: 193px
+}
+.chargeSOCT {
+	POSITION: absolute; TEXT-ALIGN: center; WIDTH: 61px; FONT-FAMILY: Arial; HEIGHT: 40px; TOP: 320px
+}
+.detailTitle {
+	PADDING-BOTTOM: 5px; PADDING-TOP: 3px
+}
+.close {
+	BORDER-BOTTOM: red 0px solid; POSITION: relative; BORDER-LEFT: red 0px solid; WIDTH: 60px; HEIGHT: 20px; BORDER-TOP: red 0px solid; TOP: -525px; CURSOR: pointer; BORDER-RIGHT: red 0px solid; LEFT: 703px
+}
+.topA {
+	TEXT-DECORATION: none
+}
+.leftPart {
+	BACKGROUND-COLOR: #d6e1f3; HEIGHT: 540px; PADDING-TOP: 20px
+}
+.rightPart {
+	BACKGROUND-COLOR: #e7eefa; WIDTH: 100%
+}
+.optionPart {
+	BACKGROUND-COLOR: #95b5e8; WIDTH: 1024px;HEIGHT:35PX
+}
+.title {
+	POSITION: relative; FLOAT: left; TOP: 10px; LEFT: 5px
+}
+.argInput {
+	WIDTH: 130px
+}
+.titleButtom {
+	BORDER-BOTTOM: #e7eefa 5px solid; TEXT-ALIGN: center
+}
+.grid {
+	TEXT-ALIGN: center; COLOR: black; FONT-SIZE: 10pt
+}
+.optionGrid {
+	PADDING-LEFT: 20px
+}
+.leftOptionTitle {
+	BORDER-BOTTOM: #ffffff 1px solid; MARGIN-TOP: 10px; PADDING-LEFT: 5px; MARGIN-LEFT: 5px
+}
+.leftOption {
+	PADDING-BOTTOM: 10px; MARGIN-TOP: 5px; MARGIN-LEFT: 10px
+}
+.leftOptionMain {
+	BORDER-BOTTOM: red 0px solid; BORDER-LEFT: red 0px solid; BACKGROUND-COLOR: #d6e1f3; MARGIN-TOP: 5px; WIDTH: 240px; BORDER-TOP: red 0px solid; BORDER-RIGHT: red 0px solid; PADDING-TOP: 2px
+}
+.headerClass {
+	HEIGHT: 10px; FONT-SIZE: 10pt
+}
+.leftMainDiv {
+	BACKGROUND-COLOR: #d7ebf9; MARGIN-TOP: 5px; MARGIN-LEFT: 5px
+}
+.nav {
+	FONT-FAMILY: Arial; MARGIN-LEFT: 12px; FONT-SIZE: 12pt; FONT-WEIGHT: bold; PADDING-TOP: 10px
+}
+.nav A {
+	WIDTH: 120px; DISPLAY: inline; FONT-SIZE: 12pt; FONT-WEIGHT: bold
+}
+.nav A:link {
+	BACKGROUND-IMAGE: url(../images/bullet.gif); PADDING-LEFT: 20px; WIDTH: 120px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left center; COLOR: #202f59; TEXT-DECORATION: none
+}
+.nav A:visited {
+	BACKGROUND-IMAGE: url(../images/bullet.gif); PADDING-LEFT: 20px; WIDTH: 120px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left center; COLOR: #202f59; TEXT-DECORATION: none
+}
+.nav A:hover {
+	BACKGROUND-IMAGE: url(../images/bullet1.gif); PADDING-LEFT: 20px; BACKGROUND-REPEAT: no-repeat; BACKGROUND-POSITION: left center; COLOR: #ffcc66; TEXT-DECORATION: none
+}
+.subNav {
+	MARGIN-TOP: 10px; PADDING-LEFT: 0px; MARGIN-LEFT: 28px
+}
+.subNav LI {
+	BORDER-BOTTOM: #485a79 1px solid; LINE-HEIGHT: 37px; LIST-STYLE-TYPE: none; TEXT-INDENT: 3px; WIDTH: 170px; FONT-SIZE: 10px; LIST-STYLE-IMAGE: none
+}
+.subNav A {
+	WIDTH: 120px; DISPLAY: inline; COLOR: #ffcc66; FONT-SIZE: 12px
+}
+.subNav A:link {
+	BACKGROUND-IMAGE: url(../images/sample3_sub_arrow.gif); PADDING-LEFT: 20px; WIDTH: 120px; BACKGROUND-REPEAT: no-repeat; COLOR: #000000; TEXT-DECORATION: none
+}
+.subNav A:visited {
+	BACKGROUND-IMAGE: url(../images/sample3_sub_arrow.gif); PADDING-LEFT: 20px; WIDTH: 120px; BACKGROUND-REPEAT: no-repeat; COLOR: #000000; TEXT-DECORATION: none
+}
+.subNav A:hover {
+	BACKGROUND-IMAGE: url(../images/sample3_sub_arrow.gif); PADDING-LEFT: 20px; BACKGROUND-REPEAT: no-repeat; COLOR: #ffcc66; TEXT-DECORATION: none
+}
+.heading {
+	TEXT-INDENT: 10px; FONT-FAMILY: Arial, verdana, sans-serif; COLOR: #202f59; FONT-SIZE: 15px; FONT-WEIGHT: bold; PADDING-TOP: 10px
+}
+.coverDiv {
+	BORDER-BOTTOM: red 1px solid; POSITION: absolute; BORDER-LEFT: red 1px solid; WIDTH: 1024px; HEIGHT: 100%; BORDER-TOP: red 1px solid; TOP: 0px; BORDER-RIGHT: red 1px solid; LEFT: 187px
+}
+.analyseShow {
+	BORDER-BOTTOM: red 0px solid; BORDER-LEFT: red 0px solid; MARGIN-TOP: 25px; WIDTH: 70%; HEIGHT: 440px; MARGIN-LEFT: 60px; BORDER-TOP: red 0px solid; BORDER-RIGHT: red 0px solid
+}
+.pagerBtn {
+	BORDER-BOTTOM: #aed0ea 1px solid; TEXT-ALIGN: center; BORDER-LEFT: #aed0ea 1px solid; FLOAT: left; HEIGHT: 15px; MARGIN-LEFT: 5px; FONT-SIZE: 9pt; BORDER-TOP: #aed0ea 1px solid; CURSOR: pointer; BORDER-RIGHT: #aed0ea 1px solid
+}
+.pagerTxt {
+	WIDTH: 45px
+}
+.pagerNum {
+	WIDTH: 20px
+}
+.corner {
+	-moz-border-radius-topright: 8px; -moz-border-radius-topleft: 8px; -moz-border-radius-bottomright: 8px; -moz-border-radius-bottomleft: 8px
+}
+.corner-tr {
+	-moz-border-radius-topright: 8px
+}
+.corner-tl {
+	-moz-border-radius-topleft: 8px
+}
+#logoutDiv {
+	BORDER-BOTTOM: red 0px solid; POSITION: relative; BORDER-LEFT: red 0px solid; WIDTH: 120px; HEIGHT: 20px; BORDER-TOP: red 0px solid; TOP: 62px; BORDER-RIGHT: red 0px solid; LEFT: 900px
+}
+#logoutDiv A {
+	COLOR: black; TEXT-DECORATION: none
+}
+#bufferDiv {
+	BORDER-BOTTOM: red 0px solid; POSITION: absolute; BORDER-LEFT: red 0px solid; PADDING-LEFT: 350px; WIDTH: 800px; DISPLAY: none; HEIGHT: 600px; BORDER-TOP: red 0px solid; TOP: 188px; BORDER-RIGHT: red 0px solid; PADDING-TOP: 200px; LEFT: 178px
+}
+#loading {
+	BACKGROUND-IMAGE: url(../images/loading.gif); BORDER-BOTTOM: red 0px solid; BORDER-LEFT: red 0px solid; BACKGROUND-COLOR: transparent; WIDTH: 360px; HEIGHT: 120px; BORDER-TOP: red 0px solid; BORDER-RIGHT: red 0px solid
+}
+#navigation LI A {
+	COLOR: black; TEXT-DECORATION: none
+}
+.gridLine {
+	BACKGROUND-COLOR: #95b5e8; HEIGHT: 28px; VERTICAL-ALIGN: middle
+}
+.gridContent {
+	TEXT-ALIGN: center; BORDER-LEFT: #dcdad9 1px solid; BACKGROUND-COLOR: #ffffff; BORDER-COLLAPSE: collapse; HEIGHT: 25px
+}
+.detailInfo {
+	BACKGROUND-COLOR: #ffffff; MARGIN-TOP: 10px; FONT-SIZE: 11pt
+}
+.infoTitle {
+	WIDTH: 200px; FLOAT: left
+}
+.carListTbl {
+	FONT-SIZE: 10pt; FONT-WEIGHT: bold
+}
+.carListTbl A {
+	COLOR: black; TEXT-DECORATION: none
+}
+.controllInf {
+	BACKGROUND-COLOR: #ffffff; MARGIN-TOP: 15px; WIDTH: 512px; MARGIN-LEFT: 10px; FONT-SIZE: 11pt
+}
+.user{ height:85%; overflow:auto;overflow-x:hidden;font-family:"ËÎÌו";font-size:16px;
+ background-color:#D6E1F3;
+}
+.pop{
+ background-color:#FFFFFF;
+ font-size:12px;
+}

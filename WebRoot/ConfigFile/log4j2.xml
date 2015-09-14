@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<configuration status="OFF">  
+  <appenders>  
+    <Console name="Console" target="SYSTEM_OUT">  
+      <PatternLayout charset="GBK" pattern="%logger{36} - %msg - %d{HH:mm:ss.SSS} [%t] %-5level %n"/>  
+    </Console>  
+  </appenders>  
+  
+  <loggers>  
+    <logger name="admin.ru.own.www.logic.commodity" level="trace" additivity="false">
+    	<appender-ref ref="Console"/>
+    </logger>
+    
+    <root level="trace">  
+      <appender-ref ref="Console"/>  
+    </root>
+      
+  </loggers>  
+</configuration>  

@@ -1,0 +1,13 @@
+body {
+	margin: 0px;
+}
+ul{
+	list-style-type: none;
+}
+.add_brand_button {
+	margin-top: 20px;
+	width: 100px;
+	height: 40px;
+	line-heigth:40px;
+	font-size: 18px;
+}

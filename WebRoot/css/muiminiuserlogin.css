@@ -1,0 +1,24 @@
+@charset "UTF-8";
+body {
+font: 12px/1.5 Tahoma,Helvetica,Arial,'\5B8B\4F53',sans-serif;
+}
+
+.userLoginDialog{
+	padding: 0 !important;
+	
+}
+.userLoginDialog .ui-dialog-titlebar {
+	background-color: #B6000C;	
+}
+
+
+.userLoginDialog .ui-state-hover .ui-icon, .userLoginDialog .ui-state-focus .ui-icon {
+	background: url("../images/T1CdBMFkNeXXb23GA.-132-41.png") -16px -25px !important;
+}
+.userLoginDialog .ui-widget-header .ui-icon{
+	background: url("../images/T1CdBMFkNeXXb23GA.-132-41.png") 0 -25px !important;
+}
+
+.userLoginDialog  .ui-dialog-titlebar-close{
+	background-color: #B6000C;
+}

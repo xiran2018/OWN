@@ -1,0 +1,47 @@
+table.freight {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    width: 95%;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+}
+
+/*以下的css是为了展示左边的导航信息*/
+.listdiv{
+	display: block;
+	width: 148px;
+	height: 30px;
+	border: 1px solid #516173;
+	line-height: 30px;	
+}
+
+
+.listdiv2{
+    display: block;
+	width: 148px;
+	height: 20px;
+	border: 1px solid #516173;
+	line-height: 20px;
+	margin-top: 12px;
+}
+
+
+/*确保超链接没有任何样式*/
+a:link {
+ color: #0E0E0F;
+ text-decoration: none;
+}
+a:visited {
+ color: #0E0E0F;
+ text-decoration: none;
+}
+a:hover {
+ color: #0E0E0F;
+ text-decoration: none;
+}
+a:active {
+ color: #0E0E0F;
+ text-decoration: none;
+}

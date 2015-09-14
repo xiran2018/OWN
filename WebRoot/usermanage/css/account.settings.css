@@ -1,0 +1,45 @@
+@charset "utf-8";
+
+
+.grid-c2-s6:after, .grid-c2-s6f:after, .grid-c3-s6e5:after, .grid-c3-s5e6:after, .main-wrap:after, .col-sub:after, .col-extra:after, .clearfix:after {
+display: block;
+content: '\0020';
+clear: both;
+height: 0;
+}
+
+.grid-c2-s6, .grid-c2-s6f, .grid-c3-s6e5, .grid-c3-s5e6, .main-wrap, .col-sub, .col-extra, .clearfix {
+zoom: 1;
+}
+
+#settings-panel {
+padding: 0px 5px;
+}
+
+h4, h5, h6, button, input, select, textarea {
+font-size: 100%;
+}
+
+#settings-panel h4 {
+height: 28px;
+}
+
+
+#settings-panel .settings-list {
+margin-bottom: 38px;
+}
+
+ul, ol {
+list-style: none;
+}
+
+#settings-panel .settings-list li {
+display: block;
+float: left;
+width: 180px;
+}
+
+.settings-list a:link, .settings-list a:visited {
+text-decoration: none;
+color: #06c !important;
+}

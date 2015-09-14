@@ -1,0 +1,80 @@
+table.freight {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    width: 95%;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+}
+
+.fieldset-a {
+border: 2px solid #D8E6F3;
+padding: 0 7px;
+background: #fff;
+margin-top: 30px;
+}
+
+.countrySpan{
+	
+	margin-right:10px;
+}
+
+
+/*以下的css是为了展示添加的货运信息*/
+
+#logistic-groups {
+position: relative;
+z-index: 101;
+padding-left: 0px;
+}
+
+.logistic_info {
+line-height: 24px;
+font-size: 12px;
+}
+
+.list-skin-a li {
+zoom: 1;
+height: 30px;
+line-height: 30px;
+}
+
+.list-skin-a li {
+position: relative;
+height: 30px;
+line-height: 30px;
+list-style: none;
+border: solid 1px #CDDCEF;
+margin: 0 0 10px;
+}
+.serial {
+display: block;
+float: left;
+height: 30px;
+width: 28px;
+text-align: center;
+background-color: #E0EAF4;
+font-weight: 700;
+}
+
+.title {
+display: block;
+float: left;
+width: 380px;
+font-weight: 700;
+margin: 0 0 0 10px;
+}
+
+.remark {
+color: #888;
+font: 10px verdana;
+}
+
+.actions {
+position: relative;
+float: right;
+margin-right: 10px;
+line-height: 28px;
+}
+

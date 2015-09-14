@@ -1,0 +1,10 @@
+$(function(){
+	//下拉列表单选，赋值用字符串
+	$("#single").val("Single2");
+	//下拉列表多选，赋值用字符串数组
+	$("#multiple").val(["Multiple2", "Multiple3"]);
+	//复选框赋值必须用字符串数组
+	$(":checkbox").val(["check2"]);
+	//单选框赋值必须用字符串数组
+	$(":radio").val(["radio1"]);
+});

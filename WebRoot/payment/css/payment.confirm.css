@@ -1,0 +1,49 @@
+@charset "utf-8";
+
+
+/*当前状态*/
+#J-security, #J-fastpay-submit {
+margin-top: 25px;
+}
+
+#J-fastpay-submit {
+padding-bottom: 50px;
+}
+
+.ui-button-lorange {
+line-height: 32px;
+height: 32px;
+}
+
+.ui-button-lorange, .ui-button-morange, .ui-button-sorange {
+color: #fff;
+border: 1px solid #d66500;
+background-color: #f57403;
+}
+
+.ui-button {
+display: inline-block;
+text-align: center;
+text-decoration: none;
+vertical-align: middle;
+cursor: pointer;
+font-size: 14px;
+font-family: inherit;
+font-weight: 700;
+border-radius: 2px;
+padding: 0 20px;
+background-image: none;
+}
+
+input{
+font: 12px/1.5 tahoma,arial,Hiragino Sans GB,\5b8b\4f53;
+}
+
+body .fn-hide {
+display: none;
+}
+
+.ui-fm-status {
+color: #20b907;
+padding-right: 15px;
+}

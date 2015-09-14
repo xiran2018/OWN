@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.ProductMultiLanguageDAO">
+	<select id="getSearchCommodity" parameterType="map" resultType="int">
+		SELECT distinct product_id FROM own.productmultilanguage,own.products 
+		WHERE lan_id=#{lan_id}
+		and products.p_id=productmultilanguage.product_id
+		and products.p_nowprice &gt;= #{startPrice} 
+    	and products.p_nowprice &lt;= #{endPrice}  
+		and (product_name LIKE #{searchMsg} OR product_desc LIKE #{searchMsg})
+		ORDER BY product_id 
+		limit #{begain},#{size} 
+	</select>
+</mapper>

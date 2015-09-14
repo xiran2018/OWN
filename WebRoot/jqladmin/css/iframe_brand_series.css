@@ -1,0 +1,24 @@
+#brand_series_show{
+	width:100%;
+}
+ul{
+	list-style-type: none;
+}
+.brand_description {
+	width: 25%;
+}
+
+.brand_show {
+	width: 25%;
+}
+
+.brand_operate {
+	width: 25%;
+}
+
+
+#show_content{
+
+    width:100%;
+    heigth:100%;
+}

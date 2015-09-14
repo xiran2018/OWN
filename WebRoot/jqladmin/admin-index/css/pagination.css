@@ -1,0 +1,52 @@
+/*分页栏导航*/
+DIV.digg { 
+PADDING-RIGHT: 3px; PADDING-LEFT: 3px; PADDING-BOTTOM: 3px;
+ MARGIN: 3px; PADDING-TOP: 3px; TEXT-ALIGN: center ; font-size: 1.2em
+} 
+DIV.digg SPAN { 
+BORDER-RIGHT: #d8d8d8 1px solid; PADDING-RIGHT: 8px; BORDER-TOP: #d8d8d8 1px solid;
+ PADDING-LEFT: 8px; PADDING-BOTTOM: 2px; MARGIN: 2px; 
+BORDER-LEFT: #d8d8d8 1px solid; COLOR: #003399; PADDING-TOP: 2px;
+ BORDER-BOTTOM: #acacac 1px solid; TEXT-DECORATION: none ;
+ border-radius: 2px; 
+ cursor: pointer;
+} 
+DIV.digg SPAN:hover { 
+BORDER-RIGHT: #000099 1px solid; BORDER-TOP: #000099 1px solid;
+ BORDER-LEFT: #000099 1px solid; COLOR: #000; BORDER-BOTTOM: #000099 1px solid 
+} 
+DIV.digg A:active { 
+BORDER-RIGHT: #000099 1px solid; BORDER-TOP: #000099 1px solid;
+ BORDER-LEFT: #000099 1px solid; COLOR: #000; BORDER-BOTTOM: #000099 1px solid 
+} 
+DIV.digg SPAN.current { 
+BORDER: #c66300 1px solid; PADDING-RIGHT: 5px;
+  PADDING-LEFT: 5px; FONT-WEIGHT: bold;
+ PADDING-BOTTOM: 2px; MARGIN: 2px; COLOR: #fff; PADDING-TOP: 2px;  BACKGROUND-COLOR: #ff7f00 ;
+ cursor: default;
+} 
+DIV.digg SPAN.disabled { 
+BORDER-RIGHT: #d8d8d8 1px solid; PADDING-RIGHT: 5px; BORDER-TOP: #eee 1px solid;
+ PADDING-LEFT: 5px; PADDING-BOTTOM: 2px; MARGIN: 2px;
+ BORDER-LEFT: #d8d8d8 1px solid; BORDER-TOP: #d8d8d8 1px solid;  COLOR: #666; PADDING-TOP: 2px;
+ BORDER-BOTTOM: #acacac 1px solid ;cursor: default;
+}
+
+
+/*确保超链接没有任何样式*/
+a:link {
+ color: #12509E;
+ text-decoration: none;
+}
+a:visited {
+ color: #12509E;
+ text-decoration: none;
+}
+a:hover {
+ color: #12509E;
+ text-decoration: none;
+}
+a:active {
+ color: #12509E;
+ text-decoration: none;
+}

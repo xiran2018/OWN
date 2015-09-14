@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="gbk"?>
+
+<Config> 
+  <StoreConfig>
+    <!-- //商店配置信息 -->  
+    <Footer>
+      <!-- //首页页脚存放的文字信息 -->&lt;b&gt;sjlfjsf&lt;/b&gt;
+    </Footer> 
+  </StoreConfig> 
+</Config>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.UserOperateMapper">
+
+	  <insert id="addUser" useGeneratedKeys="true" keyProperty="id" parameterType="admin.ru.own.www.entity.User">
+	     insert  into user(username,userpassword,usermail,status,createtime,lasttime)values(#{username},#{userpassword},#{usermail},#{status},now(),now())
+	  </insert>
+	  
+	  
+	  
+    <update id="modifyUserById" parameterType="admin.ru.own.www.entity.User" flushCache="true"  timeout="20">
+        update user  set usertel=#{usertel},usermail=#{usermail},status=#{status} where userid=#{userid}
+    </update>
+    
+    <update id="clienSidetModifyUserById" parameterType="admin.ru.own.www.entity.User" flushCache="true"  timeout="20">
+        update user set username=#{username}, usertel=#{usertel},usermail=#{usermail},sex=#{sex} where userid=#{userid}
+    </update>
+    
+    
+    <update id="resetPassword"  flushCache="true"  timeout="20">
+        update user  set userpassword=#{1} where userid=#{0}
+    </update>
+    
+    
+    <update id="updateUserJifen"  parameterType="admin.ru.own.www.entity.User"  flushCache="true"  timeout="20">
+        update user  set jifen=#{jifen} where userid=#{userid}
+    </update>
+
+     <delete id="deleteUserById" parameterType="int">
+  	  	delete from user where userid=#{id}
+    </delete>
+ 
+     <select id="getTotalNumberOfUser" resultType="int">
+     	select count(*) from user
+     </select>
+     
+            <!--配置一个resultMap 指定返回的类型    -->
+    <resultMap id="allShipping" type="admin.ru.own.www.entity.User">
+        <id column="userid" property="userid" />
+        <result column="username" property="username" />
+        <result column="userpassword" property="userpassword" />
+        <result column="status" property="status" />
+        <result column="createtime" property="createtime" />
+    </resultMap>
+    
+     <select id="getUsersByPageNum" resultMap="allShipping" parameterType="admin.ru.own.www.entity.Pagination">
+        select * from user limit #{offset},#{numberInPage}
+    </select>
+    
+    <select id="getUserByUserName" resultMap="allShipping"  parameterType="String">
+        select * from user  where username=#{username}
+    </select>
+    
+    
+    
+    <select id="getUserById" resultType="admin.ru.own.www.entity.User" parameterType="int">
+        select userid,username,userpassword,userrealname,usertel,usermail,userlevel,sex,totalbuycount,timeforgetpass,status,createtime,lasttime,jifen from user where userid=#{id}
+    </select>
+    
+    <select id="getUserByNameAndPassword" resultType="admin.ru.own.www.entity.User" parameterType="int">
+        select userid,username from user where username=#{0} and  userpassword=#{1} 
+    </select>
+    
+    <select id="getUserByMail" resultType="admin.ru.own.www.entity.User" parameterType="String">
+        select userid,username,usermail from user where usermail=#{mail}
+    </select>
+
+    <update id="updateTimeForgetPass" parameterType="long" flushCache="true"  timeout="20">
+        update user  set timeforgetpass=#{0} where userid=#{1}
+    </update>
+</mapper>

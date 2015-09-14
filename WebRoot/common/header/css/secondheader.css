@@ -1,0 +1,61 @@
+@charset "utf-8";
+/*lagout-two*/
+#lagout-two{width:1190px; height:35px; margin:0 auto;}
+#lagout-two .lagout-two-l{float:left;width:693px; height:33px;font-size:14px; font-weight:700;}
+.lagout-two-l li.headeritem{ float:left; height:33px; line-height:33px;}
+.lagout-two-l li.headeritem a.oneitem{padding:0 15px; color:#000; height:33px; display:inline-block;float:left;}
+
+/*全部分类的下拉箭头图标*/
+.lagout-two-l li.headeritem b  
+{
+	width: 20px;
+	height: 20px;
+	padding:0 10px; 
+	background-image: url(../../../images/arrow.png);
+	background-repeat: no-repeat;
+	margin-left: 35px;
+}
+.lagout-two-l li.headeritem b {background-position: -65px  0px;}
+.lagout-two-l li.headeritem:hover  b {background-position: -65px -23px;}
+
+
+/*首页等边框*/
+.lagout-two-l li.menu-title  a.oneitem{color:#fff;}
+.lagout-two-l li.headeritem a.oneitem:hover{border:1px solid #D74700; border-bottom:0; background:#FFF8ED; text-decoration:none;}
+.lagout-two-l li.menu-title  a.oneitem:hover{border:0; background:#CD2A2C; text-decoration:none;}
+.lagout-two-l .current{ width:58px; height:33px; line-height:33px ;border:1px solid #D74700; border-bottom:0;text-align:center; background:#F37C06; color:#FFF; margin-right:10px;}
+
+
+/*商品分类*/
+.menu-title 
+{
+    position: relative;
+    left: 0;
+    width: 190px;
+    height: 33px;
+    line-height: 33px;
+    background: #CD2A2C;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 700;
+}
+.category-list{
+width:190px; height:477px;color: #fff;background: url('../../../images/category_backgr.png') #181818 no-repeat;
+position: absolute;
+z-index: 2000;
+top: 33px;
+display:none;}
+
+.lagout-two-l li:hover  .category-list{display:block;}
+
+.category-list h2{font-size:14px; height:35px; line-height:35px; background:url('../../../images/arrow1.gif') no-repeat right center; padding-right:5px;}
+.category-list h2 a{font-size:12px; font-weight:normal; float:right;}
+.category-list h3{font-size:12px; height:30px; line-height:30px; border-top:1px solid #FCDFBE; background:url('../../../images/icon.png') no-repeat 0 4px; padding-left:24px;}
+.category-list .box{padding: 0 8px 6px 8px; overflow:hidden;}
+.category-list .box a{height:20px; display:inline-block; line-height:20px;}
+
+
+/**/
+#lagout-two .lagout-two-r{width:240px; height:40px; float:right;display:none}
+.lagout-two-r a{ float:left;}
+.lagout-two-r .txt:link,.lagout-two-r .txt:visited{color:#DB4701; padding:19px 5px 0 5px; font-weight:bold;}

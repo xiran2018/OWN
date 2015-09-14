@@ -1,0 +1,708 @@
+@charset "utf-8";
+
+* {
+margin: 0;
+padding: 0;
+}
+
+body {
+color: #333;
+font: 12px/1.5 Helvetica Neue,Helvetica,STHeiTi,sans-serif;
+}
+
+.container {
+min-height: 550px;
+}
+
+.container {
+margin-left: auto;
+margin-right: auto;
+}
+
+.fn-clear:before, .panel:before, .i-result:before, .i-row:before, .order-info dd:before, .order-list li:before, .order-footer:before, .mixedcard-types li:before, .tef-payment-types li:before, .yandex-payment-types li:before, .fn-clear:after, .panel:after, .i-result:after, .i-row:after, .order-info dd:after, .order-list li:after, .order-footer:after, .mixedcard-types li:after, .tef-payment-types li:after, .yandex-payment-types li:after {
+content: '\20';
+display: table;
+}
+
+.fn-clear:after, .panel:after, .i-result:after, .i-row:after, .order-info dd:after, .order-list li:after, .order-footer:after, .mixedcard-types li:after, .tef-payment-types li:after, .yandex-payment-types li:after {
+clear: both;
+}
+
+.fn-clear:before, .panel:before, .i-result:before, .i-row:before, .order-info dd:before, .order-list li:before, .order-footer:before, .mixedcard-types li:before, .tef-payment-types li:before, .yandex-payment-types li:before, .fn-clear:after, .panel:after, .i-result:after, .i-row:after, .order-info dd:after, .order-list li:after, .order-footer:after, .mixedcard-types li:after, .tef-payment-types li:after, .yandex-payment-types li:after {
+content: '\20';
+display: table;
+}
+
+/*侧边栏*/
+.aside {
+float: left;
+width: 250px;
+}
+
+.panel, .i-result {
+margin-bottom: 9px;
+padding: 1px;
+border: 1px solid #e5e5e5;
+}
+
+.panel-heading {
+min-height: 44px;
+line-height: 44px;
+padding: 0 8px;
+background-color: #eee;
+border-bottom: 1px solid transparent;
+font-weight: 700;
+}
+
+
+.panel-title {
+display: inline-block;
+color: #888;
+font-size: 14px;
+font-weight: 700;
+}
+
+.i-icon-refresh {
+width: 12px;
+height: 12px;
+background-position: -25px -20px;
+}
+
+.i-icon {
+display: inline-block;
+background-image: url(../images/43rLOmiUUX.png);
+background-repeat: no-repeat;
+}
+
+.refresh-price {
+margin-top: -2px;
+overflow: hidden;
+vertical-align: middle;
+}
+
+a {
+color: #07c;
+text-decoration: none;
+}
+
+a {
+background-color: transparent;
+}
+
+
+
+/*刷新提示按钮*/
+
+.i-tooltip-gray:before {
+border-color: #e5e5e5;
+}
+.i-tooltip-down:before {
+top: -8px;
+margin-left: -8px;
+}
+.i-tooltip-down:before, .i-tooltip-down:after {
+left: 50%;
+border-top-width: 0;
+border-left-color: transparent!important;
+border-right-color: transparent!important;
+}
+.i-tooltip:after, .i-tooltip:before {
+display: inline-block;
+position: absolute;
+width: 0;
+height: 0;
+content: '';
+border: 8px solid transparent;
+}
+.i-tooltip-gray:after {
+border-color: #f5f5f5;
+}
+.i-tooltip-down:after {
+top: -7px;
+margin-left: -7px;
+}
+.i-tooltip-down:before, .i-tooltip-down:after {
+left: 50%;
+border-top-width: 0;
+border-left-color: transparent!important;
+border-right-color: transparent!important;
+}
+.i-tooltip:after {
+border-width: 7px;
+}
+.i-tooltip:after, .i-tooltip:before {
+display: inline-block;
+position: absolute;
+width: 0;
+height: 0;
+content: '';
+border: 8px solid transparent;
+}
+.i-tooltip {
+display: inline-block;
+position: relative;
+padding: 8px 12px;
+border: 1px solid transparent;
+border-radius: 2px;
+color: #888;
+}
+.refresh-price-tip {
+line-height: 1.2;
+font-weight: 400;
+}
+
+.i-tooltip-gray {
+border-color: #e5e5e5;
+background-color: #f5f5f5;
+}
+/*价格*/
+.order-total-amount {
+float: right;
+font-size: 18px;
+font-style: normal;
+font-family: Tahoma;
+}
+
+/*购物信息*/
+.order-info {
+margin: 15px 10px 0;
+}
+.order-info dt {
+margin-top: 8px;
+font-size: 12px;
+font-weight: 700;
+color: #888;
+}
+.order-info dd {
+border-bottom: 1px dotted #eee;
+padding: 10px 0;
+}
+.order-info dd span {
+display: block;
+}
+.order-item-l {
+color: #999;
+word-wrap: break-word;
+}
+
+.order-item-title {
+margin-top: 3px;
+line-height: 1.2;
+}
+
+.order-info .order-item-r {
+margin-top: 3px;
+}
+
+.order-item-r {
+color: #333;
+font-weight: 700;
+text-align: right;
+}
+
+
+/*安全支付*/
+.secure-payment {
+margin-bottom: 0;
+padding: 15px 0;
+text-align: center;
+}
+
+.secure-payment a {
+margin: 0 2px;
+}
+
+.i-icon-sign-verisign {
+width: 57px;
+height: 25px;
+background-position: -28px -84px;
+}
+
+.i-icon {
+display: inline-block;
+background-image: url(../images/43rLOmiUUX.png);
+background-repeat: no-repeat;
+}
+
+a {
+color: #07c;
+text-decoration: none;
+}
+
+.i-icon-sign-pci {
+width: 58px;
+height: 25px;
+background-position: 0 -109px;
+}
+
+
+.i-icon-sign-visa {
+width: 44px;
+height: 25px;
+background-position: -131px -84px;
+}
+
+.i-icon-sign-mastercard {
+width: 46px;
+height: 25px;
+background-position: -85px -84px;
+}
+
+/*买家保护*/
+.buyer-protection {
+padding-top: 0;
+border-top: 0;
+}
+
+.buyer-protection .i-icon-buyer-protection {
+margin: 10px 0 0 10px;
+}
+.i-icon-buyer-protection {
+width: 28px;
+height: 33px;
+background-position: -172px -109px;
+}
+.fn-left {
+float: left!important;
+}
+.buyer-protection h3 {
+margin: 18px 0 22px 46px;
+color: #4779aa;
+font-size: 12px;
+}
+.buyer-protection p {
+margin: 0 0 5px 35px;
+}
+.buyer-protection .i-icon-checklist {
+margin: 3px 0 0 -20px;
+}
+.i-icon-checklist {
+width: 13px;
+height: 10px;
+background-position: 0 -20px;
+}
+b, strong {
+font-weight: 700;
+}
+.buyer-protection p {
+margin: 0 0 5px 35px;
+}
+
+
+
+
+
+
+/*确认支付*/
+.checkout-counter {
+float: right;
+width: 832px;
+}
+
+/*确认方式面板*/
+.panel, .i-result {
+margin-bottom: 9px;
+padding: 1px;
+border: 1px solid #e5e5e5;
+}
+.channel-container {
+margin-top: 1px;
+}
+.channel-group:first-child {
+margin-top: 5px;
+}
+.channel-active {
+background-color: #f6f6f6;
+}
+.channel-group {
+position: relative;
+margin: 0 5px;
+padding: 25px 40px;
+}
+.channel-group:after {
+content: '';
+display: block;
+position: absolute;
+bottom: 0;
+width: 90%;
+height: 0;
+border-bottom: 1px solid #eee;
+}
+/*支付总额*/
+.payment-total {
+float: right;
+margin-top: -8px;
+max-width: 310px;
+font-family: Tahoma;
+text-align: right;
+}
+
+.payment-total .o-money {
+display: block;
+color: #666;
+font-size: 18px;
+font-weight: 700;
+}
+.payment-total .o-money em {
+padding-left: 3px;
+color: #fb7000;
+font-size: 18px;
+font-style: normal;
+white-space: nowrap;
+}
+.payment-total .g-money {
+display: block;
+color: #999;
+text-decoration: line-through;
+}
+
+/*payment header*/
+.channel-group-header {
+margin-right: 310px;
+}
+.channel-group-title {
+display: inline-block;
+font-size: 14px;
+font-weight: 700;
+line-height: 1.6;
+cursor: pointer;
+}
+.channel-active .more-payments-preview {
+display: none;
+}
+.more-payments-preview {
+position: relative;
+margin-top: 8px;
+}
+
+/*具体的支付方式选择区域*/
+.channel-group-body {
+display: none;
+clear: both;
+}
+
+.channel-active .channel-group-body {
+display: block;
+}
+
+/*tab 页面*/
+.channel-tab {
+margin-top: 18px;
+height: 43px;
+border-bottom: 1px solid #ccc;
+}
+
+ol, ul {
+list-style: none;
+}
+
+.channel-active {
+background-color: #f6f6f6;
+}
+
+
+.channel-tab li {
+display: inline-block;
+position: relative;
+float: left;
+margin-right: -1px;
+width: 168px;
+height: 42px;
+background-color: #f5f5f5;
+border: 1px solid #e5e5e5;
+border-bottom-color: #ccc;
+box-shadow: -1px 1px #fff inset;
+font-size: 24px;
+text-align: center;
+}
+
+.channel-tab .channel-active {
+background-color: #fff;
+border-color: #ccc #ccc #fff;
+}
+.i-bank {
+display: inline-block;
+font-family: iBank,Helvetica Neue,Helvetica,STHeiTi,sans-serif;
+position: relative;
+height: 1em;
+vertical-align: middle;
+}
+.i-bank, .i-iconfont {
+font-style: normal;
+font-weight: 400;
+font-variant: normal;
+text-indent: 0;
+text-transform: none;
+line-height: 1;
+speak: none;
+-webkit-font-smoothing: antialiased;
+-webkit-text-stroke-width: .2px;
+-moz-osx-font-smoothing: grayscale;
+}
+.i-bank-visa {
+width: 1.71875em;
+}
+.channel-tab .i-bank {
+margin-top: 2px;
+cursor: pointer;
+}
+.channel-tab .i-bank-visa, .channel-tab .i-bank-mastercard, .channel-tab .i-bank-maestro {
+font-size: 20px;
+}
+.i-bank-visa>span {
+display: none;
+}
+.i-bank-visa:before {
+content: "";
+color: #1a4e9d;
+}
+.i-bank:before, .i-bank:after, .i-bank>span:before, .i-bank>span:after {
+position: absolute;
+top: 0;
+left: 0;
+}
+
+.i-bank-mastercard {
+width: 1.71875em;
+}
+
+.i-bank-mastercard:before {
+content: "";
+color: #e02118;
+}
+
+.i-bank-mastercard>span:before {
+content: "";
+color: #f8b70e;
+}
+
+.i-bank-maestro {
+width: 1.71875em;
+}
+
+.i-bank-maestro:before {
+content: "";
+color: #2d9deb;
+}
+
+.i-bank-maestro>span:before {
+content: "";
+color: #e12105;
+}
+
+
+
+.channel-tab a {
+display: block;
+position: absolute;
+top: -1px;
+left: 0;
+width: inherit;
+height: 44px;
+overflow: hidden;
+text-indent: 999em;
+transition: all .1s;
+}
+
+.channel-tab .channel-active a {
+height: 41px;
+border-top: 3px solid #ffa900;
+}
+
+/*第二个tab header*/
+.channel-tab .channel-active+li {
+border-left-color: #ccc;
+}
+
+.i-bank-boleto {
+width: 1.75em;
+}
+
+.i-bank-boleto:before {
+content: "";
+color: #000;
+}
+
+.i-bank-boleto>span {
+display: none;
+}
+/*tab 右上角的标示*/
+.channel-tab .i-icon {
+position: absolute;
+top: -1px;
+right: 0;
+}
+
+.i-icon-brazil {
+width: 32px;
+height: 24px;
+background-position: -128px -56px;
+}
+
+.i-bank-tef {
+width: 2.3125em;
+font-size: 30px;
+}
+
+/*第三个tab*/
+.channel-tab .more-payments-trigger:before, .channel-tab .more-payments-trigger:after {
+display: inline-block;
+position: absolute;
+top: 21px;
+right: 16px;
+width: 16px;
+height: 0;
+overflow: hidden;
+border-top: 2px solid #07c;
+content: '';
+-webkit-transform-origin: right;
+-ms-transform-origin: right;
+transform-origin: right;
+transition: -webkit-transform .1s;
+transition: transform .1s;
+}
+.channel-tab .more-payments-trigger:before {
+-webkit-transform: rotate(35deg);
+-ms-transform: rotate(35deg);
+transform: rotate(35deg);
+}
+.channel-tab .more-payments-trigger:after {
+top: 20px;
+-webkit-transform: rotate(-35deg);
+-ms-transform: rotate(-35deg);
+transform: rotate(-35deg);
+}
+.channel-tab .more-payments-trigger {
+width: 229px;
+background-color: #eee;
+font-size: inherit;
+line-height: 42px;
+}
+
+.channel-tab .more-payments-trigger a {
+position: static;
+text-indent: 0;
+}
+
+b, strong {
+font-weight: 700;
+}
+
+/*第一个tab页内容*/
+.i-form {
+padding: 5px 20px 20px;
+border: 1px solid #ccc;
+border-top: 0;
+background-color: #fff;
+}
+.i-notice, .i-notice-box {
+position: relative;
+margin-bottom: 5px;
+padding: 0 10px 0 30px;
+border: 1px dotted #ff6418;
+border-radius: 2px;
+color: #ff6418;
+line-height: 22px;
+}
+.i-notice-discount {
+line-height: 18px;
+}
+.i-notice-gray {
+margin-top: 15px;
+margin-bottom: 10px;
+border-color: #d8d8d8;
+color: #aaa;
+font-size: 11px;
+}
+
+.i-currency-notice {
+position: relative;
+margin-top: 15px;
+background-color: #fff;
+border: 1px dotted #e5e5e5;
+border-radius: 2px;
+}
+
+.i-row {
+margin-top: 10px;
+}
+
+/*支付*/
+.pay.my.order {
+padding: 20px 45px;
+}
+.sys-error {
+padding-bottom: 5px;
+}
+.i-message-warn {
+color: #f80;
+}
+.i-message {
+clear: both;
+padding-top: 5px;
+color: #999;
+font-size: 14px;
+word-wrap: break-word;
+}
+
+.i-button {
+display: inline-block;
+padding: 0 30px;
+min-width: 200px;
+height: 42px;
+line-height: 42px;
+background-color: #f80;
+border: 0;
+border-radius: 4px;
+color: #fff;
+font-size: 18px;
+text-align: center;
+white-space: nowrap;
+transition: background-color .1s;
+}
+
+button, input, optgroup, select, textarea {
+color: inherit;
+font: inherit;
+margin: 0;
+}
+button {
+overflow: visible;
+}
+button, select {
+text-transform: none;
+}
+button, html input[type=button], input[type=reset], input[type=submit] {
+-webkit-appearance: button;
+cursor: pointer;
+}
+
+.note {
+margin: 0 20px;
+padding-top: 10px;
+}
+
+.note h3 {
+font-size: 13px;
+color: #999;
+}
+
+.note li {
+color: #ccc;
+list-style: disc;
+margin: 8px 0 8px 16px;
+line-height: 1.2;
+}
+
+
+
+
+
+
+/*隐藏部分*/
+.fn-hide {
+display: none!important;
+}
+
+
+

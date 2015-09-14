@@ -1,0 +1,139 @@
+#sidebar-menu { 
+/*目前要求宽度是238px,高度是332px，左边框+width正好238，以后需要可以修改*/ 
+/*border-left : 1px solid #F93; */
+width : 190px; 
+/* height : 332px; background : #FFF7F0; */
+height:477px;
+margin : 0; 
+padding : 0; 
+
+} 
+#sidebar-menu > ul { 
+list-style : none; 
+padding : 0; 
+margin : 0; 
+} 
+#sidebar-menu > ul > li { 
+list-style : none; 
+padding : 0; 
+margin : 0; 
+border-bottom : 1px solid #8A827D;
+} 
+#sidebar-menu > ul > li.selected { 
+background : #a90000;  
+} 
+#sidebar-menu > ul > li.first { 
+/*border-top : 1px solid #F93; */
+} 
+#sidebar-menu > ul > li.last { 
+/*border-bottom : 1px solid #F93; */
+} 
+
+#sidebar-menu .menu-item { 
+background :  no-repeat left center; 
+height : 32px; /**控制菜单中每行的宽度，下面还有两处需要修改**/ 
+/** border-right : 1px solid #F93; **/ 
+z-index : 10000; 
+position : relative; 
+} 
+
+#sidebar-menu > ul > li.selected .menu-item { 
+background : #a90000; 
+background : no-repeat left center; 
+} 
+#sidebar-menu .menu-item span { 
+font-size : 13px; 
+font-weight : bold; 
+height : 32px; 
+line-height : 32px; 
+padding-left : 5px; 
+/*padding-top : 2px; */
+display : inline-block; 
+} 
+
+
+#sidebar-menu .menu-item span.category-smallimg
+{ 
+height : 32px; 
+line-height : 32px; 
+padding-left : 15px; 
+/*padding-top : 2px; */ 
+display : inline-block;
+}
+
+#sidebar-menu .menu-item span img
+{ 
+width: 20px;
+height: 20px;
+vertical-align: middle;
+
+}
+
+#sidebar-menu .menu-panel { 
+padding : 10px 20px; 
+display : none; 
+border : 1px solid #F93; 
+width : 560px;
+height:458px;
+position : absolute; 
+left : 190px; /**控制距离左边菜单栏的距离**/ 
+top : -1px; 
+z-index : 5000; 
+min-height : 50px; 
+box-shadow: 1px 1px 4px #888888;
+opacity: 1;
+background: #fbfbfb;
+} 
+
+#sidebar-menu div.menu-panel.selected { 
+display : block; 
+} 
+
+/*Panel 里面的链接列表*/ 
+#sidebar-menu div.menu-panel ul { 
+list-style : none; 
+padding : 0; 
+margin : 0; 
+} 
+#sidebar-menu div.menu-panel ul li { 
+list-style : none; 
+padding : 5px 0px; 
+margin : 0; 
+} 
+
+#sidebar-menu div.menu-panel>ul>li>h2 { 
+margin : 0; 
+padding : 0; 
+padding-top : 2px; 
+font-size : 13px; 
+color : red; 
+float : left; 
+width : 60px; 
+} 
+#sidebar-menu div.menu-panel>ul>li>div.link-list { 
+float : left; 
+padding-left : 10px; 
+width : 450px; 
+} 
+#sidebar-menu div.menu-panel div.link-wrapper { 
+display : inline-block; 
+padding : 3px 0px; 
+} 
+#sidebar-menu div.menu-panel div.link-wrapper span { 
+font-size : 13px; 
+color : #888; 
+padding-right : 4px; 
+} 
+#sidebar-menu div.menu-panel div.link-list a { 
+font-size : 13px; 
+color : #888; 
+text-decoration : none; 
+} 
+#sidebar-menu div.menu-panel div.link-list a:hover { 
+text-decoration : underline; 
+} 
+#sidebar-menu div.clear { 
+clear : both; 
+height : 0; 
+line-height : 0; 
+} 

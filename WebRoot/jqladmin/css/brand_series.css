@@ -1,0 +1,79 @@
+body {
+	margin: 0px;
+}
+
+ul{
+	list-style-type: none;
+}
+
+#brand_series_show {
+	width: 100%;
+}
+
+.brand_description {
+	width: 25%;
+}
+
+.brand_show {
+	width: 25%;
+}
+
+.brand_operate {
+	width: 25%;
+}
+
+#brand_series_show {
+	margin-left: 50px;
+}
+
+#show_content {
+	width: 100%;
+	heigth: 100%;
+}
+
+#header {
+	heigth: 70px;
+	float: left;
+	background-color: rgb(123, 148, 123);
+}
+
+#header,#pagefooter,#container {
+	margin: 0 auto;
+	width: 100%;
+}
+
+#container {
+	float: left;
+	height: 100%;
+}
+
+#content {
+	float: right;
+	width: 80%;
+	height: 100%;
+	background-color: rgb(210, 253, 210);
+}
+
+#side {
+	float: left;
+	width: 20%;
+	heigth: 100%;
+	background-color: rgb(240, 240, 199);
+}
+
+.sel_button {
+	margin-top: 20px;
+	width: 150px;
+	height: 40px;
+	line-heigth:40px;
+	font-size: 18px;
+}
+
+.sel_button  a:link{text-decoration:none; cursor:pointer;}
+.sel_button  a:visited{text-decoration:none; cursor:pointer}
+.sel_button  a:active{text-decoration:none; cursor:pointer}
+.sel_button  a:hover{text-decoration:none; cursor:pointer}
+
+#pagefooter {
+	clear: both;
+}

@@ -1,0 +1,45 @@
+#focus  .mid 
+{
+	position:relative;
+	float:left;
+	width:1190px;
+	height:480px;
+	overflow: hidden;	
+}
+
+#focus  .mid  .container
+{
+
+	margin-left:190px;	
+	margin-right: 190px;
+}
+.rightsmall
+{
+	position:absolute;
+	top:0;
+	right:0;	
+}
+#focus  .left 
+{
+	height:480px;
+    width:50%;
+	float:left;
+	margin-left:-595px;
+
+}
+#focus  .left .container {
+	height:480px;
+    margin-left:595px;
+	
+}
+#focus  .right {
+	height:480px;
+    width:50%;
+	float:right;
+	margin-right:-595px;   
+}
+#focus  .right .container {
+	height:480px;
+    margin-right:595px;	
+    
+}

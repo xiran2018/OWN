@@ -1,0 +1,151 @@
+table.altrowstable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    width: 95%;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+}
+table.altrowstable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+table.altrowstable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+.oddrowcolor{
+    background-color:#d4e3e5;
+}
+.evenrowcolor{
+    background-color:#c3dde0;
+}
+
+/*  
+table.altrowstable tr:hover td{
+    background-color:#a9cff9;
+}
+*/
+table.altrowstable .colume1{
+    width: 20%;;
+}
+
+table.altrowstable .colume2{
+    width: 79%;;
+}
+
+/** 四列的情形*/
+table.altrowstable .fourColume1{
+    width: 20%;;
+}
+
+table.altrowstable .fourColume2{
+    width: 30%;;
+}
+table.altrowstable .fourColume3{
+    width: 20%;;
+}
+
+table.altrowstable .fourColume4{
+    width: 10%;;
+}
+
+
+
+/** 四列的另外一种情形*/
+table.altrowstable .fourColume1_1{
+    width: 15%;;
+}
+
+table.altrowstable .fourColume2_1{
+    width: 5%;;
+}
+table.altrowstable .fourColume3_1{
+    width: 40%;;
+}
+
+table.altrowstable .fourColume4_1{
+    width: 40%;;
+}
+/**七列的情形*/
+table.altrowstable .sevenColume1{
+    width: 15%;;
+}
+
+table.altrowstable .sevenColume2{
+    width: 15%;;
+}
+table.altrowstable .sevenColume3{
+    width: 15%;;
+}
+
+table.altrowstable .sevenColume4{
+    width: 15%;;
+}
+table.altrowstable .sevenColume5{
+    width: 15%;;
+}
+
+table.altrowstable .sevenColume6{
+    width: 10%;;
+}
+table.altrowstable .sevenColume7{
+    width: 15%;;
+}
+
+
+.partition{
+	background-color: rgb(104, 156, 234);
+}
+
+table.innertable{
+	font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+}
+
+
+/** 两列的一种情形*/
+table.novlinetable {
+    font-family: verdana,arial,sans-serif;
+    font-size:11px;
+    color:#333333;
+    width: 95%;
+    border:1px solid;
+    border-width: 1px;
+    border-color: #a9c6c9;
+    border-collapse: collapse;
+}
+
+table.novlinetable tr {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+
+table.novlinetable td {
+    border-width: 0px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+
+table.novlinetable .textAlignRight{
+	text-align: right;
+}
+table.novlinetable .textAlignLeft{
+	text-align: left;
+}
+table.novlinetable .twoColume1_1{
+    width: 20%;;
+}
+
+table.novlinetable .twoColume2_1{
+    width: 50%;;
+}

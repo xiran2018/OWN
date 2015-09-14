@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+#page960 {
+padding: 0 30px 20px;
+}
+
+.points-summary {
+padding-left: 35px;
+margin-bottom: 18px;
+}
+
+.points-summary .available-num {
+font-size: 18px;
+line-height: 25px;
+font-weight: 700;
+}
+
+.points-summary .available-num em {
+color: #e62e04;
+}

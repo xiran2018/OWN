@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+
+.ui-state-default{
+	border: 1px solid #d3d3d3;
+	background: #e6e6e6 url("images/ui-bg_glass_75_e6e6e6_1x400.png") 50% 50% repeat-x;
+	font-weight: normal;
+	color: #555555;
+}
+
+.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus {
+	border: 1px solid #448dae;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+border: 1px solid #aaaaaa;
+background: #ffffff url("images/ui-bg_glass_65_ffffff_1x400.png") 50% 50% repeat-x;
+font-weight: normal;
+color: #212121;
+}
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+border: 1px solid #fcefa1;
+background: #fbf9ee url("images/ui-bg_glass_55_fbf9ee_1x400.png") 50% 50% repeat-x;
+color: #363636;
+}
+
+/*
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span {
+display: block;
+position: absolute;
+left: 50%;
+margin-left: -8px;
+top: 50%;
+margin-top: -8px;
+background-image: url("images/ui-icons_222222_256x240.png");
+}*/
+
+.ui-widget-header .ui-icon, .ui-widget-content .ui-icon,.ui-datepicker-next .ui-icon-circle-triangle-e {
+background-image: url("../images/ui-icons_056b93_256x240.png") !important;
+}
+
+.ui-widget-header {
+border: 1px solid #aaaaaa;
+background: #cccccc url("images/ui-bg_highlight-soft_75_cccccc_1x100.png") 50% 50% repeat-x;
+color: #222222;
+font-weight: bold;
+}

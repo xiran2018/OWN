@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.own.www.mybatis.dao.CartProductImageMapper">
+  
+    <insert id="insertCartProductImage" useGeneratedKeys="true" keyProperty="id" parameterType="ru.own.www.entity.CartProductImage"  flushCache="true">
+     insert  into cartproductimage(productid,productimageaddr,productattrs,productimageindexcount,createdata)
+        values(#{productid},#{productimageaddr},#{productattrs},#{productimageindexcount},now())
+    </insert>
+    
+    <select id="getCartProductImageAddrByPidAndAttrs" resultType="ru.own.www.entity.CartProductImage" parameterType="ru.own.www.entity.Cart">
+        select * from cartproductimage where productid=#{productid} and productattrs=#{productattrids}
+    </select>
+    
+     
+    <update id="addCartProductImageIndexCount" flushCache="true"  timeout="20">
+	    update  cartproductimage set productimageindexcount=productimageindexcount+1 where id=#{id};
+	</update>
+  
+  
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.ProductImageDAO">
+
+<select id="getImg" parameterType="int" resultType="pdtimg">  
+	SELECT id,image_addr as imageAddr,p_id as productId,image_sort as imageSort FROM product_image WHERE p_id = #{id}  
+</select> 
+<select id="getOneImgByID" parameterType="int" resultType="pdtimg">  
+	SELECT id,image_addr as imageAddr,p_id as productId,image_sort as imageSort FROM product_image WHERE id = #{id}  
+</select> 
+<insert id="insert" useGeneratedKeys="true" keyProperty="id" parameterType="pdtimg" >
+	insert into product_image (image_addr, p_id,image_sort,createtime) values (#{imageAddr},#{productId},#{imageSort},#{createtime})
+</insert>
+
+<delete id="delete" parameterType="int">
+	delete from product_image where id=#{id}    
+</delete>
+
+<update id="update" parameterType="pdtimg">
+	UPDATE product_image SET image_sort = #{imageSort} WHERE id = #{id};  	
+</update>
+</mapper>

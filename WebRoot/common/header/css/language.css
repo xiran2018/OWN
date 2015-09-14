@@ -1,0 +1,34 @@
+@charset "utf-8";
+#menu {
+	list-style-type: none;
+	float: left;
+}
+
+#menu li {
+	display: block;
+	float: left;
+	background: url("../images/admin_full_menu.jpg") no-repeat left -45px;
+	height: 40px;
+	color: white;
+	width: 120px;
+	text-align: center;
+	font-size: 14px;
+	line-height: 40px;
+	cursor:pointer;
+}
+
+
+#menu li:hover{
+	background-position:left top;
+}
+
+
+#category_show{
+	
+	margin:30px auto;	
+}
+
+#menu li  a:link{text-decoration:none; cursor:pointer;}
+#menu li  a:visited{text-decoration:none; cursor:pointer}
+#menu li  a:active{text-decoration:none; cursor:pointer}
+#menu li  a:hover{text-decoration:none; cursor:pointer}

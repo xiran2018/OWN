@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ru.own.www.mybatis.dao.CartOperateMapper">
+
+	<!-- 获取相应用户购物车中的所有的数量 -->
+	 <select id="getCartTotalByUserId" resultType="int">
+     	select count(*) from cart where userid=#{userid}
+     </select>
+	
+	<!-- 获取购物车中的信息 -->
+    <select id="getShopCartItemByCartId"   resultMap="cartItemList">
+          select * from  cart c,products p,cartproductimage cpi where c.cartid=#{0} and p.p_id=c.productid and c.productimageaddrid=cpi.id and c.status=1;
+    </select>
+	
+ 	<!-- 获取购物车中的信息 -->
+    <select id="getShopCartItemList"   resultMap="cartItemList">
+          select * from  cart c,products p,cartproductimage cpi where userid=#{userid} and c.productid=p.p_id and c.productimageaddrid=cpi.id and c.status=1;
+    </select>
+    
+        <!-- 获取需要编辑的货运模板的类型 -->
+     <resultMap type="ru.own.www.entity.shopCartShowVO" id="cartItemList">
+     	<!-- 购物车基本信息 -->
+        <association property="cartvo" javaType="ru.own.www.entity.Cart" >
+        	<id property="cartid" column="cartid"/>
+		    <result property="userid" column="userid"/>
+		    <result property="productid" column="productid"/>
+		    <result property="productimageaddrid" column="productimageaddrid"/>
+		    <result property="productprice" column="productprice"/>
+		    <result property="productnumber" column="productnumber"/>
+		    <result property="productname" column="productname"/>
+		    <result property="productattrids" column="productattrids"/>
+		    <result property="skuid" column="skuid"/>
+		    <result property="shipid" column="shipid"/>
+		    <result property="status" column="status"/>
+        </association>
+        <!-- 商品图片信息 -->
+        <association property="cpi" javaType="ru.own.www.entity.CartProductImage" >
+        	<id property="id" column="id"/>
+		    <result property="productimageaddr" column="productimageaddr"/>
+        </association>
+        <!-- 属性信息 
+        <collection property="pAttrShowVOs"  column="{cartid=cartid}"  ofType="admin.ru.own.www.entity.CartProductAttrShowVO" select="selectCartProductAttr"></collection>
+        -->
+        <association property="pbvo"  javaType="ru.own.www.entity.ProductBasicShowVO" >
+        	<id property="p_id" column="p_id"/>
+		    <result property="p_name" column="p_name"/>
+		    <result property="p_nowprice" column="p_nowprice"/>
+		    <result property="p_originprice" column="p_originprice"/>
+		    <result property="p_storenumber" column="p_storenumber"/>
+		    <result property="p_minbuyamount" column="p_minbuyamount"/>
+		    <result property="p_freemail" column="p_freemail"/>
+		    <result property="p_jifen" column="p_jifen"/>
+		    <result property="p_status" column="p_status"/>
+		    <result property="p_weight" column="p_weight"/>
+		    <result property="p_freight_templet" column="p_freight_templet"/>
+        </association>
+		<association property="skuvo" javaType="ru.own.www.entity.SkuShowVO" column="{skuid=skuid}" select="selectSku"></association>
+		
+     </resultMap>
+     
+     <select id="getCartProductAttrs"  resultMap="productAttrList">
+        select attrmuv.foreign_name attrvaluename , attrmu.foreign_name attrname
+        from cartproductattr cpa,attribute_value attrv,attribute_valuemultilanguage attrmuv,attributemultilanguage attrmu
+        where cpa.cartid=#{0} and attrmuv.lan_id=#{1}   and  cpa.attrvalueid=attrmuv.attr_value_id and  
+        attrv.attr_value_id=cpa.attrvalueid and attrmu.lan_id=7 and attrmu.attr_id=attrv.attr_id;
+     </select>
+     <resultMap type="ru.own.www.entity.CartProductAttrShowVO" id="productAttrList"><!--cart product attr -->
+        <result property="attrName" column="attrname"/>
+        <result property="attrValueName" column="attrvaluename"/>
+     </resultMap>
+     
+     
+     
+     <select id="selectSku" resultType="ru.own.www.entity.SkuShowVO">
+	  	select * from product_sku where sku_id = #{skuid}
+	 </select>
+     
+ 
+    <update id="reduceProductImageIndexCountById"  parameterType="java.lang.Integer">
+        update  cartproductimage set productimageindexcount=productimageindexcount-1 where id=#{id};
+    </update>
+ 
+    <delete id="deleteProductImageById" parameterType="java.lang.Integer">
+        delete from  cartproductimage where id=#{id} 
+    </delete>
+ 
+    <select id="getCartProductImageById"  parameterType="java.lang.Integer" resultType="ru.own.www.entity.CartProductImage">
+          select * from  cartproductimage where id=#{productimageaddrid} FOR UPDATE
+    </select>
+    
+    <select id="getCartItemByCartId"  parameterType="java.lang.Integer" resultType="ru.own.www.entity.Cart">
+          select * from  cart where cartid=#{cartid} FOR UPDATE
+    </select>
+  
+    <delete id="deleteShopCartItem" parameterType="java.lang.Integer">
+        delete from cart where cartid=#{cartid}
+    </delete>
+    
+    <delete id="deleteCartAttrs" parameterType="java.lang.Integer">
+        delete from cartproductattr where cartid=#{0}
+    </delete>
+    
+    
+  
+	<update id="updateShopCartQuantity"  flushCache="true"  timeout="20">
+	    update cart  set productnumber=#{1} where cartid=#{0}
+	</update>
+	
+	
+	<update id="updateShipId"  flushCache="true"  timeout="20">
+	    update cart  set shipid=#{1} where cartid=#{0}
+	</update>
+  
+    <insert id="insertShopCart" useGeneratedKeys="true" keyProperty="cartid" parameterType="ru.own.www.entity.Cart"  flushCache="true">
+     insert  into cart(userid,productid,productattrids,productimageaddrid,productprice,productnumber,productname,skuid,shipid,createdata)
+        values(#{userid},#{productid},#{productattrids},#{productimageaddrid},#{productprice},#{productnumber},#{productname},#{skuid},#{shipid},now())
+    </insert>
+    
+    <insert id="insertShopCartAttrValue" useGeneratedKeys="true"  parameterType="ru.own.www.entity.CartProductAttr">
+     insert  into cartproductattr(cartid,attrvalueid)
+        values(#{cartId},#{attrvalueId})
+    </insert>
+    
+    <select id="getAlreadyCartInDB" resultType="ru.own.www.entity.Cart" parameterType="ru.own.www.entity.Cart">
+        select * from cart where userid=#{userid} and productid = #{productid} 
+        <if test="productattrids != null  and productattrids != ''" > 
+		    and productattrids = #{productattrids}
+		</if> 
+    </select>
+    
+    <update id="addCartNumberOfProduct" flushCache="true"  timeout="20">
+        update  cart set productnumber=productnumber+#{1} where cartid=#{0};
+    </update>
+    
+    
+  
+  
+  
+</mapper>

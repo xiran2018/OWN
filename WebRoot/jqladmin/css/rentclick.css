@@ -1,0 +1,15 @@
+#detailedcontainer{position:relative;width:800px;}
+
+#detailedcontainer ul{margin:0;padding:0;list-style:none;}
+
+#navigation{height:26px;}
+
+#navigation li{float:left;}
+
+#navigation li a,#navigation li span{display:inline-block;border:solid 1px #fff;border-bottom:none;height:26px;padding:0 6px;line-height:20px;overflow:hidden}
+
+#navigation li.show .content{display:block;}
+
+#navigation li.show a.index{background:#DBF3FE;border-color:#0a0;position:relative;top:0px;z-index:2;}
+
+#navigation li .content{position:absolute;left:0;top:26px;background:#DBF3FE;border:solid 1px #0a0;width:760px;padding:20px;display:none;}

@@ -1,0 +1,425 @@
+@charset "utf-8";
+
+#page960 {
+padding: 0 30px 20px;
+}
+
+/*feedback*/
+p.ui-feedback-addon.ui-feedback-body {
+font-size: 12px;
+color: #333;
+line-height: 16px;
+}
+
+p.ui-feedback-addon.ui-feedback-error {
+border: 1px solid #ffd4d2;
+background-color: #ffefee;
+background-position: -110px 0;
+}
+
+p.ui-feedback-addon.ui-feedback-error, p.ui-feedback-addon.ui-feedback-alert, p.ui-feedback-addon.ui-feedback-success {
+padding: 4px 10px 4px 37px;
+background: transparent url(../images/sprite-feedback-addon.png) no-repeat 0 0;
+}
+
+.order-warn-tips .ui-feedback, .order-warn-tips .ui-notice {
+margin-bottom: 10px;
+}
+
+
+
+.ui-notice .ui-notice-prompt, p.ui-notice.ui-notice-normal.ui-notice-prompt {
+position: relative;
+padding: 4px 30px 4px 10px;
+border: 2px solid #cee6ff;
+}
+
+.ui-notice-normal .ui-notice-prompt, p.ui-notice.ui-notice-normal.ui-notice-prompt {
+padding-left: 35px;
+background-position: 10px -82px;
+}
+
+p.ui-notice.ui-notice-normal, .ui-notice-normal .ui-notice-alert, .ui-notice-normal .ui-notice-help, .ui-notice-normal .ui-notice-prompt {
+background: #fff url(../images/sprite-notice-addon.png?t=c41fb6f4_0) no-repeat 0 0;
+}
+
+.ui-notice {
+font-size: 12px;
+line-height: 18px;
+}
+
+.ui-notice .ui-notice-body, p.ui-notice .ui-notice-body {
+color: #333;
+}
+
+.ui-notice .ui-notice-body {
+color: #666;
+font-size: 12px;
+line-height: 18px;
+}
+
+p.ui-feedback-addon.ui-feedback-error {
+border: 1px solid #ffd4d2;
+background-color: #ffefee;
+background-position: -110px 0;
+}
+
+
+.address-info-item .ui-feedback {
+float: left;
+}
+
+/*shipping info*/
+button, input {
+overflow: visible;
+line-height: normal;
+}
+
+button, input, select, textarea {
+font-size: 100%;
+margin: 0;
+vertical-align: baseline;
+}
+
+button, input, select, textarea {
+margin: 0;
+font-size: 100%;
+vertical-align: middle;
+}
+
+a {
+color: #06c;
+text-decoration: none;
+}
+
+.edit-address-title, .address-title {
+font-size: 16px;
+font-weight: 700;
+color: #333;
+line-height: 30px;
+height: 30px;
+padding: 0 0 10px;
+border-bottom: 1px solid #eee;
+}
+
+.address-info-box {
+padding-top: 18px;
+}
+
+.address-info-item {
+padding-top: 12px;
+}
+.address-info-item {
+position: relative;
+padding-left: 170px;
+}
+
+.city-address-item {
+padding-top: 10px;
+}
+
+.address-info-item dt {
+position: absolute;
+width: 160px;
+line-height: 24px;
+margin-left: -170px;
+text-align: right;
+font-weight: 700;
+color: #666;
+}
+
+.address-info-item .ui-form-control {
+position: relative;
+}
+
+.address-info-item dd {
+margin-left: 0;
+position: relative;
+}
+
+.util-clearfix {
+zoom: 1;
+}
+
+dd {
+margin-left: 0;
+}
+
+dd {
+margin-bottom: 0;
+}
+
+dd {
+margin: 0 0 0 40px;
+}
+
+.util-clearfix:after {
+visibility: hidden;
+display: block;
+height: 0;
+font-size: 0;
+content: '\0020';
+clear: both;
+}
+
+.address-info-item dd .ui-textfield {
+float: left;
+margin: 0 5px 5px 0;
+width: 235px;
+}
+
+.ui-textfield-system {
+height: 14px;
+padding: 5px 4px;
+font-family: inherit;
+font-weight: 400;
+font-size: 12px;
+line-height: 14px;
+color: #333;
+background-color: #fff;
+border: 1px solid #ccc;
+-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+box-shadow: inset 0 1px 2px rgba(0,0,0,.1);
+-webkit-transition: border linear .2s;
+-moz-transition: border linear .2s;
+-ms-transition: border linear .2s;
+-o-transition: border linear .2s;
+transition: border linear .2s;
+}
+
+.ui-textfield {
+display: inline-block;
+overflow: visible;
+outline: none;
+}
+
+.address-info-item dd .select-txt {
+float: left;
+margin: 0 5px 5px 0;
+}
+
+.address-info-item dd select {
+padding: 4px 0;
+width: 248px;
+border: 1px solid #ccc;
+font-family: arial;
+}
+
+.address-info-item p.tips-txt {
+color: #999;
+line-height: 22px;
+}
+
+/*电话*/
+.address-info-item dd .ui-countryNumber {
+width: 40px;
+}
+.address-info-item dd .ui-areaNumber {
+width: 40px;
+}
+
+.address-info-item dd .ui-localNumber {
+width: 120px;
+}
+
+/*button 添加shipping*/
+.address-field-buttons {
+padding: 15px 0 0 170px;
+height: 35px;
+}
+
+.address-field-buttons .ui-button-primary {
+margin-right: 10px;
+}
+
+.ui-button-primary:hover, .ui-button-normal:hover {
+text-decoration: none;
+}
+
+.ui-button-primary, .ui-button-primary:link, .ui-button-primary:visited, .ui-button-primary:active {
+color: #fff;
+border: 1px solid #e87b0e;
+background-color: #ff9917;
+background-image: -moz-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -ms-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -webkit-gradient(linear,0 0,0 100%,from(#ffab02),to(#ff8a28));
+background-image: -webkit-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -o-linear-gradient(top,#ffab02,#ff8a28);
+background-image: linear-gradient(top,#ffab02,#ff8a28);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab02', endColorstr='#ff8a28', GradientType=0);
+}
+.ui-button.ui-button-primary, .ui-button.ui-button-normal {
+margin: 0;
+font-family: inherit;
+font-weight: 700;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+-moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+}
+
+.ui-button-primary, .ui-button-primary:link, .ui-button-primary:visited, .ui-button-primary:active {
+color: #fff;
+border: 1px solid #e87b0e;
+background-color: #ff9917;
+background-image: -moz-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -ms-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -webkit-gradient(linear,0 0,0 100%,from(#ffab02),to(#ff8a28));
+background-image: -webkit-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -o-linear-gradient(top,#ffab02,#ff8a28);
+background-image: linear-gradient(top,#ffab02,#ff8a28);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab02', endColorstr='#ff8a28', GradientType=0);
+}
+.ui-button-primary, .ui-button-primary:link, .ui-button-primary:visited, .ui-button-primary:active {
+color: #fff;
+border: 1px solid #e87b0e;
+background-color: #ff9917;
+background-image: -moz-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -ms-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -webkit-gradient(linear,0 0,0 100%,from(#ffab02),to(#ff8a28));
+background-image: -webkit-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -o-linear-gradient(top,#ffab02,#ff8a28);
+background-image: linear-gradient(top,#ffab02,#ff8a28);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab02', endColorstr='#ff8a28', GradientType=0);
+}
+
+.ui-button {
+display: inline-block;
+position: relative;
+overflow: visible;
+}
+
+.ui-button-medium {
+font-size: 14px;
+line-height: 18px;
+padding: 3px 15px;
+}
+
+
+/*地址显示*/
+
+
+.edit-address-title, .address-title {
+font-size: 16px;
+font-weight: 700;
+color: #333;
+line-height: 30px;
+height: 30px;
+padding: 0 0 10px;
+border-bottom: 1px solid #eee;
+}
+
+.address-list-main {
+margin-right: -20px;
+}
+
+.address-title {
+border-bottom: 0 none;
+}
+
+.address-item-box {
+position: relative;
+width: 300px;
+display: inline-block;
+zoom: 1;
+vertical-align: top;
+margin: 0 20px 20px 0;
+background: url(../images/shopcart-address-bg-grey.png) repeat;
+padding: 5px;
+cursor: pointer;
+}
+
+.selectedAddress, .addressHover {
+background: url(../images/shopcart-address-bg.png) repeat !important;
+}
+
+.address-item-inner {
+background: #fff;
+min-height: 164px;
+padding: 15px 30px;
+}
+
+input[type=checkbox], input[type=radio] {
+box-sizing: border-box;
+padding: 0;
+}
+
+.select-radio-input {
+position: absolute;
+top: 26px;
+left: 15px;
+z-index: 3;
+}
+.selectedAddress .select-icon {
+display: block;
+}
+.select-icon {
+display: none;
+position: absolute;
+top: 0;
+left: 0;
+z-index: 1;
+width: 34px;
+height: 34px;
+background: url(../images/shopcart-confirm-icon.png) no-repeat 0 -200px;
+}
+
+.address-item-box .ship-address-tips {
+display: none;
+position: absolute;
+top: 10px;
+right: 12px;
+color: #999;
+}
+
+/*具体地址*/
+.address-item-inner dt {
+font-size: 18px;
+line-height: 25px;
+font-weight: 700;
+word-break: break-all;
+}
+.address-item-inner dd {
+line-height: 20px;
+}
+
+/*地址编辑*/
+
+
+
+.operation-address a, .edit-address-btn a {
+padding-left: 15px;
+margin-right: 20px;
+color: #333;
+background: url(../images/shopcart-confirm-icon.png) no-repeat -150px -248px;
+}
+
+.edit-address-btn a {
+padding-left: 15px;
+color: #333;
+background: url(../images/shopcart-confirm-icon.png) no-repeat -150px -200px;
+}
+
+.edit-address-btn a {
+background-position: -150px -200px;
+font-weight: 700;
+}
+
+/*地址操作*/
+.operation-address {
+margin-top: -10px;
+padding-bottom: 10px;
+}
+
+.operation-address a.return-address {
+background-position: -150px -348px;
+}

@@ -1,0 +1,186 @@
+@charset "utf-8";
+
+
+
+/*order-list-search*/
+.order-list-search {
+line-height: 30px;
+margin-bottom: 20px;
+position: relative;
+}
+
+#simple-search {
+overflow: hidden;
+}
+
+.search-option {
+float: left;
+}
+
+.order-list-search label {
+color: #666;
+font: 400 bold 12px/24px arial;
+}
+
+label {
+cursor: default;
+}
+button, input {
+overflow: visible;
+line-height: normal;
+}
+orderList.htmmedia="all"
+button, input, select, textarea {
+margin: 0;
+font-size: 100%;
+vertical-align: middle;
+}
+input#product-name {
+width: 127px;
+margin-right: 10px;
+}
+.order-list-search input, .order-list-search select {
+border: 1px solid #CCC;
+font: 400 normal 12px/18px arial;
+padding: 2px;
+}
+
+.order-list-search #order-no {
+margin-right: 10px;
+width: 90px;
+}
+
+.order-list-search select {
+width: 195px;
+}
+
+/*advanced search*/
+.order-list-search #buyer-name, .order-list-search #seller-name, .order-list-search #shipping-no {
+margin-right: 10px;
+width: 65px;
+}
+
+
+.lang-en .order-list-search #buyer-name, .lang-en .order-list-search #seller-name, .lang-en .order-list-search #shipping-no {
+width: 65px;
+}
+
+.calendarItem {
+display: inline;
+}
+
+.order-list-search input.sourceData {
+margin-right: 2px;
+}
+
+
+/*search button*/
+.ui-button-primary, .ui-button-normal, .ui-button-primary-s, .ui-button-normal-s, .ui-button-primary-l, .ui-button-normal-l {
+margin: 0;
+font-family: Arial;
+text-align: center;
+vertical-align: middle;
+color: #333;
+border: solid 1px #bcbcbc;
+background-color: #f7f7f7;
+cursor: pointer;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+-moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+}
+.ui-button-primary, .ui-button-normal {
+font-size: 14px;
+font-weight: 700;
+line-height: 18px;
+padding: 3px 15px;
+}
+.ui-button-primary, .ui-button-primary-s, .ui-button-primary-l, .ui-button-primary:active, .ui-button-primary-s:active, .ui-button-primary-l:active {
+color: #fff;
+border: solid 1px #e87b0e;
+background-color: #ff9917;
+background-image: -moz-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -ms-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -webkit-gradient(linear,0 0,0 100%,from(#ffab02),to(#ff8a28));
+background-image: -webkit-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -o-linear-gradient(top,#ffab02,#ff8a28);
+background-image: linear-gradient(top,#ffab02,#ff8a28);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab02', endColorstr='#ff8a28', GradientType=0);
+}
+.ui-button-primary, .ui-button-primary:link, .ui-button-primary:visited, .ui-button-primary:active {
+color: #fff;
+border: 1px solid #e87b0e;
+background-color: #ff9917;
+background-image: -moz-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -ms-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -webkit-gradient(linear,0 0,0 100%,from(#ffab02),to(#ff8a28));
+background-image: -webkit-linear-gradient(top,#ffab02,#ff8a28);
+background-image: -o-linear-gradient(top,#ffab02,#ff8a28);
+background-image: linear-gradient(top,#ffab02,#ff8a28);
+background-repeat: repeat-x;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffab02', endColorstr='#ff8a28', GradientType=0);
+}
+orderList.htmmedia="all"
+.ui-button {
+display: inline-block;
+position: relative;
+overflow: visible;
+}
+.ui-button.ui-button-primary, .ui-button.ui-button-normal {
+margin: 0;
+font-family: inherit;
+font-weight: 700;
+text-align: center;
+vertical-align: middle;
+cursor: pointer;
+-webkit-border-radius: 2px;
+-moz-border-radius: 2px;
+border-radius: 2px;
+-webkit-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+-moz-box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+box-shadow: 0 1px 2px 0 rgba(0,0,0,.1);
+}
+#search-btn {
+padding: 3px 10px;
+margin-left: 10px;
+}
+
+
+table{
+  font-family: verdana,arial,sans-serif;
+  font-size: 11px;
+  color: #333333;
+  width: 98%;
+  border-width: 1px;
+  border-color: #a9c6c9;
+  border-collapse: collapse;
+}
+
+table {
+  display: table;
+  border-spacing: 2px;
+  border-color: gray;
+}
+
+table  td {
+  border-width: 1px;
+  padding: 7px;
+  border-style: solid;
+  border-color: #a9c6c9;
+}
+
+table th {
+    border-width: 1px;
+    padding: 7px;
+    border-style: solid;
+    border-color: #a9c6c9;
+}
+
+td, th {
+  display: table-cell;
+  vertical-align: inherit;
+}
+

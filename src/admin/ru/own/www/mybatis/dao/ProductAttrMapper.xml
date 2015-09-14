@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.ProductAttrMapper">
+ <!--  
+  <select id="selectAdminUserById" resultType="admin.ru.own.www.entity.AdminUser">
+    select u_id  as "UId", u_name as "UName" from admin_user where u_id = #{id}
+  </select>
+  
+  <sql id="column_list">
+        id,uid,follow_uid,update_time,create_time
+    </sql>
+        <select id="getListByUid" parameterType="java.lang.Long" resultMap="result_map">
+        select
+        <include refid="column_list"/>
+        from tb_sns_follow
+        where uid = #{uid}
+    </select>
+    <resultMap id="result_map" type="admin.ru.own.www.entity.BrandShow">
+        <id column="brand_id" property="id" jdbcType="INTEGER"/>
+        <result column="brand_name" property="name" jdbcType="VARCHAR"/>
+        <result column="parent_brand_id" property="pId" jdbcType="INTEGER"/>
+    </resultMap>
+    
+   <select id="brandFetchByCategoryId"  parameterType="java.lang.Integer" resultMap="result_map">
+          select brand_id,brand_name,parent_brand_id from brand_series where class_id = #{id}
+  </select>
+  
+
+  
+    <delete id="delForeignBrandByBranId" parameterType="java.lang.Integer">
+        delete from brandmultilanguage where brand_id=#{brandId}
+  
+  </delete>
+ -->
+  
+    <insert id="insertForeignProductAttr" useGeneratedKeys="true" keyProperty="id" parameterType="admin.ru.own.www.entity.ProductAttrMultiLanguage">
+     insert  into attributemultilanguage(lan_id,attr_id,foreign_name,foreign_title,foreign_keywords,foreign_description)
+        values(#{lan_id},#{productattr_id},#{name},#{title},#{keywords},#{description})
+  </insert>
+
+    <resultMap id="result_map" type="admin.ru.own.www.entity.ProductAttrMultiLanguageShow">
+                <id column="id" property="id" />
+        <result column="attr_id" property="productattr_id" />
+        <result column="language_name" property="lan_name" />
+        <result column="foreign_name" property="name" />
+        <result column="foreign_title" property="title" />
+        <result column="foreign_keywords" property="keywords" />
+        <result column="foreign_description" property="description" />
+    </resultMap>
+    
+   <select id="getProductAttrMultiLangShowByAttrId"  parameterType="java.lang.Integer" resultMap="result_map">
+          select c.id,c.attr_id,c.foreign_name,c.foreign_title,
+    c.foreign_keywords,c.foreign_description,l.language_name from attributemultilanguage c join language l where attr_id=#{id} and c.lan_id=l.lan_id
+  </select>
+  
+  <update id="updateBasicInfo" parameterType="admin.ru.own.www.entity.Attribute" flushCache="true"  timeout="20">
+    update attribute set attr_name=#{attrName},attr_status=#{attrStatus},
+    is_search_attr=#{isSearchAttr},is_global=#{globalattr} where attr_id=#{attrId}
+  </update>
+  
+  <update id="updateAttrXiangXiInfo" parameterType="admin.ru.own.www.entity.ProductAttrMultiLanguage" flushCache="true"  timeout="20">
+    update attributemultilanguage set foreign_name=#{name},foreign_title=#{title},
+    foreign_keywords=#{keywords},foreign_description=#{description} where id=#{id}
+  </update>
+  
+  <update id="updateAttrInputStyle" parameterType="admin.ru.own.www.entity.Attribute" flushCache="true"  timeout="20">
+    update attribute set input_style=#{inputStyle} where attr_id=#{attrId}
+  </update>
+  
+  
+  <resultMap id="global_attr_result_map" type="admin.ru.own.www.entity.Attribute">
+        <id column="attrId" property="attrId" />
+        <result column="attrName" property="attrName" />
+        <result column="categoryId" property="categoryId" />
+        <result column="InputStyle" property="inputStyle" />
+        <result column="globalattr" property="globalattr" />
+        <result column="isSearchAttr" property="isSearchAttr" />
+        <result column="attrStatus" property="attrStatus" />
+  </resultMap>
+    
+   <select id="fetchGlobalAttr"  resultMap="global_attr_result_map">
+          select c.attr_id attrId,c.attr_name attrName,c.category_id categoryId,c.input_style InputStyle,
+    c.is_global globalattr,c.is_search_attr isSearchAttr,c.attr_status attrStatus from attribute c  where is_global=1
+  </select>
+    
+  <delete id="attributeDeleteByAttrId" parameterType="java.lang.Integer"><!-- 删除属性的同时，也要删除该属性对应的属性值信息 -->
+    delete from attribute where attr_id=#{id};delete from attributemultilanguage where attr_id=#{id};
+    delete from attribute_valuemultilanguage  where attr_value_id IN (select attr_value_id from attribute_value where attr_id=#{id});
+    delete from attribute_value where attr_id=#{id}
+  </delete>
+</mapper>

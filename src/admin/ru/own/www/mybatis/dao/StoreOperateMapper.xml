@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.StoreOperateMapper">
+	  
+	  <insert id="InsertStoreHomeInfo" useGeneratedKeys="true" keyProperty="id" parameterType="admin.ru.own.www.entity.Storefooterinfo">
+	     insert  into storefooterinfo(name,fatherid,status,pagename,image,createtime)values(#{name},#{fatherid},#{status},#{pagename},#{image},now())
+	  </insert>
+	  
+	  <insert id="insertMultiStoreHomeInfo" useGeneratedKeys="true" keyProperty="id" parameterType="admin.ru.own.www.entity.Storefooterinfomultilanguage">
+	     insert  into storefooterinfomultilanguage(storefooterinfoid,lanid,name,content,title,keyword,description,modifytime,
+	     
+	     createtime)values(#{storefooterinfoid},#{lanid},#{name},#{content},#{title},#{keyword},#{description},now(),now())
+	  </insert>
+	  
+	  
+	 <delete id="deleteStoreHomeInfoById" parameterType="int">
+        delete from storefooterinfo  where id=#{id}; delete from storefooterinfomultilanguage  where storefooterinfoid=#{id}
+    </delete>
+      
+    <update id="modify_basic_info" parameterType="admin.ru.own.www.entity.Storefooterinfo" flushCache="true"  timeout="20">
+        update storefooterinfo  set name=#{name},status=#{status},image=#{image},createtime=now() where id=#{id}
+    </update>
+    
+    <update id="modify_xiangxi_info" parameterType="admin.ru.own.www.entity.Storefooterinfomultilanguage" flushCache="true"  timeout="20">
+        update storefooterinfomultilanguage  set name=#{name},title=#{title},keyword=#{keyword},description=#{description},modifytime=now() where id=#{id}
+    </update>
+    
+    <update id="modify_xiangxi_content" parameterType="admin.ru.own.www.entity.Storefooterinfomultilanguage" flushCache="true"  timeout="20">
+        update storefooterinfomultilanguage  set content=#{content},modifytime=now() where id=#{id}
+    </update>
+      
+    <select id="getStorefooterinfoById"  resultMap="childList" parameterType="int">
+        select * from  storefooterinfo c  where c.id=#{id};
+    </select>
+     
+     <!-- 获取需要编辑的货运模板的类型 -->
+     <resultMap type="admin.ru.own.www.entity.StoreFooterInfoEdit" id="steList">
+          <association property="parentInfo" javaType="admin.ru.own.www.entity.Storefooterinfo">
+		    <id property="id" column="id"/>
+		    <result property="name" column="name"/>
+		    <result property="fatherid" column="fatherid"/>
+		    <result property="status" column="status"/>
+		    <result property="pagename" column="pagename"/>
+		    <result property="image" column="image"/>
+		    <result property="createtime" column="createtime"/>
+		  </association>
+          <collection property="childInfoList"  column="{fatherId=id}"  ofType="admin.ru.own.www.entity.Storefooterinfo" select="selectChildList"></collection>
+     </resultMap>
+     
+     <resultMap type="admin.ru.own.www.entity.Storefooterinfo" id="childList">
+        <id property="id" column="id"/>
+	    <result property="name" column="name"/>
+	    <result property="fatherid" column="fatherid"/>
+	    <result property="status" column="status"/>
+	    <result property="pagename" column="pagename"/>
+	    <result property="image" column="image"/>
+	    <result property="createtime" column="createtime"/>
+     </resultMap>
+     
+     <select id="selectChildList"  resultMap="childList">
+        select * from  storefooterinfo c  where c.fatherid=#{fatherId};
+    </select>
+
+    
+    <select id="getAllHomeInfo" resultMap="steList">
+        select * from  storefooterinfo c  where c.fatherid=1;
+    </select>
+    
+    
+    
+    <!--配置一个resultMap 指定返回的类型 -->
+	<resultMap id="MultiInfoList" type="admin.ru.own.www.entity.StorefooterinfomultilanguageEdit">
+		<id column="id" property="id" />
+		<result column="storefooterinfoid" property="storefooterinfoid" />
+		<result column="language_name" property="lanname" />
+		<result column="name" property="name" />
+		<result column="content" property="content" />
+		<result column="title" property="title" />
+		<result column="keyword" property="keyword" />
+		<result column="description" property="description" />
+	</resultMap>
+	
+	<!-- 获取多语言需要的信息 -->
+	<select id="getStorefooterinfoEditByFooterId" parameterType="java.lang.Integer" resultMap="MultiInfoList">
+		select c.id,c.storefooterinfoid,c.name,c.content,c.title,
+		c.keyword,c.description,l.language_name from
+		storefooterinfomultilanguage c join language l where
+		storefooterinfoid=#{id} and c.lanid=l.lan_id
+	</select>
+	
+	<!-- 获取需要显示的信息 -->
+	
+    <select id="getStorefooterinfoByFooterIdAndLanId"  resultMap="MultiInfoList">
+		 select cm.id,cm.storefooterinfoid,cm.name,cm.content,cm.title,cm.keyword,cm.description 
+		 from storefooterinfo c, storefooterinfomultilanguage cm
+		  where c.status = 1 and c.id = #{1} and cm.lanid = #{0} and c.id=cm.storefooterinfoid;
+	</select>
+    
+        <!-- 获取客户端显示需要的页脚上部信息 -->
+    <select id="getShowStoreFooterInfo" parameterType="java.lang.Integer" resultMap="clientShowStoreFooterInfo">
+        select c.id,c.fatherid,c.image,c.pagename,cm.name,cm.lanid,cm.title,cm.keyword,cm.description from storefooterinfo c, storefooterinfomultilanguage cm where c.status = 1 and c.fatherid = 1 and cm.lanid = #{lanid} and c.id=cm.storefooterinfoid;
+    </select>
+    
+    <resultMap type="admin.ru.own.www.entity.StorefooterinfoClientShow" id="clientShowStoreFooterInfo">
+          <association property="fatherFooterInfo" javaType="admin.ru.own.www.entity.Storefooterinfo">
+            <id property="id" column="id"/>
+	        <result property="name" column="name"/>
+	        <result property="pagename" column="pagename"/>
+	        <result property="image" column="image"/>
+	        <result property="title" column="title"/>
+	        <result property="keyword" column="keyword"/>
+	        <result property="description" column="description"/>
+          </association>
+          <collection property="childFooterInfo"  column="{fatherId=id,lanid=lanid}"  ofType="admin.ru.own.www.entity.Storefooterinfo" select="selectSecondLevelList"></collection>
+     </resultMap>
+     
+     <select id="selectSecondLevelList"  resultMap="childFooterInfo">
+        select c.id,c.fatherid,c.image,c.pagename,cm.name,cm.lanid,cm.title,cm.keyword,cm.description from storefooterinfo c, storefooterinfomultilanguage cm where c.status = 1 and  c.fatherid = #{fatherId} and cm.lanid = #{lanid} and c.id=cm.storefooterinfoid;
+     </select>
+     
+     <resultMap type="admin.ru.own.www.entity.Storefooterinfo" id="childFooterInfo">
+            <id property="id" column="id"/>
+            <result property="name" column="name"/>
+            <result property="pagename" column="pagename"/>
+            <result property="image" column="image"/>
+            <result property="title" column="title"/>
+            <result property="keyword" column="keyword"/>
+            <result property="description" column="description"/>
+     </resultMap>
+     
+     <!-- 获取客户端点击之后需要显示的页面上部左侧信息 -->
+    <select id="getShowDetailedInfo"  resultMap="clientShowStoreFooterInfo">
+        select c.id,c.fatherid,c.image,c.pagename,cm.name,cm.lanid,cm.title,cm.keyword,cm.description from storefooterinfo c, storefooterinfomultilanguage cm where c.status = 1  and c.fatherid = 1 and cm.lanid = #{0} and c.id in (select fatherid from storefooterinfo where id=#{1}) and c.id=cm.storefooterinfoid;
+    </select>
+     
+     
+</mapper>

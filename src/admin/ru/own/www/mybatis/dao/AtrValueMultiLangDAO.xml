@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.AtrValueMultiLangDAO">
+	<resultMap type="admin.ru.own.www.entity.AttributeValueMultiLanguage" id="atrvml">
+		<id property="id" column="id"/>
+		<result property="lan_id" column="lan_id"/>
+		<result property="attrvalue_id" column="attr_value_id"/>
+		<result property="name" column="foreign_name"/>
+		<result property="title" column="foreign_title"/>
+		<result property="keywords" column="foreign_keywords"/>
+		<result property="description" column="foreign_description"/>
+	</resultMap>
+	
+	<select id="getAttrValueByAtrID" parameterType="int" resultMap="atrvml">
+		SELECT * from own.attribute_valuemultilanguage where attr_value_id=#{id}; 
+	</select>
+	<select id="getAttrValueByID" parameterType="int" resultMap="atrvml">
+		SELECT * from own.attribute_valuemultilanguage where id=#{id}; 
+	</select>
+	<insert id="insertAttrValue" parameterType="admin.ru.own.www.entity.AttributeValueMultiLanguage" useGeneratedKeys="true" keyProperty="id">
+		insert into own.attribute_valuemultilanguage(lan_id, attr_value_id,foreign_name,foreign_title,foreign_keywords,foreign_description)
+		values (#{lan_id},#{attrvalue_id},#{name},#{title},#{keywords},#{description});
+	</insert>
+	<delete id="delAttrValueByAtrID" parameterType="int">
+    	delete from own.attribute_valuemultilanguage where attr_value_id=#{id}; 
+    </delete>
+    <update id="update" parameterType="admin.ru.own.www.entity.AttributeValueMultiLanguage" flushCache="true"  timeout="20">
+	    update attribute_valuemultilanguage  set foreign_name=#{name},foreign_title=#{title},foreign_keywords=#{keywords},foreign_description=#{description} where id=#{id}
+  	</update>
+</mapper>

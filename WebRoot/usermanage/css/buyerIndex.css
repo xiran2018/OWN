@@ -1,0 +1,259 @@
+@charset "utf-8";
+
+html, body {
+background-color: #eee;
+}
+
+/*对原有的改变*/
+#lagout-three {
+border-top: 0px;
+width: 1210px !important;
+}
+
+.lagout-three-l {
+width: 250px !important;
+}
+
+.lagout-three-r {
+width: 960px !important;
+}
+
+
+
+/*左边*/
+.grid-col-container {
+padding: 0 10px;
+margin-bottom: 20px;
+}
+
+.me-left-menu {
+font-size: 13px;
+position: relative;
+background-color: #fff;
+overflow: hidden;
+border: 1px solid #e8e8e8;
+}
+h3 {
+font-size: 1.5em;
+line-height: 1;
+}
+.me-left-menu h3 {
+font-size: 18px;
+line-height: 14px;
+margin-bottom: 20px;
+color: #333;
+}
+.me-left-menu .me-menu-header {
+position: relative;
+margin: 0;
+padding: 15px 15px 5px;
+border-bottom: none;
+color: #333;
+}
+
+.me-left-menu .me-menu-body {
+margin: 7px 0 15px;
+}
+
+.me-left-menu p {
+margin: 0;
+}
+.me-left-menu .me-menu-body .me-menu-title {
+line-height: 30px;
+padding-left: 15px;
+}
+
+
+/*mobile app*/
+.grid-col-container .me-ui-box {
+border: 1px solid #e8e8e8;
+background-color: #fff;
+padding: 15px;
+}
+
+.mobile-app {
+text-align: center;
+}
+.mobile-app span.g {
+color: #999;
+}
+.mobile-app span {
+display: block;
+width: 186px;
+}
+.mobile-app span.t {
+font-size: 16px;
+line-height: 20px;
+text-align: center;
+padding-bottom: 5px;
+}
+
+.mobile-app a {
+display: block;
+text-decoration: none;
+color: #333;
+}
+img {
+color: transparent;
+font-size: 0;
+border: 0;
+vertical-align: middle;
+-ms-interpolation-mode: bicubic;
+}
+a img {
+border: none;
+}
+img {
+vertical-align: middle;
+}
+.mobile-app img {
+margin: 15px auto;
+}
+.mobile-app a:hover {
+color: #f60;
+}
+
+
+
+/*右边*/
+
+.grid-col-container {
+padding: 0 10px;
+margin-bottom: 20px;
+}
+
+.grid-col-container .me-ui-box {
+border: 1px solid #e8e8e8;
+background-color: #fff;
+padding: 15px;
+}
+
+.me-info-block {
+height: 70px;
+}
+
+.me-custom-photo {
+float: left;
+width: 85px;
+position: relative;
+}
+
+.me-custom-photo img, .me-custom-photo .mask {
+width: 70px;
+height: 70px;
+border-radius: 34px;
+}
+
+.me-custom-photo .mask {
+position: absolute;
+z-index: 3;
+top: 0;
+left: 0;
+display: none;
+}
+
+.me-custom-level {
+float: left;
+width: 608px;
+margin-top: 10px;
+}
+
+.me-custom-level .personal-name {
+margin-bottom: 10px;
+}
+.me-custom-level .personal-name span {
+font-size: 18px;
+}
+.me-custom-level .personal-name span a {
+color: #333;
+padding-right: 10px;
+}
+
+.me-custom-level .personal-feedback {
+float: left;
+color: #999;
+cursor: pointer;
+}
+.me-custom-level .personal-feedback label {
+cursor: pointer;
+}
+.me-custom-level a label, .personal-messages span {
+color: #999;
+}
+.me-custom-level .personal-feedback a span {
+margin-left: 0;
+}
+.me-custom-level .personal-feedback a span, .me-custom-level span em, .me-custom-level .personal-feedback a label:hover, .me-custom-level .personal-messages a span:hover {
+color: #f60;
+}
+
+.personal-other {
+float: right;
+width: 145px\0;
+}
+
+
+.me-custom-level .personal-messages {
+float: left;
+margin-left: 15px;
+color: #999;
+}
+
+
+/*user info detail*/
+.me-info-details {
+float: left;
+margin-bottom: 20px;
+background: #fafafa;
+border: 1px #e8e8e8 solid;
+border-top: 0;
+color: #666;
+}
+
+.me-info-details ul {
+margin: 20px 0;
+float: left;
+}
+
+ul {
+list-style: disc;
+}
+ul li {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.me-info-details li {
+float: left;
+width: 156px;
+background: url(../images/fg.png?t=c03262c_0) no-repeat top right;
+}
+
+.me-info-details li a {
+color: #333;
+text-decoration: none;
+}
+
+.me-info-details span.v {
+color: #f60;
+font-size: 20px;
+margin-bottom: 5px;
+height: 24px;
+line-height: 24px;
+display: block;
+}
+.me-info-details span {
+display: inline-block;
+width: 156px;
+text-align: center;
+}
+
+.me-info-details span.v.zero {
+color: #333;
+}
+
+.me-info-details li.last {
+background: none;
+width: 158px;
+}
