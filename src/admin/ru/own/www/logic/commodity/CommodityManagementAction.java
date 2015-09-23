@@ -45,7 +45,7 @@ public class CommodityManagementAction extends ActionSupport {
 
 	public String showList() {
 		ProductsDAO dao = (ProductsDAO) DAOFactory.get(ProductsDAO.class.getName());
-		ActionContext.getContext().put("totalNumber", PageUtil.getTotalPageNumber(dao.getCount(),10));
+		ActionContext.getContext().put("totalNumber", PageUtil.getTotalPageNumber(dao.getCount()));
 		dao.closeSession();
 		return "showList";
 	}

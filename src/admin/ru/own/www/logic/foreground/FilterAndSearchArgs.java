@@ -80,6 +80,16 @@ public class FilterAndSearchArgs {
 		}
 		return argss;
 	}
+	
+	public Map<String, Object> getPushArgs() {
+		int initPage = parameterUtil.getInitPageParameter();
+		Map<String, Object> argss = new HashMap<String, Object>();
+		argss.put("begain",0+initPage*PageUtil.getPageSize());
+		argss.put("size",PageUtil.getPageSize());
+		argss.put("startPrice", startPrice);
+		argss.put("endPrice", endPrice);
+		return argss;
+	}
 	/**
 	 * 返回所有符合条件的product的args,为了计算符合条件的产品的，数目
 	 * limt里的参数是（0,MAX）

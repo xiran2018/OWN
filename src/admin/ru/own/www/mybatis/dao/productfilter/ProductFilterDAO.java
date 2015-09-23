@@ -22,4 +22,6 @@ public interface ProductFilterDAO extends MyBatisMapper {
 	 * @return
 	 */
 	public List<Integer> getIndexProductsLimit(Map<String, Object> args);
+	public List<Integer> getPushProductsLimit(Map<String, Object> args);
+	public int getPushProductsTotalNumber(Map<String, Object> args);
 }

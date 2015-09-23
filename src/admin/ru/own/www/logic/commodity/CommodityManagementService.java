@@ -1,25 +1,9 @@
 package admin.ru.own.www.logic.commodity;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import java.util.Stack;
-
-import javax.servlet.http.HttpServletRequest;
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
-import admin.ru.own.www.entity.AttributeValue;
-import admin.ru.own.www.entity.Category;
-import admin.ru.own.www.entity.Product_Basic_Attr;
+import admin.ru.own.www.logic.category.CategoryService;
 import admin.ru.own.www.mybatis.dao.AttributeDAO;
-import admin.ru.own.www.mybatis.dao.AttributeValueDaoImp;
-import admin.ru.own.www.mybatis.dao.CategoryMapper;
-import admin.ru.own.www.mybatis.dao.ProductBasicAttrDAO;
-import admin.ru.own.www.mybatis.dao.ProductsDAO;
 import admin.ru.own.www.mybatis.dao.factory.DAOFactory;
 import admin.ru.own.www.vo.AttributeVO;
 import admin.ru.own.www.vo.AttributeValueVO;
@@ -27,7 +11,7 @@ import admin.ru.own.www.vo.Product_Basic_Attr_VO;
 import admin.ru.own.www.vo.ProductsVO;
 
 public class CommodityManagementService {
-
+	private CategoryService categoryService = new CategoryService();
 	/**
 	 * 判断当前产品是否有category对应的属性，方便前台展示
 	 * 
@@ -69,9 +53,6 @@ public class CommodityManagementService {
 	}
 	
 	public List<Integer> getAllFutherCategoryID(int categoryid) {
-		CategoryMapper categoryDAO = (CategoryMapper) DAOFactory.get(CategoryMapper.class.getName());
-		List<Integer> categoryIDs = categoryDAO.getAllFutherCategoryID(categoryid);
-		categoryDAO.closeSession();
-		return categoryIDs;
+		return categoryService.getAllFutherCategoryID(categoryid);
 	}
 }

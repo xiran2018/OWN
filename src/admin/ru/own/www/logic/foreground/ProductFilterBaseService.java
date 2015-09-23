@@ -44,16 +44,4 @@ public class ProductFilterBaseService {
 		dao.closeSession();
 		return CategoryExhibitionImage.find(imagesize);
 	}
-	/**
-	 * 得到子categoryid，包括自身
-	 * @param categoryid
-	 * @return
-	 */
-	public List<Integer> getAllSubCategoryID(int categoryid) {
-		CategoryMapper categoryDAO = (CategoryMapper) DAOFactory.get(CategoryMapper.class.getName());
-		List<Integer> categoryIDs = categoryDAO.getAllSubCategoryID(categoryid);
-		categoryDAO.closeSession();
-		return categoryIDs;
-	}
-	
 }

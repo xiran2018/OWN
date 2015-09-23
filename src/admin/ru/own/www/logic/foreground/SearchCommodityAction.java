@@ -29,7 +29,7 @@ public class SearchCommodityAction extends ActionSupport {
 		int lanID = DefaultLanguageUtil.getDefaultLanguageID();
 		Map<String, Object> argsMap = initArgs(lanID, searchMsg).getSearchCountArgs();
 		List<Integer> searchCommodityIDs = service.getSearchCommodityIDs(argsMap);
-		int totalPageNumber = PageUtil.getTotalPageNumber(searchCommodityIDs.size(),PageUtil.getPageSize());
+		int totalPageNumber = PageUtil.getTotalPageNumber(searchCommodityIDs.size());
 		return totalPageNumber;
 	}
 	
