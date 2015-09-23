@@ -6,7 +6,7 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<%@ taglib prefix="s" uri="/struts-tags"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
 <head>
@@ -39,6 +39,8 @@
 	rel="stylesheet" type="text/css" />
 <link href="jqladmin/product/commoditymanagement/page-list.css"
 	rel="stylesheet" type="text/css" />
+	
+	
 <script type="text/javascript" src="js/math.js"></script>
 <script type="text/javascript" >
 	var categoryid = ${categoryid};
@@ -47,15 +49,19 @@
 	var imagewidth = ${categoryExhibitionSize.width};
 </script>
 <script type="text/javascript" src="foreground/js/pagelabelconstruct.js"></script>
-<script type="text/javascript" src="foreground/js/page-list.js"></script>
 <script type="text/javascript" src="foreground/js/pricerange.js"></script>
 <script type="text/javascript" src="foreground/js/productsinfoservice.js"></script>
+<script type="text/javascript" src="foreground/js/productattributesearch.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		getNavigation(categoryid);
 		getRollImage(categoryid);
 		getAllAttribute(categoryid);
+		getExhibitionProducts(0,map,categoryid,0,2147483647);
 		registEvents(categoryid);//注册事件
+		buildPageTable(totalNumber);
+		registerEventLister();//左右条
+		registerPriceLister(false);//价格区间
 	});
 </script>
 </head>
@@ -115,8 +121,9 @@
 
 	<div id="shopping">
 		<div id="selectContainer">
-			<h2 class="floor-title  ctr-track-a">Fashion &amp; Clothing
-				（这里点击了什么就填写什么）</h2>
+			<h2 class="floor-title  ctr-track-a">
+				<c:out value="${route}"></c:out>
+			</h2>
 			<span id="selectAttrs">
 				<ul class="crumbSlide-con clearfix" id="J_CrumbSlideCon">
 
