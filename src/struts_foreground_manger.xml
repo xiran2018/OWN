@@ -18,10 +18,19 @@
     	
     	<action name="productfilter_*" class="admin.ru.own.www.logic.foreground.ProductFilterManagementAction" method="{1}">
     		<result name="getProducts" type="json">
-    			<param name="root">productsVOs</param>
+    			<param name="root">productsVOs</param>     	
     		</result>
     		<result name="getExhibitionProducts" type="json">
-    			<param name="root">productsVOs</param>
+    			<param name="root">productsVOs</param>     	
+    		</result>
+    		<result name="getHotProducts" type="json">
+				<param name="root">productsVOs</param>      		
+    		</result>
+    		<result name="getRecommendProducts" type="json">
+    			<param name="root">productsVOs</param>      	
+    		</result>
+    		<result name="getNewProducts" type="json">
+    			<param name="root">productsVOs</param>    	
     		</result>
     		<result name="returnTotalNumber" type="json">
     			<param name="root">totalNumber</param>
@@ -30,6 +39,9 @@
     	
     	<action name="thirdforegroundpage_*" class="admin.ru.own.www.logic.foreground.ThirdForegroundPageManagementAction" method="{1}">
     		<result name="showAll">/foreground/thirdlevelpage.jsp</result>
+    		<result name="findNewProducts">/foreground/newpage.jsp</result>
+    		<result name="findRecommendProducts">/foreground/recommendpage.jsp</result>
+    		<result name="findHotProducts">/foreground/hotpage.jsp</result>
     	</action>
     	
     	<action name="searchcommodity_*" class="admin.ru.own.www.logic.foreground.SearchCommodityAction" method="{1}">

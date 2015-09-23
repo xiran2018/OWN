@@ -9,6 +9,7 @@ import util.PageUtil;
 import util.ParameterUtil;
 
 import admin.ru.own.www.entity.CategoryImage;
+import admin.ru.own.www.logic.category.CategoryService;
 import admin.ru.own.www.mybatis.dao.AttrValueMapper;
 import admin.ru.own.www.mybatis.dao.AttributeDAO;
 import admin.ru.own.www.mybatis.dao.CategoryImageDAO;
@@ -28,14 +29,17 @@ public class SecondForegroundPageManagementAction extends ActionSupport {
 	private List<CategoryImage> categoryImages;
 	private List<AttributeVO> allAttributes;
 	private ParameterUtil parameterUtil = new ParameterUtil();
+	private CategoryService categoryService = new CategoryService();
 	
 	public String showAll() {
 		int categoryid = parameterUtil.getCategoryIDParameter();
 		
-		List<Integer> categoryIDs = service.getAllSubCategoryID(categoryid);
+		List<Integer> categoryIDs = categoryService.getAllSubCategoryID(categoryid);
+		
 		ProductsDAO dao = (ProductsDAO) DAOFactory.get(ProductsDAO.class.getName());
-		ActionContext.getContext().put("totalNumber", PageUtil.getTotalPageNumber(dao.getProductsCountByCategory(categoryIDs),PageUtil.getPageSize()));
+		ActionContext.getContext().put("totalNumber", PageUtil.getTotalPageNumber(dao.getProductsCountByCategory(categoryIDs)));
 		ActionContext.getContext().put("categoryid", categoryid);
+		ActionContext.getContext().put("route", RouteService.getRouteBar(categoryid));
 		//展示图片的大小
 		ExhibitionSize categoryExhibitionSize = service.getCategoryExhibitionSize(categoryid);
 		ActionContext.getContext().put("categoryExhibitionSize", categoryExhibitionSize);

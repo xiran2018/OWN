@@ -42,20 +42,22 @@
 	rel="stylesheet" type="text/css" />
 <link href="jqladmin/product/commoditymanagement/page-list.css"
 	rel="stylesheet" type="text/css" />
+	
+	
 <script type="text/javascript" src="js/math.js"></script>
+<script type="text/javascript" src="foreground/js/pagelabelconstruct.js"></script>
 
 <script type="text/javascript" src="foreground/js/pricerange.js"></script>
 <script type="text/javascript" src="foreground/js/productsinfoservice.js"></script>
 <script type="text/javascript" src="foreground/js/productattributesearch.js"></script>
-<script type="text/javascript" src="foreground/js/pagelabelconstruct.js"></script>
+
 <script type="text/javascript">
 	var categoryid = ${categoryid};
 	var totalNumber = ${totalNumber};
 	$(document).ready(function() {
 		
-		getAllAttribute(categoryid);
 		registEvents(categoryid);//注册事件
-		getExhibitionProducts(0,map,categoryid,0,2147483647);
+		getNewProducts(0,map,categoryid,0,2147483647);
 		buildPageTable(totalNumber);
 		registerEventLister();//左右条
 		registerPriceLister(false);//价格区间
@@ -63,8 +65,6 @@
 	var imageheight = ${categoryExhibitionSize.height};
 	var imagewidth = ${categoryExhibitionSize.width};
 </script>
-
-
 </head>
 
 <body>
@@ -78,41 +78,10 @@
 	<div style="clear:both"></div>
 
 	<div id="shopping">
-		<div id="selectContainer">
-			<h2 class="floor-title  ctr-track-a"><c:out value="${route}"></c:out></h2>
-			<span id="selectAttrs">
-				<ul class="crumbSlide-con clearfix" id="J_CrumbSlideCon">
-
-				</ul> 
-			</span>
-		</div>
+		
 	</div>
 
 	<div style="clear:both"></div>
-
-	<div class="attrs j_NavAttrs" style="display:block" id="allatr">
-		<!--  -->
-		<div class="propAttrs" data-spm="a220m.1000858.1000722">
-			<div class="j_Prop attr hotspot" data-mindiffrow="2">
-				<div class="attrKey">选购热点</div>
-				<div class="attrValues">
-					<ul class="av-collapse">
-					</ul>
-					<div class="av-options">
-						<a class="j_More avo-more ui-more-drop-l"
-							onclick="javascript:moreChange(this);" href="javascript:void(0);"
-							atpanel="0,,,,spu-pro,20,prop," style="display: inline;"> <label
-							class="opentiontext">更多</label><i class="ui-more-drop-l-arrow"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="propAttrs" data-spm="a220m.1000858.1000722">
-			<div class="j_Prop attr hotspot" data-mindiffrow="2"></div>
-		</div>
-	</div>
 
 
 	<div id="priceSearch">

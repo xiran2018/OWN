@@ -27,4 +27,39 @@
 		</foreach>
 		limit #{begain},#{size} 
     </select>
+    
+     <select id="getPushProductsLimit" parameterType="map" resultType="int">
+    	SELECT p.p_id FROM own.products as p 
+    	where p.p_status=1 and p.p_nowprice &gt;= #{startPrice} 
+    	and p.p_nowprice &lt;= #{endPrice}
+    	<choose>
+    		<when test="_parameter.containsKey(p_hot)">
+    			and p.p_hot=1
+    		</when>
+    		<when test="_parameter.containsKey(p_recommend)">
+    			and p.p_recommend=1
+    		</when>
+    		<when test="_parameter.containsKey(p_now)">
+    			and p.p_now=1
+    		</when>
+    	</choose>
+		limit #{begain},#{size} 
+    </select>
+    
+     <select id="getPushProductsTotalNumber" parameterType="map" resultType="int">
+     SELECT count(*) FROM own.products as p 
+    	where p.p_status=1 and p.p_nowprice &gt;= #{startPrice} 
+    	and p.p_nowprice &lt;= #{endPrice}
+    	<choose>
+    		<when test="_parameter.containsKey(p_hot)">
+    			and p.p_hot=1
+    		</when>
+    		<when test="_parameter.containsKey(p_recommend)">
+    			and p.p_recommend=1
+    		</when>
+    		<when test="_parameter.containsKey(p_now)">
+    			and p.p_now=1
+    		</when>
+    	</choose>
+     </select>
 </mapper>

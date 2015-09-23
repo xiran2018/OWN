@@ -24,7 +24,6 @@ function getTotalNumber(map,categoryid,startPrice,endPrice,change) {
 	});
 	return totalNumber;
 }
-
 function getProducts(nowPage,map,categoryid,startPrice,endPrice) {
 	var data = $.toJSON(map.elements);
 	var html = "";
@@ -41,6 +40,38 @@ function getProducts(nowPage,map,categoryid,startPrice,endPrice) {
 			$("#sellerul").append(html);
 		},"json");
 
+	return;
+}
+
+
+function getBaseProducts(url,nowPage,map,categoryid,startPrice,endPrice) {
+	var htmldata = "";
+	$.post("fg/productfilter_"+url+".action",{initPage:nowPage,categoryid:categoryid,startPrice:startPrice,endPrice:endPrice},
+	function(data) {
+		$("#sellerul").empty();
+		$.each(data, function(index,atrv) {
+			
+			htmldata += "<li>";
+			htmldata += "<a href='client/productShow.action?id="+atrv.products.p_id+"'><img src="+atrv.showURL+" width='"+imagewidth+"' height='"+imageheight+"'> </a><br/>";
+			htmldata += "<a class='productTitle' href='client/productShow.action?id="+atrv.products.p_id+"' style='width: "+imagewidth+"px;'>"+atrv.products.p_name+"</a><br/>";
+			htmldata += "<a href='client/productShow.action?id="+atrv.products.p_id+"'>"+currencySymbol+"<span>"+calculateFeeByExchangeRate(atrv.products.p_originprice,currencyRate)+"</span></a>"+currencySymbol;
+			htmldata += "<a href='client/productShow.action?id="+atrv.products.p_id+"' class='orange'>"+calculateFeeByExchangeRate(atrv.products.p_nowprice,currencyRate)+"</a></a>";
+			htmldata += "</li>";
+		});
+		$("#sellerul").append(htmldata);
+	});
+	return;
+}
+function getHotProducts(nowPage,map,categoryid,startPrice,endPrice) {
+	getBaseProducts("getHotProducts",nowPage,map,categoryid,startPrice,endPrice);
+	return;
+}
+function getRecommendProducts(nowPage,map,categoryid,startPrice,endPrice) {
+	getBaseProducts("getRecommendProducts",nowPage,map,categoryid,startPrice,endPrice);
+	return;
+}
+function getNewProducts(nowPage,map,categoryid,startPrice,endPrice) {
+	getBaseProducts("getNewProducts",nowPage,map,categoryid,startPrice,endPrice);
 	return;
 }
 
@@ -70,21 +101,7 @@ function getSearchProducts(pageNum,searchMsg,startPrice,endPrice){
  */
 function getExhibitionProducts(nowPage,map,categoryid,startPrice,endPrice)
 {
-	var htmldata = "";
-	$.post("fg/productfilter_getExhibitionProducts.action",{initPage:nowPage,categoryid:categoryid,startPrice:startPrice,endPrice:endPrice},
-	function(data) {
-		$("#sellerul").empty();
-		$.each(data, function(index,atrv) {
-			
-			htmldata += "<li>";
-			htmldata += "<a href='client/productShow.action?id="+atrv.products.p_id+"'><img src="+atrv.showURL+" width='"+imagewidth+"' height='"+imageheight+"'> </a><br/>";
-			htmldata += "<a class='productTitle' href='client/productShow.action?id="+atrv.products.p_id+"' style='width: "+imagewidth+"px;'>"+atrv.products.p_name+"</a><br/>";
-			htmldata += "<a href='client/productShow.action?id="+atrv.products.p_id+"'>"+currencySymbol+"<span>"+calculateFeeByExchangeRate(atrv.products.p_originprice,currencyRate)+"</span></a>"+currencySymbol;
-			htmldata += "<a href='client/productShow.action?id="+atrv.products.p_id+"' class='orange'>"+calculateFeeByExchangeRate(atrv.products.p_nowprice,currencyRate)+"</a></a>";
-			htmldata += "</li>";
-		});
-		$("#sellerul").append(htmldata);
-	});
+	getBaseProducts("getExhibitionProducts",nowPage,map,categoryid,startPrice,endPrice);
 }
 function getPageData(nowPage,map,categoryid,startPrice,endPrice,change)
 {

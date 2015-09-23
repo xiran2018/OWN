@@ -11,6 +11,8 @@ import com.opensymphony.xwork2.ActionSupport;
 public class GetLanguage extends ActionSupport 
 {
 	List<Language> multiLanguage=null;
+	String callback=null;
+	
     
     @Override
     public String execute() throws Exception 
@@ -20,7 +22,15 @@ public class GetLanguage extends ActionSupport
     	landao.closeSession();
     	if(multiLanguage!=null)
     	{
-    		return SUCCESS;
+    		if(callback!=null)
+    		{
+    			callback="getShowLanguage('type':'200')";
+    			return "APP";
+    		}
+    		else 
+    		{
+    			return SUCCESS;
+			}
     	}
     	else
     	{
@@ -35,6 +45,16 @@ public class GetLanguage extends ActionSupport
 	public void setMultiLanguage(List<Language> multiLanguage) {
 		this.multiLanguage = multiLanguage;
 	}
+
+	public String getCallback() {
+		return callback;
+	}
+
+	public void setCallback(String callback) {
+		this.callback = callback;
+	}
+
+	
     
 	
 

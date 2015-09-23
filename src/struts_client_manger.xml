@@ -107,6 +107,9 @@
             <result name="success" type="json" >  
                 <param name="root">multiLanguage</param>
             </result>
+            <result name="APP" type="json" >  
+                <param name="root">callback</param>
+            </result>
         </action>
                  
         <!-- 取货币-->

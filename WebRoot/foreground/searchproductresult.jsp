@@ -51,14 +51,6 @@
 	</div>
 	<div style="clear:both"></div>
 
-	<div id="shopping">
-		<div id="selectContainer">
-			<h2 class="floor-title  ctr-track-a">Fashion &amp; Clothing
-				（这里点击了什么就填写什么）</h2>
-		</div>
-	</div>
-
-	<div style="clear:both"></div>
 	<div id="priceSearch">
 		<div class="fPrice" id="J_FPrice">
 			<div class="fP-box">

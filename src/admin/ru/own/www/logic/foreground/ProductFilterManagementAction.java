@@ -8,13 +8,14 @@ import org.apache.struts2.ServletActionContext;
 
 import util.PageUtil;
 import util.ParameterUtil;
+import admin.ru.own.www.logic.category.CategoryService;
 import admin.ru.own.www.vo.ProductsVO;
 
 import com.opensymphony.xwork2.ActionSupport;
 
 public class ProductFilterManagementAction extends ActionSupport {
 	private static final long serialVersionUID = 8187034093036833236L;
-
+	private CategoryService categoryService = new CategoryService();
 	private List<ProductsVO> productsVOs;
 	private int totalNumber;
 	private final ParameterUtil parameterUtil = new ParameterUtil();
@@ -45,7 +46,7 @@ public class ProductFilterManagementAction extends ActionSupport {
 		} else {
 			size = ProductFilter.getImp().getExhibitionProducts(args.getComputeCountArgs()).size();
 		}
-		totalNumber = PageUtil.getTotalPageNumber(size,PageUtil.getPageSize());
+		totalNumber = PageUtil.getTotalPageNumber(size);
 		return "returnTotalNumber";
 	}
 	
@@ -60,11 +61,29 @@ public class ProductFilterManagementAction extends ActionSupport {
 		return "getProducts";
 	}
 	
+	public String getHotProducts() {
+		FilterAndSearchArgs args = initIndexArgs();
+		productsVOs = filter.getHotProducts(args.getArgs());
+		return "getHotProducts";
+	}
+	
+	public String getRecommendProducts() {
+		FilterAndSearchArgs args = initIndexArgs();
+		productsVOs = filter.getRecommendProducts(args.getArgs());
+		return "getRecommendProducts";
+	}
+	
+	public String getNewProducts() {
+		FilterAndSearchArgs args = initIndexArgs();
+		productsVOs = filter.getNewProducts(args.getArgs());
+		return "getNewProducts";
+	}
+	
 	private FilterAndSearchArgs initIndexArgs() {
 		int startPrice = parameterUtil.getStartPriceParameter();
 		int endPrice = parameterUtil.getEndPriceParameter();
 		int categoryid = parameterUtil.getCategoryIDParameter();
-		List<Integer> categoryIDs = service.getAllSubCategoryID(categoryid);
+		List<Integer> categoryIDs = categoryService.getAllSubCategoryID(categoryid);
 		FilterAndSearchArgs args = new FilterAndSearchArgs(categoryIDs,startPrice,endPrice);
 		return args;
 	}

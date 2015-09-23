@@ -25,4 +25,14 @@ public class ProductFilterDAOImp implements ProductFilterDAO {
 		return dao.getIndexProductsLimit(args);
 	}
 
+	@Override
+	public List<Integer> getPushProductsLimit(Map<String, Object> args) {
+		return dao.getPushProductsLimit(args);
+	}
+
+	@Override
+	public int getPushProductsTotalNumber(Map<String, Object> args) {
+		return dao.getPushProductsTotalNumber(args);
+	}
+
 }
