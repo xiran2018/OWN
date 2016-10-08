@@ -40,6 +40,9 @@
 		<property name="isSearchAttr" type="java.lang.Short">
 			<column name="is_search_attr" />
 		</property>
+		<property name="isPopup" type="java.lang.Short">
+			<column name="is_popup" />
+		</property>
 		<property name="isMultiselect" type="java.lang.Short">
 			<column name="is_multiselect" />
 		</property>

@@ -16,6 +16,7 @@ public class Product_Basic_Attr13_ShowVO
 	private int attrId;//属性id
 	private String attrName;//属性名称
 	private int input_style; //该属性的输入方式
+	private int is_popup;//该属性的显示方式，是否弹框显示
 	private short is_sku;//是否sku属性
 	private AttributeValue attrValues; //属性值
 	public int getAttrId() {
@@ -55,5 +56,12 @@ public class Product_Basic_Attr13_ShowVO
 	public void setP_basic_attr_id(int p_basic_attr_id) {
 		this.p_basic_attr_id = p_basic_attr_id;
 	}
+	public int getIs_popup() {
+		return is_popup;
+	}
+	public void setIs_popup(int is_popup) {
+		this.is_popup = is_popup;
+	}
+	
 	
 }

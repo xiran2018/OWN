@@ -27,6 +27,8 @@ public interface CategoryMapper extends MyBatisMapper
 
 	public void updateCateBasicImage(Category category);
 	Category getCategory(int category_id);
+	
+	Category getCategoryByIdAndLanId(int category_id,int lanid);
 
 	public void updateCateBasicIcon(Category category);
 	/**

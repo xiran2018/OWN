@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="gbk"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <Config> 
   <StoreConfig>
-    <!-- //商店配置信息 -->  
+    <!-- //鍟嗗簵閰嶇疆淇℃伅 -->  
     <Footer>
-      <!-- //首页页脚存放的文字信息 -->&lt;b&gt;sjlfjsf&lt;/b&gt;
+      <!-- //棣栭〉椤佃剼瀛樻斁鐨勬枃瀛椾俊鎭� -->&lt;b&gt;sjlfjsf&lt;/b&gt;
     </Footer> 
   </StoreConfig> 
 </Config>

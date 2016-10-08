@@ -63,7 +63,7 @@
 	</update>
 	
 	<select id="getProductByPIdWithLanId"  resultType="admin.ru.own.www.entity.Products">
-        select  p.p_id,p.p_originprice,p.p_nowprice,p.p_storenumber,p.p_minbuyamount,p.p_freemail,p.p_jifen,p.p_weight,p.p_freight_templet,
+        select  p.p_id,p.p_originprice,p.p_nowprice,p.p_storenumber,p.p_minbuyamount,p.p_myserialnumber,p.p_freemail,p.p_jifen,p.p_weight,p.p_freight_templet,
         mp.product_name p_name,mp.product_detail_desc,mp.product_desc,mp.title title,mp.keywords keywords,mp.description description
         from own.products p, own.productmultilanguage mp where p.p_id=#{0} and mp.product_id=p.p_id and mp.lan_id=#{1}
     </select>

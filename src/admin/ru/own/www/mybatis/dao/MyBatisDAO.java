@@ -91,7 +91,7 @@ public class MyBatisDAO
         {
         	BrandSeriesMapper relativeMapper = sqlSession.getMapper(BrandSeriesMapper.class);  
         	list=relativeMapper.brandFetchByCategoryId(id); 
-	        System.out.println("数量："+list.size());
+//	        System.out.println("数量："+list.size());
         } 
         catch(Exception e)
         {

@@ -99,6 +99,7 @@ function save_product_attr() {
 	 var name=$.trim($("#name").val());
 	 
 	 var search=$('input[name="search"]:checked').val();
+	 var popup=$('input[name="popup"]:checked').val();  //是否弹框显示
 	 var status=$('input[name="status"]:checked').val();
 	 var input_style=$('input[name="input_style"]:checked').val();
 	 
@@ -137,6 +138,7 @@ function save_product_attr() {
                  "categoryId":classid,
                  "attrStatus":status,
                  "isSearchAttr":search,
+                 "isPopup":popup,
                  "InputStyle":input_style,
                  "multiLanString":multiLanString,
                  "multiAttrValueString":multiAttrValueString,

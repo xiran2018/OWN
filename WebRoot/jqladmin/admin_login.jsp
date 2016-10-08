@@ -16,11 +16,10 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<meta http-equiv="expires" content="0">
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 		<meta http-equiv="description" content="This is my page">
-		<!--
-	<link rel="stylesheet" type="text/css" href="styles.css">
-		<SCRIPT type=text/javascript src="jqladmin/js/util.js"></SCRIPT>
-	-->
-		<LINK rel=stylesheet type=text/css href="../css/main.css" media=screen>
+		
+		<link rel="stylesheet" type="text/css" href="jqladmin/css/login.css">
+
+		<link rel=stylesheet type=text/css href="../css/main.css" media=screen>
 		<SCRIPT type=text/javascript src="jqladmin/js/jquery-1.9.1.js"></SCRIPT>
 
 		<SCRIPT type=text/javascript src="../js/util.js"></SCRIPT>
@@ -55,21 +54,14 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 
 	<body>
 		<FORM id=loginForm action="admin_login.action" method=post>
-			<TABLE align=center>
-				<TBODY>
-					<TR>
-						<TD>
-							<DIV
-								style="BACKGROUND-IMAGE: url(); WIDTH: 1024px; HEIGHT: 109px"
-								id=header></DIV>
-						</TD>
-					</TR>
-					<TR>
-						<TD
-							style="BACKGROUND-IMAGE: url(); z-index: -3; WIDTH: 1024px; HEIGHT: 680px"
-							align=right>
-							<div
-								style="z-index: 9999999; MARGIN-TOP: -70px; MARGIN-RIGHT: 150px">
+			
+							<DIV id="header">
+								<div id="header-content">
+									<img id="logo" src="../images/logoAdmin.png" alt="Welcome 888own">
+								</div>
+									   
+							 <DIV>
+							<div id="login-content">
 								<TABLE border=0 cellSpacing=0 cellPadding=3>
 									<TBODY>
 										<TR>
@@ -77,8 +69,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												用户名:
 											</TD>
 											<TD>
-												<INPUT style="WIDTH: 140px" id="userName" type="text"
-													name="userName">
+												<INPUT id="userName" type="text" name="userName">
 											</TD>
 										</TR>
 										<TR>
@@ -86,8 +77,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 												密码:
 											</TD>
 											<TD>
-												<INPUT style="WIDTH: 140px"
-													id="password" type="password" name="password">
+												<INPUT id="password" type="password" name="password">
 											</TD>
 										</TR>
 										<TR id="randomCodeTR" style="">
@@ -97,27 +87,19 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
                                             <TD>
                                                 <input type="text" name="randomCode" id="randomCode" onKeyDown="keyPress(event)"/>
                                                 <img title="点击更换" onclick="javascript:refresh(this);" src="imageServlet"><br/>
-                                                <span>看不清,点击图片更换一张</span>
-                                               <!--
-                                                <INPUT style="WIDTH: 140px" onKeyDown="keyPress(event)"
-                                                    id="password" type="password" name="password">
-                                                 -->   
+                                                <span>看不清,点击图片更换一张</span>  
                                             </TD>
                                         </TR>
 										<TR height=65>
 											<TD vAlign=bottom colSpan=2 align=right>
 												<INPUT style="WIDTH: 80px; HEIGHT: 35px"
-													 onclick=javascript:login()
-													value="登录" type=button>
+													 onclick="javascript:login()"
+													value="登录" type=button id="loginButton">
 											</TD>
 										</TR>
 									</TBODY>
 								</TABLE>
-								</div>
-						</TD>
-					</TR>
-				</TBODY>
-			</TABLE>
+							</div>
 		</FORM>
 	</body>
 </html>

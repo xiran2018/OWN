@@ -7,6 +7,7 @@
 line-height: 30px;
 margin-bottom: 20px;
 position: relative;
+width: 98%;
 }
 
 #simple-search {
@@ -51,7 +52,7 @@ width: 90px;
 }
 
 .order-list-search select {
-width: 195px;
+width: 55px;
 }
 
 /*advanced search*/
@@ -163,6 +164,7 @@ table {
   display: table;
   border-spacing: 2px;
   border-color: gray;
+  /*table-layout: fixed;*/
 }
 
 table  td {
@@ -177,6 +179,11 @@ table th {
     padding: 7px;
     border-style: solid;
     border-color: #a9c6c9;
+}
+
+.pfromnetaddress{
+	width:100;
+	overflow: hidden;
 }
 
 td, th {

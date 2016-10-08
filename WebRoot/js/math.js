@@ -105,7 +105,7 @@ function calculateFeeByExchangeRate(number,currencyRate)
 	
 	
 	//商品价格
-	var number=(number/currencyRate);
+	var number=(number*currencyRate);
 	number=Digit.round(number, 2);
 	
 	number=Digit.changeTwoDecimal(number);

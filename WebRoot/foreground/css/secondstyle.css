@@ -10,7 +10,8 @@
 .lagout-three-r{position: relative;width:1000px; float:right;z-index: 1000;}
 
 /**/
-.second-cateogry-list{width:190px;  border-top:0;color: #fff;background: url('../img/category_backgr.png') #181818 no-repeat;}
+.second-cateogry-list{width:190px;  border-top:0;color: #fff; /* background: url('../img/category_backgr.png') #181818 no-repeat;*/}
+
 #sortlist, #sortlist .mc {
 overflow: visible;
 }
@@ -21,7 +22,7 @@ width: 188px;
 #sortlist {
 width: 188px;
 
-border: 2px solid #b08d6d;
+/*border: 2px solid #b08d6d;*/
 }
 .m, .sm {
 margin-bottom: 10px;
@@ -91,7 +92,7 @@ border-bottom: 1px dotted #ccc;
 margin: 0 8px;
 }
 
-
+/*
 #sortlist .con a, #sortlist li a, #sortlist .item li span {
 float: left;
 overflow: hidden;
@@ -101,7 +102,7 @@ padding-left: 0;
 margin-right: 8px;
 line-height: 22px;
 color: #666;
-}
+} */
 
 
 .clr {
@@ -113,7 +114,7 @@ line-height: 0;
 font-size: 0;
 }
 
-
+/*
 #sortlist ul {
 display: none;
 position: absolute;
@@ -174,7 +175,7 @@ left: 188px;
 top: -2px;
 border-left: none;
 height: 116px;
-}
+}*/
 
 /*end */
 
@@ -407,7 +408,7 @@ background-position: -20px 0;
 }
 
 
-/**//
+/**/
 .floor-number .solid-color-arrow {
 display: block;
 position: absolute;
@@ -430,10 +431,10 @@ text-decoration: none;
 /*閺堬拷绨虫稉瀣畱鐎佃壈鍩呴崶鍓у*/
 .banner{height:110px;width:300px; background:url(../images/adv5.jpg) no-repeat bottom center; margin-top:25px; margin-bottom:15px; overflow:}
 /*seller*/
-#seller{width:1190px;/*height:390px;*/margin:15px auto;}
+#seller{width:100%;/*height:390px;*/margin:15px auto;}
 
-#seller ul{width:1190px;}
-#seller ul li{/*width:163px;height:195px;*/margin: 11px; float:left;}
+#seller ul{width:100%;/*float:left;*/}
+#seller ul li{/*width:163px;height:195px;*/margin: 11px; display: inline-block;    text-align: left;/*float:left;*/}
 #seller ul li a{display:inline-block; padding-bottom:6px;}
 #seller ul li a.productTitle{word-break: break-all;overflow: hidden;height: 14px;line-height: 20px;}
 #seller ul li a span{ text-decoration:line-through; display:inline-block; padding-right:5px;}
@@ -455,8 +456,367 @@ text-decoration: none;
 
 
 
+/*===============================侧边栏是和wild berries 一样=========================================*/
+ul, ol {
+    list-style: none;
+}
+
+.sidemenu ul {
+    margin: 0;
+    padding: 0;
+}
+
+#navigationdiv .sidemenu{
+    clear: both;
+    margin: 0;
+    padding: 4px 0 0px 0px;
+    font-size: 12px;
+    display: block;
+    position: relative;
+    left: 0px;
+    top: 0px;
+    z-index: 3;
+    width: 188px;
+    border-width: 0px 0px 0px 0px;
+    background: #fff;
+}
+
+.sidemenu li {
+    padding: 3px 0;
+    line-height: 14px;
+}
+
+.sidemenu>.selected {
+    border-bottom: 1px solid #e8e8e8;
+    border-top: 1px solid #e8e8e8;
+    padding-bottom: 8px;
+    padding-top: 16px;
+}
+
+.sidemenu>li:first-child {
+    border-top: 0;
+    margin: 0 0 3px;
+    padding-top: 3px;
+}
+
+.sidemenu>.selected:first-child {
+    margin: 0;
+}
+
+.sidemenu>li {
+    margin-top: 8px;
+}
+
+.sidemenu .selected > ul, .sidemenu .selected > .custom-scrollbar {
+    padding-top: 2px;
+}
+
+.sidemenu .selected > ul {
+    margin: 8px 0 0 20px !important;
+}
+
+.sidemenu > .selected ul {
+    margin-top: 8px;
+}
+
+.sidemenu>.selected+li {
+    padding-top: 22px;
+    margin-top: 0;
+}
+
+.sidemenu a {
+	float:none !important;
+    line-height: 13px !important;
+    text-decoration: none !important;
+    border-bottom: 1px solid transparent;
+}
+
+.sidemenu>li>a {
+    font-size: 12px;
+    text-transform: uppercase;
+    color: #231f20;
+}
+
+.sidemenu .selected>a {
+    COLOR: #0076be !important;
+    TEXT-DECORATION: none !important;
+    font-size: 13px !important;
+}
+
+.sidemenu>li:first-child>ul, .sidemenu>li:first-child>.custom-scrollbar {
+    margin-top: 8px !important;;
+    padding-top: 2px !important;;
+}
+
+/*下面  关于 i的是一个标签，暂时不知道作用*/
+
+.i, .icon32 {
+    display: inline-block;
+    background: url(/i/ornament.png?7) no-repeat;
+}
+
+.sidemenu .i {
+    width: 9px;
+    height: 13px;
+    vertical-align: -1px;
+    background-position: -106px -65px;
+}
+
+.sidemenu>li>ul>.selected>a i, .sidemenu>li.selected>a i {
+    display: none;
+}
+
+/*===============================end of 侧边栏是和wild berries 一样================================*/
+
+/*=============================== 商品上面的title================================*/
 
 
+.breadcrumbs>div, .breadcrumbs>span {
+    display: inline-block;
+    font-size: 12px;
+}
+
+.breadcrumbs, .path {
+    font: 11px "tahoma",sans-serif;
+}
+
+.breadcrumbs {
+    background: none;
+    padding: 10px 0 10px 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+.path .divider, .breadcrumbs .divider {
+    margin: 0 .4em;
+}
+
+#categoryFloorTitle a{
+	    color: #767676;
+}
+
+/*===============================end of 商品上面的title================================*/
+
+/*===============================属性过滤框 和wild berries 一样================================*/
+
+
+.filters .filterblock.filter-active:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 13px;
+    bottom: -35px;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+.filters {
+    clear: both;
+    padding: 0 10px;
+    font-size: 12px;
+    margin-top: 29px;
+    margin-bottom: 30px;
+}
+
+.filters .filterblock {
+    position: relative;
+    width: 181px;
+    padding: 12px 8px 0 0;
+    display: none;
+}
+
+.filters .filter-active {
+    margin-bottom: 60px;
+}
+.filters .show {
+    display: block;
+}
+/*@media (min-width: 1245px)*/
+.filters .filterblock {
+    width: 100%;
+}
+
+.filter-title {
+    margin: 0 -5px 8px;
+    padding: 3px 70px 4px 5px;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #272727;
+    cursor: pointer;
+    position: relative;
+}
+
+.filters .arrow-icon {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    background: url(../images/ornament.png?7) -11px -244px;
+    width: 13px;
+    height: 7px;
+}
+
+.filters .arrow-icon-open {
+    background: url(../images/ornament.png?7) -17px -254px;
+    width: 7px;
+    height: 13px;
+    top: 5px;
+    right: 7px;
+}
+
+.filter-title .reset {
+    display: none;
+    position: absolute;
+    top: 2px;
+    right: 21px;
+    padding: 2px 3px;
+    font-weight: normal;
+    font-size: 11px;
+    line-height: 15px;
+    text-decoration: none;
+    text-transform: capitalize;
+    color: #767676;
+}
+
+.filters .selectorsblock {
+    position: relative;
+    display: none;
+    margin: 0 -8px;
+    max-height: 520px;
+    overflow: auto;
+}
+
+
+.filters .filter-active .selectorsblock {
+    display: block;
+}
+
+.filters ul {
+    margin: 0;
+    padding: 0;
+}
+
+.selectorsblock li {
+    padding: 4px 7px 4px 23px;
+    text-indent: -14px;
+}
+
+.selectorsblock li {
+    margin-bottom: 4px;
+    line-height: 18px;
+}
+
+.selectorsblock li:hover {
+    background: #d9d9d9;
+}
+
+.selectorsblock ul>.selected, .selectorsblock ul>.selected a {
+    background-color: #d9d9d9;
+    color: #272727;
+}
+
+.selectorsblock a {
+    text-decoration: none;
+    color: #272727;
+    cursor: pointer;
+    position: relative;
+    top: -2px;
+}
+
+.pseudocheckbox {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 3px 8px 1px 0;
+    vertical-align: -1px;
+    background: url(../images/ornament.png?7) no-repeat -195px -549px;
+    position: relative;
+    top: 2px;
+}
+
+.selected .pseudocheckbox {
+    background-color: #fff;
+    background-position: -210px -549px;
+}
+
+.selectorsblock a span {
+    color: #767676;
+}
+
+.selectorsblock li span {
+    margin-left: 2px;
+}
+
+.selectorsblock a {
+    font-size: 13px;
+}
+
+.start-n, .end-n {
+    display: block;
+    position: relative;
+    height: 25px;
+    width: 47%;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    padding-left: 1px;
+}
+
+.priceSpace{
+    display: block;
+    float: left;
+    position: relative;
+    height: 25px;
+    width: 5%;
+    vertical-align: bottom;
+    box-sizing: border-box;
+    padding-left: 0px;
+    color:  #767676; 
+    text-align: center;
+}
+
+.start-n {
+    float: left;
+}
+
+.end-n {
+    float: right;
+}
+
+.start-n input, .end-n input {
+    display: block;
+    width: 100%;
+    height: 25px;
+    padding: 6px 3px 3px 3px;
+    box-sizing: border-box;
+    border: 1px solid #eaeaea;
+    font-size: 12px;
+}
+
+.pricebutclass{
+	    text-align: center;
+    margin-top: 38px;
+}
+
+/*==============================end of 属性过滤框 和wild berries 一样================================*/
+
+/*防止用户多次点击*/
+#catalog-overlay {
+    display: none;
+    position: absolute;
+    z-index: 20000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff;
+    opacity: .5;
+    filter: alpha(opacity=50);
+}
+
+.trunkOld {
+    position: relative;
+    border: none;
+    margin: 0 auto;
+    background-color: #fff;
+}
 
 
 

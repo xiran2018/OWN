@@ -107,8 +107,8 @@
             <result name="success" type="json" >  
                 <param name="root">multiLanguage</param>
             </result>
-            <result name="APP" type="json" >  
-                <param name="root">callback</param>
+            <result name="WebAPP" type="plainText" >
+            	<param name="charSet">UTF-8</param>  
             </result>
         </action>
                  
@@ -186,7 +186,7 @@
                   
 	                  id,countryName,productvo\.products\.p_id,productvo\.products\.p_name,productvo\.products\.p_originprice,
 	                  productvo\.products\.p_nowprice,productvo\.products\.p_storenumber,productvo\.products\.p_minbuyamount,
-	                  productvo\.products\.p_freemail,productvo\.products\.p_jifen,productvo\.products\.p_weight,
+	                  productvo\.products\.p_freemail,productvo\.products\.p_jifen,productvo\.products\.p_weight,productvo\.products\.p_myserialnumber,
 	                  productvo\.products\.p_freight_templet,productvo\.products\.product_desc,productvo\.products\.product_detail_desc,
 	                  productvo\.products\.title,productvo\.products\.keywords,productvo\.products\.description,
 	                  productvo\.pBasic_Attrs.*,productvo\.pBasic_Attrs4.*,productvo\.psku.*,sc\[\d+\]\.id,sc\[\d+\]\.name,ssvo.*

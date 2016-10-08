@@ -31,4 +31,9 @@ public class AttributeDAOImp implements AttributeDAO {
 	public List<AttributeVO> getOneMultiCategoryAttribute(Map<String, Object> args) {
 		return attributeDAO.getOneMultiCategoryAttribute(args);
 	}
+
+	@Override
+	public List<AttributeVO> getOneMultiCategorySearchAttribute(Map<String, Object> args) {
+		return attributeDAO.getOneMultiCategorySearchAttribute(args);
+	}
 }

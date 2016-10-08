@@ -80,8 +80,8 @@
 		<include refid="productinfo"/> 
 	</select>
 	
-	<select id="getProductsCountByCategory" resultType="int" parameterType="list"> 
-		SELECT count(1) FROM own.products as p where p.p_categoryid in
+	<select id="getProductsCountByCategory"  resultType="int" parameterType="list"> 
+		SELECT count(1) FROM own.products as p where p.p_status=1 and p.p_categoryid in
 		<foreach item="item" collection="list" open="(" separator="," close=")">
 		#{item}
 		</foreach> 
@@ -93,7 +93,39 @@
 	
 	<select id="getAllVOLimit" resultMap="pdtivomap" parameterType="map"> 
 		SELECT p.*,c.category_name,b.brand_name FROM own.products as p, own.category as c,own.brand_series as b 
-		where p.p_brandid = b.brand_id and c.category_id = p.p_categoryid order by p_id desc limit #{begain},#{size};
+		where p.p_brandid = b.brand_id and c.category_id = p.p_categoryid 
+		<if test="productName != null  and productName != ''" > 
+	      and p.p_name like CONCAT(CONCAT('%', #{productName}), '%')
+	   </if>  
+	    <if test="brandName != null  and brandName != ''" > 
+	      and b.brand_name like #{brandName} 
+	   </if>
+       <if test="productStatus != null  and productStatus != ''" > 
+	     and  p.p_status=#{productStatus}
+	   </if>
+	   <if test="gmtBeginDate != null  and gmtBeginDate != '' and gmtEndDate != null  and gmtEndDate != '' " > 
+	     and date(p.p_date_added) between date(#{gmtBeginDate}) and date(#{gmtEndDate})
+	   </if>
+	   order by p_id desc limit #{begain},#{size};
+	</select>
+	
+	<select id="getTotalNumberProductByParameters"  resultType="int" parameterType="map"> 
+		SELECT count(*) FROM own.products as p, own.category as c,own.brand_series as b 
+		where p.p_brandid = b.brand_id and c.category_id = p.p_categoryid
+		 	   <if test="productName != null  and productName != ''" > 
+			      and p.p_name like CONCAT(CONCAT('%', #{productName}), '%')
+			   </if>  
+			    <if test="brandName != null  and brandName != ''" > 
+			      and b.brand_name like #{brandName} 
+			      <!--user.username like CONCAT(CONCAT('%', #{buyerName}), '%')   -->
+			   </if>
+	           <if test="productStatus != null  and productStatus != ''" > 
+			     and  p.p_status=#{productStatus}
+			   </if>
+			   <if test="gmtBeginDate != null  and gmtBeginDate != '' and gmtEndDate != null  and gmtEndDate != '' " > 
+			     and date(p.p_date_added) between date(#{gmtBeginDate}) and date(#{gmtEndDate})
+			   </if>
+			    order by p_id desc
 	</select>
 	
 	

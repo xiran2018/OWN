@@ -3,17 +3,33 @@ package admin.ru.own.www.mybatis.dao;
 import static org.junit.Assert.*;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
 import systemlog.Log;
+import admin.ru.own.www.entity.AttributeValueMultiLanguage;
 import admin.ru.own.www.entity.Language;
 import admin.ru.own.www.entity.ProductMultiLanguage;
+import admin.ru.own.www.mybatis.dao.factory.DAOFactory;
 
 public class MyBatisDAOTest {
 
 	@Test
+	public void testDAo(){
+		HashMap<String, Object> parameterTypesMap=new HashMap<String, Object>();
+		parameterTypesMap.put("p_id", 113);
+		parameterTypesMap.put("atrName_id", 9);
+		parameterTypesMap.put("attrValue_id", 14);
+		AtrValueMultiLangDAO dao = (AtrValueMultiLangDAO) DAOFactory.getInstance().getDAOImp(AtrValueMultiLangDAO.class.getName());
+		List<AttributeValueMultiLanguage> multAtrs = dao.getAttrValueByAtrIDAndPIDAndAttrValueId(parameterTypesMap);
+		System.out.println(multAtrs.size());
+	}
+	
+	//@Test
+		@Ignore
 	public void testArraySort()
 	{
 		String btring = "-1|2|9|3|10|4";
@@ -64,7 +80,7 @@ public class MyBatisDAOTest {
 	{
 		MyBatisDAO.getAllLanguage();
 	}
-	@Test
+	@Ignore
 	public void testinsertCategoryMulitLanguage()
 	{
 		String multiLanString="[{'id':7,'other_name':'ert','other_title':'ert','other_keywords':'ert','other_desc':'ert'},{'id':8,'other_name':'ert','other_title':'eer','other_keywords':'ter','other_desc':'tert'}]";

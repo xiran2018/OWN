@@ -15,7 +15,7 @@ public class ProductFilterImp extends ProductFilter {
 	@Override
 	List<ProductsVO> getExhibitionProducts(Map<String, Object> argss) {
 		ProductFilterDAO filterDAO = (ProductFilterDAO) DAOFactory.get(ProductFilterDAO.class.getName());
-		List<Integer> productsIDs = filterDAO.getExhibitionProducts(argss);
+		List<Integer> productsIDs = filterDAO.getExhibitionProducts(argss);   //取出符合条件的商品的id
 		filterDAO.closeSession();
 		List<ProductsVO> productsVOs = baseService.getProducts(productsIDs);
 		return productsVOs;

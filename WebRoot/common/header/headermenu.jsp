@@ -181,7 +181,7 @@
 			            <li class="current"><s:text name="www.web.product"></s:text></li>
 			         </ul>
 			         <div class="sea-cen">
-			         	<form action="fg/searchcommodity_showAll" method="post" target="_blank">
+			         	<form action="category/searchcommodity_showAll" method="post" target="_blank">
 			             <span></span>
 			             <input name="searchMsg" type="text"  class="txt" placeholder="I'm shopping for..."/>
 			             <input type="submit" value="" class="btn"/>

@@ -19,6 +19,7 @@ public class Attribute_Modify extends ActionSupport
 	private Integer id;
 	private String Name;
 	private Short isSearchAttr;
+	private Short isPopup;// 是否弹框显示
 	private Byte isglobalattr;
 	private Short status;
 
@@ -63,6 +64,7 @@ public class Attribute_Modify extends ActionSupport
 		attr.setAttrName(Name);
 		attr.setAttrStatus(status);
 		attr.setIsSearchAttr(isSearchAttr);
+		attr.setIsPopup(isPopup);
 		attr.setGlobalattr(isglobalattr);
 		
 		boolean flag=MyBatisDAO.updateBasicInfo(attr);
@@ -298,6 +300,14 @@ public class Attribute_Modify extends ActionSupport
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	public Short getIsPopup() {
+		return isPopup;
+	}
+
+	public void setIsPopup(Short isPopup) {
+		this.isPopup = isPopup;
 	}
 	
 	

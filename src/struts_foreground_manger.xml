@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
 <struts>
-    <package name="foreground-management"  namespace="/fg" extends="all">
+
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<include file="struts-default.xml" />
+
+    <package name="foreground-management"  namespace="/category" extends="all">
     	<default-interceptor-ref name="mydefault" /><!-- 使用语言拦截器 -->
-    	<action name="secondforegroundpage_*" class="admin.ru.own.www.logic.foreground.SecondForegroundPageManagementAction" method="{1}">
-    		<result name="showAll">/foreground/secondlevelpage.jsp</result>
+    	<action name="category_*" class="admin.ru.own.www.logic.foreground.SecondForegroundPageManagementAction" method="{1}">
+    		<result name="showAll">/foreground/ocategory.jsp</result>
     		<result name="getSecondLevelNavigation" type="json" >
     			 <param name="root">navigation</param>
     		</result>

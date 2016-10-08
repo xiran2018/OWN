@@ -30,6 +30,7 @@ public class Category_Insert extends ActionSupport {
 	private String multiLanString;
 	
 	private short isShow;
+	private short isInFloorshow;
 	private String icon;
 	private String image;
 	private short imagesize;
@@ -49,6 +50,7 @@ public class Category_Insert extends ActionSupport {
 		category.setImage(image);
 		category.setImagesize(imagesize);
 		category.setIsShow(isShow);
+		category.setIsInFloorshow(isInFloorshow);
 
 		
 //		JSONArray jsonArrary=JSONArray.fromObject(multiLanString);
@@ -63,6 +65,7 @@ public class Category_Insert extends ActionSupport {
 		 {
 				tx=session.beginTransaction();
 				session.save(category);
+				//取父类，把以前不是父类的类别，变为是父类
 				Category temp=(Category) session.get(Category.class, category.getCategoryFatherId());
 				temp.setIsFather((short)1);
 				tx.commit();
@@ -168,6 +171,14 @@ public class Category_Insert extends ActionSupport {
 
 	public void setImagesize(short imagesize) {
 		this.imagesize = imagesize;
+	}
+
+	public short getIsInFloorshow() {
+		return isInFloorshow;
+	}
+
+	public void setIsInFloorshow(short isInFloorshow) {
+		this.isInFloorshow = isInFloorshow;
 	}
 
 	

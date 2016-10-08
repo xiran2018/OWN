@@ -15,6 +15,7 @@ public class Category implements java.io.Serializable {
 	private Integer categoryFatherId;
 	private String categoryOtherName;
 	private Short isFather;
+	private Short isInFloorshow=0; //是否在楼层显示
 	private Short isShow=0;
 	private String icon;
 	private String image;
@@ -161,6 +162,14 @@ public class Category implements java.io.Serializable {
 	}
 
 
+
+	public Short getIsInFloorshow() {
+		return isInFloorshow;
+	}
+
+	public void setIsInFloorshow(Short isInFloorshow) {
+		this.isInFloorshow = isInFloorshow;
+	}
 
 	@Override
 	public int hashCode() {

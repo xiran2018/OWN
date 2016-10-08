@@ -27,9 +27,9 @@
 				           </div><!-- end of product-list -->
 				        </li>
 				        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.web.home"></s:text></a></li>
-				        <li class="headeritem"><a class="oneitem" href="fg/thirdforegroundpage_findNewProducts.action"><s:text name="www.product.new"></s:text></a></li>
-				        <li class="headeritem"><a class="oneitem" href="fg/thirdforegroundpage_findHotProducts.action"><s:text name="www.product.hot"></s:text></a></li>
-				        <li class="headeritem"><a class="oneitem" href="fg/thirdforegroundpage_findRecommendProducts.action"><s:text name="www.product.recommand"></s:text></a></li>
+				        <li class="headeritem"><a class="oneitem" href="category/thirdforegroundpage_findNewProducts.action"><s:text name="www.product.new"></s:text></a></li>
+				        <li class="headeritem"><a class="oneitem" href="category/thirdforegroundpage_findHotProducts.action"><s:text name="www.product.hot"></s:text></a></li>
+				        <li class="headeritem"><a class="oneitem" href="category/thirdforegroundpage_findRecommendProducts.action"><s:text name="www.product.recommand"></s:text></a></li>
 				        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.brand.all"></s:text></a></li>
 				      </ul>
 				      <div class="lagout-two-r">

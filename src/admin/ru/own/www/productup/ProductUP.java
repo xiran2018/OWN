@@ -73,7 +73,7 @@ public class ProductUP extends ActionSupport
 	@Override
 	public String execute() throws Exception 
 	{
-		BatchProductUp bpu=new BatchProductUp();
+		BatchProductUp bpu=new BatchProductUp(getUploadpath());
 		int flag = bpu.Up(); //成功返回1，错误返回-1  
 		if(flag==1)
 		{
@@ -89,6 +89,61 @@ public class ProductUP extends ActionSupport
 	
 	
 	
+	
+	public ProductUP() {
+		super();
+	}
+
+
+
+
+	public ProductUP(String uploadpath, int categoryId, int brandId,
+			String companyname, String fromurl, String companyorder,
+			String myorder, float buyprice, float originprice, float nowPrice,
+			int storNumber, int minBuyCount, byte nomailtax, byte status,
+			byte isNew, byte isHot, byte isRecommend, String beizhu,
+			float jifen, String en_other_name, String en_product_description,
+			String en_title, String en_keywords, String en_description,
+			String ru_other_name, String ru_product_description,
+			String ru_title, String ru_keywords, String ru_description,
+			String attValue, byte isSku, String skuString) {
+		super();
+		this.uploadpath = uploadpath;
+		this.categoryId = categoryId;
+		this.brandId = brandId;
+		this.companyname = companyname;
+		this.fromurl = fromurl;
+		this.companyorder = companyorder;
+		this.myorder = myorder;
+		this.buyprice = buyprice;
+		this.originprice = originprice;
+		this.nowPrice = nowPrice;
+		this.storNumber = storNumber;
+		this.minBuyCount = minBuyCount;
+		this.nomailtax = nomailtax;
+		this.status = status;
+		this.isNew = isNew;
+		this.isHot = isHot;
+		this.isRecommend = isRecommend;
+		this.beizhu = beizhu;
+		this.jifen = jifen;
+		this.en_other_name = en_other_name;
+		this.en_product_description = en_product_description;
+		this.en_title = en_title;
+		this.en_keywords = en_keywords;
+		this.en_description = en_description;
+		this.ru_other_name = ru_other_name;
+		this.ru_product_description = ru_product_description;
+		this.ru_title = ru_title;
+		this.ru_keywords = ru_keywords;
+		this.ru_description = ru_description;
+		this.attValue = attValue;
+		this.isSku = isSku;
+		this.skuString = skuString;
+	}
+
+
+
 	public int getCategoryId() {
 		return categoryId;
 	}
@@ -429,7 +484,6 @@ public class ProductUP extends ActionSupport
 		} 
 		catch (URISyntaxException e) 
 		{
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			Log.getInstance().out("路径下的文件错误，可能是因为空格等原因");
 		} 
@@ -477,65 +531,55 @@ public class ProductUP extends ActionSupport
 
 	class BatchProductUp
 	{
-		public BatchProductUp() 
+		String upLoadPathInBatch; //文件的上传路径
+		
+		public BatchProductUp(String upLoadPathArgs) 
 		{
+			upLoadPathInBatch=upLoadPathArgs;
 		}
 		
 		public int  Up()
 		{
 			String basePath=getRootPath();
-//			System.out.println("********************basePath:"+basePath);
-			String fileName=basePath+"/productImage/"+uploadpath;
+//			System.out.println("********************basePath:"+basePath+"****upLoadPathInBatch:"+upLoadPathInBatch);
+			String fileName=basePath+"/productImage/"+upLoadPathInBatch;
 			File productDir=new File(fileName);
 			File[] tempList = productDir.listFiles();
 //			System.out.println("该目录下对象个数："+tempList.length);
 			int j=0;//记录上一次添加文件至数据库中所在的位置
 			
-			
-//		   if (tempList[j].isDirectory()) 
-//		   {//把文件夹之前的文件加入数据库			   
-//			   	//遍历这个文件夹
-//			   	ProductUP pup=new ProductUP();
-//			   	pup.setUploadpath(uploadpath+"/"+tempList[j].getName());
-//				try 
-//				{
-//					pup.execute();
-//				} catch (Exception e) {
-//					// TODO Auto-generated catch block
-//					e.printStackTrace();
-//				}
-//			   
-//				
-//				
-//			   j=j+1;//当前元素的从下一个元素开始,也就是跳过文件夹这个位置
-//
-//		   }
 		   
-			String tempcomparName=tempList[j].getName();//记录第一个要添加至数据库中的文件的名字
-			int compartpos=tempcomparName.indexOf("("); //获取右括号所在的位置
-			String comparName=tempcomparName;
-			//比对商品的名称是否相等，作为是否是同一个商品的依据
-			if(compartpos!=-1)
-			{//说明有括号，如果为-1说明没有括号
-				
-				 comparName=tempcomparName.substring(0,compartpos);//截取左括号之后的文件名字
-			}
-			
+			boolean isNewProduct=true; //一个文件夹可能有很多的商品，表示是否为一个新的商品，从而确定是否要从新截取商品名称
+			String comparName="";
 			
 		    for (int i = 0; i < tempList.length; i++) 
 		    {
+//		       System.out.println("==================文     件："+tempList[i].getName());
 			   if (tempList[i].isFile()) 
 			   {
-//				   System.out.println("文     件："+tempList[i]);
+				   
+				   if(isNewProduct)
+				   {//读取到的是新文件，也就是一个新的商品，则记录要添加至数据库中的文件的名字
+						String tempcomparName=tempList[i].getName();//记录第一个要添加至数据库中的文件的名字
+						int compartpos=tempcomparName.indexOf("("); //获取右括号所在的位置
+						comparName=tempcomparName;
+						//比对商品的名称是否相等，作为是否是同一个商品的依据
+						if(compartpos!=-1)
+						{//说明有括号，如果为-1说明没有括号
+							
+							 comparName=tempcomparName.substring(0,compartpos);//截取左括号之后的文件名字
+						}
+						
+						isNewProduct=false; //表示以后的商品不是新商品了，不需要重新获取需要比较的名字
+				   }
+				   
+				   
 				   //获取相应的文件
 				   File tempFile=tempList[i];
 				   //获取文件的名字,行为 sss(1)
 				   String tempfileName=tempFile.getName();
-				   
-
 				   //获取左括号所在的位置
 				   int pos=tempfileName.indexOf("(");
-				   
 				   String tempRealName=tempfileName;//tempRealName的作用是记录上传商品去除括号的名字
 				   if(pos!=-1)
 				   {//说明有括号，如果为-1说明没有括号
@@ -547,14 +591,13 @@ public class ProductUP extends ActionSupport
 				   
 				   if(tempRealName.equals(comparName))//如果两者的文件名相同，则继续读取下一个文件，查看是否相同的商品所属的图片
 				   {
-//					   continue;
-					   //一下的代码是针对当i=tempList.length-1的时候，也就是当i已经是最后一个的情形，这时候，应该把j到i 之前的商品上传至数据库即可
+					   //以下的代码是针对当i=tempList.length-1的时候，也就是当i已经是最后一个的情形，这时候，应该把j到i 之前的商品上传至数据库即可
 					   int count=tempList.length-1;
 					   if(i==count)
 					   {//说明已经到了最后一个了,上传商品即可
 						   upLoad(j,i,tempList);
-						   
 					   }
+					   continue;
 				   }
 				   else
 				   {//如果不相同就要把该商品加入数据库了，该商品图片所属的范围是：tempList[j]至tempList[i-1]，
@@ -580,39 +623,48 @@ public class ProductUP extends ActionSupport
 				   //把文件夹之前的文件加入数据库
 				   int end=i-1;
 				   int start=j;
-				   if(end>=start)
+				   if(end>=0&&end>=start)
 				   {
 					   upLoad(j,i-1,tempList);
 				   }
 				   
+				   String uploadpathString=upLoadPathInBatch+"/"+tempList[i].getName();
 				   	//遍历这个文件夹
-				   	ProductUP pup=new ProductUP();
-				   	pup.setUploadpath(uploadpath+"/"+tempList[i].getName());
+				   	ProductUP pup=new ProductUP(uploadpathString ,  categoryId,  brandId,
+							 companyname,  fromurl,  companyorder,
+							 myorder,  buyprice,  originprice,  nowPrice,
+							 storNumber,  minBuyCount,  nomailtax,  status,
+							 isNew,  isHot,  isRecommend,  beizhu,
+							 jifen,  en_other_name,  en_product_description,
+							 en_title,  en_keywords,  en_description,
+							 ru_other_name,  ru_product_description,
+							 ru_title,  ru_keywords,  ru_description,
+							 attValue,  isSku,  skuString);
 					try 
 					{
 						pup.execute();
 					} catch (Exception e) {
-						// TODO Auto-generated catch block
 						e.printStackTrace();
 					}
 				   
 					
 					
 				   j=i+1;//当前元素的从下一个元素开始,也就是跳过文件夹这个位置
-				   if(j<tempList.length)
-				   {
-					   tempcomparName=tempList[j].getName();
-					   compartpos=tempcomparName.indexOf("("); 
-					   comparName=tempcomparName;
-					   
-					   if(compartpos!=-1)
-					   {//说明有括号，如果为-1说明没有括号
-						   
-						   comparName=tempcomparName.substring(0,compartpos);//截取左括号之后的文件名字
-					   }
-				   }
-			   }
-		     }
+				   isNewProduct=true; //遍历完了文件夹之后，之后如果有文件，则文件是新文件了，需要重新获取需要比较的名字
+//				   if(j<tempList.length)
+//				   {
+//					   String tempcomparName=tempList[j].getName();
+//					   int  compartpos=tempcomparName.indexOf("("); 
+//					   comparName=tempcomparName;
+//					   
+//					   if(compartpos!=-1)
+//					   {//说明有括号，如果为-1说明没有括号
+//						   
+//						   comparName=tempcomparName.substring(0,compartpos);//截取左括号之后的文件名字
+//					   }
+//				   }
+			   }//end of is_directory
+		     }//end of for all file
 		    
 		    return 1;
 		}//end of up
@@ -675,11 +727,29 @@ public class ProductUP extends ActionSupport
 				basePath=basePath+"/";
 			}
 			
-			for(int i=start,j=0;i<end+1;i++,j++)//j的作用是记录图片的排序，为0的是主图
+			for(int i=start;i<end+1;i++)//j的作用是记录图片的排序，为1的是主图
 			{//上传图片
 				String tempName=tempList[i].getName();
 				String imageRealPath=basePath+tempName;
-				productImage temppm=new productImage(pid, imageRealPath, j);
+				
+				int imageSort=0;
+				//计算图片的位置，根据括号中的值来确定，如衣服(12),则位置为12
+				int tempStart=tempName.lastIndexOf("("); //获取左括号所在的位置
+				int tempEnd=tempName.lastIndexOf(")"); //获取右括号所在的位置
+				//比对商品的名称是否相等，作为是否是同一个商品的依据
+				if((tempStart!=-1)&&(tempEnd!=-1)&&(tempEnd>=tempStart))
+				{//说明有括号，如果为-1说明没有括号
+					
+					 String sortString=tempName.substring(tempStart+1,tempEnd);//截取左括号之后的文件名字
+					 try {
+						 imageSort=Integer.parseInt(sortString);
+					} catch (Exception e) {//费数字的时候
+						// TODO: handle exception
+						imageSort=0;
+					}
+				}
+				
+				productImage temppm=new productImage(pid, imageRealPath, imageSort);
 				MyBatisDAO.insertProductImage(temppm);
 			}
 		}

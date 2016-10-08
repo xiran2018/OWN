@@ -11,15 +11,15 @@ public class RouteService {
 	 * @param categoryID
 	 * @return
 	 */
-	public static String getRouteBar(int categoryID) {
+	public static String getRouteBar(int categoryID,int lanid) {
 		CategoryService categoryService = new CategoryService();
-		List<Integer> categoryIDs = categoryService.getAllFutherCategoryID(categoryID);
+		List<Integer> categoryIDs = categoryService.getAllFutherCategoryID(categoryID);  //得到所有的父类id和自己的id
 		String route = "";
 		for (Integer id : categoryIDs) {
 			if(id == SystemParameters.CategoryRootID) {
 				continue;
 			}
-			route += (categoryService.getCategory(id).getCategoryName()+">");
+			route += (categoryService.getCategory(id,lanid).getCategoryName()+"#");
 		}
 		route = route.substring(0,route.length()-1);
 		return route;

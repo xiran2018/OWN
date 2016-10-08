@@ -861,7 +861,7 @@ function getPageDataFromParams(pageNum)
 			var htmldata=buildUpInformation(entireTransInfo);  //构建具体需要显示的信息
 			document.getElementById("listshowID").innerHTML=htmldata;
 		//********************************************************
-			if(pageNum==1)
+			if(pageNum==1)  //只有第一页才会显示页数，其他的不用显示页数，直接改变页数的颜色即可
 			{
 				//next code is to show the list-data，也就是分页的按钮:  pre page::1::2::3::next page
 				//********************************************************这里的代码不需要改动，需要根据实际却动totalNmuberPage的值

@@ -33,7 +33,7 @@
 
 .shopping{width:1190px;height:30px; padding:30px 0 0 10px; margin:0 auto; border-bottom:2px solid #D5D5D5; line-height:30px;}
 
-.shopping h2{display: inline;}
+.shopping h2{display: inline;margin-left: 10px;}
 /* */
 .floor-number {
 display: inline-block;
@@ -129,7 +129,7 @@ border-radius: 0 3px 0 3px;
 .index-floor .floor-items-list .floor-right .floor-right-item {
 float: left;
 display: block;
-width: 140px;
+width: 224px;
 height: 225px;
 background-color: #fff;
 margin: 0 1px 1px 0;
@@ -152,7 +152,7 @@ font-weight: normal;
 
 .index-floor .floor-items-list .floor-right .floor-right-item .item-img {
 display: block;
-width: 140px;
+width: 224px;
 height: 184px;
 overflow: hidden;
 }
@@ -160,7 +160,12 @@ overflow: hidden;
 /**/
 .banner{height:110px;width:300px; background:url(../images/adv5.jpg) no-repeat bottom center; margin-top:25px; margin-bottom:15px; overflow:}
 /*seller*/
-.seller{width:1190px;margin:15px auto;}
+.seller{width:1190px;margin:15px auto;float: left;height: 452px;overflow: hidden;}
+
+.category-floors .category-item{
+	width: 1190px;
+	margin: 0 auto;
+}
 /*
 .seller ul{width:1190px;height:390px;}
 .seller ul li{width:163px;height:195px; float:left;}

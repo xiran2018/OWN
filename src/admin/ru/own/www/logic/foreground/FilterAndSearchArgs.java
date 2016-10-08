@@ -16,7 +16,7 @@ public class FilterAndSearchArgs {
 	private List<Integer> categoryIDs;
 	private int startPrice;
 	private int endPrice;
-	private Set<Integer> attributes;
+	private Set<Integer> attributes;  ///////////////////////
 	private String searchMsg;
 	private int lan_id;
 	

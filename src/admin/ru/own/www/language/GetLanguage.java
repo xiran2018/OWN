@@ -2,16 +2,25 @@ package admin.ru.own.www.language;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
+
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
+
+import org.apache.struts2.interceptor.ServletResponseAware;
+
 import admin.ru.own.www.entity.Language;
 import admin.ru.own.www.mybatis.dao.LanguageDAOImp;
 import admin.ru.own.www.mybatis.dao.MyBatisDAO;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class GetLanguage extends ActionSupport 
+public class GetLanguage extends ActionSupport implements ServletResponseAware
 {
 	List<Language> multiLanguage=null;
-	String callback=null;
+	
+	String callback=null; //说明是webAPP端发送过来的请求
+	private HttpServletResponse response;  //说明是webAPP端发送过来的请求的时候返回数据的时候使用
 	
     
     @Override
@@ -23,9 +32,12 @@ public class GetLanguage extends ActionSupport
     	if(multiLanguage!=null)
     	{
     		if(callback!=null)
-    		{
-    			callback="getShowLanguage('type':'200')";
-    			return "APP";
+    		{//手机端发送过来的请求
+    			JSONArray jsonString=JSONArray.fromObject(multiLanguage);
+    			String temp=jsonString.toString();
+    			callback="getShowLanguage("+temp+")";
+    			response.getWriter().write(callback);
+    			return "WebAPP";
     		}
     		else 
     		{
@@ -36,6 +48,11 @@ public class GetLanguage extends ActionSupport
     	{
     		return ERROR;
     	}
+    }
+    
+    @Override
+    public void setServletResponse(HttpServletResponse response) {
+    	this.response=response;  
     }
 
 	public List<Language> getMultiLanguage() {

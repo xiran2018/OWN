@@ -139,6 +139,7 @@
 				<form action="shopcart/updateShopCartQuantity.action" method="post" id="dlg-edit-quantity" style="z-index: 99; left: 566px; top: 202px; /* display: none; */">
 					<div class="inner util-clearfix">
 						<input type="hidden"  id="hid-product-id-quantity" value="">
+						<input type="hidden"  id="hid-product-minbuyamount" value="">
 						<a id="quantity-minus" class="quantity-minus" href="javascript:void(0);" onclick="muiSetAmount.reduce('#txt-editable-quantity');">minus</a>
 						<input name="count"  id="txt-editable-quantity" onkeyup="muiSetAmount.modify('#txt-editable-quantity');" onkeydown="muiSetAmount.modify('#txt-editable-quantity');" class="layout-input ui-textfield ui-textfield-system" autocomplete="off">
 						<a id="quantity-add" class="quantity-add" href="javascript:void(0);"  onclick="muiSetAmount.add('#txt-editable-quantity');">plus</a>
@@ -146,7 +147,7 @@
 						<input type="hidden" name="cartid" id="cartid" value="">
 						<input type="button" id="btn-ok-quantity" value="OK" onclick="checkToSubmit(this);">
 						<a id="btn-cancel-quantity">Cancel</a>
-						<div class="inventory-wrapper">Maximum:<span id="inventory-value">996</span></div>
+						<div class="inventory-wrapper">Maximum:<span id="inventory-value"></span></div>
 					</div>
 				</form>
 			</div><!-- end of 购物车信息 -->

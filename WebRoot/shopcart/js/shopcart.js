@@ -72,8 +72,23 @@ function checkToSubmit()
 {
 	var inventory=$.trim($("#hid-product-id-quantity").val()); //库存
 	var intInventory=parseInt(inventory);
+	var productMinbuyamount=$("#hid-product-minbuyamount").val(); //最少购买数量
+	var intProductMinbuyamount=parseInt(productMinbuyamount);
+	
 	var inputQuantity=$.trim($("#txt-editable-quantity").val());  //实际填写的数量
 	var intInputQuantity=parseInt(inputQuantity);
+	
+	//最小购买量不够
+	if(intProductMinbuyamount>=0)
+	{
+		if(intInputQuantity<intProductMinbuyamount)
+		{
+			alert("sorry,please buy "+intProductMinbuyamount+" products at least !");
+			return;
+		}
+	}
+	
+	//库存数量不够
 	if(intInventory>=0)
 	{
 		if(intInventory<intInputQuantity)
@@ -104,13 +119,19 @@ function removeCartSubmit(ele)
  */
 function updateDlgEditQuantityInfo(ele)
 {
-	var shopCartId=$.trim($(ele).siblings(".hid-shopcart-id").val());
+	var shopCartId=$.trim($(ele).siblings(".hid-shopcart-id").val()); //购物车Id
 	$("#cartid").val(shopCartId);
+	
+	var p_minbuyamount=$.trim($(ele).siblings(".hid-minbuyamount").val()); //最少购买数量
+	$("#hid-product-minbuyamount").val(p_minbuyamount);
 	
 	
 	var inventory=$.trim($(ele).siblings(".hid-inventory").val()); //库存
 	$("#hid-product-id-quantity").val(inventory);
-	$("#inventory-value").html(inventory);
+	if(inventory>0)
+		$("#inventory-value").html(inventory);
+	else
+		$("#inventory-value").html("Not Limited");
 }
 /**
  * 隐藏数量菜单
@@ -274,6 +295,10 @@ function insertShopCartItemsInPage(shopCartList)
 		//计算库存数量
 		var storeNumber=getstoreNumber(cartvo,pbvo,skuvo);
 		insertHtml+="<input class='hid-inventory' type='hidden' value='"+storeNumber+"'>";
+		
+		//最少购买数量
+		insertHtml+="<input class='hid-minbuyamount' type='hidden' value='"+pbvo.p_minbuyamount+"'>";
+		
 		insertHtml+="<span class='stock-tips'>Limited quantity available&nbsp;</span>";
 		insertHtml+=" </td>";
 		
@@ -512,7 +537,7 @@ function getSelectShipName(cartvo,ssvo)
 			}
 		}
 		
-		if(i>=len)
+		if(i!=0&&i>=len)
 		{//说明没有找到对应的方式,取第一个即可
 			var shipEle=ssvo[0];
 			var ship=shipEle.ship;
@@ -541,7 +566,7 @@ function getOriginPrice(cartvo,pbvo,skuvo)
 
 	
 	//商品价格
-	price=(price/currencyRate); //currencyRate in the headermenu.jsp
+	price=(price*currencyRate); //currencyRate in the headermenu.jsp
 	price=Digit.round(price, 2);
 	price=Digit.changeTwoDecimal(price);
 	
@@ -571,7 +596,7 @@ function getNowPrice(cartvo,pbvo,skuvo)
 	}
 	
 	//商品价格
-	price=(price/currencyRate); //currencyRate in the headermenu.jsp
+	price=(price*currencyRate); //currencyRate in the headermenu.jsp
 	price=Digit.round(price, 2);
 	price=Digit.changeTwoDecimal(price);
 	

@@ -27,43 +27,33 @@
 <link rel="stylesheet" type="text/css" href="jqladmin/css/font.css">
 <link rel="stylesheet" type="text/css" href="jqladmin/css/rentclick.css">
 <!-- 按照多语言增添相应内容的时候，展示的内容,修改时需要呈现时需要的css -->
-<link rel="stylesheet" type="text/css"
-	href="jqladmin/css/editrentclick.css">
-<link rel="stylesheet" type="text/css"
-	href="jqladmin/css/inputstyle.css">
+<link rel="stylesheet" type="text/css"	href="jqladmin/css/editrentclick.css">
+<link rel="stylesheet" type="text/css"	href="jqladmin/css/inputstyle.css">
+
+<!-- 本页需要的css -->
+<link rel="stylesheet" type="text/css"	href="jqladmin/product/commoditymanagement/css/table.css">
 
 <script type="text/javascript" src="jqladmin/js/json2.js"></script>
 <script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 <link rel="stylesheet" href="jqladmin/css/demo.css" type="text/css">
-<link rel="stylesheet" href="jqladmin/css/zTreeStyle/zTreeStyle.css"
-	type="text/css">
-<script type="text/javascript"
-	src="jqladmin/js/jquery.ztree.core-3.5.js"></script>
-<script type="text/javascript"
-	src="jqladmin/js/jquery.ztree.excheck-3.5.js"></script>
-<script type="text/javascript"
-	src="jqladmin/js/jquery.ztree.exedit-3.5.js"></script>
+<link rel="stylesheet" href="jqladmin/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<script type="text/javascript"	src="jqladmin/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript"	src="jqladmin/js/jquery.ztree.excheck-3.5.js"></script>
+<script type="text/javascript"	src="jqladmin/js/jquery.ztree.exedit-3.5.js"></script>
 
 <script src="jqladmin/js/left-right.js" type="text/javascript"></script>
 
-<script type="text/javascript"
-	src="jqladmin/product/commoditymanagement/product_category.js"></script>
-<script type="text/javascript"
-	src="jqladmin/js/modify_product_category.js"></script>
+<script type="text/javascript"	src="jqladmin/product/commoditymanagement/product_category.js"></script>
+<script type="text/javascript"	src="jqladmin/js/modify_product_category.js"></script>
 <script type="text/javascript" src="jqladmin/js/language.js"></script>
 <script type="text/javascript" src="js/jquery.form.js"></script>
 
 <!--  ueditor 编辑器需要的js -->
 <script src="ueditor/ueditor.config.js"></script>
 <script src="ueditor/ueditor.all.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="ueditor/themes/default/css/ueditor.css" />
+<link rel="stylesheet" type="text/css"	href="ueditor/themes/default/css/ueditor.css" />
 
-<%--
-		<script type="text/javascript" src="jqladmin/js/iframe_add_product.js"></script>
-		<script src="jqladmin/js/mzone.cc.iframe.js" type="text/javascript"></script>
-		--%>
 	
 </head>
 <body>
@@ -78,12 +68,13 @@
 				<div id="show_content_div">
 					<div>
 						<center>
+								<div class="tipsDiv">已经添加的</div>
 								<c:forEach items="${all}" var="pml">
-								<hr/>
+								<!-- <hr/> -->
 									<form action="cm/multilanguage_update" method="post">
 								<table border="1"  class="altrowstable">
 								<tr>
-									<td>语种</td>
+									<td class="tips">语种</td>
 									<td>product_name</td>
 									<td>title</td>
 									<td>keywords</td>
@@ -92,7 +83,7 @@
 									<td>操作</td>
 								</tr>
 										<tr>
-											<td>${pml.language.languageName}
+											<td class="tips">${pml.language.languageName}
 												<input type="hidden" name="entity.id"
 													value="${pml.productMultiLanguage.id}" />
 													<input type="hidden" name="entity.product_id"
@@ -204,12 +195,12 @@
 											</table>
 									</form>
 								</c:forEach>
+								<div class="tipsDiv">还未添加的</div>
 								<c:forEach items="${languages}" var="language">
-								<hr/>
 									<form action="cm/multilanguage_insert" method="post">
 									<table  border="1"  class="altrowstable">
 										<tr>
-											<td>语种</td>
+											<td class="tips">语种</td>
 											<td>product_name</td>
 											<td>title</td>
 											<td>keywords</td>
@@ -218,7 +209,7 @@
 											<td>操作</td>
 										</tr>
 										<tr>
-											<td>${language.languageName}
+											<td class="tips">${language.languageName}
 											<input type="hidden" name="entity.lan_id"
 													value="${language.id}" />
 											<input type="hidden" name="entity.product_id"

@@ -83,7 +83,7 @@ public class ProductFilterManagementAction extends ActionSupport {
 		int startPrice = parameterUtil.getStartPriceParameter();
 		int endPrice = parameterUtil.getEndPriceParameter();
 		int categoryid = parameterUtil.getCategoryIDParameter();
-		List<Integer> categoryIDs = categoryService.getAllSubCategoryID(categoryid);
+		List<Integer> categoryIDs = categoryService.getAllSubCategoryID(categoryid);  //所有的子分类
 		FilterAndSearchArgs args = new FilterAndSearchArgs(categoryIDs,startPrice,endPrice);
 		return args;
 	}

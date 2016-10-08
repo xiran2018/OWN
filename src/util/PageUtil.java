@@ -1,7 +1,7 @@
 package util;
 
 public class PageUtil {
-	private static int pageSize = 1;
+	private static int pageSize = 40;
 	public static int getTotalPageNumber(int count) {
 		int num = count/pageSize;
 		if(count>pageSize && count%pageSize !=0){

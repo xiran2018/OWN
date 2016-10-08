@@ -2,6 +2,7 @@ package admin.ru.own.www.vo;
 
 import java.util.List;
 
+import simple.test.testUser;
 import admin.ru.own.www.entity.Attribute;
 
 public class AttributeVO {

@@ -4,6 +4,7 @@ function saveBasicAttrInfo()
     var name=$.trim($("#name").val());
 	 var status=$('input[name="status"]:checked').val();
 	 var search=$('input[name="search"]:checked').val();
+	 var popup=$('input[name="popup"]:checked').val();
 	 var globalattr=$('input[name="globalattr"]:checked').val();
     if(!name && typeof(name)!="undefined")
     {
@@ -18,6 +19,7 @@ function saveBasicAttrInfo()
                 "id":selfID,
                 "Name":name,
                 "isSearchAttr":search,
+                "isPopup":popup,
                 "isglobalattr":globalattr,
                 "status":status
         }; 

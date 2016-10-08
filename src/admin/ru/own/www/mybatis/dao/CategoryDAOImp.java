@@ -108,4 +108,9 @@ public class CategoryDAOImp implements CategoryMapper {
 	public String getAllFutherCategoryIDStr(int categoryid) {
 		return categoryDAO.getAllFutherCategoryIDStr(categoryid);
 	}
+
+	@Override
+	public Category getCategoryByIdAndLanId(int category_id, int lanid) {
+		return categoryDAO.getCategoryByIdAndLanId(category_id, lanid);
+	}
 }

@@ -25,7 +25,7 @@
 		<foreach item="item" collection="categoryIDs" open="(" separator="," close=")">
 		#{item}
 		</foreach>
-		limit #{begain},#{size} 
+		order by p_id desc 	limit #{begain},#{size} 
     </select>
     
      <select id="getPushProductsLimit" parameterType="map" resultType="int">
@@ -43,7 +43,7 @@
     			and p.p_now=1
     		</when>
     	</choose>
-		limit #{begain},#{size} 
+		order by p_id desc 	limit #{begain},#{size} 
     </select>
     
      <select id="getPushProductsTotalNumber" parameterType="map" resultType="int">

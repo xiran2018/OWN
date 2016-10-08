@@ -34,4 +34,5 @@ public interface ProductBasicAttrDAO extends MyBatisMapper {
 	List<Product_Basic_Attr13_ShowVO> getOneProductBasicAttr13VOByPidAndLanId(int id, int lanid);
 	List<Product_Basic_Attr13_ShowVO> getOneProductBasicAttr4VOByPidAndLanId(int id, int lanid);
 	void updateAttrValueId(Product_Basic_Attr pba);
+	void deleteBasicAttr13(Product_Basic_Attr pba);
 }

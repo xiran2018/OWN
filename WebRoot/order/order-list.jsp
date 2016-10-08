@@ -43,15 +43,22 @@
 $(function() {
     $( "#gmtBeginDate" ).datepicker({
         showOn: "button",
+        //dateFormat:"yy-mm-dd",
         buttonImage: "images/calendar.gif",
         buttonImageOnly: true,
+        changeMonth: true,
+        changeYear: true,
         buttonText: "Select date"
+
     });
     
     $( "#gmtEndDate" ).datepicker({
         showOn: "button",
+        //dateFormat:"yy-mm-dd",
         buttonImage: "images/calendar.gif",
         buttonImageOnly: true,
+        changeMonth: true,
+        changeYear: true,
         buttonText: "Select date"
     });
   });

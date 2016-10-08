@@ -20,9 +20,9 @@ function save_product()
 	 var name=$.trim($("#name").val());
 	 var other_name=$.trim($("#other_name").val());
 	 var originprice=$.trim($("#originprice").val());
-	 var nowprice=$.trim($("#nowprice").val());
+	 var nowPrice=$.trim($("#nowPrice").val());
 	 var storenumber=$.trim($("#storenumber").val());
-	 var minbuynumber=$.trim($("#minbuynumber").val());	 
+	 var minBuyCount=$.trim($("#minbuynumber").val());	 
 	 var status=$('input[name="status"]:checked').val();
 	 
 	 var newproduct=$('input[name="new"]:checked').val();
@@ -62,9 +62,9 @@ function save_product()
                  "Name":name,
                  "OtherName":other_name,
                  "originprice":originprice,
-                 "nowprice":nowprice,
+                 "nowPrice":nowPrice,
                  "storenumber":storenumber,
-                 "minbuynumber":minbuynumber,
+                 "minBuyCount":minBuyCount,
                  "status":status,
                  "newproduct":newproduct,
                  "hot":hot,

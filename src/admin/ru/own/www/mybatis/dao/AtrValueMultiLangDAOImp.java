@@ -1,5 +1,6 @@
 package admin.ru.own.www.mybatis.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -35,6 +36,10 @@ public class AtrValueMultiLangDAOImp implements AtrValueMultiLangDAO {
 	public void update(AttributeValueMultiLanguage entity) {
 		attrDAO.update(entity);
 		sqlSession.commit();
+	}
+	@Override
+	public List<AttributeValueMultiLanguage> getAttrValueByAtrIDAndPIDAndAttrValueId(HashMap<String, Object> parameterTypesMap) {
+		return attrDAO.getAttrValueByAtrIDAndPIDAndAttrValueId(parameterTypesMap);
 	}
 
 }

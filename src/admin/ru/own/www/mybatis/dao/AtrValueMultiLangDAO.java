@@ -1,5 +1,6 @@
 package admin.ru.own.www.mybatis.dao;
 
+import java.util.HashMap;
 import java.util.List;
 
 import admin.ru.own.www.entity.AttributeValueMultiLanguage;
@@ -10,4 +11,5 @@ public interface AtrValueMultiLangDAO extends MyBatisMapper  {
 	void insertAttrValue(AttributeValueMultiLanguage entity);
 	AttributeValueMultiLanguage getAttrValueByID(int ID);
 	List<AttributeValueMultiLanguage> getAttrValueByAtrID(int atrID);
+	List<AttributeValueMultiLanguage> getAttrValueByAtrIDAndPIDAndAttrValueId(HashMap<String, Object> parameterTypesMap);
 }

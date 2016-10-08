@@ -7,6 +7,7 @@ function modify_product_category_basic()
     var modify_image=$.trim($("#modify_image").val());
     var modify_imagesize=$.trim($("#modify_imagesize").val());
 	 var modify_isShow=$('input[name="modify_cshow"]:checked').val();
+	 var modify_isInFloorshow=$('input[name="modify_isInFloorshow"]:checked').val();
     if(!category_name && typeof(category_name)!="undefined")
     {
        alert("请填写需要加入的类别名称");
@@ -23,7 +24,8 @@ function modify_product_category_basic()
                 "modify_icon":modify_icon,
                 "modify_image":modify_image,
                 "modify_imagesize":modify_imagesize,
-                "modify_isShow":modify_isShow
+                "modify_isShow":modify_isShow,
+                "modify_isInFloorshow":modify_isInFloorshow
         }; 
         
         $.ajax( {
@@ -43,6 +45,8 @@ function modify_product_category_basic()
                zTree.updateNode(modifytempTreeNode);
                
                alert("修改成功");
+               $('#modifyw').window('close');
+               //document.location.reload();//当前页面
            }
        });//end of ajax
         
@@ -91,6 +95,8 @@ function modify_product_category_xiangxi(element)
            },
            success : function(data) {
                alert("修改成功");
+               $('#modifyw').window('close');
+               //document.location.reload();//当前页面
            }
        });//end of ajax
         
@@ -171,6 +177,8 @@ function modify_product_category() {
                 zTree.updateNode(modifytempTreeNode);
                 
                 alert("修改成功");
+                $('#modifyw').window('close');
+                //document.location.reload();//当前页面
             }
         });//end of ajax
          

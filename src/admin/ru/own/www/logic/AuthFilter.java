@@ -34,7 +34,7 @@ public class AuthFilter implements Filter
 		String currentURL = req.getRequestURI();
 //		Log.log4jLogTrace(AuthFilter.class,"this is filter^^^^^^currentURL^^^^^^^^^^"+currentURL);
 		//method 1
-		//得到请求地址之后，去除"/own",得到：/fg/secondforegroundpage_showAll.action 或者 /index.jsp
+		//得到请求地址之后，去除"/own",得到：category/secondforegroundpage_showAll.action 或者 /index.jsp
 //		String targetURL = currentURL.substring(currentURL.indexOf("/", 2), currentURL.length());
 
 		//method 2
@@ -43,7 +43,7 @@ public class AuthFilter implements Filter
 		HttpSession session = req.getSession();
 		 
 		
-		if (targetURL.contains("jqladmin")&&(targetURL.contains("jsp")||targetURL.contains("action"))) 
+		if (!targetURL.contains("jqladmin/admin_login.jsp")&&targetURL.contains("jqladmin")&&(targetURL.contains("jsp")||targetURL.contains("action"))) 
 		{//服务器地址
 			//Log.log4jLogTrace(AuthFilter.class,"haha,match right!!!!!!!!");
 			if (session == null || session.getAttribute("user") == null) 
@@ -63,7 +63,7 @@ public class AuthFilter implements Filter
 		}
 		else
 		{//客户端地址
-			session.setAttribute("prePage",  Utility.getGoingURL(req));
+			//session.setAttribute("prePage",  Utility.getGoingURL(req));
 		}
 		 
 	

@@ -271,7 +271,7 @@
         </action>
         
          <!-- 取语言 -->
-        <action name="getAllLanguage" class="admin.ru.own.www.language.GetLanguage">
+        <action name="getAllLanguage" class="admin.ru.own.www.language.GetAllLanguage">
             <result name="success" type="json" >  
                 <param name="root">multiLanguage</param>
             </result>

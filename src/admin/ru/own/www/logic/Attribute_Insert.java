@@ -39,6 +39,7 @@ public class Attribute_Insert extends ActionSupport
 	private Short isKeyAttr;
 	private Short isSaleAttr;
 	private Short isSearchAttr;
+	private Short isPopup;//是否弹窗显示
 	private Short isMultiselect;
 	private Short isNecessary;
 	private Integer sortNumber;
@@ -62,6 +63,7 @@ public class Attribute_Insert extends ActionSupport
 		}
 		attr.setAttrStatus(attrStatus);
 		attr.setIsSearchAttr(isSearchAttr);
+		attr.setIsPopup(isPopup);
 		attr.setInputStyle(InputStyle);//1手工录入  2多个选择   3多行文本框   4下拉菜单
 		
 		Timestamp timestamp=new Timestamp(System.currentTimeMillis());
@@ -243,5 +245,18 @@ public class Attribute_Insert extends ActionSupport
 	public void setAttrStatus(Short attrStatus) {
 		this.attrStatus = attrStatus;
 	}
+
+
+
+	public Short getIsPopup() {
+		return isPopup;
+	}
+
+
+
+	public void setIsPopup(Short isPopup) {
+		this.isPopup = isPopup;
+	}
+	
 	
 }

@@ -21,6 +21,12 @@
 		delete from product_basic_attr where p_id=#{p_id} and attr_value_id=#{attr_value_id}    
 	</delete>
 	
+	<delete id="deleteBasicAttr13" parameterType="pba" >  
+		delete from product_basic_attr where p_id=#{p_id} and attr_name_id=#{attr_name_id} and attr_value_id=#{attr_value_id};
+		delete from attribute_value where  attr_id=#{attr_name_id} and attr_value_id=#{attr_value_id};   
+		delete from attribute_valuemultilanguage where  attr_value_id=#{attr_value_id};   
+	</delete>
+	
 	<delete id="deleteBasicAttrByP_id" parameterType="int" >  
 		delete from product_basic_attr where p_id=#{p_id}    
 	</delete>
@@ -46,18 +52,25 @@
 		select  pba.attr_name_id,pba.p_id,pba.is_sku,pba.attr_value_id attrValueId,
 		attrmu.foreign_name,attrmu.lan_id,at.input_style,attrvalumu.foreign_name attrValueName 
 		from product_basic_attr pba, attribute at,attributemultilanguage attrmu,attribute_valuemultilanguage attrvalumu 
-		where p_id=#{0}  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id 
+		where p_id=#{0}  and at.attr_status=1  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id 
 		and attrmu.lan_id=#{1} and attrvalumu.attr_value_id=pba.attr_value_id and attrvalumu.lan_id=#{1}
 		and at.input_style=4;
     </select>
     
     <select id="getOneProductBasicAttr13VOByPidAndLanId"  resultMap="pbavbypidandlanid13">
+    	<!--  属性值为多语言时的情形 -->
 		select  pba.p_basic_attr_id,pba.attr_name_id,pba.p_id,pba.is_sku,pba.attr_value_id attrValueId,
-		attrmu.foreign_name,attrmu.lan_id,at.input_style,attrvalumu.foreign_name attrValueName 
+		attrmu.foreign_name,attrmu.lan_id,at.input_style,at.is_popup,attrvalumu.foreign_name attrValueName 
 		from product_basic_attr pba, attribute at,attributemultilanguage attrmu,attribute_valuemultilanguage attrvalumu 
-		where p_id=#{0}  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id 
+		where p_id=#{0}  and at.attr_status=1  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id 
 		and attrmu.lan_id=#{1} and attrvalumu.attr_value_id=pba.attr_value_id and attrvalumu.lan_id=#{1}
-		and at.input_style in (1,3);
+		and at.input_style in (1,3);  
+		<!-- 属性值就只有一个语言而已 
+		select  pba.p_basic_attr_id,pba.attr_name_id,pba.p_id,pba.is_sku,pba.attr_value_id attrValueId,
+		attrmu.foreign_name,attrmu.lan_id,at.input_style,attrvalue.attr_value_name attrValueName 
+		from product_basic_attr pba, attribute at,attributemultilanguage attrmu,attribute_value attrvalue
+		where p_id=#{0} and attrmu.lan_id=#{1}  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id 
+		and attrvalue.attr_value_id=pba.attr_value_id and at.input_style in (1,3);  -->
     </select>
     
     
@@ -67,6 +80,7 @@
 		<result property="attrName" column="foreign_name"/>
 		<result property="is_sku" column="is_sku"/>
 		<result property="input_style" column="input_style"/>
+		<result property="is_popup" column="is_popup"/>
 		<association property="attrValues" javaType="admin.ru.own.www.entity.AttributeValue">
 			  <id property="attrValueId" column="attrValueId"/>
   			  <result property="attrValueName" column="attrValueName"/>
@@ -76,7 +90,7 @@
     
     <select id="getOneProductBasicAttrVOByPidAndLanId"  resultMap="pbavbypidandlanid">
 		select  distinct  pba.attr_name_id,pba.p_id,pba.is_sku,attrmu.foreign_name,attrmu.lan_id,at.input_style from product_basic_attr pba, attribute at,attributemultilanguage attrmu 
-		where p_id=#{0}  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id and attrmu.lan_id=#{1} and at.input_style=2;
+		where p_id=#{0} and at.attr_status=1  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id and attrmu.lan_id=#{1} and at.input_style=2;
     </select>
     
     <resultMap type="ru.own.www.entity.Product_Basic_Attr_ShowVO" id="pbavbypidandlanid">

@@ -34,7 +34,7 @@ public class ProductsDAOImp implements ProductsDAO {
 	}
 
 	@Override
-	public List<ProductsVO> getAllVOLimit(Map<String, Integer> map) {
+	public List<ProductsVO> getAllVOLimit(Map<String, Object> map) {
 		List<ProductsVO> list = null;
 		list = productsDAO.getAllVOLimit(map);
 		for (ProductsVO productsVO : list) {
@@ -73,6 +73,11 @@ public class ProductsDAOImp implements ProductsDAO {
 			productsVO.setShowImgURL();
 		}
 		return products;
+	}
+
+	@Override
+	public int getTotalNumberProductByParameters(Map<String, Object> map) {
+		return productsDAO.getTotalNumberProductByParameters(map);
 	}
 	
 }

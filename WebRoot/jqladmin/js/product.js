@@ -30,9 +30,9 @@ function save_product()
 	 var myorder=$.trim($("#myorder").val());
 	 var buyprice=$.trim($("#buyprice").val());
 	 var originprice=$.trim($("#originprice").val());
-	 var nowprice=$.trim($("#nowprice").val());
+	 var nowPrice=$.trim($("#nowPrice").val());
 	 var storenumber=$.trim($("#storenumber").val());
-	 var minbuynumber=$.trim($("#minbuynumber").val());
+	 var minBuyCount=$.trim($("#minbuynumber").val());
 	 var nomailtax=$('input[name="nomailtax"]:checked').val();
 	 var status=$('input[name="status"]:checked').val();
 	 var newproduct=$('input[name="new"]:checked').val();
@@ -69,7 +69,7 @@ function save_product()
 	 	alert("没有选择商品所属的分类，请选择");
 	 	return;
 	 }
-	 if(!classid && typeof(brandid)!="undefined"){
+	 if(!brandid && typeof(brandid)!="undefined"){
 		 	alert("没有选择商品所属的品牌系列，请选择");
 		 	return;
 	}
@@ -87,9 +87,9 @@ function save_product()
 				"myorder":myorder,
 				"buyprice":buyprice,
 				"originprice":originprice,
-				"nowprice":nowprice,
+				"nowPrice":nowPrice,
 	            "storenumber":storenumber,
-	            "minbuynumber":minbuynumber,
+	            "minBuyCount":minBuyCount,
 	            "nomailtax":nomailtax,
                "status":status,
                "isNew":newproduct,

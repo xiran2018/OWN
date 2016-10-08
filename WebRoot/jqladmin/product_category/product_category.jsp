@@ -169,6 +169,17 @@
                                                                                                                                     否
                         </td>
                     </tr>
+                    <tr>
+                        <td valign=middle  align=right class="colume1">
+                            <b>是否在楼层显示：</b>
+                        </td>
+                        <td valign=middle class="colume2">
+                            <input type="radio" name="isInFloorshow" class=""  value="1">
+                                                                                                                                    是
+                            <input type="radio" name="isInFloorshow" class=""  value="0"   checked="checked">
+                                                                                                                                    否
+                        </td>
+                    </tr>
                    <tr>
                         <td valign=middle  align=right class="colume1">
                             <b>请选择图片尺寸：</b>
@@ -275,6 +286,17 @@
                             <input type="radio" name="modify_cshow" class=""  value="1"  checked="checked">
                                                                                                                                     是
                             <input type="radio" name="modify_cshow" class=""  value="0" >
+                                                                                                                                    否
+                        </td>
+                    </tr>
+                    <tr>
+                        <td valign=middle  align=right class="colume1">
+                            <b>是否在楼层显示：</b>
+                        </td>
+                        <td valign=middle class="colume2">
+                            <input type="radio" name="modify_isInFloorshow" class=""  value="1">
+                                                                                                                                    是
+                            <input type="radio" name="modify_isInFloorshow" class=""  value="0"   checked="checked">
                                                                                                                                     否
                         </td>
                     </tr>

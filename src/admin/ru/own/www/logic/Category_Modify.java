@@ -44,6 +44,7 @@ public class Category_Modify extends ActionSupport implements ServletResponseAwa
 	private String modify_image;
 	private Short modify_imagesize;
 	private Short modify_isShow;
+	private Short modify_isInFloorshow;
 	
 	private HttpServletResponse response;
 
@@ -85,6 +86,7 @@ public class Category_Modify extends ActionSupport implements ServletResponseAwa
 		category.setCategoryId(selfId);
 		category.setCategoryName(categoryName);
 		category.setIsShow(modify_isShow);
+		category.setIsInFloorshow(modify_isInFloorshow);
 		//图片的修改已经在上传文件时修改了，这里不需要重新修改了
 //		category.setIcon(modify_icon);
 //		category.setImage(modify_image);
@@ -101,6 +103,8 @@ public class Category_Modify extends ActionSupport implements ServletResponseAwa
 	}
 	
 	
+
+
 	public String xiangxiModify()
 	{
 		Category category=new Category();
@@ -118,6 +122,14 @@ public class Category_Modify extends ActionSupport implements ServletResponseAwa
 		{
 			return ERROR;
 		}
+	}
+	
+	public Short getModify_isInFloorshow() {
+		return modify_isInFloorshow;
+	}
+
+	public void setModify_isInFloorshow(Short modify_isInFloorshow) {
+		this.modify_isInFloorshow = modify_isInFloorshow;
 	}
 
 	public static long getSerialversionuid() {

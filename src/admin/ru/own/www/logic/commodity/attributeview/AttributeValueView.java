@@ -35,9 +35,9 @@ public abstract class AttributeValueView {
 	/**
 	 * 用于处理商品属性是否变更，新增，和删除
 	 * 
-	 * @param request
-	 * @param p_id
-	 * @param attribute
+	 * @param request  请求，包含属性值等参数
+	 * @param p_id  商品id
+	 * @param attribute  类型为AttributeVO，是从数据库里取出来的已经有的属性
 	 */
 	public static void handle(HttpServletRequest request, int p_id, AttributeVO attribute) {
 		AttributeValueView valueView = create(attribute.getAtr().getInputStyle());

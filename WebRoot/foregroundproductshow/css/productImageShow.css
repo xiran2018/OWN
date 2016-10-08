@@ -97,7 +97,7 @@ list-style: none;
 #summary {
 float: left;
 width: 452px;
-padding: 10px 0;
+padding: 3px 0;
 }
 
 #summary li {
@@ -109,6 +109,7 @@ clear: both;
 /*价格*/
 #summary-price {
 height: 30px;
+line-height: 30px;
 overflow: hidden;
 }
 
@@ -139,8 +140,9 @@ font-size: 18px;
 color: #999;
 }
 
-.p-price {
-color: #999;
+.origin-price {
+	color: #999;
+	text-decoration: line-through;
 }
 
 .mui-origin-price{
@@ -343,7 +345,7 @@ padding-bottom: 0;
 }
 
 #summary li {
-padding: 6px 0;
+padding: 1px 0;
 overflow: hidden;
 clear: both;
 }
@@ -365,13 +367,13 @@ margin-right: 6px;
 }
 
 #store-selector .text {
-float: left;
+/*float: left;*/
 position: relative;
 top: 0;
 height: 23px;
 background: #fff;
 /*border: 1px solid #CECBCE;*/
-padding: 0 20px 0 0px;
+padding: 0 5px 0 0px;
 line-height: 23px;
 overflow: hidden;
 }
@@ -391,8 +393,9 @@ margin-top: 4px;*/
 }
 
 #shipping-link{
-padding-right: 20px;
+padding-right: 15px;
 background: url(../images/ws-buyer-detail-v130514.png?t=2f775f4e_0) no-repeat 100% -202px;
+display: inherit !important;
 }
 
 #shipping-link a:hover {
@@ -724,8 +727,8 @@ width: 598px;
 }
 
 #choose {
-border-top: 1px dotted #ddd;
-padding-top: 10px;
+/*border-top: 1px dotted #ddd;*/
+padding-top: 0px;
 }
 
 #choose {
@@ -736,7 +739,7 @@ margin-bottom: 20px;
 
 #choose li {
 overflow: hidden;
-padding: 5px 0;
+padding: 1px 0;
 }
 
 
@@ -755,7 +758,7 @@ width: 71px;
 
 #product-intro .dt {
 float: left;
-width: 90px;
+width: 211px;
 text-align: left;
 padding: 0 10px 0 0px;
 color: #999;
@@ -770,10 +773,19 @@ word-break:break-all;
 
 #text-ul{
 	width: 598px;
+	/*float: left;
+	border-top: 1px dotted #ddd;
+	border-bottom: 1px dotted #ddd; */
+	padding-top: 3px;
+	margin-bottom: 3px;
+}
+
+#text-ul-attr{
+	width: 598px;
 	float: left;
 	border-top: 1px dotted #ddd;
-	padding-top: 10px;
-	margin-bottom: 10px;
+	padding-top: 3px;
+	margin-bottom: 3px;
 }
 
 .text-dd{
@@ -783,7 +795,7 @@ word-break:break-all;
 
 .text-li{
 	overflow: hidden;
-	padding: 10px 0;
+	padding: 1px 0;
 }
 
 #choose .dd {
@@ -839,6 +851,8 @@ float: left;
 border: 1px solid #ccc;
 padding: 1px;
 white-space: nowrap;
+min-width: 20px;
+text-align: center;
 }
 
 #choose a {

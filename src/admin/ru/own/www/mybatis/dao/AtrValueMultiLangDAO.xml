@@ -11,9 +11,14 @@
 		<result property="keywords" column="foreign_keywords"/>
 		<result property="description" column="foreign_description"/>
 	</resultMap>
-	
+	<select id="getAttrValueByAtrIDAndPIDAndAttrValueId" parameterType="Map" resultMap="atrvml">
+		select avm.* from product_basic_attr pba,own.attribute_valuemultilanguage avm,own.attribute_value av 
+		where pba.p_id=#{p_id} and pba.attr_name_id=#{atrName_id} and  pba.attr_value_id=#{attrValue_id} and av.attr_id=pba.attr_name_id and av.attr_value_id=pba.attr_value_id 	and  avm.attr_value_id=av.attr_value_id;
+	</select>
 	<select id="getAttrValueByAtrID" parameterType="int" resultMap="atrvml">
-		SELECT * from own.attribute_valuemultilanguage where attr_value_id=#{id}; 
+		SELECT avm.*
+		from own.attribute_valuemultilanguage avm,own.attribute_value av 
+		where av.attr_id=#{atrName_id} and av.attr_value_id=avm.attr_value_id; 
 	</select>
 	<select id="getAttrValueByID" parameterType="int" resultMap="atrvml">
 		SELECT * from own.attribute_valuemultilanguage where id=#{id}; 

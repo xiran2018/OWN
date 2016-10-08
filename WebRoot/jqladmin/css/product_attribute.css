@@ -89,6 +89,9 @@ ul{
 	width: 150px;
 	height: 40px;
 	line-heigth:40px;
+	border: 1px solid #459300 !important;
+    background-color: #459300;
+    color: #fff !important;
 }
 .second_button {
 	margin-top: 5px;

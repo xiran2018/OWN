@@ -1,13 +1,15 @@
 package admin.ru.own.www.logic.foreground;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 
+
+
 import util.PageUtil;
 import util.ParameterUtil;
-
 import admin.ru.own.www.entity.CategoryImage;
 import admin.ru.own.www.logic.category.CategoryService;
 import admin.ru.own.www.mybatis.dao.AttrValueMapper;
@@ -32,14 +34,17 @@ public class SecondForegroundPageManagementAction extends ActionSupport {
 	private CategoryService categoryService = new CategoryService();
 	
 	public String showAll() {
-		int categoryid = parameterUtil.getCategoryIDParameter();
+		int categoryid = parameterUtil.getCategoryIDParameter();  //得到商品分类id
 		
-		List<Integer> categoryIDs = categoryService.getAllSubCategoryID(categoryid);
+		List<Integer> categoryIDs = categoryService.getAllSubCategoryID(categoryid); //得到所有的子category id
 		
 		ProductsDAO dao = (ProductsDAO) DAOFactory.get(ProductsDAO.class.getName());
+//		System.out.println( PageUtil.getTotalPageNumber(dao.getProductsCountByCategory(categoryIDs)));
 		ActionContext.getContext().put("totalNumber", PageUtil.getTotalPageNumber(dao.getProductsCountByCategory(categoryIDs)));
 		ActionContext.getContext().put("categoryid", categoryid);
-		ActionContext.getContext().put("route", RouteService.getRouteBar(categoryid));
+		
+		int lanID = DefaultLanguageUtil.getDefaultLanguageID(); //得到默认语言id
+		ActionContext.getContext().put("route", RouteService.getRouteBar(categoryid,lanID));
 		//展示图片的大小
 		ExhibitionSize categoryExhibitionSize = service.getCategoryExhibitionSize(categoryid);
 		ActionContext.getContext().put("categoryExhibitionSize", categoryExhibitionSize);
@@ -48,7 +53,7 @@ public class SecondForegroundPageManagementAction extends ActionSupport {
 	}
 
 	/**
-	 * 得到 左侧导航条
+	 * 得到 左侧导航条中的分类
 	 * 
 	 * @return
 	 */
@@ -56,7 +61,7 @@ public class SecondForegroundPageManagementAction extends ActionSupport {
 		int categoryid = parameterUtil.getCategoryIDParameter();
 		int lanid = DefaultLanguageUtil.getDefaultLanguageID();
 		Map<Integer, NavigationVO> navigation = service.getSecondNavigations(categoryid, lanid);
-		ActionContext.getContext().put("navigation", navigation);
+		ActionContext.getContext().put("navigation", navigation); //key是categoryid含有的分类的id，value是分类和子分类
 		return "getSecondLevelNavigation";
 	}
 
@@ -73,39 +78,61 @@ public class SecondForegroundPageManagementAction extends ActionSupport {
 	}
 
 	/**
-	 * 得到所有属性
+	 * 得到某个商品分类的所有属性
 	 * 
 	 * @return
 	 */
 	public String getAllAttribute() {
-		int categoryid = parameterUtil.getCategoryIDParameter();
-		int lanID = DefaultLanguageUtil.getDefaultLanguageID();
-		CategoryMapper categoryDAO = (CategoryMapper) DAOFactory.get(CategoryMapper.class.getName());
+		int categoryid = parameterUtil.getCategoryIDParameter(); //得到商品分类id
+		int lanID = DefaultLanguageUtil.getDefaultLanguageID(); //得到默认语言id
+//		CategoryMapper categoryDAO = (CategoryMapper) DAOFactory.get(CategoryMapper.class.getName());
 		AttributeDAO attributeDAO = (AttributeDAO) DAOFactory.get(AttributeDAO.class.getName());
-		AttrValueMapper attrValueDAO = (AttrValueMapper) DAOFactory.get(AttrValueMapper.class.getName());
+//		AttrValueMapper attrValueDAO = (AttrValueMapper) DAOFactory.get(AttrValueMapper.class.getName());
 		
-		categoryid = service.getFirstLevelCategoryID(categoryid, categoryDAO);
+		CategoryService categoryService = new CategoryService();
+		List<Integer> categoryIDs = categoryService.getAllFutherCategoryID(categoryid);  //得到所有的父类id和自己的id
+		
+		
 		Map<String, Object> args = new HashMap<String, Object>();
 		args.put("lanID", lanID);
-		args.put("categoryID", categoryid);
-		allAttributes = attributeDAO.getOneMultiCategoryAttribute(args);
-		// 二级
-		List<Integer> secondLevelID = categoryDAO.getSubCategoryID(categoryid);
-		for (Integer id : secondLevelID) {
+		
+		allAttributes=new ArrayList<AttributeVO>();
+		//顺着树结构取所有的可检索属性
+		for(Integer id : categoryIDs){
 			args.put("categoryID", id);
-			List<AttributeVO> secondAttributes = attributeDAO.getOneMultiCategoryAttribute(args);
+			//得到某一分类的可以检索的属性信息和属性值信息
+			List<AttributeVO> secondAttributes = attributeDAO.getOneMultiCategorySearchAttribute(args);
 			allAttributes.addAll(secondAttributes);
-			// 三级
-			List<Integer> thridLevelID = categoryDAO.getSubCategoryID(id);
-			for (Integer tid : thridLevelID) {
-				args.put("categoryID", tid);
-				List<AttributeVO> thirdAttributes = attributeDAO.getOneMultiCategoryAttribute(args);
-				allAttributes.addAll(thirdAttributes);
-			}
 		}
-		categoryDAO.closeSession();
+		
+		//以下的代码是得到从第一级分来开始，包括全部的二级和三级分类的属性
+//		categoryid = service.getFirstLevelCategoryID(categoryid, categoryDAO); //得到该分类的第一级的category id
+//		Map<String, Object> args = new HashMap<String, Object>();
+//		args.put("lanID", lanID);
+//		args.put("categoryID", categoryid);
+//		allAttributes = attributeDAO.getOneMultiCategorySearchAttribute(args); //得到一级分类的可以检索的属性信息和属性值信息
+//		
+//		// 得到所有的二级分类
+//		List<Integer> secondLevelID = categoryDAO.getSubCategoryID(categoryid);
+//		for (Integer id : secondLevelID) {//针对每一个子分类得到可以检索的属性和属性值
+//			
+//			args.put("categoryID", id);
+//			
+//			//得到一级分类的可以检索的属性信息和属性值信息
+//			List<AttributeVO> secondAttributes = attributeDAO.getOneMultiCategorySearchAttribute(args);
+//			allAttributes.addAll(secondAttributes);
+//			
+//			// 得到所有的三级分类
+//			List<Integer> thridLevelID = categoryDAO.getSubCategoryID(id);
+//			for (Integer tid : thridLevelID) {
+//				args.put("categoryID", tid);
+//				List<AttributeVO> thirdAttributes = attributeDAO.getOneMultiCategorySearchAttribute(args);
+//				allAttributes.addAll(thirdAttributes);
+//			}
+//		}
+//		categoryDAO.closeSession();
 		attributeDAO.closeSession();
-		attrValueDAO.closeSession();
+//		attrValueDAO.closeSession();
 		return "getAllAttribute";
 	}
 

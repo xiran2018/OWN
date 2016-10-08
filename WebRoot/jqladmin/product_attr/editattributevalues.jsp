@@ -90,7 +90,7 @@
                        <input  class="radioItem" type="radio" name="input_style" onclick="" value="3">
                                                                                    多行文本框
                        <input  class="radioItem" type="radio" name="input_style" onclick="" value="4">
-                                                                                   多行文本框
+                                                                                   下拉列表框
                    </td>
                    <script type="text/javascript">
 			          //global variable

@@ -17,22 +17,24 @@ public class InputeAttributeView extends AttributeValueView {
 	protected void doHandle(HttpServletRequest request, int p_id, AttributeVO attribute) {
 		ProductBasicAttrDAO dao = (ProductBasicAttrDAO) DAOFactory.getInstance().getDAOImp(ProductBasicAttrDAO.class.getName());
 		AttrValueMapper attributeDao = (AttrValueMapper) DAOFactory.getInstance().getDAOImp(AttrValueMapper.class.getName());
-		// 文本框内容
+		// 更新的文本框内容
 		String content = request.getParameter(attribute.getAtr().getAttrId().toString());
-		// 当前文本框内容的id
+		// 原先文本框内容的id
 		String attrValueID = request.getParameter(attribute.getAtr().getAttrId() + "ID");
 		
 		
 		int attrVid = -1;// 如果为-1，说明原先属性名下没有属性值
-		if(attrValueID==null || attrValueID.equals("")) {
-			return;
+//		if(attrValueID==null || attrValueID.equals("")) {
+//			return;
+//		}
+//		
+//		if (!ValidateUtil.isInteger(attrValueID)) {
+//			return;
+//		}
+		if(attrValueID!=null && !attrValueID.equals("")&&ValidateUtil.isInteger(attrValueID)){
+			attrVid = Integer.parseInt(attrValueID);
 		}
 		
-		if (!ValidateUtil.isInteger(attrValueID)) {
-			return;
-		}
-		
-		attrVid = Integer.parseInt(attrValueID);
 		if (content != null && !content.equals("")) {
 			int tempAttrVid = attrVid;
 			// 不为-1说明属性名下有值,该产品也有该属性

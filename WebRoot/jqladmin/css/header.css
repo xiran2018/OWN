@@ -1,0 +1,19 @@
+#headerDiv{
+	
+	height: 60px; 
+	background: #1C94FF;
+	/*background: rgb(34, 34, 34) url('../images/bg-login.gif') top left;  */
+	padding: 10px
+}
+
+#profile-links{
+    float: right;
+    line-height: 33px;
+    padding: 10px;
+    color: white;
+}
+
+a.profile-links-a {
+    color: white !important;
+    text-decoration: none;
+}

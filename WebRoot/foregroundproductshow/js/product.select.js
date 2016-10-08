@@ -236,13 +236,13 @@ function productSelectAttrValue()
 				var prices = SKUResult[selectedIds.join(';')].prices;
 				var maxPrice = Math.max.apply(Math, prices);
 				
-				maxPrice=(maxPrice/currencyRate);
+				maxPrice=(maxPrice*currencyRate);
 				maxPrice=Digit.round(maxPrice, 2);
 				maxPrice=Digit.changeTwoDecimal(maxPrice);
 				
 				var minPrice = Math.min.apply(Math, prices);
 				
-				minPrice=(minPrice/currencyRate);
+				minPrice=(minPrice*currencyRate);
 				minPrice=Digit.round(minPrice, 2);
 				minPrice=Digit.changeTwoDecimal(minPrice);
 				

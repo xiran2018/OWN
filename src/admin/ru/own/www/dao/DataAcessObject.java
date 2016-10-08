@@ -140,8 +140,7 @@ public class DataAcessObject {
 			session.save(attr);
 			tx.commit();
 		} catch (Exception e) {
-			System.out
-					.println(">>>>>>>>>>>>>>>>thers is a bug for save Product_attr!!!!");
+			System.out.println(">>>>>>>>>>>>>>>>thers is a bug for save Product_attr!!!!");
 			System.out.println(e);
 			if (tx != null)
 				tx.rollback();

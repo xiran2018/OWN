@@ -7,7 +7,10 @@
 			+ request.getServerName() + ":" + request.getServerPort()
 			+ path + "/";
 %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- 
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">   -->
+
+<!DOCTYPE HTML>
 <html>
 <head>
 <base href="<%=basePath%>">
@@ -30,7 +33,8 @@
 		<link rel="stylesheet" type="text/css" href="jqladmin/css/inputstyle.css">
 		
 		<script type="text/javascript" src="jqladmin/js/json2.js"></script>
-		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+		<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>  
+		<!-- <script type="text/javascript" src="jqladmin/js/jquery-1.9.1.js"></script> -->
 		<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 		<link rel="stylesheet" href="jqladmin/css/demo.css" type="text/css">
 		<link rel="stylesheet" href="jqladmin/css/zTreeStyle/zTreeStyle.css" type="text/css">
@@ -44,17 +48,18 @@
         <script type="text/javascript" src="jqladmin/js/modify_product_category.js"></script>
         <script type="text/javascript" src="jqladmin/js/language.js"></script>
          <script type="text/javascript" src="js/jquery.form.js"></script>
+         
+         <!--  拖拽排序需要的js -->
+         <script type="text/javascript" src="jqladmin/js/Sortable.min.js"></script>
 
 <!--  ueditor 编辑器需要的js -->
 <script src="ueditor/ueditor.config.js"></script>
 <script src="ueditor/ueditor.all.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="ueditor/themes/default/css/ueditor.css" />
+<link rel="stylesheet" type="text/css"	href="ueditor/themes/default/css/ueditor.css" />
+<!-- 本页需要的css -->
+<link rel="stylesheet" type="text/css"	href="jqladmin/product/commoditymanagement/css/table.css">
+<link rel="stylesheet" type="text/css"	href="jqladmin/product/commoditymanagement/css/showimg.css">
 
-<%--
-		<script type="text/javascript" src="jqladmin/js/iframe_add_product.js"></script>
-		<script src="jqladmin/js/mzone.cc.iframe.js" type="text/javascript"></script>
-		--%>
 
 <SCRIPT type="text/javascript">
 	var isSuccess=${success};
@@ -63,6 +68,7 @@
 			alert("修改成功");
 		}
 	});
+	
 </SCRIPT>
 <style type="text/css">
 .ztree li span.button.add {
@@ -86,8 +92,106 @@
 				<div class="picBox" onclick="switchSysBar()" id="switchPoint"></div>
 				<div id="show_content_div">
 					<div>
-						<center>
+						<center>							
+							<div class="tipsDiv">图片管理</div>
+							<div id="pi-dynamic-field">
+							  <div class="opt-banner">
+									<span id="showImage"  style="width:100px;height:100px"  style="display: none"></span>  <!-- 图片预览 -->
+		                            <input id="image" name="image" type="text"   style="display: none" value=""/>
+		                            <form id="form2" method="post" enctype="multipart/form-data">
+		                                <input name="p_id" type="hidden" value="${pvo.products.p_id}"/>
+			                        	<input id="fileupload" name="fileupload"  type="file"  onchange="javascript:uploadImage()"/>
+			                        </form>
+			                        <span  id="tipDiv" style="display: none"></span>
+			                   </div>
+			                   <ul id="pi-dynamic-samples" class="image-list clearfix">
+			                   		  <!-- 
+										<li class="image-item" data-json="productId=${img.productId};imageId=${img.id}">
+											<p class="sample-item">
+					                   			<img src="${img.imageAddr}" width="100px" height="100px">
+					                   			<span class="rate-tip"></span>
+					                   		</p>
+					                   		<h3>${img.imageAddr}</h3>
+					                   		<a class="lnk-del-img" href="cm/managementimg_deleteImage?image.productId=${img.productId}&image.id=${img.id}">删除</a>
+				                   		</li>  -->
+			                   </ul>
+		                   		<script type="text/javascript">
+		                   			   var imageURLArray=new Array();  <!--全局变量存放图片相关信息-->
+		                   	    </script>
+		                   		<c:forEach items="${pvo.imageURLs}" var="img" varStatus="status">
+	                   				<script type="text/javascript">
+	                   					var imageURLObject=new Object();
+	                   					imageURLObject.productId=${img.productId};
+	                   					imageURLObject.imageId=${img.id};
+	                   					imageURLObject.imageAddr="${img.imageAddr}";
+	                   					imageURLObject.imageSort=${img.imageSort};
+	                   					
+	                   					imageURLArray.push(imageURLObject);
+	                   				</script>
+		
+								</c:forEach>
+								<script type="text/javascript">
+		                   			 var imageURLSorted=imageURLSort(imageURLArray);  //<!--调用排序函数对数据排序，然后在前台显示-->
+		                   			 var showString=getImageShowString(imageURLSorted);
+		                   			 $("#pi-dynamic-samples").append(showString);
+		                   	    </script>
+							   
+							   <div class="btn-banner">
+							   		<p>提交前，请认真核对您填写的信息，您只能在审核后才可再次对此产品进行编辑。</p>
+							   		<button type="button" class="yellowish-btn" id="btn-submit">提交</button>
+							   </div>
+							   
+			                   <!--      
+								<table border="1" id='productImage' class="altrowstable">
+									<tr>
+										<td>展示图片</td>
+										<td>是否封面</td>
+										<td>操作</td>
+										<td>展示图片</td>
+										<td>是否封面</td>
+										<td>操作</td>
+									</tr>
+									<c:forEach items="${pvo.imageURLs}" var="img" varStatus="status">
+										<c:if test="${status.index%2==0}">
+											<tr>
+												<td>
+													<img alt="" src="${img.imageAddr}" height="70px" width="70px">
+												</td>
+												<form action="cm/managementimg_updateImage" method="post">
+													<input type="hidden" name="image.id" value="${img.id}">
+													<input type="hidden" name="image.productId" value="${img.productId}">
+													<td>
+														<input type="radio" name="image.imageSort" value="1" <c:if test="${img.imageSort==1}">checked="checked"</c:if>/>是
+														<input type="radio" name="image.imageSort" value="0" <c:if test="${img.imageSort!=1}">checked="checked"</c:if>/>否
+													</td>
+													<td><input type="submit" value="修改">|<a href="cm/managementimg_deleteImage?image.productId=${img.productId}&image.id=${img.id}">删除</a></td></td>
+												</form>
+										</c:if>
+										
+										<c:if test="${status.index%2!=0}">
+												<td>
+													<img alt="" src="${img.imageAddr}" height="70px" width="70px">
+												</td>
+												<form action="cm/managementimg_updateImage" method="post">
+												<input type="hidden" name="image.id" value="${img.id}">
+												<input type="hidden" name="image.productId" value="${img.productId}">
+												<td>
+													<input type="radio" name="image.imageSort" value="1" <c:if test="${img.imageSort==1}">checked="checked"</c:if>/>是
+													<input type="radio" name="image.imageSort" value="0" <c:if test="${img.imageSort!=1}">checked="checked"</c:if>/>否
+												</td>
+												<td><input type="submit" value="修改">|<a href="cm/managementimg_deleteImage?image.productId=${img.productId}&image.id=${img.id}">删除</a></td>
+												</form>
+										</c:if>
+									</c:forEach>
+									
+								</table>
+							</div>end of 展示图片 -->
+							
+							<!-- 在此页顺便展示了基本属性信息 -->
 							<table border="1" class="altrowstable">
+								<tr>
+										<td  colspan="10" class="tipRow">基本属性信息</td>
+								</tr>
 								<tr>
 									<td>PID</td>
 									<td>名称</td>
@@ -139,64 +243,101 @@
 									<td>${pvo.products.p_status}</td>
 								</tr>
 							</table>
-							<hr>
-							
-								<span id="showImage"  style="width:100px;height:100px"  style="display: none"></span>  <!-- 图片预览 -->
-	                            <input id="image" name="image" type="text"   style="display: none" value=""/>
-	                            <form id="form2" method="post" enctype="multipart/form-data">
-	                                <input name="p_id" type="hidden" value="${pvo.products.p_id}"/>
-		                        	<input id="fileupload" name="fileupload"  type="file"  onchange="javascript:uploadImage()"/>
-		                        </form>
-		                        <span  id="tipDiv" style="display: none"></span>
-		                        
-		                        
-							<table border="1" id='productImage' class="altrowstable">
-								<tr>
-									<td>展示图片</td>
-									<td>是否封面</td>
-									<td>操作</td>
-									<td>展示图片</td>
-									<td>是否封面</td>
-									<td>操作</td>
-								</tr>
-								<c:forEach items="${pvo.imageURLs}" var="img" varStatus="status">
-									<c:if test="${status.index%2==0}">
-										<tr>
-											<td>
-												<img alt="" src="${img.imageAddr}" height="70px" width="70px">
-											</td>
-											<form action="cm/managementimg_updateImage" method="post">
-												<input type="hidden" name="image.id" value="${img.id}">
-												<input type="hidden" name="image.productId" value="${img.productId}">
-												<td>
-													<input type="radio" name="image.imageSort" value="1" <c:if test="${img.imageSort==1}">checked="checked"</c:if>/>是
-													<input type="radio" name="image.imageSort" value="0" <c:if test="${img.imageSort!=1}">checked="checked"</c:if>/>否
-												</td>
-												<td><input type="submit" value="修改">|<a href="cm/managementimg_deleteImage?image.productId=${img.productId}&image.id=${img.id}">删除</a></td></td>
-											</form>
-									</c:if>
-									
-									<c:if test="${status.index%2!=0}">
-											<td>
-												<img alt="" src="${img.imageAddr}" height="70px" width="70px">
-											</td>
-											<form action="cm/managementimg_updateImage" method="post">
-											<input type="hidden" name="image.id" value="${img.id}">
-											<input type="hidden" name="image.productId" value="${img.productId}">
-											<td>
-												<input type="radio" name="image.imageSort" value="1" <c:if test="${img.imageSort==1}">checked="checked"</c:if>/>是
-												<input type="radio" name="image.imageSort" value="0" <c:if test="${img.imageSort!=1}">checked="checked"</c:if>/>否
-											</td>
-											<td><input type="submit" value="修改">|<a href="cm/managementimg_deleteImage?image.productId=${img.productId}&image.id=${img.id}">删除</a></td>
-											</form>
-									</c:if>
-								</c:forEach>
-								
-							</table>
 							
 						</center>
 					</div>
 				</div>
+				<script type="text/javascript">
+				//图片可以拖动
+				var el = document.getElementById('pi-dynamic-samples');
+				var sortable = Sortable.create(el,{
+				    group: "name",
+				    sort: true,  // sorting inside list
+				    delay: 0, // time in milliseconds to define when the sorting should start
+				    disabled: false, // Disables the sortable if set to true.
+				    store: null,  // @see Store
+				    animation: 150,  // ms, animation speed moving items when sorting, `0` — without animation
+				    //handle: ".my-handle",  // Drag handle selector within list items
+				    //filter: ".ignore-elements",  // Selectors that do not lead to dragging (String or Function)
+				    draggable: ".image-item",  // Specifies which items inside the element should be draggable
+				    ghostClass: "sortable-ghost",  // Class name for the drop placeholder
+				    chosenClass: "sortable-chosen",  // Class name for the chosen item
+				    dragClass: "sortable-drag",  // Class name for the dragging item
+				    
+				    scroll: true, // or HTMLElement
+				    //scrollFn: function(offsetX, offsetY, originalEvent) { ... }, // if you have custom scrollbar scrollFn may be used for autoscrolling
+				    scrollSensitivity: 30, // px, how near the mouse must be to an edge to start scrolling.
+				    scrollSpeed: 10, // px
+				    
+				    setData: function (/** DataTransfer */dataTransfer, /** HTMLElement*/dragEl) {
+				        dataTransfer.setData('Text', dragEl.textContent); // `dataTransfer` object of HTML5 DragEvent
+				    },
+				
+				    // Element is chosen
+				    onChoose: function (/**Event*/evt) {
+				        evt.oldIndex;  // element index within parent
+				        //alert(evt.oldIndex);
+				    },
+				
+				    // Element dragging started
+				    onStart: function (/**Event*/evt) {
+				        evt.oldIndex;  // element index within parent
+				    },
+				
+				    // Element dragging ended
+				    onEnd: function (/**Event*/evt) {
+				        evt.oldIndex;  // element's old index within parent
+				        evt.newIndex;  // element's new index within parent
+				    },
+				
+				    // Element is dropped into the list from another list
+				    onAdd: function (/**Event*/evt) {
+				        var itemEl = evt.item;  // dragged HTMLElement
+				        evt.from;  // previous list
+				        // + indexes from onEnd
+				    },
+				
+				    // Changed sorting within list
+				    onUpdate: function (/**Event*/evt) {
+				        var itemEl = evt.item;  // dragged HTMLElement
+				        // + indexes from onEnd
+				        //alert(itemEl);
+				    },
+				
+				    // Called by any change to the list (add / update / remove)
+				    onSort: function (/**Event*/evt) {
+				        // same properties as onUpdate
+				    },
+				
+				    // Element is removed from the list into another list
+				    onRemove: function (/**Event*/evt) {
+				        // same properties as onUpdate
+				    },
+				
+				    // Attempt to drag a filtered element
+				    onFilter: function (/**Event*/evt) {
+				        var itemEl = evt.item;  // HTMLElement receiving the `mousedown|tapstart` event.
+				    },
+				
+				    // Event when you move an item in the list or between lists
+				    onMove: function (/**Event*/evt, /**Event*/originalEvent) {
+				        // Example: http://jsbin.com/tuyafe/1/edit?js,output
+				        evt.dragged; // dragged HTMLElement
+				        evt.draggedRect; // TextRectangle {left, top, right и bottom}
+				        evt.related; // HTMLElement on which have guided
+				        evt.relatedRect; // TextRectangle
+				        originalEvent.clientY; // mouse position
+				        // return false; — for cancel
+				    },
+				
+				    // Called when creating a clone of element
+				    onClone: function (/**Event*/evt) {
+				        var origEl = evt.item;
+				        var cloneEl = evt.clone;
+				    }
+				});
+				</script>				
+				
 				<!-- <div class="picBox1" onclick="switchSysBar1()" id="switchPoint1"></div> -->
 
 			</div>

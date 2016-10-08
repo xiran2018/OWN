@@ -895,14 +895,14 @@ function generateContent(shipIdArgs,tempShipMode)
 		var tempselectCountryIds=tempObj.shippingCountryIds;
 		var tempCountryArray=tempselectCountryIds.split("|");
 		var lenflag;
-		if(tempCountryArray.length>3)
-		{
-			lenflag=3;
-		}
-		else
-		{
+//		if(tempCountryArray.length>3)
+//		{
+//			lenflag=3;
+//		}
+//		else
+//		{
 			lenflag=tempCountryArray.length;
-		}
+//		}
 		for(var j=0;j<lenflag;j++)
 		{	
 			var tempCountryId=tempCountryArray[j];
@@ -963,14 +963,14 @@ function generateTimeContent(shipIdArgs,tempTimeMode)
 		var tempselectCountryIds=tempObj.shippingCountryIds;
 		var tempCountryArray=tempselectCountryIds.split("|");
 		var lenflag;
-		if(tempCountryArray.length>3)
-		{
-			lenflag=3;
-		}
-		else
-		{
+//		if(tempCountryArray.length>3)
+//		{
+//			lenflag=3;
+//		}
+//		else
+//		{
 			lenflag=tempCountryArray.length;
-		}
+//		}
 		for(var j=0;j<lenflag;j++)
 		{	
 			var tempCountryId=tempCountryArray[j];
@@ -1134,10 +1134,10 @@ function add_time_shipping()
 			else
 			{
 				shippingCountryIds=shippingCountryIds+"|"+tempCountryId;
-				if(i<3)
-				{
+//				if(i<3)
+//				{
 					shipDecription+=","+$(this).next('.countryName').html();
-				}
+//				}
 				
 			}
 		});
@@ -1169,10 +1169,10 @@ function add_time_shipping()
 			else
 			{
 				shippingCountryIds=shippingCountryIds+"|"+tempCountryId;
-				if(i<3)
-				{
+//				if(i<3)
+//				{
 					shipDecription+=","+$(this).next('.countryName').html();
-				}
+//				}
 				
 			}
 		});
@@ -1202,8 +1202,7 @@ function add_shipping()
 		//获取所有的选择的国家，加入全局变量selectCountryIds中
 		$(".mui_shippingCountry:checked").each(function(i){
 			var tempCountryId=$(this).val();
-			$(this).removeClass("mui_shippingCountry");//把每一个都设置为disabled
-			$(this).prop("disabled",true);//把每一个都设置为disabled
+			
 			
 			if(i==0)
 			{//第一个
@@ -1214,10 +1213,10 @@ function add_shipping()
 			else
 			{
 				shippingCountryIds=shippingCountryIds+"|"+tempCountryId;
-				if(i<3)
-				{
+//				if(i<3)
+//				{
 					shipDecription+=","+$(this).next('.countryName').html();
-				}
+//				}
 				
 			}
 		});
@@ -1229,7 +1228,12 @@ function add_shipping()
 			return;
 		}
 		
-		handleXiangXiInfo();
+		var flag=handleXiangXiInfo();
+		if(flag!=0)
+		{//如果等于0，说明是没有填写运费
+			$(this).removeClass("mui_shippingCountry");//把每一个都设置为disabled
+			$(this).prop("disabled",true);//把每一个都设置为disabled
+		}
 	}
 	else
 	{//表明是编辑
@@ -1237,8 +1241,8 @@ function add_shipping()
 		//获取所有的选择的国家，加入全局变量selectCountryIds中
 		$(".mui_shippingCountry:checked").each(function(i){
 			var tempCountryId=$(this).val();
-			$(this).removeClass("mui_shippingCountry");//把每一个都设置为disabled
-			$(this).prop("disabled",true);//把每一个都设置为disabled
+//			$(this).removeClass("mui_shippingCountry");//把每一个都设置为disabled
+//			$(this).prop("disabled",true);//把每一个都设置为disabled
 			
 			if(i==0)
 			{//第一个
@@ -1249,10 +1253,10 @@ function add_shipping()
 			else
 			{
 				shippingCountryIds=shippingCountryIds+"|"+tempCountryId;
-				if(i<3)
-				{
+//				if(i<3)
+//				{
 					shipDecription+=","+$(this).next('.countryName').html();
-				}
+//				}
 				
 			}
 		});
@@ -1263,7 +1267,12 @@ function add_shipping()
 			return;
 		}
 		
-		handleXiangXiInfo();
+		var flag=handleXiangXiInfo();
+		if(flag!=0)
+		{//如果等于0，说明是没有填写运费
+			$(this).removeClass("mui_shippingCountry");//把每一个都设置为disabled
+			$(this).prop("disabled",true);//把每一个都设置为disabled
+		}
 		
 		editFlag=0;//编辑完了之后重新设置为添加状态
 	}
@@ -1291,7 +1300,7 @@ function handleXiangXiInfo()
 		if(standardFee==""||standardFee==null)
 		{
 			alert("请填写标准运费");
-			return;
+			return 0;
 		}
 		obj.standardFee=standardFee;
 
@@ -1740,7 +1749,7 @@ function setParmsInThePage(ShipModeElement)
 	{
 		tempid=tempCountry[i];
 		//把该种方式所对应国家的复选框设定为可选，去除disable属性，同时加上名字为mui_shippingCountry的class
-		$("input:checkbox[value='"+tempid+"']").addClass("mui_shippingCountry");//把每一个都设置为disabled
+		$("input:checkbox[value='"+tempid+"']").addClass("mui_shippingCountry");//
 		$("input:checkbox[value='"+tempid+"']").prop("disabled",false);//去除disable
 	}
 	

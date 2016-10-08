@@ -19,6 +19,7 @@ public class Attribute implements java.io.Serializable {
 	private Short isKeyAttr;
 	private Short isSaleAttr;
 	private Short isSearchAttr;
+	private Short isPopup;//是否弹窗显示
 	private Short isMultiselect;
 	private Short isNecessary;
 	private Integer sortNumber;
@@ -91,6 +92,14 @@ public class Attribute implements java.io.Serializable {
 
 	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
+	}
+
+	public Short getIsPopup() {
+		return isPopup;
+	}
+
+	public void setIsPopup(Short isPopup) {
+		this.isPopup = isPopup;
 	}
 
 	public Short getIsColorAttr() {

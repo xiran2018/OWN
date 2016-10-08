@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.pinfo{
+	width: 598px;
+    /*float: left;*/
+    border-top: 1px dotted #ddd;
+    border-bottom: 1px dotted #ddd;
+    padding-top: 3px;
+    margin-bottom: 3px;
+}
+
+
+
+.cursor{
+	
+	  cursor:pointer;
+	  text-decoration: none !important; 
+    color: #9e5fd6 !important;
+}
+
+#productAttrContent{
+	/*overflow: scroll;*/
+}

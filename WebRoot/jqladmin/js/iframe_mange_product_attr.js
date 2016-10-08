@@ -322,6 +322,7 @@ function Edit(obj)
     	   
     	   //$('input[name="search"]:checked').prop("checked","false");
     	   $('input[name="search"]:checked').attr("checked","false");
+    	   $('input[name="popup"]:checked').attr("checked","false");
     	   $('input[name="status"]:checked').attr("checked","false");
     	   $('input[name="input_style"]:checked').attr("checked","false");
     	   
@@ -332,6 +333,7 @@ function Edit(obj)
            //$(":radio[name=search][value='"+data.attribute.isSearchAttr+"']").attr("checked","true");
            $(":radio[name=globalattr][value='"+data.attribute.globalattr+"']").attr("checked","true");
            $(":radio[name=search][value='"+data.attribute.isSearchAttr+"']").attr("checked","true");
+           $(":radio[name=popup][value='"+data.attribute.isPopup+"']").attr("checked","true");
            $(":radio[name=status][value='"+data.attribute.attrStatus+"']").attr("checked","true");
           // $(":radio[name=input_style][value='"+data.attribute.inputStyle+"']").attr("checked","true");
            

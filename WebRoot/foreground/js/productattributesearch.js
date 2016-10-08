@@ -1,6 +1,6 @@
 /***********************global variables********************************************/
 var flag = 0;//当点击更多标签时的事件
-var map = null;
+var map = null;  //存储属性信息，在属性查找时使用
 var change = false;
 /*******************************************************************/
 $(document).ready(function() {
@@ -12,6 +12,10 @@ function addAttributeLabel(selectString,elem) {
 	getPageData(0,map,categoryid,startPrice,endPrice,true);
 }
 
+/**
+ * 点击相应的属性时的动作
+ * @param categoryid
+ */
 function registEvents(categoryid)
 {
 	$("div.j_NavAttrs").on("click","li",function() { //点击相应的属性时，把属性添加上页面上
@@ -63,7 +67,10 @@ function registEvents(categoryid)
 	});
 }
 
-
+/**
+ * 更多标签时的事件
+ * @param element
+ */
 function moreChange(element) {
 	if (flag == 0) {
 		$(element).children(".ui-more-drop-l-arrow").css({
@@ -83,7 +90,7 @@ function moreChange(element) {
 }
 
 function getAllAttribute(categoryid) {
-	$.getJSON("fg/secondforegroundpage_getAllAttribute.action?categoryid="+categoryid, function(data) {
+	$.getJSON("category/category_getAllAttribute.action?categoryid="+categoryid, function(data) {
 		var html = "";
 		$.each(data, function(index,atrv) {
 			html += "<div class='propAttrs'><div class='j_Prop attr hotspot' data-mindiffrow='2'>";

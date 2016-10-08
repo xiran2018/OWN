@@ -137,7 +137,7 @@ public class OrderAfterOperate extends ActionSupport implements SessionAware
 	private String errCode;//100:取数据不成功，200：取数据成功
 	private String errMessage;
 	private Integer pagenum=1;//需要获取的信息所在的页数,默认从第一页开始取数据,需要显示那一页，需要从前台获取
-	private Integer numberInPage=15;//每一页需要显示的行数，默认是10行数据
+	private Integer numberInPage=15;//每一页需要显示的行数，默认是15行数据
 	private int totalNumberPage; //总页数
 	/////////////////////end of分页相关///////////////////////////////////
 	

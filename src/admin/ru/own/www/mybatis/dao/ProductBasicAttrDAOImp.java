@@ -84,4 +84,10 @@ public class ProductBasicAttrDAOImp implements ProductBasicAttrDAO {
 		dao.updateAttrValueId(pba);
 		sqlSession.commit();
 	}
+
+	@Override
+	public void deleteBasicAttr13(Product_Basic_Attr pba) {
+		dao.deleteBasicAttr13(pba);
+		sqlSession.commit();		
+	}
 }

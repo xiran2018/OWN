@@ -25,6 +25,9 @@
         <property name="isShow" type="java.lang.Short">
             <column name="is_show" not-null="true" />
         </property>
+        <property name="isInFloorshow" type="java.lang.Short">
+            <column name="is_inFloorshow"/>
+        </property>
         <property name="icon" type="java.lang.String">
             <column name="icon" />
         </property>

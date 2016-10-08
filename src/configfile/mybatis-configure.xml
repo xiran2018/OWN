@@ -24,10 +24,11 @@
 				<property name="username" value="${jdbc.username}" />
 				<property name="password" value="${jdbc.password}" />
 				<property name="poolMaximumActiveConnections" value="20" />
+				<!-- <property name="poolMaximumIdleConnections" value="0"/> 如果数据库崩溃，可能就是这里出问题 -->
 				<property name="poolMaximumCheckoutTime" value="60000" />
 				<property name="poolTimeToWait" value="60000" />
-				<property name="poolPingQuery" value="select 100 as num" />
-				<property name="poolPingEnabled" value="false" />
+				<property name="poolPingQuery" value="select now()" />
+				<property name="poolPingEnabled" value="true" />
 				<property name="poolPingConnectionsNotUsedFor" value="120000" />
 			</dataSource>
 

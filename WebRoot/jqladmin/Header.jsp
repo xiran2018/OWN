@@ -2,10 +2,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 	<head>
-
+		<link rel="stylesheet" type="text/css" href="jqladmin/css/header.css">
+		<script  type="text/javascript" >
+			//about the user name
+	        var userName="<%=session.getAttribute("user")%>";
+	    </script>
 	</head>
 	<body>
-		<div style="height: 80px; background: #1C94C4; padding: 10px">
+		<div id="headerDiv" style="">
 			<div style="">
 				<ul id="menu" style="list-style-type: none;">
 					<a href="jqladmin/jqladmin-index/admin-index.action">
@@ -49,7 +53,12 @@
                         </li> 
                     </a>
 				</ul>
-			</div>
+				<div id="profile-links">
+					你好, <a class="profile-links-a" href="/newto.php/system/modifypassword" title="用户中心"><%=session.getAttribute("user")%></a>
+	                | 
+	                <a class="profile-links-a" href="admin_logout.action" title="退出">退出</a>
+                </div> <!-- end of profile-links-->
+			</div> <!-- end of tab menu content -->
 		</div>
 	</body>
 </html>

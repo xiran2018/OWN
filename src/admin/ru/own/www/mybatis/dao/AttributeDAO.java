@@ -13,6 +13,7 @@ public interface AttributeDAO extends MyBatisMapper {
 	 * @return
 	 */
 	List<AttributeVO> getOneCategoryAttribute(int category_id);
-	List<AttributeVO> getOneMultiCategoryAttribute(Map<String, Object> args);
+	List<AttributeVO> getOneMultiCategoryAttribute(Map<String, Object> args);//得到某一个分类的所有属性和属性值
 	Attribute getOneAttribute(int attr_id);
+	List<AttributeVO> getOneMultiCategorySearchAttribute(Map<String, Object> args);
 }

@@ -138,9 +138,21 @@
 						                            <input type="radio" name="search" value="1" checked="checked">
 						                                                                             是
 						                            <input type="radio" name="search" value="0">
-						                              否
+						                              	否
 						                        </td>
-						                    </tr>    
+						                    </tr>  
+						                    <tr>
+						                        <td valign=middle  align=right>
+						                                                                           是否弹框显示：
+						                        </td>
+						                        <td valign=middle>
+						                            <input type="radio" name="popup" value="1">
+						                                                                             是
+						                            <input type="radio" name="popup" value="0"  checked="checked">
+						                              	否
+						                            <span>(*该选项只对多行文本框有效)</span>
+						                        </td>
+						                    </tr>   
 						                    <tr>
 						                        <td valign=middle  align=right>
 						                                                                           状态：

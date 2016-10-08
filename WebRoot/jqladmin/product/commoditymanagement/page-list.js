@@ -12,8 +12,9 @@ $().ready(
 			showInformaton(0); //show  information
 			//next code is to show the list-data，也就是分页的按钮:  pre page::1::2::3::next page
 			//********************************************************这里的代码不需要改动，需要根据实际却动totalNmuberPage的值
-				var listDataHtml=buildUpListData(totalNumber); //totalNumber is in order-list.jsp
-				$(listDataHtml).appendTo($("#diggId"));
+			var listDataHtml=buildUpListData(totalNumber); //totalNumber is in list.jsp
+			$("#diggId").empty();
+			$(listDataHtml).appendTo($("#diggId"));
 			//********************************************************
 		}
 		
@@ -42,6 +43,7 @@ var realLeftNumCount;  //实际组装过程中，中间左面已经显示的数�
  */
 function registerEventLister()
 {
+	
 	//点击上一页按钮时的动作
 	$("#diggId").on("click","#prePage",
 			function()
@@ -497,16 +499,8 @@ $().ready(
  * 为页面元素注册事件
  */
 function registerEventListerForPageEle()
-{
+{//为搜索按钮添加事件
 	$(".order-list-search").on("click","#search-btn",queryOrderByParment);
-}
-
-/**
- * 根据选定的参数获取订单信息，和showInformaton函数对应，showInformaton函数的作用是在页面初始化时显示信息
- */
-function queryOrderByParment()
-{
-	getPageDataFromParams(1);
 }
 
 /**
@@ -514,23 +508,74 @@ function queryOrderByParment()
  */
 function showInformaton(nowPage)
 {
+	//ask for the server to return the data to show
+	//the following parmeter is in page-list.jsp
+	productName=$.trim($("#productName").val());
+	brandName=$.trim($("#brandName").val());
+	productStatus=$.trim($("#productStatus").val());
+	gmtBeginDate=$.trim($("#gmtBeginDate").val());
+	gmtEndDate=$.trim($("#gmtEndDate").val());
+
+	var params=
+	{
+		"productName":productName, 
+		"brandName":brandName,
+		"productStatus":productStatus,
+		"gmtBeginDate":gmtBeginDate,
+		"gmtEndDate":gmtEndDate,
+		"initPage":nowPage   //需要显示哪一页
+	};
+	
+	var dataRowsLength=0; //获取数据的多少
 	var htmldata = "<table border='1' class='altrowstable'>"+
-	"<tr><td>PID</td><td>图片</td><td>名称</td><td>重量</td><td>采购价格</td><td>原始价格</td><td>现价</td><td>品牌ID</td><td>商品分类ID</td><td>产品来源厂家</td><td>厂家编号</td><td>自编号</td><td>厂家网址</td><td>库存数目</td><td>最少购买数量</td><td>是否免邮</td><td>积分</td><td>是否热销</td><td>是否推荐</td><td>是否新品</td><td>产品状态</td><td>操作</td></tr>";
-	$.post("cm/management_returnCommoditys.action",{initPage:nowPage},function(data) {
-		$.each(data, function(index,atrv) {
-			htmldata += "<tr><td>"+atrv.products.p_id+"</td><td><img style='width:70px;height:70px;' src='"+atrv.showURL+"'></td><td>"+atrv.products.p_name+"</td><td>"+atrv.products.p_weight+"</td><td>"+atrv.products.p_purchaprice+"</td><td>"+atrv.products.p_originprice+"</td><td>"+atrv.products.p_nowprice+"</td><td>"+atrv.brand+"</td><td>"+atrv.category+"</td><td>"+atrv.products.p_fromcompany+"</td><td>"+atrv.products.p_companyserinum+"</td><td>"+atrv.products.p_myserialnumber+"</td><td>"+atrv.products.p_fromnetaddress+"</td><td>"+atrv.products.p_storenumber+"</td><td>"+atrv.products.p_storenumber+"</td><td>"+atrv.products.p_freemail+"</td><td>"+atrv.products.p_jifen+"</td><td>"+atrv.products.p_hot+"</td><td>"+atrv.products.p_recommend+"</td><td>"+atrv.products.p_new+"</td><td>"+atrv.products.p_status+"</td>" +
+	"<tr><td style='display: none;'>PID</td><td>图片</td><td>名称</td><td>重量</td><td>采购价格</td><td>原始价格</td><td>现价</td><td>品牌ID</td><td>商品分类ID</td><td>产品来源厂家</td><td>厂家编号</td><td>自编号</td><td  class='pfromnetaddress'>厂家网址</td><td>库存数目</td><td>最少购买数量</td><td>是否免邮</td><td>积分</td><td>是否热销</td><td>是否推荐</td><td>是否新品</td><td>产品状态</td><td>操作</td></tr>";
+	$.post("cm/management_returnCommoditys.action",params,function(data) {
+		var allData=data;
+		var productdata=data.commoditys;
+		$.each(productdata, function(index,atrv) {
+			dataRowsLength++;
+			var p_hot=atrv.products.p_hot;
+			var phot="否";
+			if(p_hot==1)
+				phot="是";
+			
+			var p_recommend=atrv.products.p_recommend;
+			var precommend="否";
+			if(p_recommend==1)
+				precommend="是";
+			
+			var p_new=atrv.products.p_new;
+			var pnew="否";
+			if(p_new==1)
+				pnew="是";
+			
+			var p_status=atrv.products.p_status;
+			var pstatus="下架";
+			if(p_status==1)
+				pstatus="上架";
+			
+			
+			var p_freemail=atrv.products.p_freemail;
+			var pfreemail="否";
+			if(p_freemail==1)
+				pfreemail="是";
+			
+			htmldata += "<tr><td style='display: none;'>"+atrv.products.p_id+"</td><td><img style='width:70px;height:70px;' src='"+atrv.showURL+"'></td><td>"+atrv.products.p_name+"</td><td>"+atrv.products.p_weight+"</td><td>"+
+			atrv.products.p_purchaprice+"</td><td>"+atrv.products.p_originprice+"</td><td>"+
+			atrv.products.p_nowprice+"</td><td>"+atrv.brand+"</td><td>"+atrv.category+"</td><td>"+atrv.products.p_fromcompany+"</td><td>"+atrv.products.p_companyserinum+"</td><td>"+
+			atrv.products.p_myserialnumber+"</td><td  class='pfromnetaddress'><a target='_blank' title='"+atrv.products.p_fromnetaddress+"' href='"+atrv.products.p_fromnetaddress+"'>"+atrv.products.p_fromnetaddress+"</a></td><td>"+
+			atrv.products.p_storenumber+"</td><td>"+atrv.products.p_minbuyamount+"</td><td>"+pfreemail+"</td><td>"+atrv.products.p_jifen+"</td><td>"+
+			phot+"</td><td>"+precommend+"</td><td>"+pnew+"</td><td>"+pstatus+"</td>" +
 					"<td><a href='cm/managementmultatr_showInfo?p_id="+atrv.products.p_id+" 'target='_blank'>属性</A> |" +
 						"<a href='cm/managementimg_showImg?p_id="+atrv.products.p_id+" 'target='_blank'>图片</A> |" +
 						"<a href='cm/multilanguage_showAll?product_id="+atrv.products.p_id+" ' target='_blank'>多语言</A> |" +
 						"<a href='cm/sku_showAll?product.p_id="+atrv.products.p_id+" 'target='_blank'>SKU</A>" +
 						"<hr/>"+
-						"<a href='cm/management_delete?p_id="+atrv.products.p_id+" '>删除</A></td></tr>" ;
+						"<a onclick=\"if(confirm('确定删除?')==false)return false;\" href='cm/management_delete?p_id="+atrv.products.p_id+" '>删除</a></td></tr>" ;
 		});
 		htmldata +="</table>";
 		//the following code is to show the  data  entireTransInfo
-		var entireTransInfo=[1,1]; //orderList is in order-list.jsp
 		
-		var dataRowsLength = entireTransInfo.length;
 		if(dataRowsLength==0)
 		{
 			document.getElementById("listshowID").innerHTML="sorry,there is no data to show!!!";
@@ -538,7 +583,6 @@ function showInformaton(nowPage)
 		}
 		
 //********************************************************这里的代码需要根据具体显示的数值改动
-		
 		document.getElementById("listshowID").innerHTML=htmldata;
 //********************************************************
 	});
@@ -558,4 +602,111 @@ function getPageData(pageNum,isUP)
 {
 	showInformaton(pageNum);
 		
+}
+
+/**
+ * 根据选定的参数获取商品信息，和showInformaton函数对应，showInformaton函数的作用是在页面初始化时显示信息
+ */
+function queryOrderByParment()
+{
+	getPageDataFromParams(1);
+}
+
+/**
+ * 根据用户的选择，获取参数显示
+ */
+function getPageDataFromParams(pageNum)
+{
+	
+	var actionUrl="cm/management_returnCommoditys.action";
+	
+	//ask for the server to return the data to show
+	//the following parmeter is in page-list.jsp
+	productName=$.trim($("#productName").val());
+	brandName=$.trim($("#brandName").val());
+	productStatus=$.trim($("#productStatus").val());
+	gmtBeginDate=$.trim($("#gmtBeginDate").val());
+	gmtEndDate=$.trim($("#gmtEndDate").val());
+
+	var params=
+	{
+		"productName":productName, 
+		"brandName":brandName,
+		"productStatus":productStatus,
+		"gmtBeginDate":gmtBeginDate,
+		"gmtEndDate":gmtEndDate,
+		"initPage":pageNum   //需要显示哪一页
+	};
+	var dataRowsLength=0; //获取数据的多少
+	var htmldata = "<table border='1' class='altrowstable'>"+
+	"<tr><td style='display: none;'>PID</td><td>图片</td><td>名称</td><td>重量</td><td>采购价格</td><td>原始价格</td><td>现价</td><td>品牌ID</td><td>商品分类ID</td><td>产品来源厂家</td><td>厂家编号</td><td>自编号</td><td class='pfromnetaddress'>厂家网址</td><td>库存数目</td><td>最少购买数量</td><td>是否免邮</td><td>积分</td><td>是否热销</td><td>是否推荐</td><td>是否新品</td><td>产品状态</td><td>操作</td></tr>";
+	$.post("cm/management_returnCommoditys.action",params,function(data) {
+		var productdata=data.commoditys;
+		totalNumber=data.totalNumber;  //需要显示的总页数
+		$.each(productdata, function(index,atrv) {
+			
+			dataRowsLength++;
+			var p_hot=atrv.products.p_hot;
+			var phot="否";
+			if(p_hot==1)
+				phot="是";
+			
+			var p_recommend=atrv.products.p_recommend;
+			var precommend="否";
+			if(p_recommend==1)
+				precommend="是";
+			
+			var p_new=atrv.products.p_new;
+			var pnew="否";
+			if(p_new==1)
+				pnew="是";
+			
+			var p_status=atrv.products.p_status;
+			var pstatus="下架";
+			if(p_status==1)
+				pstatus="上架";
+			
+			
+			var p_freemail=atrv.products.p_freemail;
+			var pfreemail="否";
+			if(p_freemail==1)
+				pfreemail="是";
+			
+			htmldata += "<tr><td style='display: none;'>"+atrv.products.p_id+"</td><td><img style='width:70px;height:70px;' src='"+atrv.showURL+"'></td><td>"+atrv.products.p_name+"</td><td>"+atrv.products.p_weight+"</td><td>"+
+			atrv.products.p_purchaprice+"</td><td>"+atrv.products.p_originprice+"</td><td>"+
+			atrv.products.p_nowprice+"</td><td>"+atrv.brand+"</td><td>"+atrv.category+"</td><td>"+atrv.products.p_fromcompany+"</td><td>"+atrv.products.p_companyserinum+"</td><td>"+
+			atrv.products.p_myserialnumber+"</td><td class='pfromnetaddress'><a target='_blank' title='"+atrv.products.p_fromnetaddress+"' href='"+atrv.products.p_fromnetaddress+"'>"+atrv.products.p_fromnetaddress+"</a></td><td>"+
+			atrv.products.p_storenumber+"</td><td>"+atrv.products.p_minbuyamount+"</td><td>"+pfreemail+"</td><td>"+atrv.products.p_jifen+"</td><td>"+
+			phot+"</td><td>"+precommend+"</td><td>"+pnew+"</td><td>"+pstatus+"</td>" +
+					"<td><a href='cm/managementmultatr_showInfo?p_id="+atrv.products.p_id+" 'target='_blank'>属性</A> |" +
+						"<a href='cm/managementimg_showImg?p_id="+atrv.products.p_id+" 'target='_blank'>图片</A> |" +
+						"<a href='cm/multilanguage_showAll?product_id="+atrv.products.p_id+" ' target='_blank'>多语言</A> |" +
+						"<a href='cm/sku_showAll?product.p_id="+atrv.products.p_id+" 'target='_blank'>SKU</A>" +
+						"<hr/>"+
+						"<a onclick=\"if(confirm('确定删除?')==false)return false;\" href='cm/management_delete?p_id="+atrv.products.p_id+" '>删除</a></td></tr>" ;
+		});
+		htmldata +="</table>";
+		//the following code is to show the  data  entireTransInfo
+		
+		if(dataRowsLength==0)
+		{
+			document.getElementById("listshowID").innerHTML="sorry,there is no data to show!!!";
+			//return;
+		}
+		else
+		{
+			//********************************************************这里的代码需要根据具体显示的数值改动
+					document.getElementById("listshowID").innerHTML=htmldata;
+			//********************************************************
+		}
+		if(pageNum==1)  //只有第一页才会显示页数，其他的不用显示页数，直接改变页数的颜色即可
+		{
+			//next code is to show the list-data，也就是分页的按钮:  pre page::1::2::3::next page
+			//********************************************************这里的代码不需要改动，需要根据实际却动totalNmuberPage的值
+			var listDataHtml=buildUpListData(totalNumber); //totalNumber is in list.jsp
+			$("#diggId").empty();
+			$(listDataHtml).appendTo($("#diggId"));
+			//********************************************************
+		}
+	});
 }

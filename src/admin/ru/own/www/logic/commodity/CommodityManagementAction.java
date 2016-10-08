@@ -42,27 +42,49 @@ public class CommodityManagementAction extends ActionSupport {
 	private AttributeValueMultiLanguage atrValueML;
 	private int atrName_id;//修改多语言时用
 	private int texttype; //修改多语言的时候，根据这个判断是多行文本框还是input
+	
+	private int totalNumber; //需要显示的总页数
+	List<ProductsVO> commoditys;
 
 	public String showList() {
 		ProductsDAO dao = (ProductsDAO) DAOFactory.get(ProductsDAO.class.getName());
-		ActionContext.getContext().put("totalNumber", PageUtil.getTotalPageNumber(dao.getCount()));
+		totalNumber=PageUtil.getTotalPageNumber(dao.getCount());
+		ActionContext.getContext().put("totalNumber", PageUtil.getTotalPageNumber(dao.getCount())); //放到context中，前台页面获取此数据
 		dao.closeSession();
 		return "showList";
 	}
-
+	/**
+	 * 在页面点击搜索    和  点击 相应页数的时候 需要调用此函数
+	 * @return
+	 */
 	public String returnCommoditys() {
 		HttpServletRequest request = ServletActionContext.getRequest();
 		String initPageStr = request.getParameter("initPage");
-		ProductsDAO dao = (ProductsDAO) DAOFactory.get(ProductsDAO.class.getName());
-		Map<String, Integer> map = new HashMap<String, Integer>();
+		String productName = request.getParameter("productName");
+		String brandName = request.getParameter("brandName");
+		String productStatus = request.getParameter("productStatus");
+		String gmtBeginDate = request.getParameter("gmtBeginDate");
+		String gmtEndDate = request.getParameter("gmtEndDate");
 		
-		int size = 10;
+		ProductsDAO dao = (ProductsDAO) DAOFactory.get(ProductsDAO.class.getName());
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		int size = 15;
 		int initPage = PageUtil.validatePageNumber(initPageStr);
 		map.put("begain",0+initPage*size);
 		map.put("size",size);
+		map.put("productName",productName);
+		map.put("brandName",brandName);
+		map.put("productStatus",productStatus);
+		map.put("gmtBeginDate",gmtBeginDate);
+		map.put("gmtEndDate",gmtEndDate);
 		
-		List<ProductsVO> commoditys = dao.getAllVOLimit(map);
-		ActionContext.getContext().put("commoditys", commoditys);
+		int count=dao.getTotalNumberProductByParameters(map);//总页数
+		totalNumber=PageUtil.getTotalPageNumber(count);
+//		ActionContext.getContext().put("totalNumber", PageUtil.getTotalPageNumber(count)); //放到context中，前台页面获取此数据
+		
+		commoditys = dao.getAllVOLimit(map);
+//		ActionContext.getContext().put("commoditys", commoditys);
  		dao.closeSession();
 		return "returnCommoditys";
 	}
@@ -222,6 +244,18 @@ public class CommodityManagementAction extends ActionSupport {
 
 	public void setTexttype(int texttype) {
 		this.texttype = texttype;
+	}
+	public int getTotalNumber() {
+		return totalNumber;
+	}
+	public void setTotalNumber(int totalNumber) {
+		this.totalNumber = totalNumber;
+	}
+	public List<ProductsVO> getCommoditys() {
+		return commoditys;
+	}
+	public void setCommoditys(List<ProductsVO> commoditys) {
+		this.commoditys = commoditys;
 	}
 	
 }

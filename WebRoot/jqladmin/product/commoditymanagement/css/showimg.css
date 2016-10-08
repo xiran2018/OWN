@@ -1,0 +1,144 @@
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, button, textarea, p, blockquote, th, td {
+    margin: 0;
+    padding: 0;
+}
+#pi-dynamic-field {
+    border: 1px solid #CCC;
+    width: 95%;
+    padding: 1px;
+    margin: 10px 0;
+}
+
+#pi-dynamic-field .opt-banner {
+    border-bottom: 1px dashed #CCC;
+    padding-bottom: 10px;
+}
+
+.opt-banner {
+    padding: 5px;
+    overflow: hidden;
+}
+
+.sample-item {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 90px;
+    overflow: hidden;
+    position: relative;
+}
+
+.image-item {
+    float: left;
+    margin: 5px;
+    display: inline;
+    width: 102px;
+    background-color: #FFF;
+    text-align: right;
+    overflow: hidden;
+}
+
+.image-item p {
+    text-align: center;
+    border: 1px solid #CCC;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+}
+
+.sample-item img {
+    vertical-align: middle;
+}
+
+fieldset, img {
+    border: 0;
+}
+
+.high-quality-pic-help .rate-tip {
+    display: block;
+}
+
+.rate-tip {
+    display: none;
+    position: absolute;
+    background: url(/simg/sprites/app/sprite-notice-addon.png?t=c41fb6f4_0) no-repeat 0 -88px;
+    width: 15px;
+    height: 15px;
+    top: 3px;
+    left: 3px;
+}
+
+.image-item h3 {
+    font-weight: 400;
+    text-align: right;
+    font-size: 12px;
+    width: 102px;
+    padding-top: 4px;
+    line-height: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+
+
+
+.lnk-del-img {
+    text-align: right;
+    padding-top: 4px;
+    width: 102px;
+    font-size: 12px;
+    display: block;
+    line-height: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.image-list {
+    position: relative;
+    z-index: 2;
+    width: 85%;
+    min-height: 112px;
+    _height: 112px;
+    background-image: url(/wimg/seller/single/dynamic_samples_bg.gif?t=81e60edf_0);
+    background-repeat: no-repeat;
+}
+
+#pi-dynamic-samples {
+    padding-top: 5px;
+	margin: 0;
+}
+
+#pi-dynamic-field.thumbnail .image-list {
+    display: inline-block;
+    width: auto;
+    background: none;
+}
+
+.btn-banner {
+    clear: both;
+    margin: 20px auto;
+    margin-bottom: 0;
+    width: 100%;
+    border-top: 1px dashed #CCC;
+    overflow: hidden;
+    text-align: center;
+}
+
+.btn-banner p{
+	margin: 5px 0px; 
+}
+
+.yellowish-btn{
+	height: 25px;
+    line-height: 23px;
+    padding: 0 20px;
+    vertical-align: middle;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    overflow: hidden;
+    cursor: pointer;
+    background: #eee;
+    border: 1px solid #ccc;
+    margin: 8px 10px; 
+}
+
+

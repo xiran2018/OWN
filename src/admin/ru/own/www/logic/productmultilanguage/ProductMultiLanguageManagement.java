@@ -31,17 +31,18 @@ public class ProductMultiLanguageManagement extends ActionSupport {
 			if(languages.contains(vo.getLanguage())) {
 				languages.remove(vo.getLanguage());
 			}
-			//语言states为不可用的时候也要剔除
-			if(vo.getLanguage().getStatus()==0) {
-				iterator.remove();
-			}
+			//语言states为不可用的时候,因为在后台，所以不用剔除
+//			if(vo.getLanguage().getStatus()==0) {
+//				iterator.remove();
+//			}
 			
 		}
-		for (Iterator<Language> iterator = languages.iterator(); iterator.hasNext();) {
-			if(iterator.next().getStatus()==0){
-				iterator.remove();
-			}
-		}
+		//语言states为不可用的时候，因为在后台，所以不用剔除
+//		for (Iterator<Language> iterator = languages.iterator(); iterator.hasNext();) {
+//			if(iterator.next().getStatus()==0){
+//				iterator.remove();
+//			}
+//		}
 		languageDAO.closeSession();
 		dao.closeSession();
 		ActionContext.getContext().put("all", allLanguage);

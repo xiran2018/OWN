@@ -19,6 +19,11 @@
 			</result> 
 			
 		</action>
+		
+		<action name="admin_logout" class="admin.ru.own.www.logic.logout">
+			<result name="success">/admin_relogin.jsp</result>
+			<result name="error">/admin_relogin.jsp</result>
+		</action>
 	</package>
 	
 	<package name="Security" namespace="/Security" extends="struts-default">

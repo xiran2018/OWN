@@ -27,21 +27,25 @@
 			<result name="delete" type="redirectAction">management_showList</result>
 			<result name="updateCommodity" type="redirectAction">managementmultatr_showInfo?p_id=${p_id}&amp;success=${success}</result>
 			<result name="returnCommoditys" type="json" >
-    			 <param name="root">commoditys</param>
+    			 <!-- <param name="root">commoditys</param>  -->
+    			 <param name = "includeProperties">commoditys.*,totalNumber</param > 
     		</result>
 		</action>
 		
 		<action name="managementmultatr_*" class="admin.ru.own.www.logic.commodity.CommodityMultAttributeAction" method="{1}">
 			<result name="showinfo">/jqladmin/product/commoditymanagement/showinfo.jsp</result>
 			<result name="beforeInsertMultAttribute">/jqladmin/product/commoditymanagement/beforeinsertmultatr.jsp</result>
+			<result name="delMultAttribute" type="redirectAction">managementmultatr_showInfo?p_id=${p_id}&amp;success=${success}</result>
 			<result name="updateAttribute" type="redirectAction">managementmultatr_showInfo?p_id=${p_id}&amp;success=${success}</result>
-			<result name="updateMultAttribute" type="redirectAction">managementmultatr_beforeInsertMultAttribute?atrName_id=${atrName_id}&amp;success=${success}&amp;texttype=${texttype}</result>
-			<result name="insertMultAttribute" type="redirectAction">managementmultatr_beforeInsertMultAttribute?atrName_id=${atrName_id}&amp;success=${success}&amp;texttype=${texttype}</result>
+			<result name="updateMultAttribute" type="redirectAction">managementmultatr_beforeInsertMultAttribute?p_id=${p_id}&amp;atrName_id=${atrName_id}&amp;attrValue_id=${attrValue_id}&amp;success=${success}&amp;texttype=${texttype}</result>
+			<result name="insertMultAttribute" type="redirectAction">managementmultatr_beforeInsertMultAttribute?p_id=${p_id}&amp;atrName_id=${atrName_id}&amp;attrValue_id=${attrValue_id}&amp;success=${success}&amp;texttype=${texttype}</result>
 		</action>
 		
 		<action name="managementimg_*" class="admin.ru.own.www.logic.commodity.CommodityImageManagementAction" method="{1}">
 			<result name="showimg">/jqladmin/product/commoditymanagement/showimg.jsp</result>
-			<result name="updateImage" type="redirectAction">managementimg_showImg?p_id=${p_id}&amp;success=${success}</result>
+			<result name="updateImage" type="json">
+				<param name="root">imageElements</param>
+			</result>
 			<result name="deleteImage" type="redirectAction">managementimg_showImg?p_id=${p_id}&amp;success=${success}</result>
 		</action>
 		

@@ -17,7 +17,7 @@
 
 	<update id="updateCateBasicInfo" parameterType="admin.ru.own.www.entity.Category"
 		flushCache="true" timeout="20">
-		update category set category_name=#{categoryName},imagesize=#{imagesize},is_show=#{isShow} where
+		update category set category_name=#{categoryName},imagesize=#{imagesize},is_show=#{isShow},is_inFloorshow=#{isInFloorshow} where
 		category_id=#{categoryId}
 	</update>
 	
@@ -64,12 +64,16 @@
 
 
 	<resultMap id="category" type="admin.ru.own.www.entity.Category">
-		<id column="id" property="id" />
-		<result column="category_id" property="categoryId" />
+		<id column="category_id" property="categoryId" />
 		<result column="category_name" property="categoryName" />
 		<result column="category_father_id" property="categoryFatherId" />
 		<result column="is_father" property="isFather" />
 	</resultMap>
+	
+	<select id="getCategoryByIdAndLanId" resultMap="category">
+		select c.category_id,c.category_father_id,c.is_father,cm.foreign_name category_name from category c,categorymultilanguage cm where c.category_id = #{0} and
+		 cm.category_id=c.category_id and cm.lan_id=#{1}
+	</select>
 	
 	<select id="getAllCategory" resultMap="category">
 		select * from category
@@ -83,6 +87,9 @@
 		select * from category where category_id = #{id}
 	</select>
 	
+
+	
+	
 	<select id="getAllCategoryWithMultilanguage" resultMap="category" parameterType="int">
 		SELECT category.category_id,category.category_father_id,category.is_father,categorymultilanguage.foreign_name as category_name FROM own.categorymultilanguage right join  own.category on category.category_id = categorymultilanguage.category_id and lan_id = #{lanid};
 	</select>
@@ -93,7 +100,7 @@
 	
 	<!-- 根据语言的id获取商品分类，在前台显示 -->
 	<select id="getShowCategory"  resultMap="clientShowCategory">
-        select c.category_id,c.icon,c.image,cm.foreign_name,cm.lan_id,cm.foreign_title,cm.foreign_keywords,cm.foreign_description from category c, categorymultilanguage cm where c.is_show =1 and c.category_father_id = 1 and cm.lan_id = #{lanid} and c.category_id=cm.category_id;
+        select c.category_id,c.icon,c.image,c.is_show,c.is_inFloorshow,cm.foreign_name,cm.lan_id,cm.foreign_title,cm.foreign_keywords,cm.foreign_description from category c, categorymultilanguage cm where c.is_show =1 and c.category_father_id = 1 and cm.lan_id = #{lanid} and c.category_id=cm.category_id;
     </select>
     
     
@@ -104,6 +111,8 @@
             <result property="categoryName" column="foreign_name"/>
             <result property="icon" column="icon"/>
             <result property="image" column="image"/>
+            <result property="isShow" column="is_show"/>
+            <result property="isInFloorshow" column="is_inFloorshow"/>
             <result property="title" column="foreign_title"/>
             <result property="keyword" column="foreign_keywords"/>
             <result property="description" column="foreign_description"/>
@@ -112,7 +121,7 @@
      </resultMap>
      
      <select id="selectSecondLevelList"  resultMap="secondLevelList">
-        select c.category_id,c.icon,c.image,cm.foreign_name,cm.lan_id,cm.foreign_title,cm.foreign_keywords,cm.foreign_description from category c, categorymultilanguage cm where c.is_show = 1 and  c.category_father_id = #{fatherId} and cm.lan_id = #{lanid} and c.category_id=cm.category_id;
+        select c.category_id,c.icon,c.image,c.is_show,c.is_inFloorshow,cm.foreign_name,cm.lan_id,cm.foreign_title,cm.foreign_keywords,cm.foreign_description from category c, categorymultilanguage cm where c.is_show = 1 and  c.category_father_id = #{fatherId} and cm.lan_id = #{lanid} and c.category_id=cm.category_id;
      </select>
      
      <resultMap type="admin.ru.own.www.entity.SecondLevelCategoryList" id="secondLevelList">
@@ -121,6 +130,8 @@
             <result property="categoryName" column="foreign_name"/>
             <result property="icon" column="icon"/>
             <result property="image" column="image"/>
+            <result property="isShow" column="is_show"/>
+            <result property="isInFloorshow" column="is_inFloorshow"/>
             <result property="title" column="foreign_title"/>
             <result property="keyword" column="foreign_keywords"/>
             <result property="description" column="foreign_description"/>
@@ -129,7 +140,7 @@
      </resultMap>
      
      <select id="selectThirdLevelList"  resultMap="thirdLevelList">
-        select c.category_id,c.icon,c.image,cm.foreign_name,cm.lan_id,cm.foreign_title,cm.foreign_keywords,cm.foreign_description from category c, categorymultilanguage cm where c.is_show = 1 and  c.category_father_id = #{fatherId} and cm.lan_id = #{lanid} and c.category_id=cm.category_id;
+        select c.category_id,c.icon,c.image,c.is_show,c.is_inFloorshow,cm.foreign_name,cm.lan_id,cm.foreign_title,cm.foreign_keywords,cm.foreign_description from category c, categorymultilanguage cm where c.is_show = 1 and  c.category_father_id = #{fatherId} and cm.lan_id = #{lanid} and c.category_id=cm.category_id;
      </select>
      
      <resultMap id="thirdLevelList" type="admin.ru.own.www.entity.Category">
@@ -137,6 +148,8 @@
             <result property="categoryName" column="foreign_name"/>
             <result property="icon" column="icon"/>
             <result property="image" column="image"/>
+            <result property="isShow" column="is_show"/>
+            <result property="isInFloorshow" column="is_inFloorshow"/>
             <result property="title" column="foreign_title"/>
             <result property="keyword" column="foreign_keywords"/>
             <result property="description" column="foreign_description"/>

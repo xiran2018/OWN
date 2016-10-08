@@ -2,6 +2,7 @@
 var skuAttrId=[];//just save the attrId that support sku
 var attrNameIds=[]; //save the id of all attribute name
 var attrIdNameObj={};//save the map of attrId and Name
+var attr13ContentObj={};//属性为弹出框时需要显示的内容和id的map
 var attrValueNameIds=[];
 var attrValueIdNameObj={};//save the map of attrValueValueId and Name
 var attrValueIdAttrIdObj={};//save the map of attrValueId and AttrId
@@ -10,6 +11,7 @@ var skuFlag=false;//the flag means whether there is sku-info or not for the prod
 var shippingDialog;
 var products;//save the basic info of product,it will be use in product.select.js
 var loginDialog;// log in dialog
+var productAttrDialog;//show the product attr of 1 or 3
 
 //the following variables is for shipping-show
 var countryIdNameMap={}; //save the map of countryId and Name
@@ -482,51 +484,88 @@ function insertProductAttrs4InfoInPage(attr4)
 
 		var attrValueName=attrValueEle.attrValueName;
 		
-		insertAttrsHtml+="<li title="+attrValueName+">"+attrName+":"+ attrValueName+"</li>";
+		//添加商品的属性到下面的商品详情里面
+		//insertAttrsHtml+="<li  title="+attrValueName+">"+attrName+":"+ attrValueName+"</li>";
+		
+		//添加商品的属性到商品图片右边
+		insertAttrsHtml+="<li><div class='dt'>"+attrName+"：</div>"+ 
+							"<div class='dd'><div><b></b><i>"+attrValueName+"</i></div></div></li>";
 		
 	}
 	
-	$("#attributes-list").prepend(insertAttrsHtml);
+	//$("#attributes-list").prepend(insertAttrsHtml);  //添加商品的属性到下面的商品详情里面
+	$("#choose").prepend(insertAttrsHtml);  //添加商品的属性到商品图片右边
 }
 
 /**
  * insert product attrs info in the page
  * the input_style of  attrs is 1 or 3
- * @param attr2
- */
+ * @param attr2 
+ */ 
 function insertProductAttrs13InfoInPage(attr2)
 {
-	var insertAttrsHtml="";
+	var insertAttrsHtml="";  //存放非弹出框需要显示的内容，其内容直接在页面上显示即可
+	var insertPopupAttrLink="";//存放弹出框需要显示的链接内容，每一个弹出框用|隔开
 	var len=attr2.length;
-	if(len>0)
-	{
-		$("#text-ul").css("display","");
-	}
+	
+	
 	for(var i=0;i<len;i++)
 	{
 		var attrEle=attr2[i];
-		
+		var ispopup=attrEle.is_popup;
 		var attrName=attrEle.attrName;
+		var attrId=attrEle.attrId;
 		
-		
-		insertAttrsHtml+="<li  class='text-li'>";
-		insertAttrsHtml+="<div class='dt'>"+attrName+"：</div>";
-		insertAttrsHtml+="<div class='text-dd'>";
 		
 		var attrValueEle=attrEle.attrValues;
-
+		var attrValueId=attrValueEle.attrValueId;
 		var attrValueName=attrValueEle.attrValueName;
-		//insertAttrsHtml+="<div class='item sku' data-value='"+attrId+":"+attrValueId+"'><b></b>";
-		insertAttrsHtml+=attrValueName;
-		insertAttrsHtml+="</div>";
 		
-		
-		//insertAttrsHtml+="</div>";
-		insertAttrsHtml+="</li>";
+			
+
+		if(ispopup==1)
+		{
+			$("#product-attr-link").css("display","");  //显示链接的区域显示出来
+			if(insertPopupAttrLink=="")
+				insertPopupAttrLink+="<span class='cursor' onclick='javascript:showPopupAttr(this);'  attrvalueid="+attrValueId+">"+attrName+"</span>";
+			else
+				insertPopupAttrLink+=" | <span class='cursor' onclick='javascript:showPopupAttr(this);'  attrvalueid="+attrValueId+">"+attrName+"</span>";
+			attr13ContentObj[attrValueId]=attrValueName;
+		}
+		else
+		{
+			$("#text-ul").css("display",""); //需要直接显示的区域显示出来
+					
+			insertAttrsHtml+="<li  class='text-li'>";
+			insertAttrsHtml+="<div class='dt'>"+attrName+"：</div>";
+			insertAttrsHtml+="<div class='text-dd'>";
+
+			//insertAttrsHtml+="<div class='item sku' data-value='"+attrId+":"+attrValueId+"'><b></b>";
+			insertAttrsHtml+=attrValueName;
+			insertAttrsHtml+="</div>";
+			
+			
+			//insertAttrsHtml+="</div>";
+			insertAttrsHtml+="</li>";
+		}
+	
 		
 	}
 	
-	$("#text-ul").prepend(insertAttrsHtml);
+	$("#text-ul").append(insertAttrsHtml);
+	$("#product-attr-link").prepend(insertPopupAttrLink);
+}
+
+/**
+ * 显示商品的弹出框内容
+ */
+function showPopupAttr(obj)
+{
+	var attrValueId=$(obj).attr("attrvalueid");
+	var content=attr13ContentObj[attrValueId];
+	$("#productAttrContent").empty();
+	$("#productAttrContent").append(content);
+	productAttrDialog.dialog( "open" );
 }
 
 /**
@@ -616,14 +655,14 @@ function insertProductBasicInfoInPage(products)
 	$("#pop-discount-price-symbol").html(currencyShowSymbol);
 	
 	//商品价格
-	var pop_origin_price=(p_originprice/currencyRate);//currencyRate in the headermenu.jsp
+	var pop_origin_price=(p_originprice*currencyRate);//currencyRate in the headermenu.jsp
 	pop_origin_price=Digit.round(pop_origin_price, 2);
 	
 	pop_origin_price=Digit.changeTwoDecimal(pop_origin_price);
 	
 	$("#pop-origin-price").html(pop_origin_price);
 	
-	var sku_discount_price=(p_nowprice/currencyRate);
+	var sku_discount_price=(p_nowprice*currencyRate);
 	sku_discount_price=Digit.round(sku_discount_price, 2);
 	
 	
@@ -645,6 +684,25 @@ function insertProductBasicInfoInPage(products)
 	
 	var descriptionMeta="<meta name='Description' content='"+description+"' >";
 	$('head').append(descriptionMeta);
+	
+	//插入商品的编号
+	var myserialnumber=products.p_myserialnumber;
+	productAttrShow(myserialnumber,1);
+}
+
+/*
+ * 商品属性显示
+ * type=1  自编号属性显示
+ */
+function productAttrShow(attrName,type)
+{
+	var insertAttrsHtml="";
+	if(type==1)
+	{//自编号属性
+		$("#text-ul-attr").css("display",""); //需要直接显示的区域显示出来
+		$(".myserialnumber").html(attrName);
+		$(".myserialnumberli").css("display","");
+	}
 }
 
 /**
@@ -750,6 +808,7 @@ function productShowRegister()
 	productShowShippingRegister();
 	loginDialogRegister();
 	addToCartRegister();
+	productAttrRegister(); //商品属性信息为弹出框时的显示注册
 }
 
 /**
@@ -779,7 +838,11 @@ function addToCartRegister()
 		 
 
 		var minBuyCount=products.p_minbuyamount;  //最少购买量
-		if(count<minBuyCount) alert("please buy "+minBuyCount+"products at least");
+		if(count<minBuyCount) 
+		{
+			alert("please buy "+minBuyCount+" products at least");
+			return;
+		}
 		
 		var sku_id=-1;
 		var skuImageAttr="";
@@ -851,6 +914,27 @@ function loginDialogRegister()
 	      }
 	    });
 
+}
+
+function productAttrRegister()
+{
+	productAttrDialog = $("#miniproductAttr-dialog").dialog({
+		  dialogClass: "userLoginDialog",
+	      autoOpen: false,
+	      closeText: "hide",
+	      resizable: true,
+	      minHeight:600,
+	      height: 600,
+	      maxHeight:600,
+	      width: 800,
+	      minWidth: 800,     
+	      modal: true,
+	      buttons: {
+	       /*"ok": userLogin*/
+	      },
+	      close: function() {
+	      }
+	    });
 }
 function userLogin()
 {

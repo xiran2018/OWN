@@ -17,48 +17,37 @@
 <link rel="stylesheet" type="text/css" href="css/icon.css">
 <link rel="stylesheet" type="text/css" href="css/demo.css">
 
-<link rel="stylesheet" type="text/css"
-	href="jqladmin/css/product_attribute.css">
+<link rel="stylesheet" type="text/css" href="jqladmin/css/product_attribute.css">
 <link rel="stylesheet" type="text/css" href="css/admin_full.css">
 
-<link rel="stylesheet" href="jqladmin/css/add_product_attribute.css"
-	type="text/css">
+<link rel="stylesheet" href="jqladmin/css/add_product_attribute.css" type="text/css">
 <link rel="stylesheet" type="text/css" href="jqladmin/css/table.css">
 <link rel="stylesheet" type="text/css" href="jqladmin/css/font.css">
 <link rel="stylesheet" type="text/css" href="jqladmin/css/rentclick.css">
-<link rel="stylesheet" type="text/css"
-	href="jqladmin/css/inputstyle.css">
+<link rel="stylesheet" type="text/css" href="jqladmin/css/inputstyle.css">
 
 <script type="text/javascript" src="jqladmin/js/json2.js"></script>
 <script type="text/javascript" src="jqladmin/js/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 <link rel="stylesheet" href="jqladmin/css/demo.css" type="text/css">
-<link rel="stylesheet" href="jqladmin/css/zTreeStyle/zTreeStyle.css"
-	type="text/css">
-<script type="text/javascript"
-	src="jqladmin/js/jquery.ztree.core-3.5.js"></script>
-<script type="text/javascript"
-	src="jqladmin/js/jquery.ztree.excheck-3.5.js"></script>
-<script type="text/javascript"
-	src="jqladmin/js/jquery.ztree.exedit-3.5.js"></script>
+<link rel="stylesheet" href="jqladmin/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<script type="text/javascript" src="jqladmin/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" 	src="jqladmin/js/jquery.ztree.excheck-3.5.js"></script>
+<script type="text/javascript"	src="jqladmin/js/jquery.ztree.exedit-3.5.js"></script>
 
 <script type="text/javascript" src="jqladmin/js/product.js"></script>
 <script src="jqladmin/js/left-right.js" type="text/javascript"></script>
 
-<script type="text/javascript"
-	src="jqladmin/product/commoditymanagement/addproductloadcategory.js"></script>
+<script type="text/javascript" src="jqladmin/product/commoditymanagement/addproductloadcategory.js"></script>
 <script type="text/javascript" src="jqladmin/product/commoditymanagement/loadbrand.js"></script>
 
 <!--  ueditor 编辑器需要的js -->
 <script src="ueditor/ueditor.config.js"></script>
 <script src="ueditor/ueditor.all.min.js"></script>
-<link rel="stylesheet" type="text/css"
-	href="ueditor/themes/default/css/ueditor.css" />
+<link rel="stylesheet" type="text/css"	href="ueditor/themes/default/css/ueditor.css" />
 
-<%--
-		<script type="text/javascript" src="jqladmin/js/iframe_add_product.js"></script>
-		<script src="jqladmin/js/mzone.cc.iframe.js" type="text/javascript"></script>
-		--%>
+<!-- 本页需要的css -->
+<link rel="stylesheet" href="jqladmin/product/css/showinfo.css" type="text/css">
 
 <SCRIPT type="text/javascript">
 	var success=${success};
@@ -93,6 +82,9 @@
 							<form action="cm/management_updateCommodity" method="post">
 								<input type="hidden" name="products.p_id" value="${pvo.products.p_id}"/>
 								<table border="1" class="altrowstable">
+									<tr>
+										<td  colspan="5" class="tipRow">基本属性信息</td>
+									</tr>
 									<tr>
 										<td>名称</td>
 										<td>重量</td>
@@ -197,9 +189,12 @@
 									<input type="hidden" value="${pvo.products.p_last_modified}" name="p_last_modified"/>
 								</table>
 							</form>
-							<hr>
+							<!-- <hr> -->
 							<form action="cm/managementmultatr_updateAttribute" method="post">
 								<table border="1" class="altrowstable">
+									<tr>
+										<td  colspan="3" class="tipRow">详细属性信息</td>
+									</tr>
 									<tr>
 										<td>属性名</td>
 										<td>属性详情</td>
@@ -214,31 +209,46 @@
 												[输入方式：
 													<c:if test="${atr.atr.inputStyle==1}">手工输入</c:if> 
 													<c:if test="${atr.atr.inputStyle==2}">列表选择</c:if>
-													<c:if test="${atr.atr.inputStyle==3}">多行文本框</c:if>
+													<c:if test="${atr.atr.inputStyle==3}">
+														多行文本框  | 显示方式：
+														<c:if test="${atr.atr.isPopup==0}">不弹框</c:if> 
+														<c:if test="${atr.atr.isPopup==1}">弹框</c:if>
+													</c:if>
 													<c:if test="${atr.atr.inputStyle==4}">选择框</c:if>]
 												</td>
 
 												<td>
 												
 													<c:if test="${atr.atr.inputStyle==1}">
-														<!-- 判断单行input的显示逻辑 input里不要展开代码，否则输入框里会多很多空白-->												
-														<input type="hidden" name="${atr.atr.attrId}ID" value="<c:forEach items="${atr.valueList}" var="atvl"><c:if test="${atvl.have==true}">${atvl.atrValue.attrValueId}</c:if></c:forEach>" />
-														<input type="text" name="${atr.atr.attrId}"  value="<c:forEach items="${atr.valueList}" var="atvl"><c:if test="${atvl.have==true}">${atvl.atrValue.attrValueName}</c:if></c:forEach>" />
+														<!-- 判断单行input的显示逻辑 input里不要展开代码，否则输入框里会多很多空白 ，第一个文本框存放原先的文本内容内容的id，方便后台后续处理对边比-->												
+														<input type="hidden" id="${atr.atr.attrId}ID" name="${atr.atr.attrId}ID" value="<c:forEach items="${atr.valueList}" var="atvl"><c:if test="${atvl.have==true}">${atvl.atrValue.attrValueId}</c:if></c:forEach>" />
+														<input type="text" id="${atr.atr.attrId}"  name="${atr.atr.attrId}"  value="<c:forEach items="${atr.valueList}" var="atvl"><c:if test="${atvl.have==true}">${atvl.atrValue.attrValueName}</c:if></c:forEach>" />
 														<c:forEach items="${atr.valueList}" var="atvl">
 														<c:if test="${atvl.have==true}">
-															<a href="cm/managementmultatr_beforeInsertMultAttribute?atrName_id=${atr.atr.attrId}&texttype=1">多语言</a>
+															<a href="cm/managementmultatr_beforeInsertMultAttribute?p_id=${p_id}&atrName_id=${atr.atr.attrId}&texttype=1&attrValue_id=<c:forEach items='${atr.valueList}' var='atvl'><c:if test='${atvl.have==true}'>${atvl.atrValue.attrValueId}</c:if></c:forEach>">多语言</a>
+															<a class='multiLanguageOperate'  href="cm/managementmultatr_delMultAttribute?p_id=${p_id}&atrName_id=${atr.atr.attrId}&texttype=3&attrValue_id=<c:forEach items='${atr.valueList}' var='atvl'><c:if test='${atvl.have==true}'>${atvl.atrValue.attrValueId}</c:if></c:forEach>">清空</a>
 														</c:if>
 														</c:forEach>
 													</c:if> 
 													<!----------------------------------------------------- 3 ------------------------->
 													<c:if test="${atr.atr.inputStyle==3}">
-													<!-- 多行文本框 -->
-														<input type="hidden" name="${atr.atr.attrId}ID" value="<c:forEach items="${atr.valueList}" var="atvl"><c:if test="${atvl.have==true}">${atvl.atrValue.attrValueId}</c:if></c:forEach>" />
-														<textarea rows="5" cols="20" name="${atr.atr.attrId}"><c:forEach items="${atr.valueList}" var="atvl"><c:if test="${atvl.have==true}">${atvl.atrValue.attrValueName}</c:if></c:forEach></textarea>
+													<!-- 多行文本框,第一个文本框存放原先的文本内容的id，方便后台后续处理对边比-->
+														<input type="hidden" id="${atr.atr.attrId}ID"  name="${atr.atr.attrId}ID" value="<c:forEach items="${atr.valueList}" var="atvl"><c:if test="${atvl.have==true}">${atvl.atrValue.attrValueId}</c:if></c:forEach>" />
+														<textarea rows="5" cols="20"  id="${atr.atr.attrId}" name="${atr.atr.attrId}"><c:forEach items="${atr.valueList}" var="atvl"><c:if test="${atvl.have==true}">${atvl.atrValue.attrValueName}</c:if></c:forEach></textarea>
 														<c:forEach items="${atr.valueList}" var="atvl">
-														<c:if test="${atvl.have==true}">
-															<a href="cm/managementmultatr_beforeInsertMultAttribute?atrName_id=${atr.atr.attrId}&texttype=3">多语言</a>
-														</c:if></c:forEach>
+															<c:if test="${atvl.have==true}">
+																<a class='multiLanguageOperate' href="cm/managementmultatr_beforeInsertMultAttribute?p_id=${p_id}&atrName_id=${atr.atr.attrId}&texttype=3&attrValue_id=<c:forEach items='${atr.valueList}' var='atvl'><c:if test='${atvl.have==true}'>${atvl.atrValue.attrValueId}</c:if></c:forEach>">多语言</a>
+																<a class='multiLanguageOperate'  href="cm/managementmultatr_delMultAttribute?p_id=${p_id}&atrName_id=${atr.atr.attrId}&texttype=3&attrValue_id=<c:forEach items='${atr.valueList}' var='atvl'><c:if test='${atvl.have==true}'>${atvl.atrValue.attrValueId}</c:if></c:forEach>">清空</a>
+															</c:if>
+														</c:forEach>
+														<script  type="text/javascript">
+														    var editor = UE.getEditor("${atr.atr.attrId}",{
+														    	 //autoHeightEnabled: true,
+														    	 autoFloatEnabled: true,
+														    	 initialFrameWidth: 400,
+														         initialFrameHeight: 100,
+														    });
+														</script>
 													</c:if>
 													<!----------------------------------------------------- 2 --------------------------->
 													<!-- checkbox-->

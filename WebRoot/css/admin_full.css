@@ -6,14 +6,16 @@
 #menu li {
 	display: block;
 	float: left;
-	background: url("../images/admin_full_menu.jpg") no-repeat left -45px;
-	height: 40px;
+	background: url("../images/admin_full_menu.jpg") no-repeat left -33px;
+	height: 32px;
 	color: white;
 	width: 120px;
 	text-align: center;
 	font-size: 14px;
-	line-height: 40px;
+	line-height: 32px;
 	cursor:pointer;
+	border-radius: 6px;
+	margin-right: 8px;
 }
 
 

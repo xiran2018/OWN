@@ -156,7 +156,7 @@
 				            <tr class="evenrowcolor">
 				                <td class="colume1" valign=middle align=right>现价格</td>
 				                <td class="colume2">
-				                <INPUT id="nowprice" name="nowprice" type=text type="width: 233;">
+				                <INPUT id="nowPrice" name="nowPrice" type=text type="width: 233;">
 				                "默认价格为美元"
 				                </td>
 				            </tr>

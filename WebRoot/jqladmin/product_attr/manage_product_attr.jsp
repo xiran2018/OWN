@@ -195,6 +195,17 @@
 							                    </tr>	
 							                    <tr>
 							                        <td valign=middle  align=right class="table_td1">
+							                                                                           是否弹框显示：
+							                        </td>
+							                        <td valign=middle>
+														<input type="radio" name="popup" value="1">
+							                                                                             是
+														<input type="radio" name="popup" value="0">
+														  否(*该选项只对多行文本框有效)
+							                        </td>
+							                    </tr>
+							                    <tr>
+							                        <td valign=middle  align=right class="table_td1">
 							                                                                           状态：
 							                        </td>
 							                        <td valign=middle>

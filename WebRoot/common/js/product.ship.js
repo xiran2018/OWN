@@ -111,7 +111,7 @@ function calculateShippingFeeByExchangeRate(number)
 	
 	
 	//商品价格
-	number=(number/currencyRate);
+	number=(number*currencyRate);
 	number=Digit.round(number, 2);
 	
 	number=Digit.changeTwoDecimal(number);

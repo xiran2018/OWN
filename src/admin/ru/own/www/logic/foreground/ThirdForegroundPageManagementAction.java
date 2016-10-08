@@ -6,10 +6,10 @@ import java.util.List;
 
 import util.PageUtil;
 import util.ParameterUtil;
-
 import admin.ru.own.www.logic.category.CategoryService;
 import admin.ru.own.www.mybatis.dao.ProductsDAO;
 import admin.ru.own.www.mybatis.dao.factory.DAOFactory;
+import admin.ru.own.www.util.DefaultLanguageUtil;
 
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
@@ -29,7 +29,8 @@ public class ThirdForegroundPageManagementAction extends ActionSupport {
 		
 		ActionContext.getContext().put("totalNumber", computeShowAllTotalNumber());
 		ActionContext.getContext().put("categoryid", categoryid);
-		ActionContext.getContext().put("route", RouteService.getRouteBar(categoryid));
+		int lanID = DefaultLanguageUtil.getDefaultLanguageID(); //得到默认语言id
+		ActionContext.getContext().put("route", RouteService.getRouteBar(categoryid,lanID));
 		return "showAll";
 	}
 	

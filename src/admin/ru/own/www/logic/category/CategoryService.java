@@ -30,9 +30,9 @@ public class CategoryService {
 		return categoryIDs;
 	}
 	
-	public Category getCategory(int categoryid) {
+	public Category getCategory(int categoryid,int lanid) {
 		CategoryMapper categoryDAO = (CategoryMapper) DAOFactory.get(CategoryMapper.class.getName());
-		Category category = categoryDAO.getCategory(categoryid);
+		Category category = categoryDAO.getCategoryByIdAndLanId(categoryid,lanid);
 		categoryDAO.closeSession();
 		return category;
 	}

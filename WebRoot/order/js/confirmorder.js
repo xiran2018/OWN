@@ -1141,7 +1141,7 @@ function getOriginPrice(cartvo,pbvo,skuvo)
 
 	
 	//商品价格
-	price=(price/currencyRate); //currencyRate in the headermenu.jsp
+	price=(price*currencyRate); //currencyRate in the headermenu.jsp
 	price=Digit.round(price, 2);
 	price=Digit.changeTwoDecimal(price);
 	
@@ -1171,7 +1171,7 @@ function getNowPrice(cartvo,pbvo,skuvo)
 	}
 	
 	//商品价格
-	price=(price/currencyRate); //currencyRate in the headermenu.jsp
+	price=(price*currencyRate); //currencyRate in the headermenu.jsp
 	price=Digit.round(price, 2);
 	price=Digit.changeTwoDecimal(price);
 	

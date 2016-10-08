@@ -73,7 +73,7 @@ public class ProductOperate extends ActionSupport implements SessionAware
 		//在这里，只是获取的录入方式为2的属性信息，也就是需要用户选择的属性
 		List<Product_Basic_Attr_ShowVO> tempPBAS=pba.getOneProductBasicAttrVOByPidAndLanId(id,lanid);
 		
-		//在这里，只是获取的录入方式为4的属性信息，也就是需要用户单项选择的属性
+		//在这里，只是获取的录入方式为4的属性信息，也就是需要用户单项选择的属性, 1 和 3的属性信息在下面
 		List<Product_Basic_Attr13_ShowVO> tempPBAS4=pba.getOneProductBasicAttr4VOByPidAndLanId(id,lanid);
 		pba.closeSession();
 		
@@ -87,7 +87,7 @@ public class ProductOperate extends ActionSupport implements SessionAware
 		psd.closeSession();
 		productvo.setPsku(psku);
 		
-		//获取商品属性信息,在这里，只是获取的录入方式为2的属性信息，也就是需要用户选择的属性
+		//获取商品属性信息,在这里，只是获取的录入方式为1或者3的属性信息，也就是需要用户选择的属性
 		ProductBasicAttrDAO pba13=new ProductBasicAttrDAOImp();
 		List<Product_Basic_Attr13_ShowVO> tempPBAS13=pba13.getOneProductBasicAttr13VOByPidAndLanId(id,lanid);
 		pba.closeSession();
