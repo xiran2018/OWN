@@ -7,6 +7,7 @@ function modify_product_category_basic()
     var modify_image=$.trim($("#modify_image").val());
     var modify_imagesize=$.trim($("#modify_imagesize").val());
 	 var modify_isShow=$('input[name="modify_cshow"]:checked').val();
+	 var modify_isInBannershow=$('input[name="modify_isInBannershow"]:checked').val();
 	 var modify_isInFloorshow=$('input[name="modify_isInFloorshow"]:checked').val();
     if(!category_name && typeof(category_name)!="undefined")
     {
@@ -25,6 +26,7 @@ function modify_product_category_basic()
                 "modify_image":modify_image,
                 "modify_imagesize":modify_imagesize,
                 "modify_isShow":modify_isShow,
+                "modify_isInBannershow":modify_isInBannershow,
                 "modify_isInFloorshow":modify_isInFloorshow
         }; 
         

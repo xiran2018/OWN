@@ -16,17 +16,25 @@ public class SecurityCode {
 	 */
 	public enum SecurityCodeLevel {
 		Simple, Medium, Hard
-	};
+	}
 
+	public SecurityCode()
+	{
+	}
 	/**
 	 * 产生默认验证码，4位中等难度
 	 * 
 	 * @return
 	 */
-	public static String getSecurityCode() {
+	public static String getSecurityCode()
+	{
 		return getSecurityCode(4, SecurityCodeLevel.Medium, false);
 	}
 
+	public static String getActiveCode()
+	{
+		return getSecurityCode(10, SecurityCodeLevel.Medium, false);
+	}
 	/**
 	 * 产生长度和难度任意的验证码
 	 * 
@@ -62,14 +70,14 @@ public class SecurityCode {
 		if (isCanRepeat) {
 			for (int i = 0; i < result.length; i++) {
 				// 索引0 and n-1
-				int r = (int) (Math.random() * n);
+				int r = (int) (Math.random() * (double)n);
 				// 将result中的第i个元素设置为code[r]存放的数值
 				result[i] = codes[r];
 			}
 		} else {
 			for (int i = 0; i < result.length; i++) {
 				// 索引0 and n-1
-				int r = (int) (Math.random() * n);
+				int r = (int) (Math.random() * (double)n);
 				// 将result中的第i个元素设置为code[r]存放的数值
 				result[i] = codes[r];
 				// 必须确保不会再次抽取到那个字符，这里用数组中最后一个字符改写code[r],并将n-1

@@ -7,6 +7,61 @@
 var password;
 
 //********************************************************************************************
+/**
+ * 获取语言
+ */
+function getShowLanguage()
+{
+	var actionUrl = "client/getShowLanguage.action";
+	$.ajax( { // 取语言
+		url : actionUrl,
+		type : "post",
+		dataType : "json",
+		error : function(data) 
+		{
+			if(data.status=="200")
+			{
+				alert("请再试刷新一次");
+			}
+			else if(data.status=="500")
+			{	
+				alert("服务器崩溃了!!!!");
+			}
+			
+		},
+		success : function(data) 
+		{
+			insertLanguageInPage(data);
+		}
+	});// end of ajax
+}
+
+function insertLanguageInPage(data)
+{
+
+ 
+	var insertHtml="<ul>";
+	var len=data.length;
+	for(var i=0;i<len;i++)
+	{
+		var tempId=data[i].id;
+		var tempName=data[i].foreignerName;
+		if(tempId==selectLanguageId)//说明是用户选择的语言的id
+		{
+			insertHtml="<a href='javascritp:void(0)' class='downmenu'>"+tempName+"</a>"+insertHtml;
+		}		
+		else
+		{
+				insertHtml+="<li><a href='client/newCustomerRegister.action?languageId="+tempId+"'>"+tempName+"</a></li>";
+		}
+		
+	}
+	
+	insertHtml+="</ul>";
+	
+	$(".languagedownmenu").append(insertHtml);
+
+}
 function getPassword(element)
 {
 	password=$.trim($(element).val());
@@ -25,18 +80,7 @@ function getPassword(element)
 
 
 
-function isPassword(obj)
-{   
-    reg=/^[\w]{6,12}$/;   
-   if(!reg.test(obj))
-   {        
-	   return false;
-    }
-   else
-    {   
-       return true;
-    }   
-}  
+
 
 function checkPassword(element)
 {
@@ -57,6 +101,11 @@ function checkUserName(element)
 {
 	var username=$.trim($(element).val());
 	if(username==""||username==null||username==undefined)
+	{
+		$("#name-tipbox").removeClass("hide");
+		return false;
+	}
+	else if(username.indexOf("@")>=0)
 	{
 		$("#name-tipbox").removeClass("hide");
 		return false;
@@ -85,18 +134,7 @@ function checkIsMail(element)
 	
 }
 
-function isEmail(obj)
-{   
-    reg=/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;   
-   if(!reg.test(obj))
-   {        
-	   return false;
-    }
-   else
-    {   
-       return true;
-    }   
-}  
+
 
 function validate()
 {

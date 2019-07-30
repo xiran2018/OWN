@@ -103,6 +103,9 @@
        <if test="productStatus != null  and productStatus != ''" > 
 	     and  p.p_status=#{productStatus}
 	   </if>
+  		<if test="p_myserialnumber != null  and p_myserialnumber != ''" > 
+	     and  p.p_myserialnumber=#{p_myserialnumber}
+	   </if>
 	   <if test="gmtBeginDate != null  and gmtBeginDate != '' and gmtEndDate != null  and gmtEndDate != '' " > 
 	     and date(p.p_date_added) between date(#{gmtBeginDate}) and date(#{gmtEndDate})
 	   </if>
@@ -121,6 +124,9 @@
 			   </if>
 	           <if test="productStatus != null  and productStatus != ''" > 
 			     and  p.p_status=#{productStatus}
+			   </if>
+			   <if test="p_myserialnumber != null  and p_myserialnumber != ''" > 
+			     and  p.p_myserialnumber=#{p_myserialnumber}
 			   </if>
 			   <if test="gmtBeginDate != null  and gmtBeginDate != '' and gmtEndDate != null  and gmtEndDate != '' " > 
 			     and date(p.p_date_added) between date(#{gmtBeginDate}) and date(#{gmtEndDate})

@@ -380,47 +380,47 @@ function registerEventLister()
 {
 	
 	/*点击具体属性时的动作*/
-	$(".selectorsblock ").on("click","li",
-		function(){
-			var classString=$(this).attr("class");
-			if(classString.indexOf("selected") != -1)
-			{//已经被选中，转为不选中
-				$(this).removeClass("selected");
-				
-			}
-			else
-			{
-				$(this).addClass("selected");
-			}
-
-			
-		}
-	
-	);
+//	$("#filterPanelLeft ").on("click","li",
+//		function(){
+//			var classString=$(this).attr("class");
+//			if(classString.indexOf("selected") != -1)
+//			{//已经被选中，转为不选中
+//				$(this).removeClass("selected");
+//				
+//			}
+//			else
+//			{
+//				$(this).addClass("selected");
+//			}
+//
+//			
+//		}
+//	
+//	);
 	
 	
 	
 	/*点击属性折叠按钮时的动作*/
-	$(".filterblock").on("click",".filter-title",
-		function(){
-			var classString=$(this).parents(".filterblock").attr("class");
-			if(classString.indexOf("filter-active") != -1)
-			{//已经显示，转为不显示
-//				$(this).parents(".filterblock").children(".selectorsblock").css("display","none");
-				$(this).parents(".filterblock").removeClass("filter-active");
-				$(this).parents(".filterblock").find(".arrow-icon").addClass("arrow-icon-open");
-				
-			}
-			else
-			{
-				$(this).parents(".filterblock").addClass("filter-active");
-				$(this).parents(".filterblock").find(".arrow-icon").removeClass("arrow-icon-open");
-			}
-
-			
-		}
-	
-	);
+//	$("#filterPanelLeft").on("click",".filter-title",
+//		function(){
+//			var classString=$(this).parents(".filterblock").attr("class");
+//			if(classString.indexOf("filter-active") != -1)
+//			{//已经显示，转为不显示
+////				$(this).parents(".filterblock").children(".selectorsblock").css("display","none");
+//				$(this).parents(".filterblock").removeClass("filter-active");
+//				$(this).parents(".filterblock").find(".arrow-icon").addClass("arrow-icon-open");
+//				
+//			}
+//			else
+//			{
+//				$(this).parents(".filterblock").addClass("filter-active");
+//				$(this).parents(".filterblock").find(".arrow-icon").removeClass("arrow-icon-open");
+//			}
+//
+//			
+//		}
+//	
+//	);
 	
 	// 点击上一页按钮时的动作
 	$("#diggId").on("click","#prePage",
@@ -481,7 +481,8 @@ function registerEventLister()
 			    return;
 			}
 			handlePageClick(clickPageNumber,this,currentPageElement);
-			getPageData(clickPageNumber,map,categoryid,startPrice,endPrice,change);// 加载相应的数据
+			getPageData(clickPageNumber,map,categoryid,startPrice,endPrice,change);
+			// 加载相应的数据，productinfoservice。js ；change in productattributesearch.js
 			return false;
 		}// end of function
 	

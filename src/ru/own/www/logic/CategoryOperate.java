@@ -24,15 +24,21 @@ public class CategoryOperate extends ActionSupport implements SessionAware
 	private Map session;  
 	
 	List<CategoryClientShow> ccs;
+
+	List banner;
+
 	public String getShowCategory()
 	{
 		int lanid=Integer.parseInt((String) session.get("languageId"));
 		
 		CategoryMapper categoryDAO = new CategoryDAOImp();
 		ccs= categoryDAO.getShowCategory(lanid);
+		banner = categoryDAO.getBannerShowCategory(lanid);
 		categoryDAO.closeSession();
+//		System.out.println("++++++++++++++++++++++++++++++++++");
 		if(ccs!=null)
 		{
+//			System.out.println("成功的得到了分类");
 			return SUCCESS;
 		}
 		else
@@ -42,18 +48,29 @@ public class CategoryOperate extends ActionSupport implements SessionAware
 	}
 
 
-	public List<CategoryClientShow> getCcs() {
+	public List getCcs()
+	{
 		return ccs;
 	}
 
-
-	public void setCcs(List<CategoryClientShow> ccs) {
+	public void setCcs(List ccs)
+	{
 		this.ccs = ccs;
 	}
 
-
-	public void setSession(Map session) {
+	public void setSession(Map session)
+	{
 		this.session = session;
+	}
+
+	public List getBanner()
+	{
+		return banner;
+	}
+
+	public void setBanner(List banner)
+	{
+		this.banner = banner;
 	}
 
 }

@@ -8,7 +8,7 @@ font: 12px/1.5 Tahoma,Helvetica,Arial,'\5B8B\4F53',sans-serif;
 	
 }
 .userLoginDialog .ui-dialog-titlebar {
-	background-color: #B6000C;	
+	background-color: rgb(255, 125, 0);	/*#B6000C*/
 }
 
 
@@ -20,7 +20,7 @@ font: 12px/1.5 Tahoma,Helvetica,Arial,'\5B8B\4F53',sans-serif;
 }
 
 .userLoginDialog  .ui-dialog-titlebar-close{
-	background-color: #B6000C;
+	background-color: rgb(255, 125, 0);
 }
 
 #content .login-box {
@@ -244,7 +244,7 @@ background-position: 0 0;
 }
 
 #content .login-box .submit button, #content .login-box .static .dynamic-link, #content .login-box .dynamic .static-link {
-background: url(images/btn.png) no-repeat 0 0;
+/*background: url(images/btn.png) no-repeat 0 0;*/
 }
 
 .login-box .submit button {

@@ -12,49 +12,88 @@ import util.ParameterUtil;
  * 用于像数据库查询筛选产品和搜索产品用的字段类
  */
 public class FilterAndSearchArgs {
-	private ParameterUtil parameterUtil = new ParameterUtil();
+	private ParameterUtil parameterUtil;
 	private List<Integer> categoryIDs;
 	private int startPrice;
 	private int endPrice;
 	private Set<Integer> attributes;  ///////////////////////
 	private String searchMsg;
 	private int lan_id;
-	
-	public FilterAndSearchArgs( int lan_id, String searchMsg,int startPrice, int endPrice) {
-		super();
+	private int initPage;
+
+	public FilterAndSearchArgs(int lan_id, String searchMsg, int startPrice, int endPrice)
+	{
+		parameterUtil = new ParameterUtil();
 		this.startPrice = startPrice;
 		this.endPrice = endPrice;
 		this.searchMsg = searchMsg;
 		this.lan_id = lan_id;
 	}
 
-	
-	public FilterAndSearchArgs(List<Integer> categoryIDs,int startPrice, int endPrice, Set<Integer> attributes) {
-		super();
+	public FilterAndSearchArgs(int lan_id, String searchMsg, int startPrice, int endPrice, int page)
+	{
+		parameterUtil = new ParameterUtil();
+		this.startPrice = startPrice;
+		this.endPrice = endPrice;
+		this.searchMsg = searchMsg;
+		this.lan_id = lan_id;
+		initPage = page;
+	}
+
+	public FilterAndSearchArgs(List categoryIDs, int startPrice, int endPrice, Set attributes)
+	{
+		parameterUtil = new ParameterUtil();
 		this.categoryIDs = categoryIDs;
-		if(startPrice > endPrice) {
+		if (startPrice > endPrice)
+		{
 			this.startPrice = endPrice;
 			this.endPrice = startPrice;
-		}else {
+		} else
+		{
 			this.startPrice = startPrice;
 			this.endPrice = endPrice;
 		}
 		this.attributes = attributes;
 	}
-	
-	public FilterAndSearchArgs(List<Integer> categoryIDs, int startPrice, int endPrice) {
-		this(categoryIDs,startPrice, endPrice, null);
+
+	public FilterAndSearchArgs(List categoryIDs, int startPrice, int endPrice, Set attributes, int page)
+	{
+		parameterUtil = new ParameterUtil();
+		this.categoryIDs = categoryIDs;
+		if (startPrice > endPrice)
+		{
+			this.startPrice = endPrice;
+			this.endPrice = startPrice;
+		} else
+		{
+			this.startPrice = startPrice;
+			this.endPrice = endPrice;
+		}
+		this.attributes = attributes;
+		initPage = page;
 	}
-	
-	public Map<String, Object> getSearchArgs() {
-		int initPage = parameterUtil.getInitPageParameter();
-		Map<String, Object> args = new HashMap<String, Object>();
-		args.put("lan_id", lan_id);
-		args.put("searchMsg", "%"+searchMsg+"%");
-		args.put("startPrice", startPrice);
-		args.put("endPrice", endPrice);
-		args.put("begain",0+initPage*PageUtil.getPageSize());
-		args.put("size",PageUtil.getPageSize());
+
+	public FilterAndSearchArgs(List categoryIDs, int startPrice, int endPrice)
+	{
+		this(categoryIDs, startPrice, endPrice, ((Set) (null)));
+	}
+
+	public FilterAndSearchArgs(List categoryIDs, int startPrice, int endPrice, int page)
+	{
+		this(categoryIDs, startPrice, endPrice, ((Set) (null)), page);
+	}
+
+
+	public Map getSearchArgs()
+	{
+		initPage = parameterUtil.getInitPageParameter();
+		Map args = new HashMap();
+		args.put("lan_id", Integer.valueOf(lan_id));
+		args.put("searchMsg", (new StringBuilder("%")).append(searchMsg).append("%").toString());
+		args.put("startPrice", Integer.valueOf(startPrice));
+		args.put("endPrice", Integer.valueOf(endPrice));
+		args.put("begain", Integer.valueOf(0 + initPage * PageUtil.getPageSize()));
+		args.put("size", Integer.valueOf(PageUtil.getPageSize()));
 		return args;
 	}
 	
@@ -64,30 +103,32 @@ public class FilterAndSearchArgs {
 		args.put("size",Integer.MAX_VALUE);
 		return args;
 	}
-	
-	public Map<String, Object> getArgs() {
-		int initPage = parameterUtil.getInitPageParameter();
-		Map<String, Object> argss = new HashMap<String, Object>();
-		argss.put("begain",0+initPage*PageUtil.getPageSize());
-		argss.put("size",PageUtil.getPageSize());
-		
+
+	public Map getArgs()
+	{
+		initPage = parameterUtil.getInitPageParameter();
+		Map argss = new HashMap();
+		argss.put("begain", Integer.valueOf(initPage * PageUtil.getPageSize()));
+		argss.put("size", Integer.valueOf(PageUtil.getPageSize()));
 		argss.put("categoryIDs", categoryIDs);
-		argss.put("startPrice", startPrice);
-		argss.put("endPrice", endPrice);
-		if(attributes!=null && attributes.size()!=0){
+		argss.put("startPrice", Integer.valueOf(startPrice));
+		argss.put("endPrice", Integer.valueOf(endPrice));
+		if (attributes != null && attributes.size() != 0)
+		{
 			argss.put("atrValues", attributes);
-			argss.put("atrNum", attributes.size()-1);
+			argss.put("atrNum", Integer.valueOf(attributes.size() - 1));
 		}
 		return argss;
 	}
-	
-	public Map<String, Object> getPushArgs() {
-		int initPage = parameterUtil.getInitPageParameter();
-		Map<String, Object> argss = new HashMap<String, Object>();
-		argss.put("begain",0+initPage*PageUtil.getPageSize());
-		argss.put("size",PageUtil.getPageSize());
-		argss.put("startPrice", startPrice);
-		argss.put("endPrice", endPrice);
+
+	public Map getPushArgs()
+	{
+		initPage = parameterUtil.getInitPageParameter();
+		Map argss = new HashMap();
+		argss.put("begain", Integer.valueOf(0 + initPage * PageUtil.getPageSize()));
+		argss.put("size", Integer.valueOf(PageUtil.getPageSize()));
+		argss.put("startPrice", Integer.valueOf(startPrice));
+		argss.put("endPrice", Integer.valueOf(endPrice));
 		return argss;
 	}
 	/**
@@ -96,9 +137,9 @@ public class FilterAndSearchArgs {
 	 * @return
 	 */
 	public Map<String, Object> getComputeCountArgs() {
-		Map<String, Object> argss = getArgs();
-		argss.put("begain",0);
-		argss.put("size",Integer.MAX_VALUE);
+		Map argss = getArgs();
+		argss.put("begain", Integer.valueOf(0));
+		argss.put("size", Integer.valueOf(0x7fffffff));
 		return argss;
 	}
 

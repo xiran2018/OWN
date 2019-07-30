@@ -1,0 +1,52 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="own:Web exploded">
+    <output-path>D:/EclipseWorkSpace/apache-tomcat-7.0.56-2/webapps/own</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="own/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="own" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="module" name="merchantsdk-2.13.117.jar" module-name="own" />
+          <element id="library" level="module" name="merchantsdk-2.13.117-javadoc.jar" module-name="own" />
+          <element id="library" level="module" name="log4j-core-2.0.2.jar" module-name="own" />
+          <element id="library" level="module" name="log4j-api-2.0.2.jar" module-name="own" />
+          <element id="library" level="module" name="junit4" module-name="own" />
+          <element id="library" level="module" name="CKFinder-2.4.jar" module-name="own" />
+          <element id="library" level="module" name="CKFinderPlugin-FileEditor-2.4.jar" module-name="own" />
+          <element id="library" level="module" name="CKFinderPlugin-ImageResize-2.4.jar" module-name="own" />
+          <element id="library" level="module" name="CKFinderPlugin-Watermark-2.4.jar" module-name="own" />
+          <element id="library" level="module" name="activation-1.1.jar" module-name="own" />
+          <element id="library" level="module" name="antlr-2.7.6.jar" module-name="own" />
+          <element id="library" level="module" name="asm-attrs.jar" module-name="own" />
+          <element id="library" level="module" name="asm.jar" module-name="own" />
+          <element id="library" level="module" name="cglib-2.1.3.jar" module-name="own" />
+          <element id="library" level="module" name="ckeditor-java-core-3.5.3-javadoc.jar" module-name="own" />
+          <element id="library" level="module" name="ckeditor-java-core-3.5.3-sources.jar" module-name="own" />
+          <element id="library" level="module" name="ckeditor-java-core-3.5.3.jar" module-name="own" />
+          <element id="library" level="module" name="commons-collections-2.1.1.jar" module-name="own" />
+          <element id="library" level="module" name="commons-fileupload-1.2.2.jar" module-name="own" />
+          <element id="library" level="module" name="commons-logging-1.0.4.jar" module-name="own" />
+          <element id="library" level="module" name="dom4j-1.6.1.jar" module-name="own" />
+          <element id="library" level="module" name="ehcache-1.2.3.jar" module-name="own" />
+          <element id="library" level="module" name="ezmorph-1.0.6.jar" module-name="own" />
+          <element id="library" level="module" name="hibernate3.jar" module-name="own" />
+          <element id="library" level="module" name="jaas.jar" module-name="own" />
+          <element id="library" level="module" name="javassist.jar" module-name="own" />
+          <element id="library" level="module" name="jaxen-1.1-beta-7.jar" module-name="own" />
+          <element id="library" level="module" name="jboss-logging-3.0.0.CR1.jar" module-name="own" />
+          <element id="library" level="module" name="jboss-vfs-3.1.0.Final.jar" module-name="own" />
+          <element id="library" level="module" name="jdbc2_0-stdext.jar" module-name="own" />
+          <element id="library" level="module" name="jta.jar" module-name="own" />
+          <element id="library" level="module" name="mail-1.4.1.jar" module-name="own" />
+          <element id="library" level="module" name="mysql-connector-java-5.1.22-bin.jar" module-name="own" />
+          <element id="library" level="module" name="thumbnailator-0.4.5.jar" module-name="own" />
+          <element id="library" level="project" name="weblib" />
+          <element id="library" level="project" name="Spring-4.3.18.RELEASE" />
+        </element>
+      </element>
+      <element id="dir-copy" path="$PROJECT_DIR$/ConfigFile" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+
+table, td, div, p, .win, .column {
+word-wrap: break-word;
+word-break: break-all;
+word-break: normal;
+}
+.suggest-words>span>a{
+	font-size: 21px;
+    color: rgb(248, 145, 53);
+}
+
+#forgotYourPassword {
+width: 800px;
+border: 1px solid #c1cee0;
+padding-left: 20px;
+margin: 30px auto;
+}
+
+h1, h2, h3 {
+margin: 0;
+padding: 0;
+}
+
+h2 {
+font: 1.5em/180% Roboto,Helvetica,Tahoma,Arial,sans-serif;
+}
+
+#forgotYourPassword h2 {
+font-size: 14px;
+font-weight: bolder;
+border-bottom: 1px solid #cccccc;
+line-height: 30px;
+margin-right: 20px;
+}
+
+
+.suggest-words {
+line-height: 20px;
+padding-top: 10px;
+margin-right: 20px;
+display: inline;
+}
+
+
+td, th {
+overflow: hidden;
+}
+
+
+input, select, textarea {
+font: 13px Roboto,Helvetica,Tahoma,Arial,sans-serif;
+}

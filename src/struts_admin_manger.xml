@@ -388,7 +388,7 @@
                 <!-- 【订单相关操作】 -->
         
          <!-- 展示所有的订单信息-->
-        <action name="showAllOrdersForRoot" class="ru.own.www.logic.OrderAfterOperate" method="showAllOrdersForRoot">
+        <action name="showAllOrdersForRoot" class="admin.ru.own.www.logic.order.OrderAfterOperate" method="showAllOrdersForRoot">
             <result name="success"> 
 				/jqladmin/order/order-list.jsp
             </result>
@@ -399,14 +399,14 @@
         </action>
         
          <!-- 获取某一个订单的详细信息-->
-        <action name="orderDetailForRoot" class="ru.own.www.logic.OrderAfterOperate" method="showOrderDetailForRoot">
+        <action name="orderDetailForRoot" class="admin.ru.own.www.logic.order.OrderAfterOperate" method="showOrderDetailForRoot">
             <result name="success"> 
 				/jqladmin/order/order-detail.jsp
             </result>
         </action>
         
          <!-- 保存订单的打折信息-->
-        <action name="saveDiscountInfoForOrder" class="ru.own.www.logic.OrderAfterOperate" method="saveDiscountInfoForOrder">
+        <action name="saveDiscountInfoForOrder" class="admin.ru.own.www.logic.order.OrderAfterOperate" method="saveDiscountInfoForOrder">
             <result name="success" type="json"> 
 				<param name = "includeProperties">errCode</param > 
             </result>

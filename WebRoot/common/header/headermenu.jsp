@@ -3,6 +3,8 @@
 <%@ taglib prefix="s" uri="/struts-tags"%>
 <html>
 	<head>
+	
+		<!-- Yandex.Metrika counter --> <script type="text/javascript"> (function (d, w, c) { (w[c] = w[c] || []).push(function() { try { w.yaCounter40550355 = new Ya.Metrika({ id:40550355, clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true, trackHash:true, ut:"noindex", ecommerce:"dataLayer" }); } catch(e) { } }); var n = d.getElementsByTagName("script")[0], s = d.createElement("script"), f = function () { n.parentNode.insertBefore(s, n); }; s.type = "text/javascript"; s.async = true; s.src = "https://mc.yandex.ru/metrika/watch.js"; if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); } })(document, window, "yandex_metrika_callbacks"); </script> <!-- /Yandex.Metrika counter -->
 	   
 	    <!-- headermenu布局 -->
         <link  href="common/header/css/headermenu.css" rel="stylesheet" type="text/css"/>
@@ -45,11 +47,11 @@
         	var insertHtml="";
             if(customeruserid==null||customeruserid==undefined)
             {//没有登录
-            	insertHtml='<s:text name="www.web.welcome"></s:text><span><a class="sn-login" href="login.jsp"><s:text name="www.web.login"></s:text></a></span><span><a  class="sn-register" href="client/newCustomerRegister"><s:text name="www.web.register"></s:text></a></span>';
+            	insertHtml='<s:text name="www.web.welcome"></s:text><span><a target="_blank" class="sn-login" href="login.action"><s:text name="www.web.login"></s:text></a></span><span><a target="_blank"  class="sn-register" href="client/newCustomerRegister"><s:text name="www.web.register"></s:text></a></span>';
             }
             else
             {//登陆
-            	insertHtml='Hello, <a href="client-center/buyerIndex.action" >'+customerusername+'</a><span><a class="sn-logout" href="client/userLogout.action"><s:text name="www.web.logout"></s:text></a></span>';
+            	insertHtml='Hello, <a target="_blank" href="client-center/buyerIndex.action" >'+customerusername+'</a><span><a target="_blank" class="sn-logout" href="client/userLogout.action"><s:text name="www.web.logout"></s:text></a></span>';
 	           
             	//隐藏购物车右边的登陆信息
 	            $(".account-unsigned").css("display","none");
@@ -94,11 +96,11 @@
         		{
         			if(data.status=="200")
         			{
-        				alert("请再试刷新一次");
+        				alert(messageResourceErrorTips);
         			}
         			else if(data.status=="500")
         			{	
-        				alert("服务器崩溃了!!!!");
+        				alert(messageResourceErrorTips);
         			}
         			
         		},
@@ -118,7 +120,10 @@
         </script>
 	</head>
 	<body>
-		<div >
+		<div id="im">
+			<%@ include file="../../webIm/cWebIm.jsp"%>
+		</div>
+		<div>
 			<div id="site-nov">
 			     <div class="site-nov-con">
                     <!--  <p class="phone"><a href="#">语言</a></p>-->
@@ -131,7 +136,7 @@
                        <li class="downmenu currencydownmenu">
                        </li>
                        
-			           <li><a href=""><s:text name="www.web.home"></s:text></a></li>
+			           <!--<li><a href=""><s:text name="www.web.home"></s:text></a></li> -->
 			           <!--  
 			           <li class="downmenu">
 			                <a href="" class="downmenu">我的淘宝</a>
@@ -143,14 +148,15 @@
 			                 </ul>
 			           </li>
 			           -->
-			           <li class="service"><a href=""><s:text name="www.web.contact.us"></s:text></a></li>
+			           <!-- <li class="service"><a href=""><s:text name="www.web.contact.us"></s:text></a></li>  -->
+			           <!-- 
 			           <li>
 			           		<a href="shopcart/cart.jsp" >
 			           			<s:text name="www.web.shopcart"></s:text>
 			           			<strong class="shop-cart-number">0</strong>
 			           		</a>
-			           </li>
-			           <li><a href=""><s:text name="www.web.wishlist"></s:text></a></li>
+			           </li> -->
+			           <!--  <li><a href=""><s:text name="www.web.wishlist"></s:text></a></li> -->
 			           <!-- 
 			           <li   class="downmenu">
 			                <a href=""   class="downmenu">收藏夹</a>
@@ -183,7 +189,7 @@
 			         <div class="sea-cen">
 			         	<form action="category/searchcommodity_showAll" method="post" target="_blank">
 			             <span></span>
-			             <input name="searchMsg" type="text"  class="txt" placeholder="I'm shopping for..."/>
+			             <input name="searchMsg" type="text"  class="txt" placeholder='<s:text name="www.web.searchmsgtips"></s:text>'/>
 			             <input type="submit" value="" class="btn"/>
 			             </form>
 			         </div>
@@ -193,7 +199,7 @@
 			     	<a href="shopcart/cart.jsp" data-spm-anchor-id="2114.11010108.0.26">
 			     		<span class="text"><s:text name="www.web.shopcart"></s:text></span>
 			     	</a>
-			     	<span id="nav-cart-num" class="cart-number shop-cart-number">1</span>
+			     	<span id="nav-cart-num" class="cart-number shop-cart-number">0</span>
 			     </div> <!-- end of 购物车 -->
 			     <!-- wish list -->
 			     <div class="nav-wishlist" data-hover="1">
@@ -215,10 +221,12 @@
 										<span class="account-unsigned" data-role="unsigned">
 											<a rel="nofollow" href="login.jsp" data-role="sign-link"><s:text name="www.web.login"></s:text></a>
 											<span class="ua-line">|</span>
-											<a rel="nofollow" href="client/newCustomerRegister" data-role="join-link">Join</a>
+											<a rel="nofollow" href="client/newCustomerRegister" data-role="join-link"><s:text name="www.web.register"></s:text></a>
 										</span>
 										<span class="account-name" data-role="username"></span>
-										<div class="myaliexpress" data-role="myaliexpress"><span data-role="myaliexpress-link">My POPLanding</span><b>(<span class="shop-cart-number">0</span>)</b></div>
+										<div class="myaliexpress" data-role="myaliexpress">
+											<span data-role="myaliexpress-link"><s:text name="www.web.my"></s:text> 999OWN</span><b><!--  (<span class="shop-cart-number">0</span>)--></b>
+										</div>
 									</div>
 								</div>
 								<div class="user-account-main" data-role="user-account-main">
@@ -241,16 +249,22 @@
 										</p>
 									</div>
 									<dl class="flyout-visitors-login" data-role="user-login" style="display: block;">
-										<dt><s:text name="www.user.new"></s:text></dt>
+										<!--<dt><s:text name="www.user.new"></s:text></dt>  -->
 										<dd><a rel="nofollow" href="client/newCustomerRegister" class="join-btn" data-role="join-link"><s:text name="www.web.register"></s:text></a></dd>
 									</dl>
 									<div id="flyout-remind-list" class="flyout-remind-list"></div>
 									<ul class="flyout-quick-entry" data-role="quick-entry">
-										<li><a rel="nofollow" href="client-center/buyerIndex.action"><s:text name="www.user.center"></s:text></a></li>
-										<li><a rel="nofollow" href="order/showAllOrders.action"><s:text name="www.user.order"></s:text></a></li>
+										<li><a rel="nofollow" href="client-center/buyerIndex.action">
+											<s:text name="www.user.center"></s:text></a>
+										</li>
+										<li><a rel="nofollow" href="order/showAllOrders.action">
+											<s:text name="www.user.order"></s:text></a>
+										</li>
 										<li><a rel="nofollow" href="javascript:void(0)"><s:text name="www.user.message"></s:text></a></li>
 										<li><a rel="nofollow" href="javascript:void(0)"><s:text name="www.web.wishlist"></s:text></a></li>
-										<li><a href="client-center/userPoints.action"><s:text name="www.user.point"></s:text></a></li>
+										<li><a href="client-center/userPoints.action">
+											<s:text name="www.user.point"></s:text></a
+										></li>
 										<li><a rel="nofollow" href="javascript:void(0)"><s:text name="www.user.coupons"></s:text></a></li>
 									</ul>
 								</div>

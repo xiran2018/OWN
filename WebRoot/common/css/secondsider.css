@@ -20,7 +20,7 @@ margin : 0;
 border-bottom : 1px solid #8A827D;
 } 
 #sidebar-menu > ul > li.selected { 
-background : #a90000;  
+background :  rgb(255, 102, 0);  /*#a90000*/
 } 
 #sidebar-menu > ul > li.first { 
 /*border-top : 1px solid #F93; */

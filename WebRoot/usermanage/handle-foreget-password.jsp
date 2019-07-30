@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>京东</title>
+<title>get password</title>
 
 
 <!-- header以下布局 -->
@@ -33,6 +33,9 @@
 <!-- ------------------------------和本网页相关--------------------------------------- -->
 
 <link href="usermanage/css/handle.foregetpassword.css" rel="stylesheet" type="text/css" />
+
+<!-- 密码，邮箱规则 -->
+<script type="text/javascript" src="usermanage/js/user.util.js"></script>
 
 <script src="usermanage/js/handle.foregetpassword.js" type="text/javascript"></script>
 <!-- ------------------------------和本网页相关--------------------------------------- -->
@@ -66,7 +69,14 @@
                                 <td class="colume1" valign=middle align=right>userid</td>
                                 <td class="colume2">
                                 
-								<input  id="userid" name="userid"   type="text"  value="<s:property  value="id" />" />
+								<input  id="userid" name="userid"   type="text"  value='<s:property  value="id" />' />
+                                </td>
+                            </tr>
+                            <tr class="oddrowcolor" style="display:none;" >
+                                <td class="colume1" valign=middle align=right>checkcode</td>
+                                <td class="colume2">
+                                
+								<input  id="checkcodeforgetpass" name="checkcodeforgetpass"   type="text"  value='<s:property  value="checkcode" />' />
                                 </td>
                             </tr>
 				            <tr class="oddrowcolor">

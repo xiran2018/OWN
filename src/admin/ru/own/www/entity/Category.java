@@ -16,6 +16,7 @@ public class Category implements java.io.Serializable {
 	private String categoryOtherName;
 	private Short isFather;
 	private Short isInFloorshow=0; //是否在楼层显示
+	private Short isInBannershow;
 	private Short isShow=0;
 	private String icon;
 	private String image;
@@ -27,13 +28,20 @@ public class Category implements java.io.Serializable {
 
 	// Constructors
 
-	/** default constructor */
-	public Category() {
+	public Category()
+	{
+		isInFloorshow = Short.valueOf((short)0);
+		isInBannershow = Short.valueOf((short)0);
+		isShow = Short.valueOf((short)0);
+		imagesize = 1;
 	}
 
-	/** minimal constructor */
-	public Category(String categoryName, Integer categoryFatherId,
-			String categoryOtherName, Short isFather, Timestamp createTime) {
+	public Category(String categoryName, Integer categoryFatherId, String categoryOtherName, Short isFather, Timestamp createTime)
+	{
+		isInFloorshow = Short.valueOf((short)0);
+		isInBannershow = Short.valueOf((short)0);
+		isShow = Short.valueOf((short)0);
+		imagesize = 1;
 		this.categoryName = categoryName;
 		this.categoryFatherId = categoryFatherId;
 		this.categoryOtherName = categoryOtherName;
@@ -41,10 +49,13 @@ public class Category implements java.io.Serializable {
 		this.createTime = createTime;
 	}
 
-	/** full constructor */
-	public Category(String categoryName, Integer categoryFatherId,
-			String categoryOtherName, Short isFather, String title,
-			String keyword, String description, Timestamp createTime) {
+	public Category(String categoryName, Integer categoryFatherId, String categoryOtherName, Short isFather, String title, String keyword, String description,
+					Timestamp createTime)
+	{
+		isInFloorshow = Short.valueOf((short)0);
+		isInBannershow = Short.valueOf((short)0);
+		isShow = Short.valueOf((short)0);
+		imagesize = 1;
 		this.categoryName = categoryName;
 		this.categoryFatherId = categoryFatherId;
 		this.categoryOtherName = categoryOtherName;
@@ -54,7 +65,6 @@ public class Category implements java.io.Serializable {
 		this.description = description;
 		this.createTime = createTime;
 	}
-
 	// Property accessors
 
 	public Integer getCategoryId() {
@@ -135,6 +145,14 @@ public class Category implements java.io.Serializable {
 
 	public void setIsShow(Short isShow) {
 		this.isShow = isShow;
+	}
+
+	public Short getIsInBannershow() {
+		return isInBannershow;
+	}
+
+	public void setIsInBannershow(Short isInBannershow) {
+		this.isInBannershow = isInBannershow;
 	}
 
 	public String getImage() {

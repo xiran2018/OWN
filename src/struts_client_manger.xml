@@ -11,6 +11,14 @@
                /index.jsp
             </result>
         </action>
+        
+        
+         <!-- 用户注册 -->
+        <action name="newCustomerRegister" class="ru.own.www.logic.ClientUserOperate" method="newCustomerRegister">
+            <result name="success"> ${redirctURLString} </result>
+            <result name="home"> /usermanage/register/registerSuccess.jsp </result>
+            <result name="error">/usermanage/expressJoin.jsp</result>
+        </action>
    </package>
    
    	<!-- 用户管理,主要是客户操作 ，没有权限控制-->
@@ -29,9 +37,8 @@
 	        </action>
 	        
 	        <action name="resetPassword" class="admin.ru.own.www.logic.UserOperate" method="resetPassword">
-	          <!--  <result name="success" type="redirect">${prePage}</result>  --> 
 				<result name="success" type="json" > 
-				 <param name="root">id</param>
+				 <param name="root">errCode</param>
 				</result> 
 	        </action>
     </package>
@@ -95,13 +102,6 @@
 
         <default-interceptor-ref name="mydefault1" />
         
-        <!-- 用户注册 -->
-        <action name="newCustomerRegister" class="ru.own.www.logic.ClientUserOperate" method="newCustomerRegister">
-            <result name="success"> ${redirctURLString} </result>
-            <result name="home"> /login.jsp </result>
-            <result name="error">/usermanage/expressJoin.jsp</result>
-        </action>
-    
          <!-- 取语言 -->
         <action name="getShowLanguage" class="admin.ru.own.www.language.GetLanguage">
             <result name="success" type="json" >  
@@ -135,7 +135,8 @@
         <!-- 取商品分类-->
         <action name="getShowCategory" class="ru.own.www.logic.CategoryOperate" method="getShowCategory">
             <result name="success" type="json" >  
-                <param name="root">ccs</param>
+                <!-- <param name="root">ccs</param>  -->
+                 <param name = "includeProperties">ccs.*,banner.*</param > 
             </result>
         </action>
         
@@ -240,10 +241,23 @@
             </result>
         </action>
         
-                <!--用户登录-->
+                <!--用户推出登陆-->
         <action name="userLogout" class="ru.own.www.logic.ClientUserOperate" method="userLogout">
             <result name="success" type="redirect">/login.jsp</result>
             <result name="error">/login.jsp</result>
+        </action>
+        
+        
+                 <!-- 用户激活-->
+        <action name="newCustomerActivate" class="ru.own.www.logic.ClientUserOperate" method="newCustomerActivate">
+            <result name="success">/usermanage/active/activeSuccess.jsp</result>
+            <result name="error">/usermanage/active/activeError.jsp</result>
+        </action>
+        
+        <!-- 重新发送激活邮件-->
+        <action name="reSendActivateEmail" class="ru.own.www.logic.ClientUserOperate" method="reSendActivateEmail">
+            <result name="success">/usermanage/active/reSendActivateEmailSuccess.jsp</result>
+            <result name="error">/usermanage/active/reSendActivateEmailError.jsp</result>
         </action>
         
         

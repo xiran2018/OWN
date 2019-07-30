@@ -101,7 +101,7 @@ public class EmailSend {
 		attachment.setPath(fileName);
 		attachment.setDisposition(EmailAttachment.ATTACHMENT);
 		attachment.setDescription("welcome to our shopping store");
-		attachment.setName("logo.jpg");
+		attachment.setName("999own");
 
 		try {
 			// Create the email message
@@ -111,11 +111,10 @@ public class EmailSend {
 
 			// email.setDebug(true);
 			email.setSSLOnConnect(true);
-			email.setHostName("box976.bluehost.com");
-			email.setSmtpPort(465);
-			email.setAuthenticator(new DefaultAuthenticator("frank@poplanding.com", "880309jQl"));
-
-			email.setFrom("liza@poplanding.com", "liza");// 发送方,这里可以写多个
+			email.setHostName("smtp.126.com");
+			email.setSmtpPort(25);
+			email.setAuthenticator(new DefaultAuthenticator("yunzhongzhizi_2007@126.com", "880309jQl"));
+			email.setFrom("yunzhongzhizi_2007@126.com", "liza");// 发送方,这里可以写多个
 			email.addTo(user.getUsermail(), "quanliang"); // 接收方
 			// email.addCc("965761402@qq.com","haixia"); // 抄送方
 			// email.addTo("jdoe@somewhere.org", "John Doe");
@@ -149,71 +148,62 @@ public class EmailSend {
 		return true;
 	}
 
-	public static void sendHtmlMailwithEmbeddedImages() {
+	public boolean sendHtmlMailwithEmbeddedImages(SendEmailArgs emailEntity, EmailEntity emailEntiey) {
 		String basePath = Utility.getRootPath();
-		// System.out.println("********************basePath:"+basePath);
-		String fileName = basePath + "/upload/emailAttachImage/logo.jpg";
-		// Create the attachment
+		String filePath = emailEntity.getAttachmentFilePath();
+		filePath = (new StringBuilder(String.valueOf(basePath))).append(filePath).toString();
 		EmailAttachment attachment = new EmailAttachment();
-		// attachment.setURL(new
-		// URL("http://www.apache.org/images/asf_logo_wide.gif"));
-		attachment.setPath(fileName);
-		attachment.setDisposition(EmailAttachment.ATTACHMENT);
-		attachment.setDescription("Picture of John");
-		attachment.setName("logo.jpg");
-
-		try {
-
-			// Create the email message
+		attachment.setPath(filePath);
+		attachment.setDisposition("attachment");
+		attachment.setDescription(emailEntity.getAttachmentDescription());
+		attachment.setName(emailEntity.getAttachmentName());
+		try
+		{
 			ImageHtmlEmail email = new ImageHtmlEmail();
-
-			// define you base URL to resolve relative resource locations
-			URL url = new URL("http://www.apache.org");
-
-			// create the email message
-			// email.setDataSourceResolver(new DataSourceResolverImpl(url));
+			URL url = new URL(emailEntity.getImageBaseURL());
 			email.setDataSourceResolver(new DataSourceUrlResolver(url));
-
-			// email.setDebug(true);
-			email.setSSLOnConnect(true);
-			email.setHostName("box976.bluehost.com");
-			email.setSmtpPort(465);
-			email.setAuthenticator(new DefaultAuthenticator("frank@poplanding.com", "880309jQl"));
-
-			email.setFrom("liza@poplanding.com", "liza");// 发送方,这里可以写多个
-			email.addTo("540692237@qq.com", "quanliang"); // 接收方
-			email.addCc("965761402@qq.com", "haixia"); // 抄送方
-			// email.addTo("jdoe@somewhere.org", "John Doe");
-			email.setSubject("The picture");
-
-			// load your HTML email template
-			String htmlEmailTemplate = "<html>www.poplanding.com - <img src='images/asf_logo_wide.gif'></html>";
-
-			// set the html message
-			email.setHtmlMsg(htmlEmailTemplate);
-
-			// set the alternative message
-			email.setTextMsg("Your email client does not support HTML messages");
-
-			// add the attachment
+			email.setSSLOnConnect(emailEntity.isSslOnConnect());
+			email.setHostName(emailEntity.getHostName());
+			email.setSmtpPort(emailEntity.getSmtpPort());
+			email.setAuthenticator(new DefaultAuthenticator(emailEntity.getHostUserName(), emailEntity.getHostPassword()));
+			email.setFrom(emailEntity.getFrom(), emailEntity.getFromName());
+			email.addTo(emailEntiey.getUser().getUsermail(), emailEntiey.getUser().getUsername());
+			email.setSubject(emailEntiey.getSubject());
+			email.setHtmlMsg(emailEntiey.getContent());
 			email.attach(attachment);
-
-			// send the email
 			email.send();
-//			System.out.println("image html email 发送成功");
-		} catch (EmailException e) {
-			e.printStackTrace();
-		} catch (MalformedURLException e) {
-			e.printStackTrace();
 		}
+		catch (EmailException e)
+		{
+			return false;
+		}
+		catch (MalformedURLException e)
+		{
+			return false;
+		}
+		return true;
 	}
 
 	public static void main(String[] args) {
-		User user=new User();
-		user.setUsermail("965761402@qq.com");
-		// sendSimpleMail();
-		// sendMailWithAttachment();
-		sendHtmlMail(user,"sdjf");
-		// sendHtmlMailwithEmbeddedImages();
+		User user = new User();
+		user.setUsermail("540692237@qq.com");
+		SendEmailArgs ee = new SendEmailArgs();
+		String basePath = Utility.getRootPath();
+		String filePath = (new StringBuilder(String.valueOf(basePath))).append("/upload/emailAttachImage/logo.jpg").toString();
+		ee.setAttachmentFilePath(filePath);
+		ee.setAttachmentDescription("welcome to 999own shopping store");
+		ee.setAttachmentName("999OWN.jpg");
+		ee.setImageBaseURL("http://www.888own.com");
+		ee.setSslOnConnect(true);
+		ee.setHostName("smtp.126.com");
+		ee.setSmtpPort(25);
+		ee.setHostUserName("yunzhongzhizi_2007@126.com");
+		ee.setHostPassword("880309jQl");
+		ee.setSetSubject("hello,welcome 999own!");
+		ee.setFrom("yunzhongzhizi_2007@126.com");
+		ee.setFromName("999OWN");
+		ee.setTo("540692237@qq.com");
+		ee.setToName("jingquanliang");
+		String aa = "<a href='http://www.999own.ru'>www.999own.ru - <img src='images/logo.jpg'></a>";
 	}
 }

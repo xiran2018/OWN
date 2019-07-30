@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>京东</title>
+<title></title>
 
 
 <!-- header以下布局 -->
@@ -27,8 +27,8 @@
 <link href="common/css/secondsider.css" rel="stylesheet" type="text/css" />
 
 <!-- js和jquery相关 -->
-<script type="text/javascript" src="js/json2.js"></script>
 <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="js/json2.js"></script>
 <script type="text/javascript" src="jquery-ui/jquery-ui.js"></script>
 <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css" />
 
@@ -51,6 +51,9 @@
 
 
 <script  type="text/javascript" >
+
+		var minBuyCountTips='<s:text name="www.buy.minbuycount"></s:text>';
+		
 		//about the shipping country
         var defaultShippingCountryId=<%=session.getAttribute("defaultShippingCountryId")%>;
 
@@ -101,6 +104,10 @@
 </head>
 
 <body class="root61">
+
+	<div style="display: none">
+        <%@ include file="../common/language/multiLanguage.jsp" %>
+	</div>
 
 
 	<div id="header">
@@ -278,7 +285,7 @@
 									<span class="clr"></span>
 								</li>
 								<li id="choose-amount">
-									<div class="dt">购买数量：</div>
+									<div class="dt"><s:text name="www.buy.quantity"></s:text>：</div>
 									<div class="dd">
 										<div class="wrap-input">
 												<a class="btn-reduce" href="javascript:;" onclick="muiSetAmount.reduce('#buy-num');calculateShipFeeInpage();"><s:text name="Reduce-Number"></s:text></a>
@@ -287,10 +294,18 @@
 										</div>
 									</div>
 								</li>
-								<li id="choose-service" class="hide"></li><li id="choose-result" style="display: list-item;"><div class="dt"></div><div class="dd"><em><s:text name="Already-Select"></s:text>:</em><strong><span id="mui-already-select"></span></strong></div></li>
+								<li id="choose-service" class="hide"></li><li id="choose-result" style="display: list-item;">
+									<div class="dt"></div>
+									<div class="dd">
+										<em><s:text name="Already-Select"></s:text>:</em>
+										<strong><span id="mui-already-select"></span></strong>
+									</div>
+								</li>
 								<li id="choose-btns">
 									<div id="choose-btn-append" class="btn">
-											<a class="btn-append " id="InitCartUrl" href="javascript:void(0)"  title="">加入购物车<b></b></a>
+											<a class="btn-append " id="InitCartUrl" href="javascript:void(0)"  title="">
+												<s:text name="www.web.addCart"></s:text><b></b>
+											</a>
 									</div>
 									<div id="choose-btn-easybuy" class="btn" clstag="shangpin|keycount|product|btn-easybuy" style="display: block;"></div>
 									<div id="choose-btn-divide" class="btn" style="display: block;"></div>
@@ -327,9 +342,9 @@
 				<!-- detail of product And Evaluate -->
 				<div id="product-detail-tab">
 				  <ul>
-				    <li><a href="#tabs-111">商品详情</a></li>
-				    <li><a href="#tabs-211">累计评价</a></li>
-				    <li><a href="#tabs-311">产品咨询</a></li>
+				    <li><a href="#tabs-111"><s:text name="www.product.details"></s:text></a></li>
+				    <li><a href="#tabs-211"><s:text name="www.product.feedback"></s:text></a></li>
+				    <li><a href="#tabs-311"><s:text name="www.product.consultation"></s:text></a></li>
 				  </ul>
 				  <div id="tabs-111">
 				  	<div id="attributes" class="attributes"> 
@@ -400,7 +415,7 @@
 </style>
 <!-- ----------------------------------------------------------------------------------- -->
 <!-- ------------------------------------------about user login----------------------------------------- -->
-<div id="minilogin-dialog" class="ui-widget" title="Please Login">
+<div id="minilogin-dialog" class="ui-widget" title='<s:text name="www.web.login"></s:text>'>
   <!-- <iframe class="j_minilogin_iframe" style="background: #FFF; margin:0 0 0 0;" width="320" scrolling="no" height="304" frameborder="no" src="userlogin/miniuserlogin.jsp">
 
 	</iframe> --> 

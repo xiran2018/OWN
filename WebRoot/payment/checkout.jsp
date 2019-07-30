@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>京东</title>
+<title></title>
 
 
 <!-- header以下布局 -->
@@ -43,7 +43,9 @@
 </head>
 
 <body>
-
+	<div style="display: none">
+        <%@ include file="../common/language/multiLanguage.jsp" %>
+	</div>
 	<div id="header">
         <%@ include file="../common/header/headermenu.jsp" %>
 		<%@ include file="../common/header/secondheader.jsp"%>
@@ -51,7 +53,7 @@
 	</div>
 
 
-	<!--！！！！！！！！！！！！！！！！！！！ 之下的代码是你需要真正使用的，需要到时候用js（切记：因为js的用户体验非常好）生成！！！！！！！！！！！！！！！！！！-->
+	<!--！！！！！！！！！！！！！！！！！！！ 之下的代码是你需要真正使用的！！！！！！！！！！！！！！！！！！-->
 	<div id="second-category-menu">
 
 		<div id="lagout-three">
@@ -63,7 +65,9 @@
 				    <div class="panel-heading fn-clear">
 				      <h3 class="panel-title"><s:text name="www.order.orderTotal"></s:text></h3>
 				      <a href="javascript:location.reload();" class="i-icon i-icon-refresh refresh-price" id="j-refresh-price" seed="panelHeading-jRefreshPrice" smartracker="on"></a>
-				      <span class="fn-hide refresh-price-tip" data-widget-cid="widget-11">Refresh Price</span>
+				      <span class="fn-hide refresh-price-tip" data-widget-cid="widget-11">
+				      	Refresh Price
+				      </span>
 				      <em class="order-total-amount"></em>
 				    </div>
 				
@@ -73,7 +77,8 @@
 				      <dd>
 				            <span class="order-item-l"><span class="order-no-title">
 				            	<s:text name="www.order.orderNO"></s:text>.</span> 
-				            	<span class="order-no" data-tradeno=""></span></span>
+				            	<span class="order-no" data-tradeno=""></span>
+				            </span>
 				            <span class="order-item-l order-item-title" title=""></span>
 				            <span class="order-item-r"></span>
 				      </dd>
@@ -83,21 +88,26 @@
 				  </div>
 				
 				  <div class="panel secure-payment">
-				    <a class="i-icon i-icon-sign-verisign" href="https://sealinfo.verisign.com/splash?form_file=fdf/splash.fdf&amp;dn=www.alipay.com&amp;lang=en" target="_blank" seed="panel-iIcon" smartracker="on"></a>
-				    <a class="i-icon i-icon-sign-pci" seed="panel-iIconT1" smartracker="on"></a>
-				    <a class="i-icon i-icon-sign-visa" seed="panel-iIconT2" smartracker="on"></a>
-				    <a class="i-icon i-icon-sign-mastercard" seed="panel-iIconT3" smartracker="on"></a>
+				    <a class="i-icon i-icon-sign-verisign" href="http://www.999own.ru/common/footer/payment.jsp?id=68" target="_blank" seed="panel-iIcon" smartracker="on"></a>
+				    <a class="i-icon i-icon-sign-pci" href="http://www.999own.ru/common/footer/payment.jsp?id=68"  target="_blank"  seed="panel-iIconT1" smartracker="on"></a>
+				    <a class="i-icon i-icon-sign-visa" href="http://www.999own.ru/common/footer/payment.jsp?id=68"  target="_blank"  seed="panel-iIconT2" smartracker="on"></a>
+				    <a class="i-icon i-icon-sign-mastercard" href="http://www.999own.ru/common/footer/payment.jsp?id=68"  target="_blank"  seed="panel-iIconT3" smartracker="on"></a>
 				  </div>
 				
 				  <div class="panel buyer-protection">
 				      <i class="i-icon i-icon-buyer-protection fn-left"></i>
-				      <h3>Buyer Protection by POPLanding</h3>
+				      
+				      <h3><s:text name="www.checkout.buyerProtection"></s:text></h3>
 				      <p>
-				        <i class="i-icon i-icon-checklist fn-left"></i>
-				        <strong>Full Refund</strong> if you don't receive your order      </p>
+					        <i class="i-icon i-icon-checklist fn-left"></i>
+					        <strong><s:text name="www.confirmOrder.fullRefund"></s:text></strong> 
+					        <s:text name="www.confirmOrder.notReceiveOrder"></s:text>
+				      </p>
 				      <p>
-				        <i class="i-icon i-icon-checklist fn-left"></i>
-				        <strong>Refund or Keep</strong> items not as described      </p>
+					        <i class="i-icon i-icon-checklist fn-left"></i>
+					        <strong><s:text name="www.confirmOrder.refundORKeep"></s:text></strong> 
+					        <s:text name="www.confirmOrder.itemNotAsDescribed"></s:text>
+				      </p>
 				   </div>
 				</div>
 
@@ -107,14 +117,14 @@
 					    <div class="channel-container" id="j-channel-container">
 					
 									<div class="channel-group channel-active ">
-										<div class="payment-total">
+									  <div class="payment-total">
 										  <span class="o-money">
 										  	<s:text name="www.order.paymentTotal"></s:text> 
 										  	<em class="order-total-amount"></em>
 										  </span>
 										  <span class="g-money"></span>
-										</div>
-									  <div class="channel-group-header">
+									  </div>
+									  <div class="channel-group-header fn-hide">
 									          <h2 class="channel-group-title">
 									          	<s:text name="www.order.paymentNotice"></s:text> 
 									          </h2>
@@ -133,8 +143,11 @@
 									   </div>
 									
 									  <div class="channel-group-body">
+									  	<div class="checkoutSuccess">
+									  		<s:text name="www.checkout.checkoutSuccess"></s:text> 
+									  	</div>
 									    <ul class="channel-tab" id="j-channel-tab">
-									      <li data-channel-name="MIXEDCARD" class="j-channel-item channel-active">
+									      <li data-channel-name="MIXEDCARD" class="fn-hide j-channel-item channel-active">
 										        <div class="i-bank i-paypal">
 										        	<span>
 														<img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" align="left" style="margin-right:7px;margin-top: 2px;">
@@ -142,12 +155,12 @@
 										        </div>
 										      	<a href="javascript:void(0)" seed="channel-mixedcard">MIXEDCARD</a>
 									      </li>
-									      <li data-channel-name="BOLETO" class="j-channel-item">
+									      <li data-channel-name="BOLETO" class="fn-hide j-channel-item">
 										        <div class="i-bank i-bank-boleto"><span></span></div>
 										      	<a href="javascript:void(0)" seed="channel-boleto">BOLETO</a>
 										        <i class="i-icon i-icon-brazil"></i>
 									      </li>
-									      <li data-channel-name="TEF" class="j-channel-item">
+									      <li data-channel-name="TEF" class="fn-hide j-channel-item">
 										        <div class="i-bank i-bank-tef">
 												    <div class="i-bank i-bank-itau"><span></span></div>
 												    <div class="i-bank i-bank-bradesco"><span></span></div>
@@ -158,7 +171,7 @@
 										      	 <a href="javascript:void(0)" seed="channel-tef">TEF</a>
 										         <i class="i-icon i-icon-brazil"></i>
 									       </li>
-										   <li class="more-payments-trigger">
+										   <li class="more-payments-trigger fn-hide">
 											    <a href="javascript:void(0)" seed="more-payments" id="j-other-list">
 											      <strong>More Payment Methods ...</strong>
 											    </a>
@@ -385,14 +398,14 @@
 						</div>
 				    </div>
 					
-				    <div class="pay my order">
+				    <div class="pay my order fn-hide">
 				      <p class="i-message i-message-warn sys-error fn-hide"></p>
 				      <button type="submit" id="j-paynow" class="i-button" seed="pay-jPaynow" smartracker="on">
 				      		<s:text name="www.order.pay"></s:text>
 				      </button>
 				    </div>
 					
-					  <div id="j-note" class="note">
+					  <div id="j-note" class="note" style=" display: none; ">
 					    <h3><s:text name="www.order.note"></s:text></h3>
 					    <ul>
 					      <li>

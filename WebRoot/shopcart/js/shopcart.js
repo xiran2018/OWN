@@ -19,7 +19,7 @@ function checkSelectItem()
 	var hrefString=$("#confirm-order").attr("href");
 	if(hrefString==""||hrefString==null||hrefString==undefined)
 	{
-		alert("you don't  select any product,please select one at least!!");
+		alert(messageResourceconfirmOrderTips);
 		return false;
 	}
 	else
@@ -62,6 +62,11 @@ function shopCartQuanityClickEventRegister()
 		});
 		
 		$("body").bind("mousedown", onBodyQuantityDown);
+	});
+	
+	//点击取消按钮
+	$("#dlg-edit-quantity").on("click","#btn-cancel-quantity",function(){
+		hideQuantityMenu();
 	});
 }
 
@@ -197,11 +202,11 @@ function loadCartDetailedInfo()
 		{
 			if(data.status=="200")
 			{
-				alert("请再试刷新一次");
+				alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("服务器崩溃了!!!!");
+				alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -289,7 +294,7 @@ function insertShopCartItemsInPage(shopCartList)
 		
 		insertHtml+="<td class='product-quantity'>";
 		insertHtml+="<input readonly='readonly' value='"+quantity+"' class='product-quantity-input ui-textfield ui-textfield-system '>";
-		insertHtml+="<span class='txt-unit-quantity'>piece</span>";
+		insertHtml+="<span class='txt-unit-quantity'>"+messageResourcePiece+"</span>";
 		insertHtml+="<input class='hid-shopcart-id' type='hidden' value='"+cartid+"' name='id'>";
 		
 		//计算库存数量
@@ -299,7 +304,7 @@ function insertShopCartItemsInPage(shopCartList)
 		//最少购买数量
 		insertHtml+="<input class='hid-minbuyamount' type='hidden' value='"+pbvo.p_minbuyamount+"'>";
 		
-		insertHtml+="<span class='stock-tips'>Limited quantity available&nbsp;</span>";
+		insertHtml+="<span class='stock-tips'>"+messageResourceStockTips+"</span>";
 		insertHtml+=" </td>";
 		
 		//price
@@ -307,7 +312,7 @@ function insertShopCartItemsInPage(shopCartList)
 		insertHtml+="<td class='product-price'>";
 		insertHtml+="<span class='value notranslate'>"+currencyShowSymbol+" "+nowPrice+"</span>";  //currencyShowSymbol is in common/js/product.price.js
 		insertHtml+="<span class='separator'>/</span>";
-		insertHtml+="<span class='unit'>piece</span>";
+		insertHtml+="<span class='unit'>"+messageResourcePiece+"</span>";
 		
 		var tempTotalProductPrice=quantity*nowPrice;
 		var tempCartPrice={};//存放商品的总价格和货运费用价格
@@ -376,23 +381,22 @@ function insertShopCartItemsInPage(shopCartList)
 			
 			//货运time
 			insertHtml+="<dl class='product-shipping-comment util-clearfix'>";
-			insertHtml+="<dt>Delivery Time:&nbsp;</dt>";
+			insertHtml+="<dt>"+messageResourceDeliveryTime+":&nbsp;</dt>";
 			var tempRealTime=calculateShippingTime(selectShipTime);  //calculateShippingTime in product.ship.js
-			insertHtml+="<dd> "+tempRealTime+" days</dd>"; //时间
+			insertHtml+="<dd> "+tempRealTime+" "+messageResourceDays+"</dd>"; //时间
 			insertHtml+="</dl>";
 			
 			//处理time
 			insertHtml+="<dl class='product-shipping-comment util-clearfix'>";
-			insertHtml+="<dt>Processing Time:&nbsp;</dt>";
-			insertHtml+="<dd>10 days</dd>";
+			insertHtml+="<dt>"+messageResourceProcessingTime+":&nbsp;</dt>";
+			insertHtml+="<dd>3-5 "+messageResourceDays+"</dd>";
 			insertHtml+="</dl>";
 			
 			insertHtml+="</td>";
 		}
 		else
 		{
-			insertHtml+="<td class='product-quantity item-product-info product-unavialable'>This product can't be shipped to the selected region</td>";
-			
+			insertHtml+="<td class='product-quantity item-product-info product-unavialable'>"+messageResourceShipUnavialable+"</td>";
 		}
 		
 
@@ -402,7 +406,8 @@ function insertShopCartItemsInPage(shopCartList)
 		insertHtml+="<div class='product-remove'>";
 		insertHtml+="<form method='post' action='shopcart/deleteShopCartItem.action' class='remove-cart-product'>";
 		insertHtml+="<input type='hidden' name='cartid' value='"+cartid+"'>";
-		insertHtml+="<a href='javascript:void(0);'  onclick='removeCartSubmit(this);' class='remove-single-product'>Remove</a>";
+		insertHtml+="<a href='javascript:void(0);'  onclick='removeCartSubmit(this);' class='remove-single-product'>" +
+					messageResourceCartItemRemove+"</a>";
 		insertHtml+="</form>";
 		insertHtml+="</div>";
 		insertHtml+="</td>";
@@ -732,6 +737,7 @@ function registShippingCountrySelectMenu()
  */
 function checkboxChangeLister()
 {
+	var notDeliveryToCountryTips=false;//是否不能邮寄到相应国家
 	var totalProductPrice=0;  //所有的商品费用
 	var totalShipPrice=0;//所有的货运费用
 	var availableProductShopcartIds="";
@@ -741,6 +747,14 @@ function checkboxChangeLister()
 		
 		//计算货运费用等信息
 		var tempCartPrice=cartIdAllFee[cartId];
+		
+		if(tempCartPrice==undefined||tempCartPrice==""||tempCartPrice==null)
+		{
+			notDeliveryToCountryTips=true;
+			alert(messageResourceNotDeliveryToCountryTips);
+			return;
+		}
+		
 		totalProductPrice+=tempCartPrice.totalProcutPrice;
 		if(tempCartPrice.totalShipPrice!="Free Shipping")
 		{
@@ -762,7 +776,10 @@ function checkboxChangeLister()
 	$(".product-ship-value").html(currencyShowSymbol+" "+calculateFeeByExchangeRate(totalShipPrice,1));
 	var totalPrice=totalProductPrice+totalShipPrice;
 	$(".product-price-total").html(currencyShowSymbol+" "+calculateFeeByExchangeRate(totalPrice,1));
-	
-	var hrefString="shopcart/confirmorder.action?availableProductShopcartIds="+availableProductShopcartIds;
+	var hrefString="";
+	if(!notDeliveryToCountryTips)
+	{
+		hrefString="shopcart/confirmorder.action?availableProductShopcartIds="+availableProductShopcartIds;
+	}
 	$("#confirm-order").attr("href",hrefString);
 }

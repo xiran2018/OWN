@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>京东</title>
+<title></title>
 
 
 <!-- header以下布局 -->
@@ -42,7 +42,9 @@
 </head>
 
 <body>
-
+	<div style="display: none">
+        <%@ include file="../common/language/multiLanguage.jsp" %>
+	</div>
 	<div id="header">
         <%@ include file="../common/header/headermenu.jsp" %>
 		<%@ include file="../common/header/secondheader.jsp"%>
@@ -50,17 +52,21 @@
 	</div>
 
 
-	<!--！！！！！！！！！！！！！！！！！！！ 之下的代码是你需要真正使用的，需要到时候用js（切记：因为js的用户体验非常好）生成！！！！！！！！！！！！！！！！！！-->
+	<!--！！！！！！！！！！！！！！！！！！！ 之下的代码是你需要真正使用的，需要到时候用js-->
 	<div id="second-category-menu">
 
 		<div id="lagout-three">
 			<div class="main-wrapper"><!-- 购物车信息 -->		
 				<div class="main-title util-clearfix">
 					  <div class="continue-shopping">
-					 	<a href="#" class="continue-btn">Continue Shopping</a>
+					 	<a href="http://www.999own.ru" class="continue-btn">
+					 		<s:text name="www.cart.continueShopping"></s:text>
+					 	</a>
 					 </div>
 					 <div class="country-selector-div">
-					   <span class="country-selector-title">Ship my order(s) to:</span>
+					   <span class="country-selector-title">
+					   		<s:text name="www.cart.shipOrderTo"></s:text>:
+					   </span>
 					   <select name="mui-shipping-country" id="mui-shipping-country">
       
                        </select>
@@ -70,20 +76,32 @@
 					<table class="item-group" data-s-id="222026140">
 					<caption>
 						<!-- <span class="gold-supplier">Seller:</span>
-						<a class="seller-name" href="http://www.aliexpress.com/store/1477384">quanliang jing</a> -->
+						<a class="seller-name" href="http://www.aliexpress.com/store/1477384">quanliang jing</a>
 						<span class="contact-wrapper">
-							<a title="Chat with me now" id="talkId1" class="atm16" href="javascript:;" >Chat now!</a>
-							<a class="contact-now" data-action="feedback-message-ae"  href="javascript:void(0)" title="Contact now">Contact now!</a>
+							<!-- <a title="Chat with me now" id="talkId1" class="atm16" href="javascript:;" >
+									Chat now!
+								</a>  -->
+							<a target="_blank" class="contact-now" data-action="feedback-message-ae"  href="http://www.999own.ru/common/footer/contacts.jsp?id=58" title="Contact now">
+								<s:text name="www.cart.contactUs"></s:text>
+							</a>
 						</span>
 						<div style="clear:both;"></div>
 					</caption>
 					<thead>
 						<tr>
 							<th class="fourColume1_1 item-selectAll item-header"><input type="checkbox" id="selectAll" name="selectAll" onclick="javascript:selectAll(this);"></th>
-							<th class="item-product item-header">Product Name &amp; Details</th>
-							<th class="item-quality item-header">Quantity</th>
-							<th class="item-price item-header">Price</th>
-							<th class="item-shipping-cost item-header">Shipping Details</th>
+							<th class="item-product item-header">
+								<s:text name="www.cart.productDetails"></s:text>
+							</th>
+							<th class="item-quality item-header">
+								<s:text name="www.cart.productQuantity"></s:text>
+							</th>
+							<th class="item-price item-header">
+								<s:text name="www.cart.productPrice"></s:text>
+							</th>
+							<th class="item-shipping-cost item-header">
+								<s:text name="www.cart.shippingDetails"></s:text>
+							</th>
 							<th class="item-operate item-header"></th>
 						</tr>
 					</thead>
@@ -93,34 +111,45 @@
 					<tfoot>
 						 <tr>
 							 <td colspan="5">
+							  <!-- 
 								<div class="discount-info">
 									<span class="discount-info-title">Store promotion:</span>
 									<div class="discount-content"><div class="discount-item"><p class="discount-coupon"><span class="discount-coupon-title j-store-coupon-tip" data-sending="false">Get Seller Coupons</span></p></div>
 										<span class="discount-text">Get $5.00 off for $80.00 spent in this store.</span>
 										<span class="shop-link"><a href="http://www.aliexpress.com/store/1477384" target="_blank">Shop now</a></span>
 									</div>
-								</div>
+								</div> -->
 								<div class="product-price-info-wrapper">
 								 <div class="product-price-info1">
-									 <span class="product-price-title">Subtotal:</span>
+									 <span class="product-price-title">
+									 	<s:text name="www.cart.Subtotal"></s:text>:
+									 </span>
 									 <span class="value product-price-value notranslate">0.00</span>
-									 <span class="product-price-title">Shipping:</span>
+									 <span class="product-price-title">
+									 	<s:text name="www.cart.Shipping"></s:text>:
+									 </span>
 									<span class="value product-ship-value notranslate">0.00</span>
 								 
 								 </div>
 								
 								 <div class="product-price-info2">
-								 	<span class="product-price-title">Fixed Discount:</span>
+								 	<span class="product-price-title">
+								 		<s:text name="www.cart.fixedDiscount"></s:text>:
+								 	</span>
 								 	<span class="value notranslate">-&nbsp;0.00</span>
 								</div>
 								  <div class="product-price-info2">
-									 <span class="product-price-title">Total:</span>
+									 <span class="product-price-title">
+									 	<s:text name="www.cart.total"></s:text>:
+									 </span>
 									 <span class="product-price-total ui-cost notranslate"><b>0.00</b></span>
 								   </div>
 								
 								
 									<div class="product-price-info3">
-										 <a id="confirm-order" onclick="checkSelectItem();return false" class="ui-button ui-button-primary ui-button-medium product-buy-only" href="" data-batman-id="i4veo1r2">Buy all from this seller</a>
+										 <a id="confirm-order" onclick="checkSelectItem();return false" class="ui-button ui-button-primary ui-button-medium product-buy-only" href="" data-batman-id="i4veo1r2">
+										 	<s:text name="www.cart.confirmOrder"></s:text>
+										 </a>
 										 <input type="hidden" name="oneSellerProductIDs" value="32222053570,32221438392,">
 									 </div>
 									 <!-- 
@@ -143,11 +172,17 @@
 						<a id="quantity-minus" class="quantity-minus" href="javascript:void(0);" onclick="muiSetAmount.reduce('#txt-editable-quantity');">minus</a>
 						<input name="count"  id="txt-editable-quantity" onkeyup="muiSetAmount.modify('#txt-editable-quantity');" onkeydown="muiSetAmount.modify('#txt-editable-quantity');" class="layout-input ui-textfield ui-textfield-system" autocomplete="off">
 						<a id="quantity-add" class="quantity-add" href="javascript:void(0);"  onclick="muiSetAmount.add('#txt-editable-quantity');">plus</a>
-						<span id="dlg-unit-quantity">piece</span>
+						<span id="dlg-unit-quantity">
+							<s:text name="www.cart.piece"></s:text>
+						</span>
 						<input type="hidden" name="cartid" id="cartid" value="">
 						<input type="button" id="btn-ok-quantity" value="OK" onclick="checkToSubmit(this);">
-						<a id="btn-cancel-quantity">Cancel</a>
-						<div class="inventory-wrapper">Maximum:<span id="inventory-value"></span></div>
+						<a id="btn-cancel-quantity">
+							<s:text name="www.cart.Cancel"></s:text>
+						</a>
+						<div class="inventory-wrapper">
+							<s:text name="www.cart.Maximum"></s:text>:<span id="inventory-value"></span>
+						</div>
 					</div>
 				</form>
 			</div><!-- end of 购物车信息 -->

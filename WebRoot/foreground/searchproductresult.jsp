@@ -25,9 +25,8 @@
 <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css"/>
 
 
-<link href="jqladmin/product/commoditymanagement/pagination.css"
-	rel="stylesheet" type="text/css" />
-	
+<link href="jqladmin/product/commoditymanagement/pagination.css" rel="stylesheet" type="text/css" />
+<link href="foreground/css/searchproductresult.css" rel="stylesheet" type="text/css" />
 	
 <script type="text/javascript">
 	var totalNumber = ${totalNumber};
@@ -51,22 +50,26 @@
 	</div>
 	<div style="clear:both"></div>
 
-	<div id="priceSearch">
-		<div class="fPrice" id="J_FPrice">
-			<div class="fP-box">
-				价格区间
-				<input type="text" id="start_priceipt" name="start_price" maxlength="6" value="" class="j_FPInput"/>-<input id="end_priceipt" type="text" name="end_price" value="" maxlength="6" class="j_FPInput"/>
-				<button id="pricebut" style="height: 22px;width: 40px">确定</button> 
+ 	<div class="productsearchresultcontainer">
+	 	
+	 	<!-- 
+		<div id="priceSearch">
+			<div class="fPrice" id="J_FPrice">
+				<div class="fP-box">
+					价格区间
+					<input type="text" id="start_priceipt" name="start_price" maxlength="6" value="" class="j_FPInput"/>-<input id="end_priceipt" type="text" name="end_price" value="" maxlength="6" class="j_FPInput"/>
+					<button id="pricebut" style="height: 22px;width: 40px">确定</button> 
+				</div>
 			</div>
 		</div>
+	 -->
+		<div id="seller">
+			<ul id="sellerul">
+	
+			</ul>
+		</div>
+		<div class="digg" id="diggId"></div>
 	</div>
-
-	<div id="seller">
-		<ul id="sellerul">
-
-		</ul>
-	</div>
-	<div class="digg" id="diggId"></div>
 	<div style="clear:both"></div>
 	<!-- ----------------------------------------------------------------------------------- -->
 	<div id="footer">

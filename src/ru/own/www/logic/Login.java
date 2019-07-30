@@ -9,11 +9,11 @@ public class Login extends ActionSupport {
 
     public String execute()
     {
-		System.out.print(getUserName());
-		if (isInvalid(getUserName()))
-		    return INPUT;
-		if (isInvalid(getPassword()))
-		    return INPUT;
+//		System.out.print(getUserName());
+//		if (isInvalid(getUserName()))
+//		    return INPUT;
+//		if (isInvalid(getPassword()))
+//		    return INPUT;
 	
 		return SUCCESS;
     }

@@ -1,9 +1,44 @@
 $(function() {
 	loadCategory();
+	registerEventsforMenu();
 });
 
 var count=0;//计数器，楼层右面的分类是否到达了10个。
 
+
+function registerEventsforMenu()
+{
+	
+//	$("#lagout-two-headeritems > li").hover(function() { 
+//			$(this).addClass("hover"); 
+//		
+//		}, function() { 
+//			$(this).removeClass("hover"); 
+//	});
+//	
+//	$("#lagout-two-headeritems > li > ul").hover(function() { 
+//		$(this).parent("").addClass("hover"); 
+//	
+//		}, function() { 
+//			$(this).parent("").removeClass("hover"); 
+//	});
+	
+	  $("#lagout-two-headeritems > li").on('mouseenter',
+			  function(){ 
+		  
+		  			$(this).addClass("hover"); 
+		  
+	  
+	  			}).on('mouseleave',
+			  function(){ 
+	  				
+	  				$(this).removeClass("hover"); 
+	  		  
+	  		});  
+	  
+	
+	
+}
 
 /**
  * 加载分类
@@ -29,11 +64,113 @@ function loadCategory()
 		},
 		success : function(data) 
 		{
-			insertCategoryInPage(data); //首页，全部商品分类下拉菜单
-			insertCategoryFloors(data); //首页楼层动态图
+			insertCategoryInPage(data.ccs); //首页，全部商品分类下拉菜单
+			insertCategoryFloors(data.ccs); //首页楼层动态图
+			
+			insertCategoryInBanner(data.banner);
+			registerEventsforMenu();
 		}
 	});// end of ajax
 }
+
+/**
+ * 添加导航栏里面的分类
+ */
+function insertCategoryInBanner(bannerCategorys)
+{
+	var html="";
+	var len=bannerCategorys.length;
+	for(var i=0;i<len;i++)
+	{
+		var element=bannerCategorys[i];
+		var firstLevelCategory=element.firstLevelCategory;
+		var secondLevelList=element.secondLevelList;
+		
+		
+		var firstLevelCategoryId=firstLevelCategory.categoryId;
+		var firstLevelCategoryName=firstLevelCategory.categoryName;
+		
+		var isInBannershow=firstLevelCategory.isInBannershow;
+		
+		if(isInBannershow!=null&&isInBannershow)
+		{//不在导航栏展示
+			html+="<li class='headeritem'>"+
+		    "<a href='category/category_showAll.action?categoryid="+firstLevelCategoryId+"' class='downmenu oneitem'>"+firstLevelCategoryName+"</a>";
+			html+=getSecondLevelBannerHtml(firstLevelCategoryId,firstLevelCategoryName,secondLevelList);
+			html+="</li>";
+		}//end of fisrt level element 
+	}//end of fisrt level for 
+	$(".lagout-two-l-header").prepend(html);
+}
+
+function getSecondLevelBannerHtml(firstLevelCategoryId,firstLevelCategoryName,secondLevelList)
+{
+	var eleHtml="";
+	var categoriesHtml="";
+    if(secondLevelList.length>0)
+    {
+    	eleHtml+="<ul>";
+    	var categoriesShowFlag=false;//是否有categories显示，有的话再加上categories标签
+		for(var j=0;j<secondLevelList.length;j++)
+		{
+			var secondLevelCategory=secondLevelList[j].secondLevelCategory;
+			var secondLevelCategoryId=secondLevelCategory.categoryId;
+			var secondLevelCategoryName=secondLevelCategory.categoryName;
+			var isInBannershowSecond=secondLevelCategory.isInBannershow;
+			
+			if(isInBannershowSecond!=null&&isInBannershowSecond)
+			{//不对其展开展示，作为一个类目展示
+				thirdLevelList=secondLevelList[j].thirdLevelList;
+				eleHtml+="<li class='category'><a href='category/category_showAll.action?categoryid="+secondLevelCategoryId+"'>"+secondLevelCategoryName+"</a>";
+				eleHtml+=getThirdLevelBannerHtml(secondLevelCategoryId,secondLevelCategoryName,thirdLevelList);
+				eleHtml+="</li>";
+			}//end of second level category element to show
+			else
+			{
+				categoriesShowFlag=true;
+				categoriesHtml+="<a href='category/category_showAll.action?categoryid="+secondLevelCategoryId+"'>"+secondLevelCategoryName+"</a>";
+			}
+		}//end of for
+        if(categoriesShowFlag)
+        {
+        	categoriesHtml="<li class='categories'>"+categoriesHtml+"</li>";
+        }
+        if(eleHtml=="<ul>")
+        {
+        	return "";
+        }
+        eleHtml+=categoriesHtml;
+        eleHtml+="</ul>";
+    }//end of secondLevelList.length 
+    
+    return eleHtml;
+}//end of function
+
+function getThirdLevelBannerHtml(secondLevelCategoryId,secondLevelCategoryName,thirdLevelList)
+{
+	var eleHtml="";
+    if(thirdLevelList.length>0)
+    {
+    	eleHtml+="<ul>";
+    	for(var k=0;k<thirdLevelList.length;k++)
+    	{
+    		var thirdLevelCategory=thirdLevelList[k];
+    		var thirdLevelCategoryId=thirdLevelCategory.categoryId;
+    		var thirddLevelCategoryName=thirdLevelCategory.categoryName;
+    		var isInBannershowThird=thirdLevelCategory.isInBannershow;
+    		
+    		if(isInBannershowThird!=null&&isInBannershowThird)
+    		{//第三极要展示
+    			eleHtml+="<li><a href='category/category_showAll.action?categoryid="+thirdLevelCategoryId+"'>"+thirddLevelCategoryName+"</a></li>";
+    		}
+    	}
+    	eleHtml+="</ul>";
+    }
+    return eleHtml;
+}
+
+
+
 
 /**
  * 插入楼层图

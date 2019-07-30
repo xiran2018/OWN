@@ -27,8 +27,8 @@
 		insert into own.attribute_valuemultilanguage(lan_id, attr_value_id,foreign_name,foreign_title,foreign_keywords,foreign_description)
 		values (#{lan_id},#{attrvalue_id},#{name},#{title},#{keywords},#{description});
 	</insert>
-	<delete id="delAttrValueByAtrID" parameterType="int">
-    	delete from own.attribute_valuemultilanguage where attr_value_id=#{id}; 
+	<delete id="delAttrValueByAttrVauleID" parameterType="int">
+    	delete from own.attribute_valuemultilanguage where attr_value_id=#{atrVauleID}; 
     </delete>
     <update id="update" parameterType="admin.ru.own.www.entity.AttributeValueMultiLanguage" flushCache="true"  timeout="20">
 	    update attribute_valuemultilanguage  set foreign_name=#{name},foreign_title=#{title},foreign_keywords=#{keywords},foreign_description=#{description} where id=#{id}

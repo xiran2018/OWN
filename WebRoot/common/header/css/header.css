@@ -1,9 +1,10 @@
 @charset "utf-8";
 /*lagout-two*/
-#lagout-two{width:1190px; height:35px; margin:0 auto;}
-#lagout-two .lagout-two-l{float:left;width:693px; height:33px;font-size:14px; font-weight:700;}
-#lagout-two .lagout-two-l-header{margin-left: 200px;}
-.lagout-two-l li.headeritem{ float:left; height:33px; line-height:33px;}
+#lagout-two{width:1190px; height:35px; margin:0 auto; position: relative;}
+#lagout-two .lagout-two-l{float:left; height:33px;font-size:14px;}
+#lagout-two .lagout-two-l-header{margin-left: 190px;}
+#lagout-two .indexheader{margin-top: 6px;}
+.lagout-two-l li.headeritem{ float:left; height:33px; line-height:33px;position: relative;}
 .lagout-two-l li.headeritem a.oneitem{padding:0 15px; color:#000; height:33px; display:inline-block;float:left;}
 
 
@@ -23,10 +24,23 @@
 .lagout-two-l li.headeritem:hover  b {background-position: -65px -23px;}
 
 
-/*首页等边框*/
+/*首页等边框 */
 .lagout-two-l li.menu-title  a.oneitem{color:#fff;}
-.lagout-two-l li.headeritem a.oneitem:hover{border:1px solid #D74700; border-bottom:0; background:#FFF8ED; text-decoration:none;}
-.lagout-two-l li.menu-title  a.oneitem:hover{border:0; background:#CD2A2C; text-decoration:none;}
+.lagout-two-l li.headeritem.hover a.oneitem 
+{
+	/*border:1px solid #D74700; */
+	border: 1px solid #ccc;
+	border-bottom:0px #fff;
+	/*background:#FFF8ED; */
+	background: #fff;
+	text-decoration:none;
+	border-radius: 2px 2px 0 0;
+    box-shadow: -1px 0px 0px 0px rgba(0,0,0,.19);
+    z-index:10000;
+}
+
+
+.lagout-two-l li.menu-title  a.oneitem:hover{border:0; /*background:#CD2A2C;*/ text-decoration:none;}
 .lagout-two-l .current{ width:58px; height:33px; line-height:33px ;border:1px solid #D74700; border-bottom:0;text-align:center; background:#F37C06; color:#FFF; margin-right:10px;}
 
 
@@ -38,7 +52,7 @@
     width: 190px;
     height: 33px;
     line-height: 33px;
-    background: #CD2A2C;
+    background: rgb(248, 145, 53); /*#CD2A2C*/
     color: #fff;
     font-size: 14px;
     font-weight: 700;
@@ -74,3 +88,7 @@ display:none;}
 #lagout-two .lagout-two-r{width:240px; height:40px; float:right;display:block;}
 .lagout-two-r a{ float:left;}
 .lagout-two-r .txt:link,.lagout-two-r .txt:visited{color:#DB4701; padding:19px 5px 0 5px; font-weight:bold;}
+
+
+
+

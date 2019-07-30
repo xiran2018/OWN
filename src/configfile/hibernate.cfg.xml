@@ -14,7 +14,7 @@
 		<property name="connection.url">
 			<!--  jdbc:mysql://159.226.40.82:44480/own
 			jdbc:mysql://localhost:3306/own  123456
-			jdbc:mysql://54.238.161.129:33070/own  880309jQl
+			jdbc:mysql://13.113.239.251:33070/own  880309jQl
 			
 			 -->
 			jdbc:mysql://localhost:3306/own

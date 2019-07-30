@@ -81,6 +81,11 @@ public class CategoryDAOImp implements CategoryMapper {
 		return categoryDAO.getShowCategory(lanid);
 	}
 
+	public List getBannerShowCategory(int lanid)
+	{
+		return categoryDAO.getBannerShowCategory(lanid);
+	}
+
 	public List<Integer> getAllSubCategoryID(int categoryid) {
 		String[] ids = getAllSubCategoryIDStr(categoryid).split(",");
 		List<Integer> idList = new ArrayList<Integer>();

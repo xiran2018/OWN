@@ -13,7 +13,7 @@ function List() {
         return this.value[index];
     };
     
-    /* 返回指定索引的值 */
+    /* 返回指定值的索引 */
     this.getIndex = function(obj) {
     	for ( var i in this.value) {
             if (obj == this.value[i]) {

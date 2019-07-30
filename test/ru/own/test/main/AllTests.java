@@ -4,7 +4,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import admin.ru.own.www.util.UtilityTest;
 import ru.own.www.logic.ImageOperateTest;
 import ru.own.www.logic.OrderOperateTest;
 import ru.own.www.logic.ProductOperateTest;
@@ -18,7 +17,7 @@ import ru.own.www.payment.paymentOperateTest;
 	ProductOperateTest.class,
 	OrderOperateTest.class,
 	ImageOperateTest.class,
-	UtilityTest.class
+//	UtilityTest.class
 	
 })
 public class AllTests {

@@ -1,6 +1,10 @@
 
 var startPrice = -1;
 var endPrice = -1;
+/**
+ * 点击价格区间时候的动作
+ * @param isSearch
+ */
 function registerPriceLister(isSearch) {
 	
 	$("#pricebut").on("click",function(){

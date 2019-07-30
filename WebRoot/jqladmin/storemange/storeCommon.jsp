@@ -88,7 +88,7 @@
                 </div>
                 
                 <div > 
-                      <A  id="shiplistdiv" class="listdiv" href="javascript:void(0)">
+                      <A  id="currencydiv" class="listdiv" href="javascript:void(0)">
                         <button class="sel_button"> 
                                                             货币管理
                         </button>
@@ -111,34 +111,36 @@
                 </div>
                 
                 <div > 
-                      <A  id="shiplistdiv" class="listdiv" href="javascript:void(0)">
+                      <A  id="homeinfodiv" class="listdiv" href="javascript:void(0)">
                         <button class="sel_button"> 
                                                             首页信息管理
                         </button>
                       </A>
                       
                       <UL id="" class="goods rightclass"  style="margin: 7px;">
-                        <LI>
-                        <A href="jqladmin/storemange/sotreFooterManage.jsp">
-                            <button class="second_button"> 
-                                                            页脚信息
-                            </button>
-                        </A>
-                        </LI>
-                        <LI>
-                        <A href="jqladmin/storemange/sotrehomeinfo.jsp">
-                            <button class="second_button"> 
-                                                            首页信息
-                            </button>
-                        </A>
-                      
+                        	<LI>
+	                        <A href="jqladmin/storemange/sotreFooterManage.jsp">
+	                            <button class="second_button"> 
+	                                                            页脚信息
+	                            </button>
+	                        </A>
+	                        </LI>
+	                        <LI>
+	                        <A href="jqladmin/storemange/sotrehomeinfo.jsp">
+	                            <button class="second_button"> 
+	                                                            首页信息
+	                            </button>
+	                        </A>
+                        	</LI>
+                        </UL>
+                    </div>
            
                 
-                
+                   <div> 
                  
-                      <A  id="shiplistdiv" class="listdiv" href="javascript:void(0)">
+                      <A  id="homeimagediv" class="listdiv" href="javascript:void(0)">
                         <button class="sel_button"> 
-                                                            首页管理
+                                                            首页图片管理
                         </button>
                       </A>
                       
@@ -155,6 +157,23 @@
                             </button>
                         </A>
                       
+                        </LI>
+                      </UL>      
+                </div>
+                <div> 
+                      <A  id="emailinfodiv" class="listdiv" href="javascript:void(0)">
+                        <button class="sel_button"> 
+                              	邮件信息管理
+                        </button>
+                      </A>
+                      
+                      <UL id="" class="goods rightclass"  style="margin: 7px;">
+                        <LI>
+                        <A href="emailManager.action">
+                            <button class="second_button"> 
+                                                                              发送邮件信息
+                            </button>
+                        </A>
                         </LI>
                       </UL>      
                 </div>

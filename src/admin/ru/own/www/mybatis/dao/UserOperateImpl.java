@@ -11,21 +11,24 @@ import admin.ru.own.www.entity.User;
 public class UserOperateImpl
 {
 
-	public static boolean addUser(User user) 
+	public static int addUser(User user)
 	{
-		boolean flag=false;
-		SqlSession sqlSession = MybatisSessionFactory.sqlSessionFactory.openSession();  
+		int userid;
+		SqlSession sqlSession;
+		userid = -1;
+		sqlSession = MybatisSessionFactory.sqlSessionFactory.openSession();
         try 
         {
-        	UserOperateMapper cMapper = sqlSession.getMapper(UserOperateMapper.class);  
-        	flag=cMapper.addUser(user); 
+        	UserOperateMapper cMapper = sqlSession.getMapper(UserOperateMapper.class);
+			boolean flag = cMapper.addUser(user);
+			if (flag)
+				userid = user.getUserid().intValue();
 //	        System.out.println("商品主键："+pid);
         } 
         catch(Exception e)
         {
         	sqlSession.rollback();
         	e.printStackTrace();
-        	return false;
         }
         
         finally 
@@ -33,7 +36,7 @@ public class UserOperateImpl
         	sqlSession.commit();
         	sqlSession.close();
         }
-		return flag;
+		return userid;
 	}
 
 	public static int getTotalNumberOfUser()
@@ -177,14 +180,14 @@ public class UserOperateImpl
 	    return user;
 	}
 
-	public boolean updateTimeForgetPass(long currentTimeMillis, Integer id) 
+	public boolean updateTimeForgetPass(long currentTimeMillis, Integer id, String checkCodeString)
 	{
 		boolean flag=false;
 		SqlSession sqlSession = MybatisSessionFactory.sqlSessionFactory.openSession();  
 	    try 
 	    {
 	    	UserOperateMapper cMapper = sqlSession.getMapper(UserOperateMapper.class);  
-	    	flag=cMapper.updateTimeForgetPass(currentTimeMillis,id); 
+	    	flag=cMapper.updateTimeForgetPass(currentTimeMillis, id, checkCodeString);
 	    } 
 	    catch(Exception e)
 	    {
@@ -291,6 +294,27 @@ public class UserOperateImpl
 	    	sqlSession.close();
 	    }
 	    return flag;
+	}
+
+	public boolean newUserActivate(int id)
+	{
+		boolean flag;
+		SqlSession sqlSession;
+		flag = false;
+		sqlSession = MybatisSessionFactory.sqlSessionFactory.openSession();
+		try
+		{
+			UserOperateMapper cMapper = sqlSession.getMapper(UserOperateMapper.class);
+			flag = cMapper.newUserActivate(id);
+		}
+		catch (Exception e)
+		{
+			sqlSession.rollback();
+			e.printStackTrace();
+		}
+		sqlSession.commit();
+		sqlSession.close();
+		return flag;
 	}
 
 }

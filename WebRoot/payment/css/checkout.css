@@ -289,7 +289,11 @@ margin: 0 0 5px 35px;
 }
 
 
-
+/*提示订单提交成功*/
+.checkoutSuccess{
+    font-size: 14px;
+    margin-top: 20px;
+}
 
 
 

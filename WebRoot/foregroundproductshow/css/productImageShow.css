@@ -362,7 +362,7 @@ margin-top: 4px;
 position: relative;
 /*float: left;*/
 z-index: 3;
-height: 26px;
+/*height: 26px;*/
 margin-right: 6px;
 }
 
@@ -370,7 +370,7 @@ margin-right: 6px;
 /*float: left;*/
 position: relative;
 top: 0;
-height: 23px;
+/*height: 23px;*/
 background: #fff;
 /*border: 1px solid #CECBCE;*/
 padding: 0 5px 0 0px;
@@ -389,6 +389,10 @@ font-size: 14px;
 #store-prompt {
 /*float: left;
 margin-top: 4px;*/
+/*position: absolute;
+top: 0;
+right: 0;
+height: 23px; */
 
 }
 
@@ -1002,6 +1006,12 @@ margin-bottom: 5px;
 
 #choose-btns #choose-btn-append a {
 line-height: 38px;
+background-color: rgb(254, 151, 12);
+background-image: url(../images/shopcart.png);
+background-repeat: no-repeat;
+ -moz-border-radius: 5px;      /* Gecko browsers */
+    -webkit-border-radius: 5px;   /* Webkit browsers */
+    border-radius:5px;            /* W3C syntax */
 }
 
 #choose-btns .btn a {
@@ -1014,11 +1024,13 @@ overflow: hidden;
 position: relative;
 font: 400 18px/38px "microsoft yahei";
 text-align: center;
-color: #e4393c;
+color: rgb(255, 255, 255);
+padding-left: 26px;
+padding-right: 5px;
 }
 
 #choose-btns .btn-append {
-width: 137px;
+/*width: 137px;*/
 height: 38px;
 }
 
@@ -1033,8 +1045,8 @@ cursor: pointer;
 }
 
 #choose-btns .btn a b, .nav-minicart-btn a {
-background-image: url(../images/p-btns-20140611.png);
-background-repeat: no-repeat;
+/*background-image: url(../images/p-btns-20140611.png);
+background-repeat: no-repeat; 中文的购物车*/
 }
 
 #choose-btns .btn-append b {

@@ -87,10 +87,15 @@
     </insert>
     
     <delete id="delete" parameterType="int">
-  	  delete from attribute_value where attr_value_id=#{p_id}    
+  	  delete from attribute_value where attr_value_id=#{attr_value_id}    
     </delete>
     
-    <select id="getTextInputStyleAtrValueIDListByProductID" resultType="int">
-		SELECT v.attr_value_id FROM own.product_basic_attr as p,own.attribute as a,own.attribute_value as v where p.attr_value_id=v.attr_value_id and v.attr_id = a.attr_id and a.input_style!=2;
+    <select id="getAtrValueIDListByProductID" resultType="admin.ru.own.www.entity.Product_Basic_Attr">
+    	SELECT p.*,a.input_style type FROM own.product_basic_attr as p,own.attribute as a
+    	 where p.p_id=#{p_id} and a.attr_id=p.attr_name_id;
+		
+		<!--SELECT v.attr_value_id FROM own.product_basic_attr as p,own.attribute as a,own.attribute_value as v 
+		
+		where p.attr_value_id=v.attr_value_id and v.attr_id = a.attr_id and a.input_style!=2;   -->
 	</select>
 </mapper>

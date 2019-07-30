@@ -9,11 +9,7 @@
         <script type="text/javascript" src="common/js/footerinfo.js"></script>
 	</head>
 	<body>
-		<div style="">
-			 <div id="banner">
-			  <a href="#" class="a1"><img src="images/adv6.jpg" width="728" height="90" /></a>
-			  <a href="#" class="a2"><img src="images/adv7.jpg" width="190" height="90" /></a>
-			  </div>
+		<div class="footer-content"  style="">
 			  <div id="foot">
 			    <ul class="footer-info">
 			    </ul>

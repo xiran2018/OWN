@@ -76,7 +76,7 @@ function resetPassword()
 	
 	var actionUrl = "client-center/changePasswordSecurity.action";
 	
-	 var id=$.trim($("#userid").val());
+	 var id=$.trim(customeruserid); //customeruserid is in headermenu.jsp
 	 var curpassword=$.trim($("#curpassword").val());
 	 var password=$.trim($("#password").val());
 	 var flag=getPassword("#password");
@@ -101,7 +101,7 @@ function resetPassword()
 		dataType : "json",
 		error : function(data) 
 		{
-			alert("sorry,try again!!");
+			alert(messageResourceErrorTips);
 		},
 		success : function(data) 
 		{
@@ -111,7 +111,7 @@ function resetPassword()
 			}
 			else
 			{
-				alert("success！");
+				alert(messageResourceModifySuccessTips);
 			}	
 		}
 	});// end of ajax

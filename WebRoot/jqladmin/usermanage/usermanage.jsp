@@ -84,73 +84,50 @@
 				         <center>
 				            <div id="listshowID"></div><!-- 按照表格的形式，显示信息 -->
 				            <div class="digg" id="diggId">  </div>  <!-- 显示分页按钮时需要的div -->
+				            
+				            
 				            <div id="modifyw" class="ui-widget;">
-				                <table class="altrowstable" id="alternatecolor" >
-				            <tr class="oddrowcolor">
-				                <th colspan="2" class="colume1" valign=middle align=middle>修改用户信息</th>
-				            </tr>
-				            <!-- 
-				            <tr class="oddrowcolor">
-				                <td class="colume1" valign=middle align=right>用户名</td>
-				                <td class="colume2">
-				                
-				                <INPUT id="name" name="name"  type=text style="width: 233px;">
-				                <font color="#FF0000">*</font>
-				                </td>
-				            </tr>
-				            <tr class="oddrowcolor">
-                                <td class="colume1" valign=middle align=right>密码</td>
-                                <td class="colume2">
-                                
-                                <INPUT id="passw" name="passw" onblur="getPassword(this)" type="password" style="width: 233px;">
-                                <font color="#FF0000">*</font>
-                                </td>
-                            </tr>
-				            <tr class="oddrowcolor">
-                                <td class="colume1" valign=middle align=right>确认密码</td>
-                                <td class="colume2">
-                                
-                                <INPUT id="checkpassw" name="checkpassw" onblur="checkPassword(this)" type="password" style="width: 233px;">
-                                <font color="#FF0000">*</font>
-                                </td>
-                            </tr>
-                             -->
-                            <tr class="oddrowcolor" style="display:none">
-                                <td class="colume1" valign=middle align=right>id</td>
-                                <td class="colume2">
-                                
-                                <INPUT id="userid" readonly="readonly" name="userid"  type="text" style="width: 233px;">
-                                
-                                </td>
-                            </tr>
-                            <tr class="oddrowcolor">
-                                <td class="colume1" valign=middle align=right>电话</td>
-                                <td class="colume2">
-                                
-                                <INPUT id="tel" name="tel" onblur="" style="width: 233px;">
-                                <font color="#FF0000">*</font>
-                                </td>
-                            </tr>
-				            <tr class="categorytr evenrowcolor">
-				                <td class="colume1" valign=middle align=right>邮箱</td>
-				                <td class="colume2">
-				                 <INPUT id="mail" name="mail"  type="text" onblur="" style="width: 233px;">
-<!--                                <font color="#FF0000">*</font>
-  				                 
-				                 <textarea id="beizhu" name="beizhu" style="margin: 2px; width: 277px; height: 100px;" ></textarea>
--->
-				                </td>
-				            </tr>
-
-				            <tr class="oddrowcolor">
-				                <td class="colume1" valign=middle align=right>是否可用</td>
-				                <td class="colume2">
-				                	<input type="radio" name="status" value="1" checked="checked">
-				                                                                             是
-				                   <input type="radio" name="status" value="0" >
-				                                                                            否
-				                </td>
-				            </tr>
+				            <table class="altrowstable" id="alternatecolor" >
+					            <tr class="oddrowcolor">
+					                <th colspan="2" class="colume1" valign=middle align=middle>修改用户信息</th>
+					            </tr>
+					            
+	                            <tr class="oddrowcolor" style="display:none">
+	                                <td class="colume1" valign=middle align=right>id</td>
+	                                <td class="colume2">
+	                                
+	                                <INPUT id="userid" readonly="readonly" name="userid"  type="text" style="width: 233px;">
+	                                
+	                                </td>
+	                            </tr>
+	                            <tr class="oddrowcolor">
+	                                <td class="colume1" valign=middle align=right>电话</td>
+	                                <td class="colume2">
+	                                
+	                                <INPUT id="tel" name="tel" onblur="" style="width: 233px;">
+	                                <font color="#FF0000">*</font>
+	                                </td>
+	                            </tr>
+					            <tr class="categorytr evenrowcolor">
+					                <td class="colume1" valign=middle align=right>邮箱</td>
+					                <td class="colume2">
+					                 <INPUT id="mail" name="mail"  type="text" onblur="" style="width: 233px;">
+	<!--                                <font color="#FF0000">*</font>
+	  				                 
+					                 <textarea id="beizhu" name="beizhu" style="margin: 2px; width: 277px; height: 100px;" ></textarea>
+	-->
+					                </td>
+					            </tr>
+	
+					            <tr class="oddrowcolor">
+					                <td class="colume1" valign=middle align=right>是否可用</td>
+					                <td class="colume2">
+					                	<input type="radio" name="status" value="1" checked="checked">
+					                                                                             是
+					                   <input type="radio" name="status" value="0" >
+					                                                                            否
+					                </td>
+					            </tr>
 				            </table>
 				            </div>
 				            

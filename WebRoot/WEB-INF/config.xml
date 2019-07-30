@@ -21,13 +21,12 @@
 	
 	!!!! 部署的时候需要修改这里的物理地址
 	
-	<baseDir>/home/jql/apache-tomcat-7.0.55/webapps/own/upload</baseDir>
+	<baseDir>D:\360云盘\apache-tomcat-6.0.35\webapps\own\upload</baseDir>
 	D:\EclipseWorkSpace\apache-tomcat-7.0.56\webapps\own\upload\image   /own/upload/image
 	H:\Tomcat 7.0\webapps\own\upload\images    /own/upload/images
-	
 	 -->
 	 
-	<baseDir>D:\EclipseWorkSpace\apache-tomcat-7.0.56\webapps\own\upload\ckfinderimages</baseDir> 
+	<baseDir>/home/ec2-user/tomcat/webapps/own/upload/ckfinderimages</baseDir> 
 	<baseURL>/own/upload/ckfinderimages</baseURL>
 	<licenseKey></licenseKey>
 	<licenseName></licenseName>

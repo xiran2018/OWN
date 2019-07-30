@@ -88,7 +88,7 @@ function save_product()
 				"buyprice":buyprice,
 				"originprice":originprice,
 				"nowPrice":nowPrice,
-	            "storenumber":storenumber,
+	            "storNumber":storenumber,
 	            "minBuyCount":minBuyCount,
 	            "nomailtax":nomailtax,
                "status":status,

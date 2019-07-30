@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 
-
-
+import org.apache.struts2.ServletActionContext;
 import util.PageUtil;
 import util.ParameterUtil;
 import admin.ru.own.www.entity.CategoryImage;
@@ -25,22 +24,66 @@ import admin.ru.own.www.vo.NavigationVO;
 import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 
+import javax.servlet.http.HttpServletRequest;
+
 public class SecondForegroundPageManagementAction extends ActionSupport {
 	private static final long serialVersionUID = 1L;
-	private SecondForegroundPageService service = new SecondForegroundPageService();
+	private SecondForegroundPageService service;
 	private List<CategoryImage> categoryImages;
 	private List<AttributeVO> allAttributes;
-	private ParameterUtil parameterUtil = new ParameterUtil();
-	private CategoryService categoryService = new CategoryService();
-	
+	private ParameterUtil parameterUtil;
+	private CategoryService categoryService;
+	List productsVOs;
+	String attrStr;
+	int totalNumber;
+
+	public SecondForegroundPageManagementAction()
+	{
+		service = new SecondForegroundPageService();
+		parameterUtil = new ParameterUtil();
+		categoryService = new CategoryService();
+	}
+
+	private FilterAndSearchArgs initIndexArgs()
+	{
+		int page = parameterUtil.getInitPageParameter();
+		int startPrice = parameterUtil.getStartPriceParameter();
+		int endPrice = parameterUtil.getEndPriceParameter();
+		int categoryid = parameterUtil.getCategoryIDParameter();
+		List categoryIDs = categoryService.getAllSubCategoryID(categoryid);
+		FilterAndSearchArgs args = new FilterAndSearchArgs(categoryIDs, startPrice, endPrice, page);
+		return args;
+	}
+
+	private FilterAndSearchArgs initIndexArgsWithAttribute()
+	{
+		FilterAndSearchArgs args = initIndexArgs();
+		HttpServletRequest request = ServletActionContext.getRequest();
+		attrStr = request.getParameter("attrArgs");
+		ActionContext.getContext().put("attrStr", attrStr);
+		return args;
+	}
+
+	public String showAllByAttributFilter()
+	{
+		FilterAndSearchArgs args = initIndexArgsWithAttribute();
+		ActionContext.getContext().put("args", args);
+		ProductFilter filter = ProductFilter.getImp();
+		totalNumber = filter.getProductsCountByAttributeArgs(args.getArgs());
+		return "showAll";
+	}
+
 	public String showAll() {
+		showAllByAttributFilter();
+
 		int categoryid = parameterUtil.getCategoryIDParameter();  //得到商品分类id
 		
 		List<Integer> categoryIDs = categoryService.getAllSubCategoryID(categoryid); //得到所有的子category id
 		
 		ProductsDAO dao = (ProductsDAO) DAOFactory.get(ProductsDAO.class.getName());
 //		System.out.println( PageUtil.getTotalPageNumber(dao.getProductsCountByCategory(categoryIDs)));
-		ActionContext.getContext().put("totalNumber", PageUtil.getTotalPageNumber(dao.getProductsCountByCategory(categoryIDs)));
+		ActionContext.getContext().put("totalPageNumber", Integer.valueOf(PageUtil.getTotalPageNumber(totalNumber)));
+//		ActionContext.getContext().put("totalNumber", PageUtil.getTotalPageNumber(dao.getProductsCountByCategory(categoryIDs)));
 		ActionContext.getContext().put("categoryid", categoryid);
 		
 		int lanID = DefaultLanguageUtil.getDefaultLanguageID(); //得到默认语言id

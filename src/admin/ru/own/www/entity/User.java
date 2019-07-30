@@ -4,11 +4,8 @@ import java.sql.Timestamp;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
-
-import com.sun.xml.internal.bind.v2.model.core.ID;
-
 import ru.own.www.entity.Order;
-import ru.own.www.mybatis.dao.OrderOperateMapper;
+//import ru.own.www.mybatis.dao.OrderOperateMapper;
 import admin.ru.own.www.mybatis.dao.UserOperateImpl;
 import admin.ru.own.www.mybatis.dao.UserOperateMapper;
 
@@ -26,12 +23,15 @@ public class User implements java.io.Serializable {
 	private String userrealname;
 	private String usertel;
 	private String usermail="-1";
+	private Integer lanid;
 	private Integer userlevel;
 	private Short sex;//0是女性 female    1是男性 male
 	private String passwordtishi;
 	private String passworddaan;
 	private Double totalbuycount;
 	private Short status;
+	private String activecode;
+	private String checkcodeforgetpass;
 	private Long timeforgetpass;
 	private Timestamp createtime;
 	private Timestamp lasttime;
@@ -141,137 +141,194 @@ public class User implements java.io.Serializable {
 	}
 	// Property accessors
 
-	public Integer getUserid() {
-		return this.userid;
+	public Integer getUserid()
+	{
+		return userid;
 	}
 
-	public void setUserid(Integer userid) {
+	public void setUserid(Integer userid)
+	{
 		this.userid = userid;
 	}
 
-	public String getUsername() {
-		return this.username;
+	public String getUsername()
+	{
+		return username;
 	}
 
-	public void setUsername(String username) {
+	public void setUsername(String username)
+	{
 		this.username = username;
 	}
 
-	public String getUserpassword() {
-		return this.userpassword;
+	public String getUserpassword()
+	{
+		return userpassword;
 	}
 
-	public void setUserpassword(String userpassword) {
+	public void setUserpassword(String userpassword)
+	{
 		this.userpassword = userpassword;
 	}
 
-	public String getUserrealname() {
-		return this.userrealname;
+	public String getUserrealname()
+	{
+		return userrealname;
 	}
 
-	public void setUserrealname(String userrealname) {
+	public void setUserrealname(String userrealname)
+	{
 		this.userrealname = userrealname;
 	}
 
-	public String getUsertel() {
-		return this.usertel;
+	public String getUsertel()
+	{
+		return usertel;
 	}
 
-	public void setUsertel(String usertel) {
+	public void setUsertel(String usertel)
+	{
 		this.usertel = usertel;
 	}
 
-
-
-	public String getUsermail() {
+	public String getUsermail()
+	{
 		return usermail;
 	}
 
-	public void setUsermail(String usermail) {
+	public void setUsermail(String usermail)
+	{
 		this.usermail = usermail;
 	}
 
-	public Integer getUserlevel() {
-		return this.userlevel;
+	public Integer getUserlevel()
+	{
+		return userlevel;
 	}
 
-	public void setUserlevel(Integer userlevel) {
+	public void setUserlevel(Integer userlevel)
+	{
 		this.userlevel = userlevel;
 	}
 
-	public Short getSex() {
-		return this.sex;
+	public Short getSex()
+	{
+		return sex;
 	}
 
-	public void setSex(Short sex) {
+	public void setSex(Short sex)
+	{
 		this.sex = sex;
 	}
 
-	public String getPasswordtishi() {
-		return this.passwordtishi;
+	public String getPasswordtishi()
+	{
+		return passwordtishi;
 	}
 
-	public void setPasswordtishi(String passwordtishi) {
+	public void setPasswordtishi(String passwordtishi)
+	{
 		this.passwordtishi = passwordtishi;
 	}
 
-	public String getPassworddaan() {
-		return this.passworddaan;
+	public String getPassworddaan()
+	{
+		return passworddaan;
 	}
 
-	public void setPassworddaan(String passworddaan) {
+	public void setPassworddaan(String passworddaan)
+	{
 		this.passworddaan = passworddaan;
 	}
 
-	public Double getTotalbuycount() {
-		return this.totalbuycount;
+	public Double getTotalbuycount()
+	{
+		return totalbuycount;
 	}
 
-	public void setTotalbuycount(Double totalbuycount) {
+	public void setTotalbuycount(Double totalbuycount)
+	{
 		this.totalbuycount = totalbuycount;
 	}
 
-	public Short getStatus() {
-		return this.status;
+	public Short getStatus()
+	{
+		return status;
 	}
 
-	public void setStatus(Short status) {
+	public void setStatus(Short status)
+	{
 		this.status = status;
 	}
 
-
-	public Long getTimeforgetpass() {
+	public Long getTimeforgetpass()
+	{
 		return timeforgetpass;
 	}
 
-	public void setTimeforgetpass(Long timeforgetpass) {
+	public void setTimeforgetpass(Long timeforgetpass)
+	{
 		this.timeforgetpass = timeforgetpass;
 	}
 
-	public Timestamp getCreatetime() {
-		return this.createtime;
+	public Timestamp getCreatetime()
+	{
+		return createtime;
 	}
 
-	public void setCreatetime(Timestamp createtime) {
+	public void setCreatetime(Timestamp createtime)
+	{
 		this.createtime = createtime;
 	}
 
-	public Timestamp getLasttime() {
-		return this.lasttime;
+	public Timestamp getLasttime()
+	{
+		return lasttime;
 	}
 
-	public void setLasttime(Timestamp lasttime) {
+	public void setLasttime(Timestamp lasttime)
+	{
 		this.lasttime = lasttime;
 	}
 
-	public int getJifen() {
+	public int getJifen()
+	{
 		return jifen;
 	}
 
-	public void setJifen(int jifen) {
+	public void setJifen(int jifen)
+	{
 		this.jifen = jifen;
 	}
 
+	public Integer getLanid()
+	{
+		return lanid;
+	}
 
+	public void setLanid(Integer lanid)
+	{
+		this.lanid = lanid;
+	}
+
+	public String getActivecode()
+	{
+		return activecode;
+	}
+
+	public void setActivecode(String activecode)
+	{
+		this.activecode = activecode;
+	}
+
+	public String getCheckcodeforgetpass()
+	{
+		return checkcodeforgetpass;
+	}
+
+	public void setCheckcodeforgetpass(String checkcodeforgetpass)
+	{
+		this.checkcodeforgetpass = checkcodeforgetpass;
+	}
 
 }

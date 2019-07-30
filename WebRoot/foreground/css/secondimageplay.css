@@ -1,9 +1,9 @@
 /* focus 图片滚动需要的配置 */
 
 
-#focus {width:100%; height:480px; overflow:hidden; position:relative;}
-#focus ul {height:480px; position:absolute;width: 100%;}
-#focus ul li {width:100%; height:480px; overflow:; position:relative; background:#000;}
+#focus {width:100%; height:300px; overflow:hidden; position:relative;}
+#focus ul {height:300px; position:absolute;width: 100%;}
+#focus ul li {width:100%; height:300px; overflow:; position:relative; background:#000;}
 
 #focus .btnBg {position:absolute; width:100%; height:20px; left:0; bottom:0; background:#000;}
 #focus .btn {position:absolute; width:100%; height:10px; padding:5px 0px; right:0; bottom:0; text-align:center;}

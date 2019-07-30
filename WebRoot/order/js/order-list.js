@@ -565,7 +565,7 @@ function generateBasicInfo(order)
 	html+="<span class='deal-time'> Order Time: "+timeStamp2String(order.ordercreatetime.time)+"</span> ";
 	
 	//销售者
-	html+="<span class='seller'>POPlanding";
+	html+="<span class='seller'>999OWN";
 	//html+="<a title='Leave me a message' id1='201057893' class='atm16grey alitalk' from='12' alitalk='cn1000555724' memberid='' rel='nofollow' href='javascript:void(0);' online='0'>Offline</a>";
 	html+="<span class='separator'>|</span>";
 	//留言信息
@@ -624,7 +624,7 @@ function generateXiangXiInfo(order,odsvoList)
 		html+=getProductProperties(odsvo.odpa);//商品属性信息
 		html+="</div>";
 		//seller info
-		html+="<div class='seller-sign'>(POPlanding)</div>";
+		html+="<div class='seller-sign'>(999OWN)</div>";
 		html+="<div class='other-info'></div>";
 		html+="</td>";
 		//price

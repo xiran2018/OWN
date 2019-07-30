@@ -5,6 +5,21 @@ list-style: none;
 border: 0;
 }
 
+#foot {
+    width: 1190px;
+    margin: 30px auto;
+}
+
+#foot ul {
+    width: 1190px;
+}
+
+#foot ul li {
+    width: 180px;
+    float: left;
+    padding: 0 0 0 85px;
+}
+
 #foot ul li a.current {
 font-size: 14px;
 font-weight: bold;
@@ -19,6 +34,11 @@ line-height: 20px;
 a:link, a:visited {
 text-decoration: none;
 color: #3E3E3E;
+}
+
+.footer-content{
+	width: 1190px;
+    margin: 0 auto;
 }
 
 body {

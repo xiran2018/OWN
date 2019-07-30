@@ -2,7 +2,7 @@
 /* header */
 #header {
 height: 80px;
-background: #B20000;
+background: rgb(254, 151, 12);
 width: 100%;
 margin-bottom: 0;
 }
@@ -36,7 +36,7 @@ margin: 0 auto;
 }
 
 #header .logo {
-padding-top: 30px;
+padding-top: 0px;
 margin-left: 50px;
 }
 a {
@@ -44,8 +44,8 @@ text-decoration: none;
 }
 
 #header .logo img {
-width: 142px;
-height: 20px;
+width: 308px;
+height: 88px;
 }
 
 fieldset, img {
@@ -89,7 +89,7 @@ clear: both;
 }
 
 .form-inner {
-background: url("http://img01.taobaocdn.com/tps/i1/T1O.q5XdVqXXXXXXXX-70-20.png") 50% 0 no-repeat;
+/*background: url("http://img01.taobaocdn.com/tps/i1/T1O.q5XdVqXXXXXXXX-70-20.png") 50% 0 no-repeat;*/
 padding-top: 20px;
 }
 

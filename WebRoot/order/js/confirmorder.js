@@ -1,4 +1,8 @@
 ///////////////////////////////////////////////global variables
+
+//是否有些商品不能邮寄到所选择的国家
+var notDeliverToCountry=false;
+
 //the following variables is for shipping-show
 var countryIdNameMap={}; //save the map of countryId and Name
 
@@ -14,6 +18,8 @@ var subtotalPrice=0;//货物（商品）的总价格
 var shippingPrice=0;//货运的总价格
 
 var messageArray={};//用户留言信息，key为商品id，value为留言信息	
+
+var p_minbuyamount;//商品的最小购买量,这个值要在js.math中muiSetAmount.reduce使用
 ///////////////////////////////////////////////end of global variables
 
 $(document).ready(function () {
@@ -48,17 +54,21 @@ function  changeValue(ele)
 	var tempTotalprice=subtotalPrice+shippingPrice; //商品价格+运费；
 	var maxUseJifen=tempTotalprice/0.01; //可以使用的最多积分，是商品的总价
 	var allHaveJifen=parseInt(jifen);
+	
+	if(maxUseJifen>allHaveJifen) //可以使用的最大积分如果大于可用积分，则所有可以使用的最大积分为allHaveJifen
+		maxUseJifen=allHaveJifen;
+	
 	if(Digit.checkIsInt(tempValue))
 	{//是整数
 		tempValue=parseInt(tempValue);
 		if(tempValue>allHaveJifen)
 		{
-			alert("the value must be lower "+allHaveJifen);
+			alert(maxUseJiFenTips+":"+maxUseJifen);
 			return;
 		}
 		else if(tempValue>maxUseJifen)
 		{
-			alert("the value must be lower "+maxUseJifen);
+			alert(maxUseJiFenTips+":"+maxUseJifen);
 			return;
 		}
 		else
@@ -68,7 +78,7 @@ function  changeValue(ele)
 	}
 	else
 	{
-		alert("the value must be integer!!");
+		alert(integerTips);
 		$(ele).val(0);
 	}
 	
@@ -96,6 +106,13 @@ function placeOrder()
 {
 	$("#page").on("click","#place-order-btn",function(event){
 		
+		
+		if(notDeliverToCountry)
+		{
+			alert(messageResourceNotDeliveryToCountryTips);
+			return;
+		}
+		
 		var usejifen=$.trim($("#J_tjbToUse").val());
 
 		var pids=availableProductShopcartIds.split(",");
@@ -111,6 +128,13 @@ function placeOrder()
 			messageArray[cid]=message;
 		}
 		var messageArrayString=JSON.stringify(messageArray);
+		
+		if(defaultMailAddressId=='-1'||(parseInt(defaultMailAddressId)<0))
+		{
+			alert(addMailAddressTips);
+			return;
+		}
+		
 		var params={
 				"mailAddressId":defaultMailAddressId,//邮寄地址
 				"subtotalPrice":subtotalPrice,
@@ -139,11 +163,11 @@ function generateOrder(params)
 			{
 				if(data.status=="200")
 				{
-					alert("请再试刷新一次");
+					alert(messageResourceErrorTips);
 				}
 				else if(data.status=="500")
 				{	
-					alert("服务器崩溃了!!!!");
+					alert(messageResourceErrorTips);
 				}
 				
 			},
@@ -443,11 +467,11 @@ function updateMailAddressInfo(params)
 		{
 			if(data.status=="200")
 			{
-				alert("请再试刷新一次");
+				alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("服务器崩溃了!!!!");
+				alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -474,11 +498,11 @@ function addMailAddressInfo(params)
 		{
 			if(data.status=="200")
 			{
-				alert("请再试刷新一次");
+				alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("服务器崩溃了!!!!");
+				alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -525,34 +549,48 @@ function shopCartQuanityClickEventRegister()
 		
 		$("body").bind("mousedown", onBodyQuantityDown);//绑定事件：隐藏改变数量对话框的点击事件
 	});
+	
+	//点击取消按钮
+	$("#dlg-edit-quantity").on("click","#btn-cancel-quantity",function(){
+		hideQuantityMenu();
+	});
 }
 
 /**
  * 提交更新购物车数量的action时，检查数量是否符合要求
  */
-function checkToSubmit()
+function checkToSubmit(ele)
 {
 	var inventory=$.trim($("#hid-product-id-quantity").val()); //库存
 	var intInventory=parseInt(inventory);
 	var inputQuantity=$.trim($("#txt-editable-quantity").val());  //实际填写的数量
 	var intInputQuantity=parseInt(inputQuantity);
+	
+	var minBuyCount=$.trim($("#hid-product-minbuy-quantity").val());//最小购买量
+	var intMinBuyCount=parseInt(minBuyCount);
+	
 	if(Digit.checkIsInt(inputQuantity))
 	{//是整数
 		if(intInventory>=0)
 		{
 			if(intInventory<intInputQuantity)
 			{
-				alert("sorry,the stocks are not enough!");
+				alert(messageResourceStockNotEnoughTips);
 				return;
 			}
+		}
+		else if(intMinBuyCount>intInputQuantity)
+		{//小于最小购买量
+			alert(messageResourceMinBuyAccountTips+":"+intMinBuyCount);
+			return;
 		}
 		
 		document.getElementById("dlg-edit-quantity").submit();
 	}
 	else
 	{
-		alert("the value must be integer!!");
-		$(ele).val(0);
+		alert(integerTips);
+		$("#txt-editable-quantity").val(intMinBuyCount);
 		return;
 	}
 
@@ -576,6 +614,8 @@ function removeCartSubmit(ele)
  */
 function updateDlgEditQuantityInfo(ele)
 {
+	
+	
 	var shopCartId=$.trim($(ele).siblings(".hid-shopcart-id").val());
 	$("#cartid").val(shopCartId);
 	
@@ -583,6 +623,14 @@ function updateDlgEditQuantityInfo(ele)
 	var inventory=$.trim($(ele).siblings(".hid-inventory").val()); //库存
 	$("#hid-product-id-quantity").val(inventory);
 	$("#inventory-value").html(inventory);
+	
+	var minBuyCount=$.trim($(ele).siblings(".product-minbuy-quantity").val());//最小购买量
+	$("#hid-product-minbuy-quantity").val(minBuyCount);
+	
+	//更新最小购买量信息，这个值要在js.math中muiSetAmount.reduce使用
+	p_minbuyamount=parseInt(minBuyCount);
+	
+	minBuyCountTips="the Minimum purchase quantity:"+p_minbuyamount;
 }
 /**
  * 隐藏数量菜单
@@ -892,16 +940,21 @@ function insertShopCartItemsInPage(shopCartList)
 		insertHtml+="<span class='txt-multiply'>×</span>";
 		
 		//price
-		var nowPrice=getNowPrice(cartvo,pbvo,skuvo);
+		var originPrice=getNowPrice(cartvo,pbvo,skuvo);
+		
+		var nowPrice=calculateFeeByExchangeRate(originPrice,currencyRate);  //有了汇率之后的价格
 		//单价
 		insertHtml+="<span>"+currencyShowSymbol+" "+nowPrice+"</span>";  //currencyShowSymbol is in common/js/product.price.js
 		
 		//计算物品总价格
-		var tempItemPrice=quantity*nowPrice;
+		var tempItemPrice=quantity*(parseFloat(originPrice)); //没有汇率转变之前的费用
 		subtotalPrice+=tempItemPrice;
 		
 		//购物车id 
 		insertHtml+="<input class='hid-shopcart-id' type='hidden' value='"+cartid+"' name='id'>";
+		
+		//最小购买数量
+		insertHtml+="<input class='product-minbuy-quantity' type='hidden' value='"+pbvo.p_minbuyamount+"' name='product-minbuy-quantity'>";
 		
 		//计算库存数量  
 		var storeNumber=getstoreNumber(cartvo,pbvo,skuvo);
@@ -947,10 +1000,11 @@ function insertShopCartItemsInPage(shopCartList)
 			}
 			else
 			{
-				//计算总邮费
-				shippingPrice+=tempRealFee;
 				
+				shippingPrice+=parseFloat(tempRealFee); //没有汇率转变之前的费用
 				tempRealFee=calculateShippingFeeByExchangeRate(tempRealFee);
+				
+				//计算总邮费
 				
 				//具体的费用
 				insertHtml+="<p><span class='order-target notranslate'>"+currencyShowSymbol+" "+tempRealFee+"</span></P>";//currencyShowSymbol in product.price.js
@@ -1115,12 +1169,21 @@ function getSelectShipName(cartvo,ssvo)
 		if(i>=len)
 		{//说明没有找到对应的方式,取第一个即可
 			var shipEle=ssvo[0];
-			var ship=shipEle.ship;
-			selectShipName=ship.name;
-			
-			selectShip=ship;  
-			selectShipFee=shipEle.shipFee;
-			selectShipTime=shipEle.shipTime;
+			if(shipEle==undefined||shipEle==""||shipEle==null)
+			{
+				notDeliverToCountry=true;
+				selectShipTime="This product cant be shipped to the selected region";
+			}	
+			else
+			{
+				var ship=shipEle.ship;
+				selectShipName=ship.name;
+				
+				selectShip=ship;  
+				selectShipFee=shipEle.shipFee;
+				selectShipTime=shipEle.shipTime;
+			}
+
 		}
 	}
 	return selectShipName;
@@ -1171,9 +1234,9 @@ function getNowPrice(cartvo,pbvo,skuvo)
 	}
 	
 	//商品价格
-	price=(price*currencyRate); //currencyRate in the headermenu.jsp
-	price=Digit.round(price, 2);
-	price=Digit.changeTwoDecimal(price);
+//	price=(price*currencyRate); //currencyRate in the headermenu.jsp
+//	price=Digit.round(price, 2);
+//	price=Digit.changeTwoDecimal(price);
 	
 	return price;
 }

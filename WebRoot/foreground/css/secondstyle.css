@@ -2,7 +2,7 @@
 /*layout-three*/
 #second-category-menu{width:100%;position:relative;height: 480px;}
 #category-image-paly{width:100%;position:absolute;top:0px;left:0px;z-index:1;margin: 0 auto;}
-#lagout-three{ width:1190px; height:408px; margin:0 auto; border-top: 2px solid #F27B03;z-index:110}
+#lagout-three,.productsearchresultcontainer{ width:1190px; height:408px; margin:0 auto; border-top: 2px solid #F27B03;z-index:110}
 /*.layout-three-l*/
 .lagout-three-l{position: relative;width:190px;  float:left;z-index: 1000;opacity: 1;}
 
@@ -11,6 +11,11 @@
 
 /**/
 .second-cateogry-list{width:190px;  border-top:0;color: #fff; /* background: url('../img/category_backgr.png') #181818 no-repeat;*/}
+
+/*搜索页需要的容器*/
+.productsearchresultcontainer{
+	height: 100% !important;
+}
 
 #sortlist, #sortlist .mc {
 overflow: visible;
@@ -331,7 +336,13 @@ text-decoration: none;
 
 /**/
 
-#shopping{width:1190px;  margin:0 auto; border-top:2px solid #D5D5D5; line-height:30px;}
+#shopping{
+	margin:0 auto; 
+	line-height: 10px;
+	border-bottom: 1px solid #e8e8e8;
+    float: left;
+    width: 100%;
+ }
 
 #shopping h2{display: inline;height: 30px;
 line-height: 30px;float: left;margin: 0px 0 0px 4px;}
@@ -373,7 +384,7 @@ display: inline-block;
 }
 
 .crumbSlide-con li {
-padding-left: 9px;
+padding-left: 5px;
 float: left;
 margin-bottom: 4px;
 }
@@ -405,6 +416,7 @@ height: 7px;
 overflow: hidden;
 background: url(../img/delete.png) no-repeat;
 background-position: -20px 0;
+margin-left: 5px;
 }
 
 
@@ -434,7 +446,7 @@ text-decoration: none;
 #seller{width:100%;/*height:390px;*/margin:15px auto;}
 
 #seller ul{width:100%;/*float:left;*/}
-#seller ul li{/*width:163px;height:195px;*/margin: 11px; display: inline-block;    text-align: left;/*float:left;*/}
+#seller ul li{/*width:163px;height:195px;*/margin:18px; display: inline-block;    text-align: left;/*float:left;*/}
 #seller ul li a{display:inline-block; padding-bottom:6px;}
 #seller ul li a.productTitle{word-break: break-all;overflow: hidden;height: 14px;line-height: 20px;}
 #seller ul li a span{ text-decoration:line-through; display:inline-block; padding-right:5px;}
@@ -446,12 +458,16 @@ text-decoration: none;
 #banner .a1{width:728px;height:90px;border:1px solid #D7DCD8; display:inline-block; margin-right:10px;}
 #banner .a2{width:190px;height:90px;border:1px solid #D7DCD8; display:inline-block;}
 /*foot*/
-#foot{width:750px;/*height:160px;*/ margin:30px auto;}
+#footer{
+	    padding-top: 10px;
+	    background: #f0f0f0;
+}
+#foot{width:750px;/*height:160px;*/ margin:0px auto;}
 #foot ul{width:750px;/*height:160px;*/ }
-#foot ul li{width:150px;/*height:160px;*/ float:left;}
+#foot ul li{width:150px;/*height:160px;*/ float:left;margin-right: 30px;}
 #foot ul li a{ display:block; line-height:20px;}
 #foot ul li a.current{ font-size:14px; font-weight:bold; line-height:24px;}
-#foot-c{width:1190px;border-top:2px solid #FF4300; background:url(../images/bottom-kt.png) no-repeat right 10px; margin:0 auto;margin-top: 10px;}
+#foot-c{width:1190px;border-top:2px solid #FF4300; /*background:url(../images/bottom-kt.png) no-repeat right 10px;*/ margin:0 auto;margin-top: 10px;}
 .foot-c1{width:1190px;margin-top: 10px;}
 
 
@@ -799,7 +815,7 @@ ul, ol {
 
 /*防止用户多次点击*/
 #catalog-overlay {
-    display: none;
+    /*display: none;*/
     position: absolute;
     z-index: 20000;
     top: 0;

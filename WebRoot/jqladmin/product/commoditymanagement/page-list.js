@@ -513,6 +513,7 @@ function showInformaton(nowPage)
 	productName=$.trim($("#productName").val());
 	brandName=$.trim($("#brandName").val());
 	productStatus=$.trim($("#productStatus").val());
+	p_myserialnumber=$.trim($("#p_myserialnumber").val());
 	gmtBeginDate=$.trim($("#gmtBeginDate").val());
 	gmtEndDate=$.trim($("#gmtEndDate").val());
 
@@ -521,6 +522,7 @@ function showInformaton(nowPage)
 		"productName":productName, 
 		"brandName":brandName,
 		"productStatus":productStatus,
+		"p_myserialnumber":p_myserialnumber,
 		"gmtBeginDate":gmtBeginDate,
 		"gmtEndDate":gmtEndDate,
 		"initPage":nowPage   //需要显示哪一页
@@ -560,7 +562,7 @@ function showInformaton(nowPage)
 			if(p_freemail==1)
 				pfreemail="是";
 			
-			htmldata += "<tr><td style='display: none;'>"+atrv.products.p_id+"</td><td><img style='width:70px;height:70px;' src='"+atrv.showURL+"'></td><td>"+atrv.products.p_name+"</td><td>"+atrv.products.p_weight+"</td><td>"+
+			htmldata += "<tr><td style='display: none;'>"+atrv.products.p_id+"</td><td><a target='_blank' href=client/productShow.action?id="+atrv.products.p_id+"><img style='width:70px;height:70px;' src='"+atrv.showURL+"'></a></td><td>"+atrv.products.p_name+"</td><td>"+atrv.products.p_weight+"</td><td>"+
 			atrv.products.p_purchaprice+"</td><td>"+atrv.products.p_originprice+"</td><td>"+
 			atrv.products.p_nowprice+"</td><td>"+atrv.brand+"</td><td>"+atrv.category+"</td><td>"+atrv.products.p_fromcompany+"</td><td>"+atrv.products.p_companyserinum+"</td><td>"+
 			atrv.products.p_myserialnumber+"</td><td  class='pfromnetaddress'><a target='_blank' title='"+atrv.products.p_fromnetaddress+"' href='"+atrv.products.p_fromnetaddress+"'>"+atrv.products.p_fromnetaddress+"</a></td><td>"+
@@ -625,6 +627,7 @@ function getPageDataFromParams(pageNum)
 	productName=$.trim($("#productName").val());
 	brandName=$.trim($("#brandName").val());
 	productStatus=$.trim($("#productStatus").val());
+	p_myserialnumber=$.trim($("#p_myserialnumber").val());
 	gmtBeginDate=$.trim($("#gmtBeginDate").val());
 	gmtEndDate=$.trim($("#gmtEndDate").val());
 
@@ -633,6 +636,7 @@ function getPageDataFromParams(pageNum)
 		"productName":productName, 
 		"brandName":brandName,
 		"productStatus":productStatus,
+		"p_myserialnumber":p_myserialnumber,
 		"gmtBeginDate":gmtBeginDate,
 		"gmtEndDate":gmtEndDate,
 		"initPage":pageNum   //需要显示哪一页
@@ -672,7 +676,7 @@ function getPageDataFromParams(pageNum)
 			if(p_freemail==1)
 				pfreemail="是";
 			
-			htmldata += "<tr><td style='display: none;'>"+atrv.products.p_id+"</td><td><img style='width:70px;height:70px;' src='"+atrv.showURL+"'></td><td>"+atrv.products.p_name+"</td><td>"+atrv.products.p_weight+"</td><td>"+
+			htmldata += "<tr><td style='display: none;'>"+atrv.products.p_id+"</td><td><a target='_blank' href=client/productShow.action?id="+atrv.products.p_id+"><img style='width:70px;height:70px;' src='"+atrv.showURL+"'></a></td><td>"+atrv.products.p_name+"</td><td>"+atrv.products.p_weight+"</td><td>"+
 			atrv.products.p_purchaprice+"</td><td>"+atrv.products.p_originprice+"</td><td>"+
 			atrv.products.p_nowprice+"</td><td>"+atrv.brand+"</td><td>"+atrv.category+"</td><td>"+atrv.products.p_fromcompany+"</td><td>"+atrv.products.p_companyserinum+"</td><td>"+
 			atrv.products.p_myserialnumber+"</td><td class='pfromnetaddress'><a target='_blank' title='"+atrv.products.p_fromnetaddress+"' href='"+atrv.products.p_fromnetaddress+"'>"+atrv.products.p_fromnetaddress+"</a></td><td>"+

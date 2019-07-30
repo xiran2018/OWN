@@ -99,7 +99,7 @@ img {border:0;}
 }
 
 /*layout-one*/
-#layout-one{ width:1190px; height:86px; margin:0 auto; padding-top:16px;}
+#layout-one{ width:1220px; height:86px; margin:0 auto; padding-top:16px;}
 #layout-one h2{width:294px;height:65px; float:left;}
 #layout-one .search{/*width:620px;*/width:545px; height:86px;float:left; /*float:right;*/ overflow:hidden;}
 #layout-one .search ul{ height:23px;}
@@ -462,3 +462,90 @@ color: #333;
 .flyout-quick-entry li:first-child a {
 background-color: #e8e8e8;
 }
+
+/*------------------------------------------------导航栏部分,下拉菜单，用js实现*/
+#top-menu{
+	/*margin-bottom: -6px;*/
+	position: relative;
+}
+
+#lagout-two>ul>li>ul {
+    display: none;
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #ccc;
+    /*left: 1px;*/
+    padding: 20px 30px 20px 15px;
+    margin-right: -920px;
+    position: absolute;
+    top: 33px;
+    min-width: 100%;
+    z-index: 1046;
+    border-radius: 0 2px 2px;
+    box-shadow: -1px 1px 4px rgba(0,0,0,.19);
+}
+
+#lagout-two-headeritems  li.hover ul {
+    display: block !important;
+}
+
+#lagout-two-headeritems>li>ul>li {
+    display: table-cell;
+    padding: 0 30px 0 15px;
+    vertical-align: top;
+}
+
+#lagout-two-headeritems a {
+    display: block;
+    font-size: 14px;
+    color: #000;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+#lagout-two-headeritems>li a {
+    position: relative;
+    text-decoration: none;
+}
+
+#lagout-two-headeritems>li>ul>li a {
+    display: inline-block;
+    margin: 0;
+    font-size: 13px;
+    line-height: 30px;
+    color: #000;
+    text-transform: none;
+}
+
+#lagout-two-headeritems>li>ul>li.category>a, #lagout-two-headeritems>li>ul>li.categories>a {
+    color: #000;
+    text-transform: uppercase;
+    display: block;
+}
+
+#lagout-two-headeritems>li>ul>li>ul {
+    position: relative;
+    top: 30px;
+}
+
+#lagout-two-headeritems>li>ul>li.category>ul {
+    top: 0;
+}
+
+#lagout-two-headeritems>li>ul>li.categories {
+    padding: 0 0 0 31px;
+    position: relative;
+}
+
+#lagout-two-headeritems>li>ul>li.categories:before {
+    width: 1px;
+    height: 100%;
+    padding: 20px 0;
+    display: block;
+    content: "";
+    position: absolute;
+    top: -20px;
+    left: -1px;
+    background: #e8e8e8;
+}
+
+/*--------------------------------------------end of----导航栏部分,下拉菜单，用js实现*/

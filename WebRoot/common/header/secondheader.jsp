@@ -11,9 +11,9 @@
         
 	</head>
 	<body>
-			<div style="">
+			<div  style="">
 				  <div id="lagout-two">
-				      <ul class="lagout-two-l">
+				      <ul class="lagout-two-l ">
 				        <li class="menu-title headeritem">
 				        
 				            <a class="oneitem" href="#"><s:text name="www.product.category"></s:text></a>
@@ -26,12 +26,15 @@
 				                        </div> <!--  end of menu sidebar-menu-->
 				           </div><!-- end of product-list -->
 				        </li>
+				        <!--  
 				        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.web.home"></s:text></a></li>
 				        <li class="headeritem"><a class="oneitem" href="category/thirdforegroundpage_findNewProducts.action"><s:text name="www.product.new"></s:text></a></li>
 				        <li class="headeritem"><a class="oneitem" href="category/thirdforegroundpage_findHotProducts.action"><s:text name="www.product.hot"></s:text></a></li>
 				        <li class="headeritem"><a class="oneitem" href="category/thirdforegroundpage_findRecommendProducts.action"><s:text name="www.product.recommand"></s:text></a></li>
 				        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.brand.all"></s:text></a></li>
+				      	-->
 				      </ul>
+				      <ul id="lagout-two-headeritems" style="margin-left: 0px;" class='lagout-two-l  lagout-two-l-header'></ul>
 				      <div class="lagout-two-r">
 				        <!-- 
 				         <a href="#"><img src="images/new.gif" width="70" height="40" /></a>

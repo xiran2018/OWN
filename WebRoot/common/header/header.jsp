@@ -11,15 +11,16 @@
         
 	</head>
 	<body>
-		<div style="">
+		<div id="top-menu" style="">
 			  <div id="lagout-two">
-			      <ul class="lagout-two-l lagout-two-l-header">
-			        
+			      <ul id="lagout-two-headeritems" class="indexheader lagout-two-l lagout-two-l-header">
+			        <!-- 
 			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.web.home"></s:text></a></li>
 			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.product.new"></s:text></a></li>
 			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.product.hot"></s:text></a></li>
 			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.product.recommand"></s:text></a></li>
 			        <li class="headeritem"><a class="oneitem" href="#"><s:text name="www.brand.all"></s:text></a></li>
+			       -->
 			      </ul>
 			      <div class="lagout-two-r">
 			      	<!-- 
@@ -27,7 +28,7 @@
 			         <a href="#" class="txt">会员俱乐部</a>
 			         <a href="#" class="txt">消费者保障</a>
 			          -->
-			    </div>
+			      </div>
 			  </div>
 		</div>
 	</body>

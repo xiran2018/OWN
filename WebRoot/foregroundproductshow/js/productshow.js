@@ -1,4 +1,6 @@
 ///////////////////////////////////////////////global variables
+var p_minbuyamount=1;//最小购买量，默认为1
+
 var skuAttrId=[];//just save the attrId that support sku
 var attrNameIds=[]; //save the id of all attribute name
 var attrIdNameObj={};//save the map of attrId and Name
@@ -66,11 +68,11 @@ function loadProductBasicInfo(id)
 		{
 			if(data.status=="200")
 			{
-				alert("请再试刷新一次");
+				alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("服务器崩溃了!!!!");
+				alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -84,8 +86,8 @@ function loadProductBasicInfo(id)
 			insertProductAttrs13InfoInPage(data.productvo.pBasic_Attrs13);//插入基本属性
 			genertSkuDataInfo(data.productvo.psku);
 			insertShippingCountryInfoInPage(data.sc,defaultShippingCountryId); //defaultShippingCountryId is in the productshow.jsp
-			insertShippingInfoInPage(data.ssvo,data.productvo.products);
-			insertShowShippingInfoInPage();//插入显示的货运信息
+			insertShippingInfoInPage(data.ssvo,data.productvo.products); //插入相应国家的物流列表等信息
+			insertShowShippingInfoInPage();//插入显示的货运信息  在商品展示的右边插入货运信息
 		}
 	});// end of ajax
 }
@@ -634,7 +636,7 @@ function insertProductBasicInfoInPage(products)
 	var p_id=products.p_id;
 	var p_jifen=products.p_jifen;
 	var p_storenumber=products.p_storenumber;
-	var p_minbuyamount=products.p_minbuyamount;
+	p_minbuyamount=products.p_minbuyamount;
 	var p_weight=products.p_weight;
 	var p_name=products.p_name;
 	var p_nowprice=products.p_nowprice;
@@ -644,6 +646,9 @@ function insertProductBasicInfoInPage(products)
 	var title=products.title;
 	var keywords=products.keywords;
 	var description=products.description;
+	
+	//商品最小购买量
+	$("#buy-num").val(p_minbuyamount);
 	
 	//商品名称和描述
 	$("#name").children("h1").html(p_name);
@@ -722,11 +727,11 @@ function loadProductImages(id)
 		{
 			if(data.status=="200")
 			{
-				alert("请再试刷新一次");
+				alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("服务器崩溃了!!!!");
+				alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -745,6 +750,8 @@ function insertProductImageInPage(data)
 {
 	var insertHtml="";
 	var images=data.pimg;
+	images.sort(function(a,b){
+          return a.imageSort-b.imageSort;});
 	var len=images.length;
 	for(var i=0;i<len;i++)
 	{
@@ -752,14 +759,14 @@ function insertProductImageInPage(data)
 		var imageAddr=ele.imageAddr;
 		insertHtml+="<li><img  class='' src='"+imageAddr+"' width='50' height='50' ></li>";
 		var imageSort=ele.imageSort;
-		if(imageSort==1)
+		if(imageSort==1||(imageSort!=1&&len==1))
 		{
 			//$("#product-big-img").attr("src",imageAddr);
 			mui_ProductBigImage(imageAddr); //mui_replaceSmallImage is in product.image.js
 		}
 	}
 	
-	$(".lh").append(insertHtml);//插入图片
+	$(".lh").append(insertHtml);//插入小图片
 	$("#spec-n1").mui_zoom({markSize : [175, 175],markSizeFlag: true});
 	$("#preview").mui_productSmallImagePlay();
 
@@ -840,7 +847,7 @@ function addToCartRegister()
 		var minBuyCount=products.p_minbuyamount;  //最少购买量
 		if(count<minBuyCount) 
 		{
-			alert("please buy "+minBuyCount+" products at least");
+			alert(messageResourceMinBuyAccountTips+":"+minBuyCount);
 			return;
 		}
 		
@@ -876,7 +883,7 @@ function addToCartRegister()
 			dataType : "json",
 			error : function(data) 
 			{
-				alert("sorry,the server has some problems,please contact the website owner,thank you !");
+				alert(messageResourceErrorTips);
 			},
 			success : function(data) 
 			{
@@ -886,7 +893,7 @@ function addToCartRegister()
 				}
 				else
 				{
-					alert("add to cart success！");
+					alert(messageResourceAddToCartTips);
 				}
 			}
 		});// end of ajax
@@ -958,7 +965,7 @@ function userLogin()
 	 
 
 	var minBuyCount=products.p_minbuyamount;  //最少购买量
-	if(count<minBuyCount) alert("please buy "+minBuyCount+"products at least");
+	if(count<minBuyCount) alert(messageResourceMinBuyAccountTips+":"+minBuyCount);
 	 
 	 var params=
 	 {
@@ -976,7 +983,7 @@ function userLogin()
 		dataType : "json",
 		error : function(data) 
 		{
-			alert("sorry,the server has some problems,please contact the website owner,thank you !");
+			alert(messageResourceErrorTips);
 		},
 		success : function(data) 
 		{
@@ -988,7 +995,7 @@ function userLogin()
 			}
 			else
 			{
-				alert("add to cart success！");
+				alert(messageResourceAddToCartTips);
 			}
 		}
 	});// end of ajax
@@ -1020,6 +1027,9 @@ function productShowShippingRegister()
 	});
 }
 
+/**
+ *  修改货运信息
+ */
 function modifyShippingInfoInPage()
 {
 	var selectNumber=$("#buy-num").val(); //商品数量
@@ -1030,6 +1040,7 @@ function modifyShippingInfoInPage()
 		//country
 		selectCountryName=countryIdNameMap[selectCountryId];
 	}
+
 	
 	if(tempSelectShipId!=0&&tempSelectShipId!=null&&tempSelectShipId!=undefined)
 	{
@@ -1103,11 +1114,17 @@ function requestShippingInfoByCountryIdAndTemplateId(countryId,templetId)
 		dataType : "json",
 		error : function(data) 
 		{
-			alert("get shipping data error!!");
+			alert(messageResourceShippingErrorTips);
 		},
 		success : function(data) 
 		{
 			selectCountryShippingInfo=data.ssvo;
+			if(selectCountryShippingInfo==null)
+			{
+				selectShipName=null; //没有货运方式可以选择
+				selectRealFee=null; //没有货运方式可以选择，运费自然也是null了
+			}
+			
 			insertShippingInfoInPage(data.ssvo,products);
 		}
 	});// end of ajax

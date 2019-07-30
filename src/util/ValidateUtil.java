@@ -1,12 +1,28 @@
+// Decompiled by Jad v1.5.8e2. Copyright 2001 Pavel Kouznetsov.
+// Jad home page: http://kpdus.tripod.com/jad.html
+// Decompiler options: packimports(3) fieldsfirst ansi space 
+// Source File Name:   ValidateUtil.java
+
 package util;
 
-public class ValidateUtil {
-	public static boolean isInteger(String value) {
-		try {
+
+public class ValidateUtil
+{
+
+	public ValidateUtil()
+	{
+	}
+
+	public static boolean isInteger(String value)
+	{
+		try
+		{
 			Integer.parseInt(value);
-			return true;
-		} catch (NumberFormatException e) {
+		}
+		catch (NumberFormatException e)
+		{
 			return false;
 		}
+		return true;
 	}
 }

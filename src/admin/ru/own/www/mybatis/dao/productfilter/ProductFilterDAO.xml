@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="admin.ru.own.www.mybatis.dao.productfilter.ProductFilterDAO">
+	 
+	 <!--  -->
+	 <select id="getProductsCountByAttributeArgs"  resultType="int" parameterType="map"> 
+
+	 </select>
+	 
+	 <!-- 有属性过滤，查询商品 -->
 	 <select id="getIndexProductsLimit" parameterType="map" resultType="int">
-    	SELECT products.p_id FROM own.product_basic_attr,own.products 
-    	where products.p_id=product_basic_attr.p_id
+    	SELECT DISTINCT products.p_id FROM own.product_basic_attr,own.products 
+    	where products.p_status=1 and products.p_id=product_basic_attr.p_id
     	and products.p_nowprice &gt;= #{startPrice} 
     	and products.p_nowprice &lt;= #{endPrice} 
     	and products.p_categoryid in
     	<foreach item="item" index="index" collection="categoryIDs" open="(" separator="," close=")">
 		#{item}
 		</foreach> 
-    	and product_basic_attr.attr_value_id in 
-		<foreach item="item" index="index" collection="atrValues" open="(" separator="," close=")">
-		#{item}
-		</foreach> group by p_id
-		having count(*) > #{atrNum} limit #{begain},#{size}
+		
+		<if test="atrValues != null">
+	    	and product_basic_attr.attr_value_id in 
+			<foreach item="item" index="index" collection="atrValues" open="(" separator="," close=")">
+				#{item}
+			</foreach> 
+		</if>
+		group by p_id desc 
+		<if test="totalNumberFlag == null or totalNumberFlag == ''">
+			limit #{begain},#{size}  <!-- totalNumberFlag是分页标志 -->
+		</if>
+		<!-- group by p_id desc having count(*) > #{atrNum} limit #{begain},#{size}--> 
+		<!-- 以上这句话中的 atrNum 传进来的值为 属性值的个数减去1，为了保证取出来的p_id唯一 ，和DISTINCT作用一样-->
     </select>
     
+    <!-- 没有属性过滤，查询商品 -->
     <select id="getExhibitionProducts" parameterType="map" resultType="int">
     	SELECT p.p_id FROM own.products as p 
     	where p.p_status=1 and p.p_nowprice &gt;= #{startPrice} 

@@ -7,7 +7,7 @@
 			+ path + "/";
 %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html>
 <head>
 <base href="<%=basePath%>">
@@ -36,8 +36,9 @@
 <script type="text/javascript" src="js/math.js"></script>
 <script type="text/javascript" >
 	var categoryid = ${categoryid}; //点击的category的id
-	var totalNumber = ${totalNumber};
+	var totalNumber = ${totalPageNumber};
 	var routeCategoryFloorTitle="${route}";
+	var attrStr="${attrStr}"; //属性值信息
 	
 	var imageheight = ${categoryExhibitionSize.height};
 	var imagewidth = ${categoryExhibitionSize.width};
@@ -56,12 +57,13 @@
 		handleCategoryFloorTitle(routeCategoryFloorTitle);////获取分类 secondlevelpage.js
 		getNavigation(categoryid);  //获取分类 secondlevelpage.js
 		getRollImage(categoryid);   //在secondlevelpage.js
-		getAllAttribute(categoryid);  //在productattributesearch.js
-		getExhibitionProducts(0,map,categoryid,0,2147483647);   //map is in productattributesearch.js
+		
 		registEvents(categoryid);//注册事件，productsinfoservice.js，主要注册的是点击属性 的事件
 		buildPageTable(totalNumber);  // pagelabelconstruct.js
 		registerEventLister();//上一页  下一页  的动作  pagelabelconstruct.js
 		registerPriceLister(false);//价格区间  pricerange.js
+		
+		getAllAttribute(categoryid);  //在productattributesearch.js,在这里同时获取商品信息，因为获取商品需要基于属性信息
 	});
 </script>
 </head>
@@ -69,6 +71,10 @@
 <body>
 
 <div class="trunkOld">
+
+	<div style="display: none">
+        <%@ include file="../common/language/multiLanguage.jsp" %>
+	</div>
 
 	<div id="header">
 		<%@ include file="../common/header/headermenu.jsp"%>
@@ -102,11 +108,21 @@
 					</div>
 				</div>
 				 -->
-				 <div style="clear:both"></div>
+				<div style="clear:both"></div>
 				<div id="seller">
 					<div class="categoryTips breadcrumbs" id="categoryFloorTitle">
 
 					</div>
+					<div id="shopping" style="display: none;">
+						<div id="selectContainer">
+				
+							<span id="selectAttrs">
+								<ul class="crumbSlide-con clearfix" id="J_CrumbSlideCon">
+								</ul> 
+							</span>
+						</div>
+					</div>
+					<div style="clear:both"></div>
 					<ul id="sellerul">
 			
 					</ul>
@@ -124,53 +140,6 @@
 							  </ul>
 							  <!-- 商品过滤属性 -->
 							  <div id="filterPanelLeft" class="filters" data-base-filter-url="/catalog/zhenshchinam/odezhda">
-							  				
-							  				<div class="filterblock price show filter-active">
-							  					<div class="filter-title">
-							  						<i class="arrow-icon"></i> 
-							  						Российский размер
-							  						<a class="reset">Сбросить</a>
-							  					</div>
-							  					<div class="selectorsblock custom-scroll">
-							  						<ul id="wbsize_list_left" style="opacity: 1;"></ul>
-							  						<div class="progress" style="display: none;"></div>
-							  						<div class="start-n">
-							  							<input id="start_priceipt" type="text" name="start_price" maxlength="6" value="" class="j_FPInput"/>-
-													</div>
-													<div class="priceSpace">-</div>
-													<div class="end-n">
-														<input id="end_priceipt" type="text" name="end_price" value="" maxlength="6" class="j_FPInput"/>
-													</div>
-													<div class="pricebutclass">
-														<button id="pricebut" style="height: 22px;width: 40px">确定</button> 
-													</div>
-							  					</div>
-							  							
-							  				 </div>
-							  				
-							  				<div class="filterblock wbsize show filter-active">
-							  					<div class="filter-title">
-							  						<i class="arrow-icon"></i> 
-							  						Российский размер
-							  						<a class="reset">Сбросить</a>
-							  					</div>
-							  					<div class="selectorsblock custom-scroll">
-							  						<ul id="wbsize_list_left" style="opacity: 1;">
-							  							<li class="">
-							  								<a>
-							  									<i class="pseudocheckbox"></i>2 <span>(5)</span>
-							  								</a>
-							  							</li>
-							  							<li class="">
-							  								<a><i class="pseudocheckbox"></i>3 <span>(4)</span></a>
-							  							</li>
-							  							<li class=""><a><i class="pseudocheckbox"></i>4 <span>(4)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>6 <span>(3)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>6,5 <span>(3)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>7 <span>(3)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>7,5 <span>(3)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>8 <span>(3)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>38 <span>(4597)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>40 <span>(36121)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>42 <span>(89311)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>44 <span>(101522)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>46 <span>(102431)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>46-48 <span>(12)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>48 <span>(91899)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>50 <span>(65927)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>50-52 <span>(3)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>52 <span>(40862)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>54 <span>(21224)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>56 <span>(13024)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>58 <span>(8748)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>60 <span>(5406)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>62 <span>(2741)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>64 <span>(1748)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>66 <span>(900)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>68 <span>(548)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>70 <span>(321)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>72 <span>(53)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>74 <span>(21)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>80 <span>(1)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>92-98 <span>(3)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>122-128 <span>(3)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>150-170 <span>(3)</span></a></li></ul><div class="progress" style="display: none;"></div></div>
-							  							
-							  				 </div>
-							  				 
-							  				 <!-- 没有展开的属性 -->
-							  				 
-							  				 <div class="filterblock season show"><div class="filter-title"><i class="arrow-icon arrow-icon-open"></i> Сезон<a class="reset">Сбросить</a></div><div class="selectorsblock custom-scroll" style="display: none;"><ul id="season_list_left" style="opacity: 1;"><li class=""><a><i class="pseudocheckbox"></i>демисезон <span>(113)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>зима <span>(4)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>круглогодичный <span>(92)</span></a></li><li class=""><a><i class="pseudocheckbox"></i>лето <span>(30)</span></a></li></ul><div class="progress" style="display: none;"></div></div></div>
 							  </div>
 						
 						</div>
@@ -183,66 +152,50 @@
 		<!-- end of lagout-three -->
 	</div>
 
-
-	<div style="clear:both"></div>
-
-	<div id="shopping">
-		<div id="selectContainer">
-
-			<span id="selectAttrs">
-				<ul class="crumbSlide-con clearfix" id="J_CrumbSlideCon">
-
-				</ul> 
-			</span>
-		</div>
-	</div>
-
-	<div style="clear:both"></div>
-
-	<div class="attrs j_NavAttrs" style="display:block" id="allatr">
-		<!--  -->
-		<div class="propAttrs" data-spm="a220m.1000858.1000722">
-			<div class="j_Prop attr hotspot" data-mindiffrow="2">
-				<div class="attrKey">选购热点</div>
-				<div class="attrValues">
-					<div class="av-options">
-						<a class="j_More avo-more ui-more-drop-l"
-							onclick="javascript:moreChange(this);" href="javascript:void(0);"
-							atpanel="0,,,,spu-pro,20,prop," style="display: inline;"> <label
-							class="opentiontext">更多</label><i class="ui-more-drop-l-arrow"></i>
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="propAttrs" data-spm="a220m.1000858.1000722">
-			<div class="j_Prop attr hotspot" data-mindiffrow="2"></div>
-		</div>
-	</div>
-
-
-
-	<div id="priceSearch">
-		<div class="fPrice" id="J_FPrice">
-			<div class="fP-box">
-				价格区间
-				<input id="start_priceipt" type="text" name="start_price" maxlength="6" value="" class="j_FPInput"/>-
-				<input id="end_priceipt" type="text" name="end_price" value="" maxlength="6" class="j_FPInput"/>
-				<button id="pricebut" style="height: 22px;width: 40px">确定</button> 
-			</div>
-		</div>
-	</div>
-
 	<div style="clear:both"></div>
 	<!-- ----------------------------------------------------------------------------------- -->
 	<div id="footer">
 		<%@ include file="../common/header/footer.jsp"%>
-
 	</div>
 	<!-- ----------------------------------------------------------------------------------- -->
 	<!-- ----------------------------------防止用户在查询期间多次点击------------------------------------------------- -->
-	<div id="catalog-overlay" style="display: none; "></div>
+	<style type="text/css">
+		.mvBox{height:15px; background:#F5FAFD url(images/test2.jpg) no-repeat left center; width:471px; position:relative; padding:0 30px; margin:0 auto;}
+		.mvBtn{position:absolute; left:50px; top:0;}
+		.mvTxt{height:50px; line-height:50px; width:531px; text-align:center; font-size:30px; color:#29B6FF; font-family:Arial; margin:0 auto;}
+	</style>
+	
+	<div id="catalog-overlay" style="display: none; ">
+		<!--效果开始-->
+		<!-- 
+		<div style="padding:50px;">
+			
+			<div class="mvTxt">Loading<span class="mvSq">.</span><span class="mvSq">.</span><span class="mvSq">.</span></div>
+			<div class="mvBox">
+			 <img class="mvBtn" src="images/loadingImages/test1.jpg" />
+			</div>
+			<script language="javascript">
+			 var delVal=50;
+			 function autoMove(){
+				 delVal++;
+				 if(delVal>400){
+					delVal=50; 
+				 }
+				 $(".mvBtn").css("left",delVal);
+			 }
+			 setInterval(autoMove,8);
+			 var deNum=0;
+			 function autoTsq(){
+				$(".mvSq").css("color","#F5FAFD");
+				setTimeout(function(){$(".mvSq").eq(0).css("color","#29B6FF")},0);
+				setTimeout(function(){$(".mvSq").eq(1).css("color","#29B6FF")},500);
+				setTimeout(function(){$(".mvSq").eq(2).css("color","#29B6FF")},1000);
+			 }
+			 setInterval(autoTsq,1500);
+			</script> -->
+			<!--End-->
+		</div>
+	</div>
  </div>
 </body>
 </html>

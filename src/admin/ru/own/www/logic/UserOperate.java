@@ -5,11 +5,13 @@ import java.util.List;
 import admin.ru.own.www.entity.Pagination;
 import admin.ru.own.www.entity.Shipping;
 import admin.ru.own.www.entity.User;
-import admin.ru.own.www.mail.EmailSend;
+import admin.ru.own.www.mail.*;
 import admin.ru.own.www.mybatis.dao.MyBatisDAO;
 import admin.ru.own.www.mybatis.dao.UserOperateImpl;
 
+import admin.ru.own.www.validcode.SecurityCode;
 import com.opensymphony.xwork2.ActionSupport;
+import util.Encrypt;
 
 public class UserOperate extends ActionSupport 
 {
@@ -18,6 +20,7 @@ public class UserOperate extends ActionSupport
 	private int id;
 	private String name;
 	private String passw;
+	private String checkcode;
 	private String mail;
 	private Short status;
 	private String tel;
@@ -35,58 +38,59 @@ public class UserOperate extends ActionSupport
 	
 	public String resetPassword()
 	{
-		UserOperateImpl uoim=new UserOperateImpl();
-		user=uoim.getUserById(id);
-		long gettime=user.getTimeforgetpass();
-		long nowtime=System.currentTimeMillis();
-		long interval=(nowtime-gettime)/1000/60/60;
-		if(interval<2)
-		{//在两个小时之内
-			
-			boolean flag=uoim.resetPassword(id,passw);//重置密码
-			if(flag)
-			{
-				return SUCCESS;
+
+		UserOperateImpl uoim = new UserOperateImpl();
+		user = uoim.getUserById(id);
+		if ((checkcode != null) & (user.getCheckcodeforgetpass() != null) & checkcode.equals(user.getCheckcodeforgetpass()))
+		{
+			long gettime = user.getTimeforgetpass().longValue();
+			long nowtime = System.currentTimeMillis();
+			long interval = (nowtime - gettime) / 1000L / 60L / 60L;
+			if (interval < 2L)
+			{//在两个小时之内
+				String encodePasString = Encrypt.StringEncrypt(passw, "");
+				boolean flag = uoim.resetPassword(id, encodePasString);
+				if (flag)
+				{
+					errCode = "0";
+					return "success";
+				} else
+				{
+					errCode = "1";
+					return "success";
+				}
 			}
 			else
-			{
-				return ERROR;
+			{//超过了两个小时
+				errCode = "2";
+				return "success";
 			}
+		} else
+		{
+			errCode = "3";
+			return "success";
 		}
-		else
-		{//超过了两个小时
-			return ERROR;
-		}
-		
 	}
 	
 	public String getPasswordByMail()
 	{
-		UserOperateImpl uoim=new UserOperateImpl();
-		user=uoim.getUserByMail(mail);//总页数
-		if(user!=null)
+		UserOperateImpl uoim = new UserOperateImpl();
+		user = uoim.getUserByMail(mail);
+		if (user != null)
 		{
-			boolean flag=uoim.updateTimeForgetPass(System.currentTimeMillis(),user.getUserid());
-			String sendMailString="<div><b>Dear:"+user.getUsername()+"</b></div>";
-		    sendMailString+="<div><b>click the following link to get password</b></div>";
-			sendMailString+="http://localhost:8080/own/handleGetPassword.action?id="+user.getUserid();
-			sendMailString+="<div>---------------------------------------------------------------------------------</div>";
-			sendMailString+="<div>Email: sales@poplanding.com</div>";
-			sendMailString+="<div>Website: www.poplanding.com</div>";
-			sendMailString+="<div>Tel:+86-13436838059</div>";
-			boolean sendMailFlag=EmailSend.sendHtmlMail(user,sendMailString);
-			if(flag&&sendMailFlag)
-			{
-				return SUCCESS;
-			}
+			String randomString = (new StringBuilder(String.valueOf(SecurityCode.getActiveCode()))).append(user.getUsername()).append(user.getUsermail()).toString();
+			String checkCodeString = Encrypt.StringEncrypt(randomString, "");
+			boolean flag = uoim.updateTimeForgetPass(System.currentTimeMillis(), user.getUserid(), checkCodeString);
+			user.setCheckcodeforgetpass(checkCodeString);
+			EmailEntity emailEntiey = (new EmailHtml()).getPasswordHtml(user);
+			boolean sendMailFlag = (new EmailSend()).sendHtmlMailwithEmbeddedImages(EmailStaticArgs.emailArgs, emailEntiey);
+			if (flag && sendMailFlag)
+				return "success";
 			else
-			{
-				return ERROR;
-			}
-		}
-		else
+				return "error";
+		} else
 		{
-			return ERROR;
+			return "error";
 		}
 	}
 	
@@ -181,8 +185,8 @@ public class UserOperate extends ActionSupport
 		user.setUsermail(mail);
 		user.setStatus(status);
 		
-		boolean flag=UserOperateImpl.addUser(user);
-		if(flag)
+		int flag=UserOperateImpl.addUser(user);
+		if(flag > 0)
 		{
 			return SUCCESS;
 		}
@@ -302,4 +306,11 @@ public class UserOperate extends ActionSupport
 		this.user = user;
 	}
 
+	public String getCheckcode() {
+		return checkcode;
+	}
+
+	public void setCheckcode(String checkcode) {
+		this.checkcode = checkcode;
+	}
 }

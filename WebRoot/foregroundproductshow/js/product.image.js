@@ -49,6 +49,7 @@ function mui_replaceSmallImage (src) {
 	//set width and height of the image element
 	$("#product-big-img").attr('width',relativeWidth);
 	$("#product-big-img").attr('height',relativeHeight);
+	$("#product-big-img").attr('src',"");  //因为会有图片反应不过来的情况，所以加上这句话
 	$("#product-big-img").attr('src',src);
 }
 
@@ -76,7 +77,7 @@ function mui_replaceSmallImage (src) {
 			$(".lh").find("img").hover(
 			  function () {
 				  
-				  	console.log("in hover");
+				  	//console.log("in hover");
 					//ȡ�������Сͼ��ӵı߿���Ϣ
 					$(".lh").find("img").each(function(){$(this).removeClass("img-hover");});
 					

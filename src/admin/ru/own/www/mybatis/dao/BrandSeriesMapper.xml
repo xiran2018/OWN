@@ -24,6 +24,16 @@
         <result column="parent_brand_id" property="pId" jdbcType="INTEGER"/>
     </resultMap>
     
+    
+    
+  <select id="brandFetchByAllCategoryIds"  parameterType="list" resultMap="result_map">
+        select brand_id,brand_name,parent_brand_id from brand_series where class_id in 
+		<foreach item="item" collection="list" open="(" separator="," close=")">
+				#{item}
+		</foreach> 
+  </select>
+    
+    
    <select id="brandFetchByCategoryId"  parameterType="java.lang.Integer" resultMap="result_map">
           select brand_id,brand_name,parent_brand_id from brand_series where class_id = #{id}
   </select>

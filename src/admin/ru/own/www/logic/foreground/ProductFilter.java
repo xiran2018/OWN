@@ -18,5 +18,5 @@ public abstract class ProductFilter {
 	static ProductFilter getImp() {
 		return new ProductFilterImp();
 	}
-	
+	abstract int getProductsCountByAttributeArgs(Map map);
 }

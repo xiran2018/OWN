@@ -1,0 +1,1246 @@
+@charset "UTF-8";
+#webim2 {
+    z-index: 2001;
+    font: 12px/1.5 arial,\5b8b\4f53;
+    color: rgb(75, 75, 75);
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    /*top: 50%;*/
+    _position: absolute;
+    _top: expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);
+}
+
+
+.dingdongadpop {
+    background: url(../img/dingdongtg.jpg) no-repeat 0 0;
+    right: 0;
+    top: -200px;
+    width: 252px;
+    height: 200px;
+    position: absolute;
+}
+
+/*消息体*/
+.webim-body {
+    display: inline-block;
+    vertical-align: middle;
+}
+.webim-body {
+    position: relative;
+    border: 1px solid rgb(210, 210, 210);
+}
+.webim-body {
+    width: 156px;
+}
+
+/*消息数量提示*/
+.webim-body-msg-count {
+    position: absolute;
+    left: 12px;
+    top: -10px;
+    z-index: 1;
+}
+
+/*消息头*/
+.webim-body-comtent-header锛�webim-header-minibar em{
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+}
+
+.webim-body-comtent-header {
+    background-color: rgb(245, 245, 245);
+    background-repeat: repeat-x;
+    background-position: 0 -254px;
+    width: 470px;
+    border: 1px solid rgb(210, 210, 210);
+    position: absolute;
+    left: -315px;
+    top: -395px;
+    height: 14px;
+    line-height: 14px;
+    padding: 7px 0;
+    z-index: 1;
+}
+/*设置提示语*/
+.webim-icon-setting-tips {
+    border: 1px solid rgb(210, 210, 210);
+    position: absolute;
+    right: 10px;
+    top: 24px;
+    background: rgb(255, 255, 255);
+}
+
+.webim-icon-setting-tips a {
+    width: 80px;
+    display: block;
+    color: rgb(51, 51, 51);
+    padding: 0 8px;
+    height: 24px;
+    line-height: 24px;
+    text-indent: 15px;
+}
+
+.webim-icon-setting-tips a.active {
+    background-position: 5px -373px;
+}
+
+.webim-icon-setting-tips a.active {
+   background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+}
+
+/*头部 右边的设置，最小按钮*/
+.webim-header-minibar {
+    float: right;
+}
+
+em {
+    font-style: normal;
+}
+
+em.webim-icon-setting {
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+}
+
+.webim-icon-setting {
+    background-position: 0 -285px;
+}
+.webim-icon-mini {
+    background-position: 0 -300px;
+}
+
+.webim-icon-close {
+    background-position: 0 -315px;
+}
+.webim-header-minibar em {
+    cursor: pointer;
+    margin-right: 8px;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+}
+
+/*header 左边 标示*/
+.webim-body-comtent-header .webim-username-online, .webim-body-comtent-header .webim-system-msg-icon, .webim-body-comtent-header .webim-username-offline {
+    margin: 0 5px 0 10px;
+}
+.webim-username-online, .webim-username-offline, .webim-username-busy, .webim-username-leave {
+    margin: 7px 5px 0 13px;
+    display: inline-block;
+    background: rgb(122, 175, 35);
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    overflow: hidden;
+}
+.webim-username-online {
+    background: rgb(122, 175, 35);
+}
+
+em.imjs-userstatus.webim-username-offline {
+    margin: 0 5px 0 10px;
+}
+
+strong, b {
+    font-weight: bold;
+}
+
+/*联系人*/
+.webim-lianxiren {
+    text-indent: 28px;
+    cursor: pointer;
+    background-position: 5px 0;
+    background-color: rgb(246, 246, 246);
+    height: 28px;
+    line-height: 28px;
+}
+#webim2 .fc-green {
+    color: rgb(105, 161, 24);
+}
+
+
+/*联系人列表*/
+
+.webim-user-list {
+    width: 157px;
+}
+.webim-user-list {
+    background: rgb(243, 243, 243) url(../img/line.png) repeat-y 0 0;
+    color: rgb(51, 51, 51);
+    position: absolute;
+    height: 364px;
+    top: -365px;
+    border-right: 1px solid rgb(210, 210, 210);
+    left: -1px;
+    overflow: hidden;
+}
+#imjs-user-list{
+	height: 95%;
+}
+#imjs-main-contact-list{
+	overflow: scroll;
+    height: 100%;
+}
+/*我的联系人*/
+
+.webim-user-list .c-li, .webim-user-list .c-li-open, .webim-system-info {
+    height: 24px;
+    line-height: 24px;
+}
+.webim-myfriends {
+    background-position: 7px -32px;
+    text-indent: 26px;
+    cursor: pointer;
+}
+.mCSB_container {
+    width: auto;
+    margin-right: 7px;
+    overflow: hidden;
+}
+.mCSB_container.mCS_no_scrollbar {
+    margin-right: 0;
+}
+
+.webim-system-info {
+    background-position: 7px -59px;
+    text-indent: 26px;
+}
+.webim-user-list .c-li-open {
+    padding: 1px 0;
+    border: 1px solid rgb(210, 210, 210);
+    border-left: 0;
+    margin-left: -1px;
+    position: relative;
+    background-color: rgb(255, 255, 255);
+    padding-left: 1px;
+    margin: 0;
+}
+.w
+.webim-username .c-li {
+    border-left: 0;
+}
+.webim-username .c-li-open {
+    padding: 1px 0;
+    border: 1px solid rgb(210, 210, 210);
+    border-left: 0;
+    position: relative;
+    background: rgb(255, 255, 255);
+    width: 150px;
+    _width: 140px;
+}
+.webim-username .c-li .webim-close {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    line-height: 14px;
+    overflow: hidden;
+    background-position: 0 -89px;
+    cursor: pointer;
+    float: right;
+}
+.webim-username .c-li .webim-close {
+    float: right;
+    display: none;
+    margin: 5px;
+}
+/*add by jql*/
+.webim-user-list #imjs-main-contact-list  .c-li .webim-close{
+	position: absolute;
+    right: 5px;
+}
+.webim-username .c-li a.webim-close-enter {
+    cursor: pointer;
+    padding: 0 8px;
+    position: absolute;
+    right: 1px;
+    background: rgb(248, 164, 164);
+    color: rgb(198, 44, 44);
+}
+
+.webim-username em {
+    float: left;
+}
+
+/*add by jql*/
+.webim-user-list #imjs-main-contact-list  .c-li .webim-username-n{
+	width: 92px;
+	height: 24px;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+.webim-username-n em{
+	width: 92px;
+    overflow: hidden;
+}
+
+.webim-username-offline {
+    background: rgb(158, 158, 158);
+}
+
+.webim-msg-count {
+    font-size: 11px;
+    font-family: tahoma;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    line-height: 13px;
+    overflow: hidden;
+    background-position: 0 -116px;
+    margin: 5px;
+    color: rgb(109, 101, 101);
+    text-align: center;
+}
+
+/*左侧聊天窗口*/
+.webim-body-content {
+    background-color: rgb(255, 255, 255);
+    border-left: 1px solid rgb(210, 210, 210);
+    position: absolute;
+    left: -315px;
+    top: -365px;
+    width: 313px;
+    height: 394px;
+}
+
+/*上边的提示栏*/
+.webim-body-comtent-talk-tips {
+    background: rgb(234, 245, 255);
+}
+a {
+    text-decoration: none;
+}
+.webim-body-comtent-talk-tips a {
+    color: rgb(0, 85, 204);
+    line-height: 24px;
+    padding: 0 8px;
+}
+
+/*显示聊天内容*/
+.webim-body-content-talk {
+    position: relative;
+    height: 248px;
+    _width: 313px;
+    _height: 246px;
+}
+
+/*在左边显示聊天内容*/
+#webim2 .imjs-msg-default {
+    display: none;
+}
+
+.textalign-left {
+    width: 210px;
+    margin: 10px 20px 25px 20px;
+    position: relative;
+}
+
+.webim-body-comtent-msg-left {
+    word-break: break-all;
+    display: inline-block;
+    color: rgb(80, 85, 92);
+    padding: 7px;
+    background: rgb(241, 255, 224);
+    position: relative;
+    border: 1px solid rgb(209, 239, 172);
+}
+
+.webim-body-comtent-msg-left s {
+    display: block;
+    height: 10px;
+    line-height: 10px;
+    overflow: hidden;
+    width: 10px;
+    text-decoration: none;
+    background-position: 0 -134px;
+    position: absolute;
+    left: -8px;
+    top: 34%;
+}
+.webim-body-comtent-msg-right s {
+    display: block;
+    height: 10px;
+    line-height: 10px;
+    overflow: hidden;
+    width: 10px;
+    text-decoration: none;
+    background-position: 0 -145px;
+    position: absolute;
+    right: -10px;
+    top: 34%;
+}
+
+.textalign-left span.webim-times {
+    width: 120px;
+    position: absolute;
+    bottom: -20px;
+    left: 8px;
+    color: rgb(192, 192, 192);
+}
+
+/*在右边显示聊天内容*/
+.textalign-right {
+    width: 210px;
+    position: relative;
+    margin: 10px 20px 25px 70px;
+    text-align: right;
+}
+
+.webim-body-comtent-msg-right {
+    word-break: break-all;
+    text-align: left;
+    display: inline-block;
+    color: rgb(80, 85, 92);
+    padding: 5px 9px;
+    background: rgb(243, 243, 243);
+    position: relative;
+    border: 1px solid rgb(226, 226, 226);
+    line-height: 18px;
+}
+
+.webim-body-comtent-msg-right s {
+    display: block;
+    height: 10px;
+    line-height: 10px;
+    overflow: hidden;
+    width: 10px;
+    text-decoration: none;
+    background-position: 0 -145px;
+    position: absolute;
+    right: -10px;
+    top: 34%;
+}
+
+.textalign-right span.webim-times {
+    position: absolute;
+    bottom: -20px;
+    right: 6px;
+    color: rgb(192, 192, 192);
+}
+
+/*显示内容的右边滚动条*/
+.mCSB_container {
+    width: auto;
+    margin-right: 7px;
+    overflow: hidden;
+}
+.mCSB_container.mCS_no_scrollbar {
+    margin-right: 0;
+}
+
+/*左下角聊天记录*/
+.webim-body-content-talk-h {
+    height: 340px;
+    _height: 338px;
+}
+.webim-body-content-tools {
+    position: relative;
+    background: rgb(243, 243, 243);
+    height: 14px;
+    line-height: 14px;
+    padding: 6px 0 6px 10px;
+}
+
+.icon-history {
+    color: rgb(51, 51, 51);
+    height: 16px;
+    line-height: 16px;
+    margin-right: 10px;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    text-indent: 20px;
+    width: 68px;
+    background-position: 0 -220px;
+    cursor: pointer;
+}
+
+/*快捷回复*/
+.webim-quick-submit {
+    border: 1px solid rgb(210, 210, 210);
+    background: rgb(255, 255, 255);
+    position: absolute;
+    bottom: 30px;
+    left: 10px;
+}
+.webim-quick-submit a {
+    line-height: 26px;
+    color: rgb(51, 51, 51);
+    padding: 0 18px;
+    display: block;
+}
+.webim-body-content-tools span.webim-quick-submit-arrow {
+    display: block;
+    width: 13px;
+    height: 8px;
+    line-height: 8px;
+    overflow: hidden;
+    position: absolute;
+    bottom: -8px;
+    left: 29px;
+    background-position: 0 -526px;
+}
+
+/*表情*/
+
+.ePanel {
+    border: 1px solid rgb(210, 210, 210);
+    background: rgb(255, 255, 255);
+    width: 377px;
+    position: absolute;
+    left: 7px;
+    top: -237px;
+    z-index: 1;
+    height: 230px;
+}
+.ePanelarea {
+    display: none;
+}
+.icon-emotions, .icon-quicktalk, .icon-images {
+    margin-right: 10px;
+    height: 14px;
+    line-height: 14px;
+    width: 14px;
+    display: inline-block;
+}
+.icon-emotions {
+    background-position: 0 -157px;
+    cursor: pointer;
+}
+
+.icon-quicktalk {
+    background-position: 0 -176px;
+    cursor: pointer;
+}
+
+
+
+.webim-myfriends, .webim-myfriends-close, .webim-lianxiren, .webim-system-info, .webim-close, .webim-msg-count, .webim-body-comtent-msg-left s, .webim-body-comtent-msg-right s, .icon-emotions, .icon-quicktalk, .icon-images, .icon-history, .webim-body-footer-tips s, .webim-body-comtent-header, .webim-header-minibar em, .webim-icon-setting-tips a.active, .webim-icon-setting-active, .webim-comming-msg, .icon-ddonline, .icon-mobionline, .webim-body-content-talk-tips, .webim-body-content-talk-mobitips, .webim-quick-submit-arrow, .left-arrow, .right-arrow, .left-arrow-no, .right-arrow-no, .webim-system-msg-icon, .webim-icon-fdb, .webim-lianliankan-title, .webim-lianliankan-close, .webim-lianliankan-icon-hi, .webim-lianliankan-icon-no, .webim-lianliankan-icon-ok {
+    background-image: url(../img/bg.png);
+    background-repeat: no-repeat;
+}
+
+.webim-msg-count {
+    font-size: 11px;
+    font-family: tahoma;
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    line-height: 13px;
+    overflow: hidden;
+    background-position: 0 -116px;
+    margin: 5px;
+    color: #fff;
+    /* text-align: center; */
+
+}
+/*add by jql*/
+.webim-user-list #imjs-main-contact-list  .c-li .webim-msg-count{
+	position: absolute;
+    right: 5px;
+}
+
+div.ePdefault {
+    border: 1px solid rgb(153, 153, 153);
+    background-color: rgb(255, 255, 255);
+    position: absolute;
+    width: 59px;
+    overflow: hidden;
+    z-index: 4;
+    margin: 3px;
+}
+
+div.ePdefault img {
+    display: block;
+    padding: 8px 18px 5px 18px;
+    background: rgb(255, 255, 255);
+}
+div.ePdefault span {
+    background-color: rgb(236, 236, 236);
+    padding: 1px;
+    display: block;
+    text-align: center;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul.eDefault {
+    border-right: 1px solid rgb(211, 228, 240);
+    border-bottom: 1px solid rgb(211, 228, 240);
+    margin: 20px 20px 7px 20px;
+    width: 336px;
+    overflow: hidden;
+    zoom: 1;
+}
+
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+ul.eDefault li {
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    float: left;
+    background: url(../img/bg.__1386596253__.png) repeat 0 0;
+    margin-bottom: 0px;
+}
+ul.eDefault li a {
+    width: 24px;
+    height: 24px;
+    margin: 0;
+    padding: 0;
+}
+.eDefault a:link, .eDefault a:visited {
+    display: block;
+    padding: 2px;
+}
+
+ul.eDefault li .icon {
+    background: url(../img/default.__1386596253__.gif) no-repeat;
+    height: 24px;
+    width: 24px;
+    margin: 0 auto;
+}
+
+ul.eDefault li .eDefault_0 {
+    background-position: 0 -1488px;
+}
+
+ul.eDefault li .eDefault_1 {
+    background-position: -174px -1002px;
+}
+
+ul.eDefault li .eDefault_2 {
+    background-position: -174px -1650px;
+}
+
+ul.eDefault li .eDefault_3 {
+    background-position: -174px -462px;
+}
+
+ul.eDefault li .eDefault_4 {
+    background-position: 0 -516px;
+}
+
+ul.eDefault li .eDefault_5 {
+    background-position: -174px -1758px;
+}
+
+ul.eDefault li .eDefault_6 {
+    background-position: -174px -840px;
+}
+
+ul.eDefault li .eDefault_7 {
+    background-position: 0 -1002px;
+}
+ul.eDefault li .eDefault_8 {
+    background-position: -348px -246px;
+}
+ul.eDefault li .eDefault_9 {
+    background-position: -174px -1272px;
+}
+ul.eDefault li .eDefault_10 {
+    background-position: -348px -894px;
+}
+ul.eDefault li .eDefault_11 {
+    background-position: -174px -1380px;
+}
+ul.eDefault li .eDefault_12 {
+    background-position: -174px -300px;
+}
+ul.eDefault li .eDefault_13 {
+    background-position: -348px -948px;
+}
+ul.eDefault li .eDefault_14 {
+    background-position: -348px -138px;
+}
+ul.eDefault li .eDefault_15 {
+    background-position: -174px -894px;
+}
+ul.eDefault li .eDefault_16 {
+    background-position: -348px -84px;
+}
+ul.eDefault li .eDefault_17 {
+    background-position: -174px -1164px;
+}
+ul.eDefault li .eDefault_18 {
+    background-position: -174px -1542px;
+}
+ul.eDefault li .eDefault_19 {
+    background-position: -348px -516px;
+}
+ul.eDefault li .eDefault_20 {
+    background-position: 0 -1434px;
+}
+ul.eDefault li .eDefault_21 {
+    background-position: -348px -1596px;
+}
+ul.eDefault li .eDefault_22 {
+    background-position: -174px -1326px;
+}
+ul.eDefault li .eDefault_23 {
+    background-position: -174px -1596px;
+}
+ul.eDefault li .eDefault_24 {
+    background-position: -348px -1326px;
+}
+ul.eDefault li .eDefault_25 {
+    background-position: -348px -300px;
+}
+ul.eDefault li .eDefault_26 {
+    background-position: 0 -786px;
+}
+ul.eDefault li .eDefault_27 {
+    background-position: 0 -1758px;
+}
+ul.eDefault li .eDefault_28 {
+    background-position: 0 -354px;
+}
+ul.eDefault li .eDefault_29 {
+    background-position: -348px -1002px;
+}
+ul.eDefault li .eDefault_30 {
+    background-position: 0 -894px;
+}
+ul.eDefault li .eDefault_31 {
+    background-position: -174px -30px;
+}
+ul.eDefault li .eDefault_32 {
+    background-position: -174px -84px;
+}
+ul.eDefault li .eDefault_33 {
+    background-position: 0 -192px;
+}
+ul.eDefault li .eDefault_34 {
+    background-position: -348px -1650px;
+}
+ul.eDefault li .eDefault_35 {
+    background-position: 0 -1056px;
+}
+ul.eDefault li .eDefault_36 {
+    background-position: -174px -1488px;
+}
+ul.eDefault li .eDefault_37 {
+    background-position: -348px -1704px;
+}
+ul.eDefault li .eDefault_38 {
+    background-position: -348px -1110px;
+}
+ul.eDefault li .eDefault_39 {
+    background-position: -174px -516px;
+}
+ul.eDefault li .eDefault_40 {
+    background-position: -348px -1380px;
+}
+ul.eDefault li .eDefault_41 {
+    background-position: -174px -624px;
+}
+ul.eDefault li .eDefault_42 {
+    background-position: -174px -948px;
+}
+ul.eDefault li .eDefault_43 {
+    background-position: -348px -1272px;
+}
+ul.eDefault li .eDefault_44 {
+    background-position: 0 -1650px;
+}
+ul.eDefault li .eDefault_45 {
+    background-position: -174px -1218px;
+}
+ul.eDefault li .eDefault_46 {
+    background-position: 0 -246px;
+}
+ul.eDefault li .eDefault_47 {
+    background-position: 0 -408px;
+}
+ul.eDefault li .eDefault_48 {
+    background-position: 0 -1326px;
+}
+ul.eDefault li .eDefault_49 {
+    background-position: 0 -1164px;
+}
+ul.eDefault li .eDefault_50 {
+    background-position: 0 -840px;
+}
+ul.eDefault li .eDefault_51 {
+    background-position: -174px -1866px;
+}
+ul.eDefault li .eDefault_52 {
+    background-position: 0 -1812px;
+}
+ul.eDefault li .eDefault_53 {
+    background-position: 0 -300px;
+}
+ul.eDefault li .eDefault_54 {
+    background-position: -174px -246px;
+}
+ul.eDefault li .eDefault_55 {
+    background-position: -348px -732px;
+}
+ul.eDefault li .eDefault_56 {
+    background-position: 0 -1272px;
+}
+ul.eDefault li .eDefault_57 {
+    background-position: 0 -570px;
+}
+ul.eDefault li .eDefault_58 {
+    background-position: -174px -1812px;
+}
+ul.eDefault li .eDefault_59 {
+    background-position: -174px -192px;
+}
+ul.eDefault li .eDefault_60 {
+    background-position: 0 -1542px;
+}
+ul.eDefault li .eDefault_61 {
+    background-position: -174px -1704px;
+}
+ul.eDefault li .eDefault_62 {
+    background-position: 0 -1218px;
+}
+ul.eDefault li .eDefault_63 {
+    background-position: -348px -354px;
+}
+ul.eDefault li .eDefault_64 {
+    background-position: -348px -408px;
+}
+ul.eDefault li .eDefault_65 {
+    background-position: 0 -732px;
+}
+ul.eDefault li .eDefault_66 {
+    background-position: -348px -462px;
+}
+ul.eDefault li .eDefault_67 {
+    background-position: -174px -570px;
+}
+ul.eDefault li .eDefault_68 {
+    background-position: 0 -1704px;
+}
+ul.eDefault li .eDefault_69 {
+    background-position: -348px -192px;
+}
+ul.eDefault li .eDefault_70 {
+    background-position: 0 -1866px;
+}
+ul.eDefault li .eDefault_71 {
+    background-position: 0 -678px;
+}
+ul.eDefault li .eDefault_72 {
+    background-position: -174px -678px;
+}
+ul.eDefault li .eDefault_73 {
+    background-position: 0 -462px;
+}
+ul.eDefault li .eDefault_74 {
+    background-position: -348px -1542px;
+}
+ul.eDefault li .eDefault_75 {
+    background-position: -348px -1488px;
+}
+ul.eDefault li .eDefault_76 {
+    background-position: -174px -1110px;
+}
+ul.eDefault li .eDefault_77 {
+    background-position: -174px -408px;
+}
+ul.eDefault li .eDefault_78 {
+    background-position: -348px -786px;
+}
+ul.eDefault li .eDefault_79 {
+    background-position: -348px -1164px;
+}
+ul.eDefault li .eDefault_80 {
+    background-position: 0 -30px;
+}
+ul.eDefault li .eDefault_81 {
+    background-position: -174px -138px;
+}
+ul.eDefault li .eDefault_82 {
+    background-position: -174px -1434px;
+}
+ul.eDefault li .eDefault_83 {
+    background-position: -348px -1758px;
+}
+ul.eDefault li .eDefault_84 {
+    background-position: -348px -570px;
+}
+ul.eDefault li .eDefault_85 {
+    background-position: -348px -840px;
+}
+ul.eDefault li .eDefault_86 {
+    background-position: -174px -786px;
+}
+ul.eDefault li .eDefault_87 {
+    background-position: -348px -1218px;
+}
+ul.eDefault li .eDefault_88 {
+    background-position: 0 -624px;
+}
+ul.eDefault li .eDefault_89 {
+    background-position: -174px -354px;
+}
+
+/*表情面板下面*/
+.ePanelt {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.link-tabs {
+    height: 22px;
+    margin: 0 20px 10px 20px;
+}
+.fr {
+    float: right;
+}
+
+/*上一页*/
+.left-arrow, .right-arrow, .left-arrow-no, .right-arrow-no {
+    background-color: rgb(227, 227, 227);
+    text-align: center;
+    display: inline-block;
+    height: 22px;
+    line-height: 22px;
+    width: 22px;
+    font-size: 14px;
+    font-family: simsun;
+    font-weight: bold;
+}
+.right-arrow {
+    background-position: 4px -700px;
+}
+
+.left-arrow {
+    background-position: 4px -654px;
+    margin-right: 10px;
+}
+.left-arrow-no {
+    background-color: rgb(210, 210, 210);
+    margin-right: 10px;
+    background-position: 4px -630px;
+}
+
+.right-arrow-no {
+    background-color: rgb(210, 210, 210);
+    background-position: 4px -676px;
+}
+
+.link-tabs span a.normal {
+    width: 68px;
+    text-align: center;
+    line-height: 22px;
+    height: 22px;
+    color: rgb(51, 51, 51);
+    display: inline-block;
+    background: rgb(210, 210, 210);
+}
+
+
+
+/*左下角输入聊天内容*/
+.webim-body-content-textarea {
+    height: 66px;
+}
+
+.webim-body-content-textarea .webim-textarea {
+    padding: 0;
+    resize: none;
+    margin: 8px;
+    width: 297px;
+    height: 50px;
+    border: 0;
+    font-size: 12px;
+    overflow-y: auto;
+}
+/*发送区域*/
+.webim-body-comtent-footer {
+    position: relative;
+    padding: 0 12px 0 7px;
+    height: 28px;
+    line-height: 28px;
+    background: rgb(243, 243, 243);
+    border: 1px solid rgb(210, 210, 210);
+    border-left: 0;
+    border-right: 0;
+}
+.webim-body-comtent-submit {
+    cursor: pointer;
+    float: right;
+    margin: 2px 0;
+    width: 53px;
+    display: block;
+    background: rgb(253, 150, 3);
+    color: rgb(255, 255, 255);
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+}
+#webim2 .webim-body-comtent-footer a {
+    color: rgb(75, 75, 75);
+    font-family: 'SimSun';
+}
+#webim2 .webim-body-comtent-footer a.webim-body-comtent-submit, #webim2 .webim-body-comtent-footer a.webim-body-comtent-submit:hover {
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+/*提示发送内容不能为空*/
+.webim-body-footer-tips {
+    top: -41px;
+    right: -28px;
+    padding: 0 9px;
+    background: rgb(255, 247, 227);
+    position: absolute;
+    border: 1px solid rgb(255, 204, 102);
+}
+.webim-body-footer-tips s {
+    text-decoration: none;
+    position: absolute;
+    top: 28px;
+    left: 45%;
+    background-position: 0 -243px;
+    width: 12px;
+    height: 7px;
+    line-height: 7px;
+    overflow: hidden;
+    display: block;
+}
+
+/*客户端下载提示*/
+.webim-body-client-co3 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-family: 'simsun';
+    padding: 57px 0 0 0;
+    line-height: 25px;
+    background: rgb(255, 255, 255) url('../img/client.png') no-repeat 185px 200px;
+    height: 337px;
+}
+.webim-body-client-co-close {
+    background: url('../img/co2.png') no-repeat -181px 5px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    height: 20px;
+    line-height: 20px;
+    display: block;
+    width: 20px;
+}
+
+.webim-body-client-co3-p2 {
+    margin: 13px 0 10px 0;
+}
+
+.webim-body-client-co3-cj {
+    background: rgb(98, 175, 0);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 15px;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    padding: 0 7px;
+}
+
+.webim-body-client-co3-p3 {
+    position: relative;
+    padding-top: 100px;
+    background: url('../img/co2.png') no-repeat center -46px;
+}
+
+.webim-body-client-co3-p3-s1 {
+    color: rgb(0, 100, 211);
+    position: absolute;
+    font-size: 14px;
+    font-family: 'Arial';
+    left: 80px;
+    top: 24px;
+}
+
+.webim-body-client-co3-p3-s2 {
+    position: absolute;
+    font-size: 14px;
+    font-family: 'Arial';
+    left: 80px;
+    top: 54px;
+    font-size: 12px;
+    color: rgb(119, 119, 119);
+}
+
+.webim-body-client-co3-p3-s2 span {
+    text-decoration: underline;
+}
+
+.webim-body-client-co3-p4 {
+    margin: 45px 0 0 26px;
+    height: 46px;
+    line-height: 50px;
+    background: url('../img/co4.png') no-repeat 0 0;
+}
+
+/*客户端安装引导*/
+.webim-body-client-co2 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    font-family: 'simsun';
+    padding: 100px 0 0 0;
+    line-height: 25px;
+    height: 294px;
+    text-align: center;
+    background: rgb(255, 255, 255) url('../img/client.png') no-repeat 185px 200px;
+}
+
+.webim-body-client-co2-i {
+    display: inline-block;
+    color: rgb(122, 175, 35);
+    height: 24px;
+    line-height: 24px;
+    background: url('../img/co2.png') no-repeat 0 0;
+    padding-left: 29px;
+}
+
+.webim-body-client-co2-btn {
+    margin: 10px -20px;
+}
+
+.webim-body-client-co2-btn a {
+    font-size: 14px;
+    font-family: 'Microsoft Yahei';
+    display: inline-block;
+    width: 118px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+}
+
+.webim-body-client-co2-btn-y {
+    background: rgb(253, 128, 0);
+    color: rgb(255, 255, 255);
+    margin-right: 10px;
+    border: 1px solid rgb(253, 128, 0);
+}
+
+.webim-body-client-co2-btn-n {
+    background: rgb(248, 248, 248);
+    color: rgb(137, 137, 137);
+    border: 1px solid rgb(231, 231, 231);
+}
+
+/*默认引导页面*/
+.webim-body-client {
+    background: url(../img/client.png) no-repeat right bottom;
+    height: 364px;
+}
+
+.webim-body-client-co1 {
+    font-family: simsun;
+    padding: 85px 40px 0 35px;
+    line-height: 25px;
+}
+
+#webim2 .client-im {
+    display: inline-block;
+    width: 74px;
+    margin: 0 3px;
+    height: 23px;
+    line-height: 23px;
+    background: url(../img/btn.png) no-repeat 0 0;
+}
+
+
+
+/*显示用户列表的右边滚动条*/
+
+.mCustomScrollBox>.mCSB_scrollTools {
+    width: 7px;
+    height: 100%;
+    top: 0;
+    right: 0;
+}
+.mCustomScrollBox>.mCSB_scrollTools {
+    opacity: .75;
+    filter: "alpha(opacity=75)";
+    -ms-filter: "alpha(opacity=75)";
+}
+.mCSB_scrollTools .mCSB_buttonUp, .mCSB_scrollTools .mCSB_buttonDown {
+    display: block;
+    position: relative;
+    height: 20px;
+    overflow: hidden;
+    margin: 0 auto;
+    cursor: pointer;
+    display: none;
+}
+a {
+    color: rgb(0, 102, 204);
+    text-decoration: none;
+}
+a {
+    text-decoration: none;
+}
+.mCSB_scrollTools .mCSB_buttonUp, .mCSB_scrollTools .mCSB_buttonDown, .mCSB_scrollTools .mCSB_buttonLeft, .mCSB_scrollTools .mCSB_buttonRight {
+    background-repeat: no-repeat;
+    opacity: .4;
+    filter: "alpha(opacity=40)";
+    -ms-filter: "alpha(opacity=40)";
+}
+.mCSB_scrollTools .mCSB_buttonUp {
+    background-position: 0 0;
+}
+.mCSB_scrollTools .mCSB_draggerContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: auto;
+}
+.mCSB_scrollTools a+.mCSB_draggerContainer {
+    margin: 0;
+}
+
+.mCSB_scrollTools .mCSB_buttonDown {
+    top: 100%;
+    margin-top: -40px;
+}
+.mCSB_scrollTools .mCSB_buttonDown {
+    background-position: 0 -20px;
+}
+
+.mCSB_scrollTools .mCSB_dragger {
+    cursor: pointer;
+    width: 100%;
+    height: 30px;
+}
+
+.mCSB_scrollTools .mCSB_draggerRail {
+    width: 5px;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+.mCSB_scrollTools .mCSB_draggerRail {
+    width: 5px;
+    height: 100%;
+    margin: 0 auto;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+
+

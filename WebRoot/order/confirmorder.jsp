@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>京东</title>
+<title></title>
 
 
 <!-- header以下布局 -->
@@ -65,7 +65,9 @@
 </head>
 
 <body>
-
+	<div style="display: none">
+        <%@ include file="../common/language/multiLanguage.jsp" %>
+	</div>
 	<div id="header">
         <%@ include file="../common/header/headermenu.jsp" %>
 		<%@ include file="../common/header/secondheader.jsp"%>
@@ -81,9 +83,15 @@
 				<div class="process-min">
 					<div class="ui-step ui-step-normal"> 
 						<ol class="col4">
-							<li class="current"><span class="state">Review your Order</span></li>
-							<li class=""><span class="state">Payment</span></li>
-							<li class="last"><span class="state">Done</span></li>
+							<li class="current">
+								<span class="state"><s:text name="www.confirmOrder.reviewOrder"></s:text></span>
+							</li>
+							<li class="">
+								<span class="state"><s:text name="www.confirmOrder.payment"></s:text></span>
+							</li>
+							<li class="last">
+								<span class="state"><s:text name="www.confirmOrder.done"></s:text></span>
+							</li>
 						</ol>
 					</div>
 				</div>
@@ -91,7 +99,9 @@
 				<!-- tips info -->
 				<div class="order-warn-tips">
 					<p class="ui-notice ui-notice-normal ui-notice-prompt">
-						<span class="ui-notice-body">You have changed your shipping information. The shipping cost may change accordingly.</span>
+						<span class="ui-notice-body">
+							<s:text name="www.confirmOrder.orderWarntips"></s:text>
+						</span>
 					</p>
 				</div>
 				
@@ -112,33 +122,45 @@
 						<!-- 编辑邮寄地址 -->
 						<div class="add-address-box hide" id="edit-address">
 							<div class="edit-address-title">
-								1. Please fill in your shipping address. Don't forget to save! 
+								1. <s:text name="www.confirmOrder.editAddressTitle"></s:text>
 							</div>
 						    <div class="order-address-item">
 								<div class="order-address-manage">
 									<div id="address-edit-box" class="address-info-box notranslate">
 										<dl class="address-info-item ui-form-item">
-											<dt class="ui-form-label">Contact Name:</dt>
+											<dt class="ui-form-label">
+												<s:text name="www.confirmOrder.contactName"></s:text>:
+											</dt>
 											<dd class="ui-form-control util-clearfix" id="ui-contactName-item">
 											<input type="text" data-type="contactName" maxlength="128" class="ui-textfield ui-textfield-system" id="contact-name" name="contact-name" value="">
 											<p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="contact-name-tips" style="display:none;">Please enter a Contact Name.</p>
 											</dd>
 										</dl>
 										<dl class="address-info-item ui-form-item">
-											<dt class="ui-form-label">Country/Region:</dt>
+											<dt class="ui-form-label">
+												<s:text name="www.confirmOrder.countryRegion"></s:text>:
+											</dt>
 											<dd class="ui-form-control util-clearfix">
 												<select data-type="countryRegion" id="country-region-select" class="select-txt" name="_fmo.m._0.co">
-													<option value="">Select an option...</option>
+													<option value="">
+														<s:text name="www.confirmOrder.countryRegionOption"></s:text>...
+													</option>
 												 </select>
-												 <p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="country-id-tips" style="display:none;">Please select a country.</p>
+												 <p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="country-id-tips" style="display:none;">
+												 	<s:text name="www.confirmOrder.countryIdTips"></s:text>.
+												 </p>
 											</dd>
 										  </dl>
 									<dl class="address-info-item ui-form-item">
-										<dt class="ui-form-label">Street Address:</dt>
+										<dt class="ui-form-label">
+											<s:text name="www.confirmOrder.streetAddress"></s:text>:
+										</dt>
 										<dd>
 											<div class="address-info-line ui-form-control util-clearfix">
 												<input type="text" class="ui-textfield ui-textfield-system" maxlength="256" id="street-address" data-type="streetAddress" name="street-address" value="" placeholder="Street address">
-												<p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="street-address-tips" style="display:none;">Please enter an Address</p>
+												<p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="street-address-tips" style="display:none;">
+													<s:text name="www.confirmOrder.streetAddressTips"></s:text>.
+												</p>
 											</div>
 											<div class="address-info-line ui-form-control util-clearfix">
 												<input type="text" class="ui-textfield ui-textfield-system" maxlength="256" id="streetAddressOther" data-type="streetAddressOther" name="streetAddressOther" value="" placeholder="Apartment, suite, unit etc. (optional)">
@@ -147,48 +169,71 @@
 									</dl>
 									 
 									<dl class="address-info-item city-address-item ui-form-item" id="city-address-item">
-										<dt class="ui-form-label">City:</dt>
+										<dt class="ui-form-label">
+											<s:text name="www.confirmOrder.city"></s:text>:
+										</dt>
 										<dd class="ui-form-control util-clearfix">
 											<input type="text" class="ui-textfield ui-textfield-system" maxlength="64" data-type="addressCity" name="addressCity" id="addressCity" value="">
 											</input>
-											<p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="address-city-tips" style="display:none;">Please enter a City</p>
+											<p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="address-city-tips" style="display:none;">
+												<s:text name="www.confirmOrder.addressCityTips"></s:text>.
+											</p>
 										</dd>
 									</dl>
 									 
 									 
 									<dl class="address-info-item ui-form-item">
-										<dt class="ui-form-label">Zip/Postal Code:</dt>
+										<dt class="ui-form-label">
+											<s:text name="www.confirmOrder.addressZip"></s:text>:
+										</dt>
 										<dd class="ui-form-control util-clearfix">
 											<input type="text" class="ui-textfield ui-textfield-system" maxlength="9" data-type="adressPostalCode" id="adressPostalCode" name="adressPostalCode" value="">
-											<p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="address-postal-tips" style="display:none;">Please enter a ZIP/Postal Code</p>
+											<p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="address-postal-tips" style="display:none;">
+												<s:text name="www.confirmOrder.addressZipTips"></s:text>
+											</p>
 										</dd>
+										<!-- 
 										<dd>
 											<p class="tips-txt">If you don't have a zip code in your country, input "None".</p>
-										</dd>
+										</dd>  -->
 									 </dl>
 									
 									
 									<dl class="address-info-item ui-form-item" id="telphone-info-item">
-										<dt class="ui-form-label">Tel:</dt>
+										<dt class="ui-form-label">
+											<s:text name="www.confirmOrder.addressTel"></s:text>:
+										</dt>
 										<dd class="ui-form-control util-clearfix">
 											<input type="text" class="ui-textfield ui-textfield-system ui-countryNumber" data-type="numberCountry" maxlength="8" name="countryNumber" id="countryNumber" value="">
 											<input type="text" class="ui-textfield ui-textfield-system ui-areaNumber" data-type="numberArea" maxlength="8" name="areaNumber"  id="areaNumber"  value="">
 											<input type="text" class="ui-textfield ui-textfield-system ui-localNumber" data-type="numberPhone" maxlength="36" name="localNumber"  id="localNumber"  value="">
 										</dd>
 										<dd>
-											<p class="tips-txt">Country Code - City Code - Tel Number</p>
+											<p class="tips-txt">
+												<s:text name="www.confirmOrder.telCountryCode"></s:text> - 
+												<s:text name="www.confirmOrder.telCityCode"></s:text> - 
+												<s:text name="www.confirmOrder.telNumber"></s:text>
+											</p>
 										</dd>
 									</dl>
 									<dl class="address-info-item ui-form-item" id="mobile-info-item">
-										<dt class="ui-form-label">Mobile:</dt>
+										<dt class="ui-form-label">
+												<s:text name="www.confirmOrder.addressMobile"></s:text>:
+										</dt>
 										<dd class="ui-form-control util-clearfix">
 											<input type="text" class="ui-textfield ui-textfield-system" data-type="phoneNumber" id="mobile-input-ele" maxlength="16" name="mobile-input-ele" value="">
-											<p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="mobile-tips" style="display:none;">You must include a  Mobile number</p>
+											<p class="ui-form-help ui-feedback ui-feedback-addon ui-feedback-error ui-feedback-body" id="mobile-tips" style="display:none;">
+												<s:text name="www.confirmOrder.addressMobileTips"></s:text>
+											</p>
 										</dd>
 									</dl>
 									<div class="address-field-buttons">
-										<a class="ui-button ui-button-primary ui-button-medium address-btn-enter" data-action="submitAddress" href="javascript:;">Save and ship to this address</a>
-										<a class="ui-button ui-button-normal ui-button-medium address-btn-cancel" data-action="cancelAddress" href="javascript:;">Cancel</a>
+										<a class="ui-button ui-button-primary ui-button-medium address-btn-enter" data-action="submitAddress" href="javascript:;">
+											<s:text name="www.confirmOrder.submitAddress"></s:text>
+										</a>
+										<a class="ui-button ui-button-normal ui-button-medium address-btn-cancel" data-action="cancelAddress" href="javascript:;">
+											<s:text name="www.confirmOrder.cancelSubmitAddress"></s:text>
+										</a>
 									</div>
 								</div>
 							</div>
@@ -196,13 +241,19 @@
 					</div>
 					
 					<div class="order-address-show  notranslate" id="all-address-list">
-						<div class="address-title">1. Select your shipping information:</div>
+						<div class="address-title">
+							1.<s:text name="www.confirmOrder.addressTitle"></s:text>:
+						</div>
 						<div class="address-list-main util-clearfix">
 							
 						</div>
 						<div class="operation-address">
-							<a class="add-address-btn" href="javascript:;" data-action="add-adress">Add a new address</a>
-							<a class="select-address-btn" href="javascript:;" data-action="select-adress">Select other addresses</a>
+							<a class="add-address-btn" href="javascript:;" data-action="add-adress">
+								<s:text name="www.confirmOrder.addAddress"></s:text>
+							</a>
+							<a class="select-address-btn" href="javascript:;" data-action="select-adress">
+								<s:text name="www.confirmOrder.selectAddress"></s:text>
+							</a>
 						</div>
 					</div>
 					
@@ -215,7 +266,9 @@
 				<div class="order-container-mask hide" id="orders-mask"><iframe class="hack-iframe" src="about:blank" frameborder="no"></iframe></div>
 				<!-- Order Title -->
 				<div class="order-title">
-				 <h2>2. Review and confirm your order (2 items):</h2>
+				 <h2>
+				 	2. <s:text name="www.confirmOrder.confirmOrder"></s:text>:
+				 </h2>
 				</div>
 				
 				 <!-- seller foreach -->
@@ -223,16 +276,20 @@
 				 <div class="order-table-wrapper">
 					 <table class="order-table">
 						 <thead>
-						 <tr>
-						 <th width="740">Seller: SHENZHEN MOONAR TECH. CO.,LTD</th>
-						 <th></th>
-						 </tr>
+							 <tr>
+								 <th width="740">
+								 	<s:text name="www.confirmOrder.orderItemSeller"></s:text>
+								 </th>
+								 <th></th>
+							 </tr>
 						 </thead>
 						 
 						 <!-- order foreach -->
 						 <tbody id="shopCartItems">
 							 <tr>
-							 <th colspan="2">Product Name &amp; Details</th>
+								 <th colspan="2">
+						 				<s:text name="www.confirmOrder.productDetails"></s:text>
+								 </th>
 							 </tr>
 							 <!-- product foreach -->
 						 </tbody>
@@ -247,20 +304,29 @@
 								<!-- coupon end-->
 								<div class="orderPrice-detail multiple-lan util-clearfix">
 								<p class="util-clearfix">
-								<span class="p-title">Subtotal:</span>
+								<span class="p-title">
+									<s:text name="www.confirmOrder.subtotal"></s:text>:
+								</span>
 								<span class="p-val subtotal-price"></span>
 								</p>
 								<p class="util-clearfix">
-								<span class="p-title">Shipping:</span>
+								<span class="p-title">
+									<s:text name="www.confirmOrder.shipping"></s:text>:
+								</span>
 								<span class="p-val shipping-price"></span>
 								</p>
 								
 								
 								</div>
 								<div class="orderPrice-total-detail multiple-lan util-clearfix">
-								 <p class="whole-coupon-box hide">Coupon:<span class="whole-coupon-price"></span></p>
+								 <p class="whole-coupon-box hide">
+								 	<s:text name="www.confirmOrder.coupon"></s:text>:
+								 	<span class="whole-coupon-price"></span>
+								 </p>
 								 <p class="util-clearfix">
-								 <span class="whole-price-label">Total:</span>
+								 <span class="whole-price-label">
+								 	<s:text name="www.confirmOrder.total"></s:text>:
+								 </span>
 								 <span class="whole-price ui-cost notranslate">
 								 <b  id="totalprice"></b>
 								 </span>
@@ -278,35 +344,45 @@
 					 <input type="hidden" name="coupon-item" class="coupon-id-input" value="">
 					 <input type="hidden" name="coupon-code-item" class="coupon-code-input" value="">
 					 <input type="hidden" class="curCouponPrice" value="" mulvalue="">
-					 <a class="return-btn" href="/shopcart/cart.jsp">Return to Shopping Cart</a>
+					 <a class="return-btn" href="/shopcart/cart.jsp">
+					 	<s:text name="www.confirmOrder.returnShopCart"></s:text>
+					 </a>
 					 <div class="coupon-wrapper-inner util-clearfix">
 						<div class="coupon-box userCoupon-box">
-							 <label class="ui-label">Apply  Integral:</label>
+							 <label class="ui-label">
+							 	<s:text name="www.confirmOrder.applyInteral"></s:text>:
+							 </label>
 							 <div class="coupon-main-box">
 								<input onKeyUp="changeValue(this)" name="costTjb" type="text" class="text tbGold-usePoint J_MakePoint c2c-text-default"   id="J_tjbToUse">
 							  </div>
 							 <span class="coupon-price selectCoupon-price notranslate">- USD $0.00</span>
 							 <div class="tbGold-useTip J-hide ">
-    
-							    (you have<em id="J_AvailableTjb"></em>
-							    points，aviavle <em class="point-available" id="J_MaxUsableTJB"></em>
-							    points)
+							 
+							    (<s:text name="www.confirmOrder.totalPoints"></s:text>:<em id="J_AvailableTjb"></em>
+							    ，<s:text name="www.confirmOrder.aviavlePoints"></s:text>:<em class="point-available" id="J_MaxUsableTJB"></em>
+							    )
 							    
 							 </div>
 						</div>
 						<div class="coupon-box userCoupon-box">
 							 <label class="ui-label"><input type="checkbox" data-type="select" class="ui-checkbox ui-checkbox-system">Apply  Coupon:</label>
 							 <div class="coupon-main-box">
-								<span class="coupon-title disabled" data-type="select-drop">You don’t have any coupons</span>
+								<span class="coupon-title disabled" data-type="select-drop">
+							 	<s:text name="www.confirmOrder.couponTitleDisabled"></s:text>
+								</span>
 							  </div>
 							 <span class="coupon-price selectCoupon-price notranslate">- USD $0.00</span>
 						</div>
 						 <div class="coupon-box couponCode-box">
-							 <label class="ui-label"><input type="checkbox" data-type="select" class="ui-checkbox ui-checkbox-system">
-							 Enter coupon code:</label>
+							 <label class="ui-label">
+							 	<input type="checkbox" data-type="select" class="ui-checkbox ui-checkbox-system">
+							 	<s:text name="www.confirmOrder.couponCodeBox"></s:text>:
+							 </label>
 							 <span class="coupon-main">
 							 <input type="text" class="ui-textfield ui-textfield-system" disabled="disabled">
-							 <a data-type="apply-couponcode" class="ui-button ui-button-normal ui-button-medium disabled" href="javascript:;">Apply</a>
+							 <a data-type="apply-couponcode" class="ui-button ui-button-normal ui-button-medium disabled" href="javascript:;">
+							 	<s:text name="www.confirmOrder.applyCouponCode"></s:text>
+							 </a>
 							 </span>
 							 <span class="coupon-price couponCode-price notranslate">- USD $0.00</span>
 						 </div>
@@ -323,14 +399,17 @@
 				 <div class="all-total-price util-clearfix">
 					<a name="anchor-code"></a>
 					<div id="all-total-price-info">
-						 <div class="all-total-price-warpper"><em>All Total:</em>
+						 <div class="all-total-price-warpper">
+						 	 <em><s:text name="www.confirmOrder.allTotalPrice"></s:text>:</em>
 							 <span id="all-totalfee" class="ui-cost notranslate">
 							 <b id="all-totalfee-show"></b>
 							 </span>
 					   	</div>
 						 <!-- Place Order Button -->
 						 <div class="place-order-button">
-							<button type="button" class="ui-button ui-button-primary ui-button-large" id="place-order-btn">Place Order</button>
+							<button type="button" class="ui-button ui-button-primary ui-button-large" id="place-order-btn">
+								<s:text name="www.confirmOrder.placeOrder"></s:text>
+							</button>
 						  </div>
 					 </div>
 				
@@ -338,13 +417,23 @@
 						 <div class="bp-horizontal-banner bp-shopcart-banner">
 							<span class="bp-icon"></span>
 						    <div class="buy-protection-info">
-						        <h3>Buyer Protection</h3>
+						        <h3>
+						        	<s:text name="www.confirmOrder.buyerProtection"></s:text>
+						        </h3>
 						        <ul class="buy-protection-info-list util-clearfix">
-						            <li class="bp-info-item"><em>Full Refund</em>  if you don't receive your order</li>
-						            <li class="bp-info-item"><em>Refund or Keep</em>  items not as described</li>
+						            <li class="bp-info-item">
+						            	<em><s:text name="www.confirmOrder.fullRefund"></s:text></em>
+						            	<s:text name="www.confirmOrder.notReceiveOrder"></s:text>
+						            </li>
+						            <li class="bp-info-item">
+						            	<em><s:text name="www.confirmOrder.refundORKeep"></s:text></em>  
+						            	<s:text name="www.confirmOrder.itemNotAsDescribed"></s:text>
+						            </li>
 						        </ul>
 						        <div class="buy-protection-more">
-						            <a rel="nofollow" target="_blank" href="http://www.aliexpress.com/buyerprotection/index.html">Learn More</a>
+						            <a rel="nofollow" target="_blank" href="http://www.999own.ru/common/footer/return.jsp?id=80">
+						            	<s:text name="www.confirmOrder.buyProtectionMore"></s:text>
+						            </a>
 						        </div>                              
 						    </div>
 						</div>
@@ -352,7 +441,9 @@
 				 </div>
 			    <!-- -->
 				<div class="payment-method util-clearfix">
-					<span class="payment-method-title">Payment Methods:</span>
+					<span class="payment-method-title">
+						<s:text name="www.confirmOrder.paymentMethods"></s:text>:
+					</span>
 					<!--skylight-wholesale/payment/partner_logo.html -start -->
 					<ul class="util-clearfix payment-logo-method">
 					    <li class="pm-type-visa-s-1"></li>
@@ -383,15 +474,28 @@
 		 <form action="shopcart/updateShopCartQuantityInConfirmOrder.action" method="post" id="dlg-edit-quantity" style="display:none;z-index:99;">
 			 <div class="inner util-clearfix">
 			 <input type="hidden"  id="hid-product-id-quantity" value="">
-			 <a id="quantity-minus" class="quantity-minus" href="javascript:void(0);"  onclick="muiSetAmount.reduce('#txt-editable-quantity');">minus</a>
+			  <input type="hidden"  id="hid-product-minbuy-quantity" value="">
+			 <a id="quantity-minus" class="quantity-minus" href="javascript:void(0);"  onclick="muiSetAmount.reduce('#txt-editable-quantity');">
+			 	<s:text name="www.confirmOrder.quantityMinus"></s:text>
+			 </a>
 			 <input name="count" id="txt-editable-quantity" class="layout-input ui-textfield ui-textfield-system" autocomplete="off">
-			 <a id="quantity-add" class="quantity-add" href="javascript:void(0);"   onclick="muiSetAmount.add('#txt-editable-quantity');">plus</a>
-			 <span id="dlg-unit-quantity">pieces </span>
+			 <a id="quantity-add" class="quantity-add" href="javascript:void(0);"   onclick="muiSetAmount.add('#txt-editable-quantity');">
+			 	<s:text name="www.confirmOrder.quantityAdd"></s:text>
+			 </a>
+			 <span id="dlg-unit-quantity">
+			 	<s:text name="www.confirmOrder.unit"></s:text>
+			 </span>
 			 <input type="hidden" name="cartid" id="cartid" value="">
 			 <input type="hidden" name="redirctURL" id="redirctURL" value='<s:property value="redirctURL"  escape="false" />'>
 			 <input type="button" id="btn-ok-quantity" value="OK" onclick="checkToSubmit(this);">
-			 <a id="btn-cancel-quantity">Cancel</a>
-			 <div class="inventory-wrapper">Maximum:<span id="inventory-value"></span></div>
+			 <a id="btn-cancel-quantity">
+			 	<s:text name="www.confirmOrder.quantityCancel"></s:text>
+			 </a>
+			 <!-- 
+			 <div class="inventory-wrapper">
+			 	<s:text name="www.confirmOrder.quantityMaximum"></s:text>:
+				<span id="inventory-value"></span>
+			 </div>  -->
 			 </div>
 		 </form>
 		 <!-- edit quantity dialog END -->

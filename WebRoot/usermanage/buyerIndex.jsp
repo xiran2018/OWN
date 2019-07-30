@@ -12,7 +12,7 @@
 <head>
 <base href="<%=basePath%>">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>京东</title>
+<title></title>
 
 
 <!-- header以下布局 -->
@@ -151,7 +151,7 @@
 				</div><!-- end of shortcuts -->
 				<!-- mobile app -->
 				<div class="grid-col-container">
-					<div class="me-ui-box mobile-app">
+					<div class="me-ui-box mobile-app" style=" display: none; ">
 						<div class="edu-weixin">
 							<span class="t">AliExpress Mobile App</span>
 							<span class="g">Shop anywhere, anytime!</span>

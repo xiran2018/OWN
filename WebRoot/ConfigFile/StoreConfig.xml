@@ -1,10 +1,24 @@
-<?xml version="1.0" encoding="gbk"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <Config> 
-  <StoreConfig>
-    <!-- //�̵�������Ϣ -->  
-    <Footer>
-      <!-- //��ҳҳ�Ŵ�ŵ�������Ϣ -->&lt;b&gt;sjlfjsf&lt;/b&gt;
+  <StoreConfig> 
+    <!-- //商店配置信息 -->  
+    <Footer> 
+      <!-- //首页页脚存放的文字信息 -->&lt;p style="text-align: center;"&gt;&lt;span class="banks" style="width: 222px; text-indent: -9999px; display: inline-block; margin-right: 5px; height: 30px; margin-top: 21px; background-image: url(http://litbjscss.rightinthebox.com/lightsource/img/sprite/generated/footer_bbced1212c129d6a.png); background-position: 0px 0px; background-repeat: no-repeat;"&gt;visa, master card, maestro, carte blue&lt;/span&gt;&lt;a target="_top" class="paypal" style="text-indent: -9999px; display: inline-block; margin-right: 5px; height: 30px; margin-top: 21px; width: 51px; background-image: url(http://litbjscss.rightinthebox.com/lightsource/img/sprite/generated/footer_bbced1212c129d6a.png); background-position: -229px 0px; background-repeat: no-repeat;"&gt;paypal&lt;/a&gt;&lt;a title="wholesale PaypalVerify " class="paypalVerified" style="text-indent: -9999px; display: inline-block; margin-right: 5px; margin-top: 10px; height: 44px; width: 44px; vertical-align: middle; background-image: url(http://litbjscss.rightinthebox.com/lightsource/img/sprite/generated/footer_bbced1212c129d6a.png); background-position: 0px -153px; background-repeat: no-repeat;"&gt;paypal verified&lt;/a&gt;&lt;span class="boleto-logo-footer" style="margin-top: 8px; height: 30px; width: 58px; vertical-align: middle; text-indent: -9999px; display: inline-block; margin-right: 5px; background-image: url(http://litbjscss.rightinthebox.com/lightsource/img/sprite/generated/footer_bbced1212c129d6a.png); background-position: -51px -163px; background-repeat: no-repeat;"&gt;&lt;/span&gt;&lt;span class="westernUnion" style="text-indent: -9999px; display: inline-block; margin-right: 5px; height: 30px; margin-top: 21px; width: 105px; background-image: url(http://litbjscss.rightinthebox.com/lightsource/img/sprite/generated/footer_bbced1212c129d6a.png); background-position: 0px -60px; background-repeat: no-repeat;"&gt;western union&lt;/span&gt;&lt;span class="norton-logo" style="width: 77px; height: 30px; vertical-align: middle; margin-top: 8px; text-indent: -9999px; display: inline-block; margin-right: 5px; background-image: url(http://litbjscss.rightinthebox.com/lightsource/img/sprite/generated/footer_bbced1212c129d6a.png); background-position: -106px -282px; background-repeat: no-repeat;"&gt;&lt;/span&gt;&lt;span class="delivery" style="text-indent: -9999px; display: inline-block; margin-right: 5px; height: 30px; margin-top: 21px; width: 214px; background-image: url(http://litbjscss.rightinthebox.com/lightsource/img/sprite/generated/footer_bbced1212c129d6a.png); background-position: 0px -30px; background-repeat: no-repeat;"&gt;dhl ups ems&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;&lt;p style="text-align: center;"&gt;&lt;span style="font-family: arial, helvetica, sans-serif;"&gt;© 2016 &amp;quot;999OWN&amp;quot; оптовый интернет-магазин сумок и обуви&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style="font-family: arial, helvetica, sans-serif;"&gt;&lt;br/&gt;&lt;/span&gt;&lt;br/&gt;&lt;/p&gt;
     </Footer> 
-  </StoreConfig> 
+  </StoreConfig>  
+  <Email> 
+    <!-- 邮件发送参数 -->  
+    <attachmentFilePath>/upload/emailAttachImage/logo.jpg</attachmentFilePath>  
+    <attachmentDescription>999own</attachmentDescription>  
+    <attachmentName>999own.jpg</attachmentName>  
+    <imageBaseURL>http://www.999own.ru</imageBaseURL>  
+    <sslOnConnect>true</sslOnConnect>  
+    <hostName>mail.nic.ru</hostName>  
+    <smtpPort>25</smtpPort>  
+    <hostUserName>service@999own.ru</hostUserName>  
+    <hostPassword>19880202Q</hostPassword>  
+    <from>service@999own.ru</from>  
+    <fromName>999OWN</fromName> 
+  </Email> 
 </Config>

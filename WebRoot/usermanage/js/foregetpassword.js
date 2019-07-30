@@ -3,7 +3,7 @@ function checkIsMail(mail)
 	var flag=isEmail(mail);
 	if(!flag)
 	{
-		alert("请输入正确的邮箱地址");
+		alert(messageResourceIsEmailTips);
 		return false;
 	}
 	else
@@ -36,7 +36,7 @@ function getPassword()
 	 
 	if(mail=="")
 	{
-		 alert("请输入邮箱");
+		 alert(messageResourceInputEmailTips);
 		 return;
 	}
 	 
@@ -57,16 +57,16 @@ function getPassword()
 		{
 			if(data.status=="200")
 			{
-				alert("没有此邮箱，请输入正确的邮箱");
+				alert(messageResourceNotHaveEmailTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("由于服务器原因失败，请稍后再试!!!!");
+				alert(messageResourceErrorTips);
 			}
 		},
 		success : function(data) 
 		{
-			alert("邮件已经发送，请登录邮箱修改密码！");
+			alert(messageResourceEmailSendTips);
 //				window.opener = null;
 //				window.open(' ','_self');
 //				window.close();

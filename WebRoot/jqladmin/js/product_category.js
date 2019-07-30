@@ -71,8 +71,9 @@ var category_setting = {
                 $("#modify_imagesize").val(data.category.imagesize);
                 
                 
-                $(":radio[name=modify_cshow][value='"+data.category.isShow+"']").attr("checked","true");
-                $(":radio[name=modify_isInFloorshow][value='"+data.category.isInFloorshow+"']").attr("checked","true");
+                $(":radio[name=modify_cshow][value='"+handleNull(data.category.isShow)+"']").attr("checked","true");
+                $(":radio[name=modify_isInBannershow][value='"+handleNull(data.category.isInBannershow)+"']").attr("checked","true");
+                $(":radio[name=modify_isInFloorshow][value='"+handleNull(data.category.isInFloorshow)+"']").attr("checked","true");
                 //分类图片
                 var tempImage=data.category.image;
                 if(tempImage==null)
@@ -100,6 +101,14 @@ var category_setting = {
 	       }
 	    );//end of ajax
 		return false;
+	}
+	
+	function handleNull(data)
+	{
+		if(data==null)
+			return 0;
+		else
+			return data;
 	}
 	
 	/**
@@ -402,7 +411,8 @@ var category_setting = {
 		 var image=$.trim($("#image").val());
 		 var imagesize=$.trim($("#imagesize").val());
 		 var isShow=$('input[name="cshow"]:checked').val();
-		 var isInFloorshow=$('input[name="isInFloorshow"]:checked').val();
+		 var isInBannershow=$('input[name="isInBannershow"]:checked').val();
+		 var isInFloorshow=$('input[name="isInFloorshow"]:checked').val(); 
 		 var multiLanguage=[];//按照json的格式，存储多语言的类别信息：json的格式如下所示：
 		 //[{id(语言id）:1,other_name：“23”,other_title:,other_keywords:,other_desc:},{},{}]
 		 len=multiforeigid.length;
@@ -456,6 +466,7 @@ var category_setting = {
 	                 "image":image,
 	                 "imagesize":imagesize,
 	                 "isShow":isShow,
+	                 "isInBannershow":isInBannershow,
 	                 "isInFloorshow":isInFloorshow
 			 };	
 			 $.ajax( {

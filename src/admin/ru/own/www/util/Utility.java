@@ -103,8 +103,8 @@ public class Utility {
 	{
 		BigDecimal b1 = new BigDecimal(Float.toString(a));
 		BigDecimal b2 = new BigDecimal(Float.toString(b));
-		Float less = b1.subtract(b2).floatValue();
-		return less;
+		Float less = Float.valueOf(b1.subtract(b2).floatValue());
+		return less.floatValue();
 	}
 	
 	/**
@@ -145,7 +145,7 @@ public class Utility {
 		try 
 		{
 			OutputFormat format = OutputFormat.createPrettyPrint();
-			format.setEncoding("gbk");
+//			format.setEncoding("gbk");
 			XMLWriter writer = new XMLWriter(new FileWriter(path), format);
 			writer.write(document);
 			writer.close();
@@ -282,8 +282,8 @@ public class Utility {
 
 	  	 path= request.getServletPath().substring(1);//用这个函数之后不需要考虑项目名称长度的问题.substring(1)的目的是把第一个“/”去除
 	  	
-        if(!path.endsWith("login.action"))
-        {
+//        if(!path.endsWith("login.action"))
+//        {
        	 // 获得请求中的参数
 	         Map<String,String[]> zzMap = request.getParameterMap();   
             if(zzMap!=null)   
@@ -320,7 +320,7 @@ public class Utility {
                        
                 }   
              }  
-        }
+        //}
 
 	      if(path==null || path.equals(""))   
 	      { 
@@ -530,7 +530,7 @@ public class Utility {
 	    	  	 //method 3
 	    	  	 path= request.getServletPath();//用这个函数之后不需要考虑项目名称长度的问题
 	    	  	 
-		         if((path.endsWith("action")||path.endsWith("jsp"))&&!path.endsWith("login.action"))
+		         if(path.endsWith("action")&&!path.endsWith("login.action"))
 		         {
 	//	        	 Map parameters = invocation.getInvocationContext().getParameters();
 	//	        	 Set<String> keySet = parameters.keySet();
@@ -559,10 +559,10 @@ public class Utility {
 			                		  }
 		                     }   
 		                        
-		                 }   
-		              }  
-		         }
-	      }
+		                 }//end of for
+		              }//end of if
+		         }//end of if
+	      }//end of if
 //         else
 //         {
 //             // 获得请求中的参数
@@ -617,13 +617,11 @@ public class Utility {
 		
 	   Properties props=System.getProperties(); //系统属性
        String osName = props.getProperty("os.name"); //操作系统名称  
-       if(osName.startsWith("Windows")||osName.startsWith("w"))
+       if((osName.startsWith("Windows") || osName.startsWith("w")) && result.startsWith("/"))
        {
-    	   if(result.startsWith("/"))
-    	   {
     		   int len=result.length();
     		   result=result.substring(1);
-    	   }
+
        }
 		
        int index = result.indexOf("WEB-INF");  
@@ -654,7 +652,8 @@ public class Utility {
 	
        }    
 	
-       if(result.endsWith("/"))result = result.substring(0,result.length()-1);//不包含最后的"/"    
+       if(result.endsWith("/"))
+       		result = result.substring(0,result.length()-1);//不包含最后的"/"
 	
        return result;    
 		
@@ -750,5 +749,13 @@ public class Utility {
 		}
 		
 		return result;
-	} 
+	}
+
+	public static String trimString(String content)
+	{
+		String textContent;
+		for (textContent = content.trim(); textContent.startsWith("　"); textContent = textContent.substring(1, textContent.length()).trim());
+		for (; textContent.endsWith("　"); textContent = textContent.substring(0, textContent.length() - 1).trim());
+		return textContent;
+	}
 }

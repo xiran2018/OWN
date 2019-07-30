@@ -9,7 +9,7 @@
 		<div style="">
 	            <div class="menu-box">  
 	            	<ul class="clearfix group ">
-	            		<div class="title"><a id="headMenu_default" href="client-center/buyerIndex.action" data-spm-anchor-id="0.0.0.0">My POPLanding</a></div>
+	            		<div class="title"><a id="headMenu_default" href="client-center/buyerIndex.action" data-spm-anchor-id="0.0.0.0">My 999OWN</a></div>
 				    	<div class="title"><s:text name="www.order.manageOrders"></s:text> </div>
 		    			  <li>
 							<a href="order/showAllOrders.action" data-spm-anchor-id="0.0.0.0">

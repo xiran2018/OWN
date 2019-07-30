@@ -31,11 +31,11 @@ function loadSmallImage()
 		{
 			if(data.status=="200")
 			{
-				alert("请再试刷新一次");
+				alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("服务器崩溃了!!!!");
+				alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -83,11 +83,11 @@ function loadImage()
 		{
 			if(data.status=="200")
 			{
-				alert("请再试刷新一次");
+				alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("服务器崩溃了!!!!");
+				alert(messageResourceErrorTips);
 			}
 			
 		},

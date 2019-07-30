@@ -35,4 +35,8 @@ public class ProductFilterDAOImp implements ProductFilterDAO {
 		return dao.getPushProductsTotalNumber(args);
 	}
 
+	public int getProductsCountByAttributeArgs(Map args)
+	{
+		return dao.getProductsCountByAttributeArgs(args);
+	}
 }

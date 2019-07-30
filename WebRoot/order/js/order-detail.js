@@ -113,7 +113,7 @@ function generateXiangXiInfo(order,odsvoList)
 		html+=getProductProperties(odsvo.odpa);//商品属性信息
 		html+="</div>";
 		//seller info
-		html+="<div class='seller-sign'>(POPlanding)</div>";
+		html+="<div class='seller-sign'>(999OWN)</div>";
 		html+="<div class='other-info'></div>";
 		html+="</td>";
 		//price

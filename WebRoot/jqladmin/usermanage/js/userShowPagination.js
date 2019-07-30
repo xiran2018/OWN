@@ -200,8 +200,9 @@ function  buildUpInformation(entireTransInfoArgs)
 //	alert(dataRows);
 	var html = "";
 	html+="<table class='altrowstable'>";
-	html+="<tr><td colspan='7' style='text-align: center;'>用户管理</td></tr>";
-	html+="<tr><td class='sevenColume1'>用户名</td><td class='sevenColume2'>密码</td><td class='sevenColume3'>真实姓名</td><td class='sevenColume4'>邮箱</td><td class='sevenColume5'>电话</td><td class='sevenColume6'>是否可用</td><td class='sevenColume7'>操作</td></tr>";
+	html+="<tr><td colspan='6' style='text-align: center;'>用户管理</td></tr>";
+	html+="<tr><td class='sevenColume1'>用户名</td><td class='sevenColume3'>真实姓名</td><td class='sevenColume4'>邮箱</td><td class='sevenColume5'>电话</td><td class='sevenColume6'>状态</td><td class='sevenColume7'>操作</td></tr>";
+	//html+="<tr><td class='sevenColume1'>用户名</td><td class='sevenColume2'>密码</td><td class='sevenColume3'>真实姓名</td><td class='sevenColume4'>邮箱</td><td class='sevenColume5'>电话</td><td class='sevenColume6'>是否可用</td><td class='sevenColume7'>操作</td></tr>";
 	for ( var i1 = 0; i1 < dataRows; i1++)
 	{
 		var allInfo=entireTransInfo[i1];
@@ -221,7 +222,8 @@ function  buildUpInformation(entireTransInfoArgs)
 function generateXiangXiInfo(transInfo)
 {
 	html="";
-	html+="<tr class='mui_row'><td class='sevenColume1 mui_name'>"+transInfo.username+"</td><td class='sevenColume2 mui_password'>"+transInfo.userpassword+"</td><td class='sevenColume3 mui_realname'>"+paramConvert(transInfo.userrealname)+"</td><td class='sevenColume4 mui_mail'>"+transInfo.usermail+"</td><td class='sevenColume5 mui_tel'>"+paramConvert(transInfo.usertel)+"</td><td class='sevenColume6  mui_status'>"+showConvert(transInfo.status)+"</td><td class='sevenColume7 mui_operate'>"+operate(transInfo.userid)+"</td></tr>";
+	//html+="<tr class='mui_row'><td class='sevenColume1 mui_name'>"+transInfo.username+"</td><td class='sevenColume2 mui_password'>"+transInfo.userpassword+"</td><td class='sevenColume3 mui_realname'>"+paramConvert(transInfo.userrealname)+"</td><td class='sevenColume4 mui_mail'>"+transInfo.usermail+"</td><td class='sevenColume5 mui_tel'>"+paramConvert(transInfo.usertel)+"</td><td class='sevenColume6  mui_status'>"+showConvert(transInfo.status)+"</td><td class='sevenColume7 mui_operate'>"+operate(transInfo.userid)+"</td></tr>";
+	html+="<tr class='mui_row'><td class='sevenColume1 mui_name'>"+transInfo.username+"</td><td class='sevenColume3 mui_realname'>"+paramConvert(transInfo.userrealname)+"</td><td class='sevenColume4 mui_mail'>"+transInfo.usermail+"</td><td class='sevenColume5 mui_tel'>"+paramConvert(transInfo.usertel)+"</td><td class='sevenColume6  mui_status'>"+showConvert(transInfo.status)+"</td><td class='sevenColume7 mui_operate'>"+operate(transInfo.userid)+"</td></tr>";
 	return html;
 }
 
@@ -244,9 +246,13 @@ function showConvert(status)
 	{
 		html+="不可用";
 	}
-	else
+	else if(status==1)
 	{
-		html+="可用";
+		html+="没有验证";
+	}
+	else if(status==2)
+	{
+		html+="已验证";
 	}
 	return html;
 }
@@ -395,7 +401,7 @@ function  buildUpListData(totalNumberPageArgs)
 {
 	var totalNumber=totalNumberPageArgs;
 //	console.log("totalNumber="+totalNumber);
-	if(totalNumber==1)
+	if(totalNumber==0||totalNumber==1)
 	{//只有大于一页参会显示分页
 		return;
 	}

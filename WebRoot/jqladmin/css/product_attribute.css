@@ -92,16 +92,19 @@ ul{
 	border: 1px solid #459300 !important;
     background-color: #459300;
     color: #fff !important;
+    cursor: pointer;
 }
 .second_button {
 	margin-top: 5px;
 	width: 150px;
 	height: 26px;
 	line-heigth:30px;
+	cursor: pointer;
 }
 
 .rightclass{
 	padding-left: 0px;
+	display: none;
 }
 
 .sel_button  a:link{text-decoration:none; cursor:pointer;}

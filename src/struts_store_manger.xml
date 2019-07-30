@@ -25,8 +25,25 @@
 		</global-results>
 		
 		
-		
-		
+		<!-- 邮件发送信息管理  -->
+		<action name="emailManager" class="admin.ru.own.www.mail.emailOperate" method="emailManager">
+            <result name="success">  
+				jqladmin/storemange/emailManage.jsp
+            </result>
+            <result name="error">  
+				jqladmin/storemange/emailManage.jsp
+            </result>
+        </action>
+        
+        <action name="updateEmailInfo" class="admin.ru.own.www.mail.emailOperate" method="updateEmailInfo">
+            <result name="success">  
+				jqladmin/storemange/emailManage.jsp
+            </result>
+            <result name="error">  
+				jqladmin/storemange/emailManage.jsp
+            </result>
+        </action>
+        
         
         <!-- 商店页脚信息管理  -->
         <action name="setStoreFooter" class="admin.ru.own.www.logic.StoreOperate" method="setStoreFooterInfo">
@@ -40,6 +57,8 @@
              	<param name="root">info</param>
             </result>
         </action>
+        
+        
         
         <!-- 商店首页显示信息管理  -->
         <action name="getAllHomeInfo" class="admin.ru.own.www.logic.StoreOperate" method="getAllHomeInfo">

@@ -88,5 +88,15 @@ public class ProductFilterImp extends ProductFilter {
 		args.put("endPrice",Integer.MAX_VALUE);
 		return args;
 	}
-	
+	int getProductsCountByAttributeArgs(Map args)
+	{
+		args.put("totalNumberFlag", Integer.valueOf(1));
+		ProductFilterDAO filterDAO = (ProductFilterDAO)DAOFactory.get(ProductFilterDAO.class.getName());
+		List productsId = filterDAO.getIndexProductsLimit(args);
+		filterDAO.closeSession();
+		int totalNumber = 0;
+		if (productsId != null)
+			totalNumber = productsId.size();
+		return totalNumber;
+	}
 }

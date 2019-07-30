@@ -50,6 +50,9 @@ public interface CategoryMapper extends MyBatisMapper
 	 * @return
 	 */
 	public List<CategoryClientShow> getShowCategory(int lanid);
+
+	public abstract List getBannerShowCategory(int i);
+
 	List<Integer> getAllSubCategoryID(int categoryid);
 	String getAllSubCategoryIDStr(int categoryid);
 	String getAllFutherCategoryIDStr(int categoryid);

@@ -1,4 +1,10 @@
 /**
+ * the global Variable
+ * 
+ */
+var password;
+
+/**
  * 重置密码
  */
 function resetPassword()
@@ -6,29 +12,26 @@ function resetPassword()
 	var actionUrl = "resetPassword.action";
 	
 	 var id=$.trim($("#userid").val());
-	 var passw=$.trim($("#passw").val());
+	 var checkcodeString=$.trim($("#checkcodeforgetpass").val());
+	 var password=$.trim($("#passw").val());
 	 var checkpassw=$.trim($("#checkpassw").val());
 
 	 
-	 if(passw=="")
-	{
-			 alert("请输入密码");
-			 return;
-	}
+	 if(!getPassword("#passw"))
+			return;
+
 	 
-	 if(checkpassw=="")
+	 if(!checkPassword("#checkpassw"))
 	 {
-		 alert("请确认密码");
+		 alert("please input same string！");
 		 return;
 	 }
-	 
-
-
 	 
 	 var params=
 	 {
 		   "id":id,
-           "passw":passw
+		   "checkcode":checkcodeString,
+           "passw":password
 	 };
 	 
 	$.ajax( { //重置密码
@@ -40,63 +43,58 @@ function resetPassword()
 		{
 			if(data.status=="200")
 			{
-				alert("链接已经失效，请重新获取密码!!!!");
+				alert(messageResourceLinkFailureTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert("由于服务器原因，修改密码失败!!!!");
+				alert(messageResourceErrorTips);
 			}
 		},
 		success : function(data) 
 		{
-			alert("修改密码成功！");
-			window.location="login.jsp";
+			if(data=="0")
+			{
+				alert("Success！");
+				window.location="login.jsp";
+			}
+			else if(data=="1")
+			{
+				alert("Sorry,retry later！");
+			}
+			else if(data=="2")
+			{
+				alert("Sorry,the Link has expired. Please request again！");
+				window.location="usermanage/foreget-password.jsp";
+			}
+			else
+			{//data=="3"
+				alert("Sorry,there is something wrong！");
+			}
+				
 		}
 	});// end of ajax
 
 }
-//********************************************************************************************
-/**
- * the global Variable
- * 
- */
-var password;
 
-//********************************************************************************************
 function getPassword(element)
 {
 	password=$.trim($(element).val());
 	var flag=isPassword(password);
 	if(!flag)
 	{
-		alert("请输入符合要求的密码");
-//		$(element).focus();
+		alert("please meet the requirements of the password！");
+		return false;
 	}
+	return true;
 }
-
-
-
-function isPassword(obj)
-{   
-    reg=/^[\w]{6,12}$/;   
-   if(!reg.test(obj))
-   {        
-//        $("#test").html("<b>请输入正确的邮箱地址</b>");   
-	   return false;
-    }
-   else
-    {   
-       return true;
-    }   
-}  
 
 function checkPassword(element)
 {
 	var checkpassword=$.trim($(element).val());
 	if(password!=checkpassword)
 	{
-		alert("两次输入的密码不一致");
-//		$("#passw").focus();
-		return;
+		alert("please input same string！");
+		return false;
 	}
+	return true;
 } 

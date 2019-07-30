@@ -1,0 +1,112 @@
+@charset "utf-8";
+
+/*------------------------纯css实现---下拉菜单-----------------------------------*/
+ul.quick-menu
+{ 
+	/*width:700px; height:26px;float:right;*/
+	display: inline-block;
+    font-family: Arial;
+    font-size: 14px;
+    float: right;
+    line-height: 28px;
+    padding-right: 10px;
+	
+}
+ul.quick-menu li.downmenu
+{ 
+/*	float:left; 
+	margin-right:5px; 
+	padding-right:10px; */
+	position:relative;
+}
+ul.quick-menu li a.downmenu
+{ 
+	background:url(../../../images/arrow.gif) no-repeat right center  #fff;;
+	padding-right:8px;
+	z-index: 123000;
+	position: relative;
+	/*margin-right: 5px;*/
+    padding-right: 15px;
+    padding-left: 10px !important;
+    line-height: 28px;
+    display: block;
+	
+
+}
+
+/*下拉菜单*/
+ul.quick-menu  li,ul.quick-menu  li ul li
+{
+	/*padding-left: 10px !important;*/
+}
+
+ul.quick-menu  li.downmenu:hover>a
+{
+    /*background:#F1FBEC;*/
+    border:1px solid #9CDD75;
+    border-bottom:none;
+    color:#666;
+}
+
+
+ul.quick-menu  li  ul 
+{
+    border:1px solid #9CDD75;
+    /*border-top:none;*/
+    float:left;
+    background:#F1FBEC;
+    position:absolute;
+    top:28px;
+    left:0px;
+    display:none;
+    z-index: 123;
+    border-radius: 0 2px 2px;
+    box-shadow: -1px 1px 4px rgba(0,0,0,.19);
+    
+}
+
+ul.quick-menu  li ul
+{
+	/*opacity: 0.90;*/
+    background: #fff;
+	
+}
+
+ul.quick-menu  li:hover ul {
+    display:block;
+}
+
+ul.quick-menu  li  ul li {
+    margin: 0;
+    padding: 0;
+    height: 25px;
+    line-height: 20px;
+    z-index: 123;
+}
+
+ul.quick-menu  li  ul li a {
+    color:#666;
+    text-decoration:none;
+    display:inline-block;
+    width:100px;
+    margin: 0;
+    padding: 0;
+    z-index: 123;
+    padding-left: 10px;
+}
+
+ul.quick-menu  li  ul li:hover {
+    color:#333;
+    font-weight:bold;
+    background:lightgreen;
+    margin: 0;
+    padding: 0;
+    z-index: 123;
+}
+
+
+
+
+
+
+/*--------------------------------------------------------------*/

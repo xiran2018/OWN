@@ -42,6 +42,9 @@
 </head>
 
 <body>
+	<div style="display: none">
+        <%@ include file="../common/language/multiLanguage.jsp" %>
+	</div>
 
 	<div id="header">
         <%@ include file="../common/header/headermenu.jsp" %>
@@ -69,7 +72,6 @@
 						</div>
 							<table border="0" cellpadding="0" cellspacing="0" width="100%" class="tables V">
 								<tbody>
-								<input id="userid" name="userid" value='<%=session.getAttribute("customeruserid")%>'    type="text" style="display:none">
 								<tr>
 									<th width="26%">
 										<span class="required">
