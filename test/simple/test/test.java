@@ -4,29 +4,18 @@ public class test {
 
 public static void main(String[] args) {
 	
-//	String aString="productImage/2. ���\\B001ŵ����\2016.10.05-2/90083(1).jpg";
-//	String test=aString;
-//	test=aString.replaceAll("\\\\", "/");
-	
-	String tempName="xxx (11ss).jpg";
-	
-	int j=0,imageSort=0;
-	//����ͼƬ��λ�ã���������е�ֵ��ȷ�������·�(12),��λ��Ϊ12
-	int tempStart=tempName.lastIndexOf("("); //��ȡ���������ڵ�λ��
-	int tempEnd=tempName.lastIndexOf(")"); //��ȡ���������ڵ�λ��
-	//�ȶ���Ʒ������Ƿ���ȣ���Ϊ�Ƿ���ͬһ����Ʒ������
-	if((tempStart!=-1)&&(tempEnd!=-1)&&(tempEnd>=tempStart))
-	{//˵�������ţ����Ϊ-1˵��û������
-		
-		 String sortString=tempName.substring(tempStart+1,tempEnd);//��ȡ������֮����ļ�����
-		 try {
-			 imageSort=Integer.parseInt(sortString);
-		} catch (Exception e) {
-			// TODO: handle exception
-			imageSort=0;
-		}
+    char c[] = "qazwsx".toCharArray();
+	for(int i = 0;i<c.length;i++) {
+		c[i] = (char)(c[i] ^ 'M');//将明文转换成密文
 	}
-	
-	System.out.println(imageSort);
+	String string = new String(c, 0, c.length);
+	System.out.println("密文：" + string);
+	for(int i=0;i<c.length;i++) {
+		c[i] = (char)(c[i] ^ 'M');//将密文还原为明文
+	}
+	String string1 = new String(c, 0, c.length);
+	System.out.println("明文：" + "\n" + string1);
+
+
 }
 }

@@ -227,7 +227,7 @@ strong, b {
     border: 1px solid rgb(210, 210, 210);
     border-left: 0;
     position: relative;
-    background: rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
     width: 150px;
     _width: 140px;
 }
@@ -958,6 +958,7 @@ ul.eDefault li .eDefault_89 {
     border: 0;
     font-size: 12px;
     overflow-y: auto;
+    font: 12px/1.5 arial,\5b8b\4f53;
 }
 /*发送区域*/
 .webim-body-comtent-footer {
@@ -984,7 +985,8 @@ ul.eDefault li .eDefault_89 {
 }
 #webim2 .webim-body-comtent-footer a {
     color: rgb(75, 75, 75);
-    font-family: 'SimSun';
+    /*font-family: 'SimSun';*/
+    font: 12px/1.5 arial,\5b8b\4f53;
 }
 #webim2 .webim-body-comtent-footer a.webim-body-comtent-submit, #webim2 .webim-body-comtent-footer a.webim-body-comtent-submit:hover {
     color: rgb(255, 255, 255);
@@ -1069,7 +1071,6 @@ ul.eDefault li .eDefault_89 {
 
 .webim-body-client-co3-p3-s2 {
     position: absolute;
-    font-size: 14px;
     font-family: 'Arial';
     left: 80px;
     top: 54px;
@@ -1243,4 +1244,130 @@ a {
     border-radius: 10px;
 }
 
+/*以下是聊天窗口邮箱和电话的输入框格式*/
+.g-FormField2 {
+    margin: 0 0 5px;
+}
+.g-FormField2 {
+    margin-bottom: 0px;
+}
+
+.g-FormField2-Label {
+    float: none;
+    width: auto;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: left;
+    padding: 8px 7px 2px 0;
+    color: #333;
+}
+
+.g-FormField2 label {
+    display: inline-block;
+}
+
+label {
+    font-weight: inherit;
+}
+
+.g-FormField2-InputContainer {
+    /*clear: left;*/
+    /*float: none;*/
+    position: relative;
+    padding: 0px 7px 0px 0;
+}
+
+.g-FormField2-InputPanel {
+    float: none;
+}
+
+.g-FormField2-Error .MessageArea, .g-FormField2-Error .TextBoxContainer {
+    border-color: #A60000;
+}
+
+.g-FormField2-Error .MessageArea, .g-FormField2-Error .TextBoxContainer, .g-FormField2-Error .g-ListBox, .g-FormField2-Error .g-ReadOnlyListBox {
+    border-color: #A60000;
+    background: #fff0f0;
+}
+
+.g-FormField2-Error .MessageArea input, .g-FormField2-Error .TextBoxContainer input, .g-FormField2-Error .g-ListBox input, .g-FormField2-Error .g-ReadOnlyListBox input {
+    background: #ffffff;
+    border: 1px solid #adac9e;
+}
+
+.TextBox, .g-ListBoxInput, .MessageArea textarea {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    line-height: normal;
+    background: 0 0;
+    border: none;
+    font-size: 15px;
+    padding: 5px 2px;
+    color: #555;
+}
+
+.g-FormField2-ErrorMessage {
+    background: #a60000;
+    border: 1px solid #a60000;
+    color: #fff;
+}
+
+.g-FormField2-Description, .g-FormField2-ErrorMessage {
+    clear: both;
+    display: block;
+    max-width: 350px;
+    text-align: left;
+    line-height: 13px;
+    font-size: 10px;
+    -webkit-border-top-left-radius: 0;
+    -moz-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+    -webkit-border-top-right-radius: 0;
+    -moz-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+    -webkit-border-bottom-right-radius: 5px;
+    -moz-border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    -webkit-border-bottom-left-radius: 5px;
+    -moz-border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.g-FormField2-ErrorIcon {
+    background: url(../img/error.png) no-repeat right center;
+    color: #fff;
+    font-weight: 700;
+    height: 24px;
+    margin-top: 1px;
+    padding-top: 1px;
+    position: absolute;
+    text-align: center;
+    width: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    right: -20px;
+}
+
+.g-FormField2-ErrorIcon {
+    border-radius: 0;
+    height: 16px;
+    width: 16px;
+    top: 5px;
+    right: 4px;
+}
+
+.g-FormField2-ErrorIcon span {
+    display: none;
+}
+
+.clear {
+    clear: both;
+}
+
+div #inputTips{
+    font-family: 'Arial';
+    font-size: 12px;
+    color: #e20f0f;
+}
 

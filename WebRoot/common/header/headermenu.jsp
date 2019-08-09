@@ -36,7 +36,9 @@
             
             //about username
             var customerusername = '<%=session.getAttribute("customerusername")%>';
-            
+
+            //about token
+            var customeruserToken = '<%=session.getAttribute("customeruserToken")%>';
         </script>
         <script type="text/javascript" src="common/header/js/language.js"></script>
         <script type="text/javascript" src="common/header/js/currency.js"></script>

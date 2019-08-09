@@ -27,8 +27,22 @@
 <script type="text/javascript" src="webIm/js/jquery-1.12.1.min.js"></script>
 <script type="text/javascript"
 	src="webIm/js/reconnecting-websocket.min.js"></script>
-<script type="text/javascript" src="webIm/js/WebImChat.js"></script>
+<script type="text/javascript" src="webIm/js/webSocketForOf.js"></script>
+	<script type="text/javascript" src="webIm/js/sockjs-client/sockjs.js"></script>
+	<script type="text/javascript" src="webIm/js/stomp-websocket/stomp.js"></script>
 </head>
+<script type="text/javascript">
+    var normal_title="122323";
+    document.addEventListener('visibilitychange',function(){ //浏览器切换事件
+        if(document.visibilityState=='hidden') { //状态判断
+            // normal_title=document.title;
+            // document.title='隐藏的标题';
+        }else {
+            // document.title=normal_title;
+            stompClient.send("/cancel/cancelMessageTips", {}, JSON.stringify({"from": getOpenFireListenName()}));
+        }
+    });
+</script>
 <body>
 	<div id="webim2" class="imjs-open">
 		<div class="dingdongadpop" id="webim-show-edv-div"

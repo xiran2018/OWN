@@ -17,6 +17,7 @@ import admin.ru.own.www.util.Utility;
 import admin.ru.own.www.mail.*;
 import admin.ru.own.www.util.Utility;
 import admin.ru.own.www.validcode.SecurityCode;
+import ru.own.www.util.UtilityInUser;
 import util.Encrypt;
 
 import com.opensymphony.xwork2.ActionSupport;
@@ -358,6 +359,7 @@ public class ClientUserOperate extends ActionSupport implements SessionAware
 				loginFlag = 2;
 				session.put("customeruserid", u.getUserid());
 				session.put("customerusername", u.getUsername());
+				session.put("customeruserToken",UtilityInUser.generateToken(password));
 			} else
 			{
 				loginFlag = 3;

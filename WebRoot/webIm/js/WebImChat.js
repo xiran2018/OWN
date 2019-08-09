@@ -52,6 +52,8 @@ var desName="客服";//默认名称，点击相应的用户时候会改变
 
 var messageComeIntervalId;//提示消息到来的interval Id
 
+var isAdminOnline=0;//admin is online flag
+
 var s="有消息…".split("");
 function messageComeTipsfunc(){
     s.push(s[0]);
@@ -192,6 +194,26 @@ function saveContentFunction(sessid,talkid,content,timestamp)
 
         addToContentWindow(); //自己发送的内容，添加到自己的窗口里
 
+        var name=$.trim($('#13821input').val());
+        var tel=$.trim($('#13823input').val());
+        var mail=$.trim($('#13822input').val());
+        if(!isAdminOnline){ //如果客服不在线，需要填写邮箱和姓名等信息
+            if(!isEmail(mail)){
+                $("#13822errorIcon").css("display","block");
+                $("#13822errorMessage").css("display","block");
+                return;
+            }
+            if(name==""||name=="undefined"){
+                $("#13821errorIcon").css("display","block");
+                $("#13821errorMessage").css("display","block");
+            }
+            if(tel==""||tel=="undefined"){
+                $("#13823errorIcon").css("display","block");
+                $("#13823errorMessage").css("display","block");
+            }
+        }
+
+
         //发送到对方客户端
         var message = {
             srcId:srcId,
@@ -232,7 +254,7 @@ function preProcess()
 $(function() {
     // When we're using HTTPS, use WSS too.
     var ws_scheme = window.location.protocol == "https:" ? "wss" : "ws";
-    chatsock = new ReconnectingWebSocket(ws_scheme + '://' + "13.114.104.139:8000" + "/chat" + "/"+srcId);
+    chatsock = new ReconnectingWebSocket(ws_scheme + '://' + "13.231.165.68:8000" + "/chat" + "/"+srcId);
     //var chatsock = new ReconnectingWebSocket(ws_scheme + '://' + window.location.host + "/chat" + window.location.pathname);
 
     //接收到消息之后的处理

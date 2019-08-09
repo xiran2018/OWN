@@ -17,8 +17,24 @@
   <script type="text/javascript" src="webIm/js/jquery-1.12.1.min.js"></script>  -->
 <script type="text/javascript"
 	src="webIm/js/reconnecting-websocket.min.js"></script>
-<script type="text/javascript" src="webIm/js/WebImChat.js"></script>
+<script type="text/javascript" src="webIm/js/webSocketForOf.js"></script>
+	<script type="text/javascript" src="webIm/js/sockjs-client/sockjs.js"></script>
+	<script type="text/javascript" src="webIm/js/stomp-websocket/stomp.js"></script>
+
+	<script type="text/javascript" src="../usermanage/js/user.util.js"></script>
 </head>
+<script type="text/javascript">
+    var normal_title="122323";
+    document.addEventListener('visibilitychange',function(){ //浏览器切换事件
+        if(document.visibilityState=='hidden') { //状态判断
+            // normal_title=document.title;
+            // document.title='隐藏的标题';
+        }else {
+            // document.title=normal_title;
+            stompClient.send("/cancel/cancelMessageTips", {}, JSON.stringify({"from": getOpenFireListenName()}));
+        }
+    });
+</script>
 <body>
 	<div id="webim2" class="imjs-open">
 		<div class="dingdongadpop" id="webim-show-edv-div"
@@ -44,7 +60,7 @@
 					class="webim-icon-setting" title="设置">&nbsp;</em> <em
 					class="webim-icon-mini" title="最小化">&nbsp;</em> <em
 					class="webim-icon-close" title="关闭">&nbsp;</em>
-				</span> <em class="imjs-userstatus webim-username-online">&nbsp;</em> <em
+				</span> <em class="imjs-userstatus adminStatusEm webim-username-offline">&nbsp;</em> <em
 					class="imjs-username"><strong><s:text
 							name="www.webIm.SystemInfo"></s:text></strong></em>
 			</div>
@@ -69,24 +85,23 @@
 				<div class="webim-username mCustomScrollbar _mCS_1"
 					id="imjs-user-list" style="">
 					<div id="imjs-main-contact-list">
-						<div id="imjs-main-0-0_0_0_0" style="cursor:pointer"
-							class="webim-system-info c-li c-li-open"
-							data-username='<s:text name="www.webIm.SystemInfo"></s:text>'
-							data-userstatus="1" data-postid="0_0_0_0" data-posttitle="">
-							<s:text name="www.webIm.SystemInfo"></s:text>
-							<em style="display: none;" class="webim-msg-count">0</em>
-						</div>
-						<div id="imjs-0" class="c-li" style="cursor: pointer;"
+
+						<div id="imjs-0" class="c-li  c-li-open" style="cursor: pointer;"
 							data-username='<s:text name="www.webIm.adminUser"></s:text>'
-							data-userstatus="0" data-postid="0"
-							data-posttitle="管庄常营精装主卧,交通便利,可短租"
-							data-posturl="http://bj.ganji.com/fang3/2484543170x.htm">
+							data-userstatus="0" data-postid="admin">
 							<em title="删除" class="webim-close">&nbsp;</em> <a
 								style="display:none" title="删除" class="webim-close-enter"> <s:text
 									name="www.webIm.closeEnter"></s:text>
-							</a> <em class="webim-status webim-username-offline">&nbsp;</em> <em
+							</a> <em  class="webim-status adminStatusEm webim-username-offline">&nbsp;</em> <em
 								class="webim-username-n"><s:text name="www.webIm.adminUser"></s:text></em>
 							<em style="display:none" class="webim-msg-count"></em>
+						</div>
+						<div id="imjs-main-0-0_0_0_0" style="cursor:pointer;margin-left: 5px;"
+							 class="webim-system-info c-li"
+							 data-username='<s:text name="www.webIm.SystemInfo"></s:text>'
+							 data-userstatus="1" data-postid="0_0_0_0" data-posttitle="">
+							<s:text name="www.webIm.SystemInfo"></s:text>
+							<em style="display: none;" class="webim-msg-count">0</em>
 						</div>
 						<div id="imjs-main-default" class="c-li"
 							style="cursor:pointer;display:none">
@@ -97,7 +112,64 @@
 								class="webim-username-n"></em> <em style="display:none"
 								class="webim-msg-count"></em>
 						</div>
+						<div id="inputTips" class="" style="cursor:pointer;display:block;padding-top: 5px;">
+								<span>In order to facilitate contact, please provide the following information for unregistered users.</span>
+						</div>
+						<div class="ContactFormBorder" style="padding-left: 3px;">
+							<div id="formContent">
+								<div id="13821main" class="g-FormField2 FormFieldTypeT g-FormField2-empty g-FormField2-Error" style="">
+									<div id="13821label" class="g-FormField2-Label g-FormField2-Label-mandatory g-FormField2-Label-Number" style="">
+										<label for="13821input">Name:</label>
+									</div>
+									<div class="g-FormField2-InputContainer">
+										<div id="13821inputPanel" class="g-FormField2-InputPanel">
+											<div id="13821container" class="TextBoxContainer TextBoxContainer-mandatory">
+												<input id="13821input" aria-labelledby="13821label" type="text" class="TextBox" name="name" value="" required="" aria-required="true" aria-invalid="true" aria-describedby="13821errorMessage">
+											</div>
+										</div>
+										<div id="13821description" class="gwt-Label g-FormField2-Description" style="display: none;" aria-hidden="true"></div>
+										<div id="13821errorMessage" class="gwt-Label g-FormField2-ErrorMessage" style="display: none">Name is mandatory </div>
+										<div id="13821errorIcon" class="gwt-Label g-FormField2-ErrorIcon" style="display: none;"><span>!</span></div>
+									</div>
+									<div class="clear"></div>
+								</div>
+								<div id="13822main" class="g-FormField2 FormFieldTypeT g-FormField2-empty g-FormField2-Error" style="">
+									<div id="13822label" class="g-FormField2-Label g-FormField2-Label-mandatory" style="">
+										<label for="13822input">Email:</label>
+									</div>
+									<div class="g-FormField2-InputContainer">
+										<div id="13822inputPanel" class="g-FormField2-InputPanel">
+											<div id="13822container" class="TextBoxContainer TextBoxContainer-mandatory">
+												<input id="13822input"  onblur="checkIsMail(this)" aria-labelledby="13822label" type="text" class="TextBox" name="email" value="" required="" aria-required="true" aria-invalid="true" aria-describedby="13822errorMessage">
+											</div>
+										</div>
+										<div id="13822description" class="gwt-Label g-FormField2-Description" style="display: none;" aria-hidden="true"></div>
+										<div id="13822errorMessage" class="gwt-Label g-FormField2-ErrorMessage" style="display: none">Email is wrong </div>
+										<div id="13822errorIcon" class="gwt-Label g-FormField2-ErrorIcon" style="display: none;"><span>!</span></div>
+									</div>
+									<div class="clear"></div>
+								</div>
+								<div id="13823main" class="g-FormField2 FormFieldTypeT g-FormField2-empty g-FormField2-Error" style="">
+									<div id="13823label" class="g-FormField2-Label g-FormField2-Label-mandatory g-FormField2-Label-Number" style="">
+										<label for="13823input">Telephone:</label>
+									</div>
+
+									<div class="g-FormField2-InputContainer">
+										<div id="13823inputPanel" class="g-FormField2-InputPanel">
+											<div id="13823container" class="TextBoxContainer TextBoxContainer-mandatory">
+												<input id="13823input" aria-labelledby="13821label" type="text" class="TextBox" name="telephone" value="" required="" aria-required="true" aria-invalid="true" aria-describedby="13821errorMessage">
+											</div>
+										</div>
+										<div id="13823description" class="gwt-Label g-FormField2-Description" style="display: none;" aria-hidden="true"></div>
+										<div id="13823errorMessage" class="gwt-Label g-FormField2-ErrorMessage" style="display: none">Name is mandatory </div>
+										<div id="13823errorIcon" class="gwt-Label g-FormField2-ErrorIcon" style="display: none;"><span>!</span></div>
+									</div>
+									<div class="clear"></div>
+								</div>
+							</div>
+						</div>
 					</div>
+
 					<div class="mCSB_scrollTools"
 						style="position: absolute; display: none;">
 						<a class="mCSB_buttonUp" oncontextmenu="return false;"></a>
@@ -118,11 +190,12 @@
 				style="display: block;">
 				<div class="webim-body-comtent-talk-tips">
 					&nbsp;&nbsp;
-					<s:text name="www.webIm.webIMSource"></s:text>
-					： <a style="" class="imjs-link" target="_blank" title=" "> </a> <a></a>
+					<%--<s:text name="www.webIm.webIMSource"></s:text>:--%>
+					Email: 999own.com
+					<a style="" class="imjs-link" target="_blank" title=" "> </a>
 				</div>
 				<div id="imjs-body-content-talk"
-					class="webim-body-content-talk mCustomScrollbar _mCS_2 webim-body-content-talk-h">
+					class="webim-body-content-talk mCustomScrollbar _mCS_2">
 					<div class="mCustomScrollBox mCS-light" id="mCSB_2"
 						style="position:relative; height:100%; overflow:hidden; max-width:100%;overflow: scroll;">
 						<div class="mCSB_container mCS_no_scrollbar"
@@ -139,17 +212,6 @@
 										content<s>&nbsp;</s>
 									</div>
 									<span class="webim-times imjs-msg-time">time</span>
-								</div>
-								<div class="textalign-left" id="msg_96497935581">
-									<div class="webim-body-comtent-msg-left imjs-msg-content">
-										<div id="msgcontent2_96497935581">
-											<span id="msgcontent_96497935581"></span>
-
-											<s:text name="www.webIm.SystemInfo"></s:text>
-										</div>
-										<s>&nbsp;</s>
-									</div>
-									<span class="webim-times imjs-msg-time">15:20</span>
 								</div>
 							</div>
 							<div id="imjs-msg-mao"></div>
@@ -170,9 +232,7 @@
 				</div>
 				<div class="imjs-left-bottom" style="display: block;">
 					<div class="webim-body-content-tools">
-						<a class="icon-history" style="display:none;"
-							href="http://www.ganji.com/vip/my_message_list.php"
-							target="_blank">聊天记录</a> <span class="icon-emotions" title="选择表情">&nbsp;</span>
+						<a class="icon-history" style="display:none;" target="_blank">聊天记录</a> <span class="icon-emotions" title="选择表情">&nbsp;</span>
 						<span class="icon-quicktalk" title="快捷回复">&nbsp;</span>
 						<!--<span class="icon-images" title="发送图片">&nbsp;</span>-->
 						<!--表情开始 -->
@@ -499,11 +559,12 @@
 				</div>
 				<!-- left-bottom end-->
 				<div class="webim-body-comtent-footer">
-					<a class="webim-body-comtent-submit" style="display: block;"><s:text
-							name="www.webIm.comtentSubmit"></s:text></a> <a target="_blank"
-						href="http://dingdong.ganji.com/computer.html"> <s:text
-							name="www.webIm.webImUseTips"></s:text> &gt;&gt;
+					<a class="webim-body-comtent-submit" style="display: block;">
+						<s:text 	name="www.webIm.comtentSubmit"></s:text>
 					</a>
+					<%--<a target="_blank"	href="http://dingdong.ganji.com/computer.html"> --%>
+						<%--<s:text 	name="www.webIm.webImUseTips"></s:text> &gt;&gt;--%>
+					<%--</a>--%>
 					<div id="imjs-empty-tip" class="webim-body-footer-tips"
 						style="display:none">
 						<s>&nbsp;</s>

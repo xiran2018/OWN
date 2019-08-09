@@ -365,8 +365,10 @@ public class Utility {
 		return;
 		
 	}
-	
-	/**
+
+
+
+    /**
 	 * 返回发起请求之前(或者发起请求）的页面，该函数是纯粹针对action这样的请求的
 	 * 目前该函数还有缺陷，比如没有参数的时候后面会多一个？，有参数的时候会多一个&，暂时不要用这个函数，用getGoingURL即可
 	 * @param request
