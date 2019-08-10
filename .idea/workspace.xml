@@ -7,18 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4d3fc76-35aa-4430-9376-34289a819ae0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/webIm/adminWebIm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/adminWebIm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/webIm/js/WebImChat.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/js/WebImChat.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/own.iml" beforeDir="false" afterPath="$PROJECT_DIR$/own.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/util/Utility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/util/Utility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/simple/test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/simple/test/test.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/WebRoot/WEB-INF/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -49,11 +38,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="cWebIm.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="cWebIm.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="115" column="61" selection-start-line="115" selection-start-column="61" selection-end-line="115" selection-end-column="61" />
+            <state relative-caret-position="450">
+              <caret line="448" column="24" lean-forward="true" selection-start-line="448" selection-start-column="24" selection-end-line="448" selection-end-column="24" />
               <folding>
                 <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#em#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -80,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WebImChat.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="WebImChat.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="310" column="35" lean-forward="true" selection-start-line="310" selection-start-column="35" selection-end-line="310" selection-end-column="35" />
+            <state relative-caret-position="267">
+              <caret line="1371" column="22" selection-start-line="1371" selection-start-column="22" selection-end-line="1371" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -119,7 +108,7 @@
       <find>13822</find>
       <find>saveContent</find>
       <find>showContent</find>
-      <find>var name=</find>
+      <find />
       <find>saveContentFunction</find>
       <find>show</find>
       <find>handleSendMessage</find>
@@ -225,8 +214,8 @@
         <option value="$PROJECT_DIR$/WebRoot/webIm/js/WebImChat.js" />
         <option value="$PROJECT_DIR$/WebRoot/webIm/adminWebIm.jsp" />
         <option value="$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js" />
-        <option value="$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css" />
         <option value="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css" />
       </list>
     </option>
   </component>
@@ -249,7 +238,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="width" value="895" />
     <option name="height" value="728" />
   </component>
@@ -270,24 +259,6 @@
             <path>
               <item name="OWN" type="b2602c69:ProjectViewProjectNode" />
               <item name="OWN" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OWN" type="462c0819:PsiDirectoryNode" />
-              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OWN" type="462c0819:PsiDirectoryNode" />
-              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
-              <item name="webIm" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="OWN" type="b2602c69:ProjectViewProjectNode" />
-              <item name="OWN" type="462c0819:PsiDirectoryNode" />
-              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
-              <item name="webIm" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -610,12 +581,12 @@
       <workItem from="1564994973838" duration="4329000" />
       <workItem from="1565085554616" duration="14472000" />
       <workItem from="1565148512343" duration="22908000" />
-      <workItem from="1565228995745" duration="31355000" />
+      <workItem from="1565228995745" duration="32828000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="139031000" />
+    <option name="totallyTimeSpent" value="140504000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -672,7 +643,7 @@
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="bottom" id="Spring" order="14" weight="0.32673267" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49853587" visible="true" weight="0.29372936" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49853587" weight="0.29372936" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="9" weight="0.25" />
       <window_info id="UI Designer" order="3" />
@@ -691,7 +662,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32673267" />
       <window_info anchor="right" id="Maven Projects" order="4" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info content_ui="combo" id="Project" order="6" sideWeight="0.49834985" weight="0.21406959" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" sideWeight="0.49834985" visible="true" weight="0.21406959" />
       <window_info anchor="right" id="Database" order="5" />
       <window_info anchor="bottom" id="Message" order="11" />
       <window_info id="Web" order="5" sideWeight="0.5012285" side_tool="true" weight="0.24659607" />
@@ -998,13 +969,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/admin/ru/own/www/util/Utility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="368" selection-start-line="368" selection-end-line="368" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/admin/test/AttributeValueMultilanguageDAOTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -1044,13 +1008,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-270">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="864">
-          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -1112,17 +1069,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css">
+    <entry file="file://$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="310" column="35" lean-forward="true" selection-start-line="310" selection-start-column="35" selection-end-line="310" selection-end-column="35" />
+        <state relative-caret-position="202">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/admin/ru/own/www/util/Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10285">
+          <caret line="368" selection-start-line="368" selection-end-line="368" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="115" column="61" selection-start-line="115" selection-start-column="61" selection-end-line="115" selection-end-column="61" />
+        <state relative-caret-position="450">
+          <caret line="448" column="24" lean-forward="true" selection-start-line="448" selection-start-column="24" selection-end-line="448" selection-end-column="24" />
           <folding>
             <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#em#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
@@ -1145,6 +1109,13 @@
             <element signature="n#style#0;n#div#0;n#div#3;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#4;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="1371" column="22" selection-start-line="1371" selection-start-column="22" selection-end-line="1371" selection-end-column="22" />
         </state>
       </provider>
     </entry>
