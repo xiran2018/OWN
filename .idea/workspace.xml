@@ -7,7 +7,111 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4d3fc76-35aa-4430-9376-34289a819ae0" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/0.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/1.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/10.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/11.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/12.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/13.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/14.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/15.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/16.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/17.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/18.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/19.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/2.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/20.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/21.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/22.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/23.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/24.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/25.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/26.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/27.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/28.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/29.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/3.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/30.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/31.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/32.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/33.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/34.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/35.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/36.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/37.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/38.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/39.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/4.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/40.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/41.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/42.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/43.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/44.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/45.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/46.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/47.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/48.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/49.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/5.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/50.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/51.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/52.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/53.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/54.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/55.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/56.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/57.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/58.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/59.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/6.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/60.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/61.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/62.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/63.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/64.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/65.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/66.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/67.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/68.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/69.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/7.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/70.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/71.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/72.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/73.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/74.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/75.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/76.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/77.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/78.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/79.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/8.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/80.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/81.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/82.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/83.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/84.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/85.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/86.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/87.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/88.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/89.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/images/emotion/9.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/webIm/img/error.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/webIm/js/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/webIm/js/sockjs-client/sockjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/webIm/js/sockjs-client/sockjs.min.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/webIm/js/stomp-websocket/stomp.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/webIm/adminWebIm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/adminWebIm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/webIm/js/cookieOpertate.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/js/cookieOpertate.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/messageResource.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/messageResource.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/messageResource_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/messageResource_en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/WebRoot/WEB-INF/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -38,32 +142,46 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="webSocketForOf.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="348">
+              <caret line="785" column="32" selection-start-line="785" selection-start-column="26" selection-end-line="785" selection-end-column="32" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#em#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="cWebIm.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="448" column="24" lean-forward="true" selection-start-line="448" selection-start-column="24" selection-end-line="448" selection-end-column="24" />
+            <state relative-caret-position="246">
+              <caret line="260" column="20" lean-forward="true" selection-start-line="260" selection-start-column="20" selection-end-line="260" selection-end-column="20" />
               <folding>
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#3;n#div#2;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#1;n#div#2;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#3;n#div#1;n#div#2;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#div#3;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#3;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#4;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="e#12592#12613#0#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adminWebIm.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WebRoot/webIm/adminWebIm.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="77">
+              <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,22 +190,8 @@
       <file leaf-file-name="WebImChat.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="1371" column="22" selection-start-line="1371" selection-start-column="22" selection-end-line="1371" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="webSocketForOf.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="106">
-              <caret line="610" column="9" lean-forward="true" selection-start-line="610" selection-start-column="9" selection-end-line="610" selection-end-column="9" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#em#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#a#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="124">
+              <caret line="642" column="28" lean-forward="true" selection-start-line="642" selection-start-column="28" selection-end-line="642" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -104,36 +208,36 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>css(&quot;display&quot;</find>
-      <find>13822</find>
-      <find>saveContent</find>
-      <find>showContent</find>
-      <find />
-      <find>saveContentFunction</find>
-      <find>show</find>
-      <find>handleSendMessage</find>
-      <find>connect</find>
-      <find>name</find>
-      <find>checkIsMail</find>
-      <find>.g-FormField2</find>
-      <find>webim-status</find>
-      <find>webim-username-online</find>
-      <find>imjs-userstatus</find>
-      <find>webim-username-offline</find>
-      <find>data-userstatus</find>
-      <find>imjs-main-contact-list</find>
-      <find>imjs-left-bottom</find>
       <find>imjs-body-content-talk</find>
       <find>handleOnLineStatus</find>
       <find>msgcontent2_96497935581</find>
       <find>imjs-main-0-0_0_0_0</find>
       <find>imjs-msg-list</find>
-      <find>webim-close</find>
       <find>webim-body-content-talk-h</find>
       <find>webim-body-comtent-submit</find>
       <find>后续</find>
       <find>font-family</find>
+      <find>webim-close</find>
       <find>webim-body-comtent-talk-tips</find>
+      <find>conne</find>
+      <find>0_0_0_0</find>
+      <find>admin</find>
+      <find>webim2</find>
+      <find>webim-body-comtent-header</find>
+      <find>webim-user-list</find>
+      <find>webim-body-content</find>
+      <find>imjs-lianxiren</find>
+      <find>handleRestoreDialog</find>
+      <find>display:none</find>
+      <find>connect</find>
+      <find>indexOf</find>
+      <find>getCustomeruserid</find>
+      <find>srcName</find>
+      <find>desId</find>
+      <find>imjs-emotion</find>
+      <find>eDefault_0</find>
+      <find>emotionid</find>
+      <find>right-arrow</find>
     </findStrings>
     <dirStrings>
       <dir>D:\DeskTop\own\OWN\WebRoot</dir>
@@ -203,19 +307,20 @@
         <option value="$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/UserOperateMapper.java" />
         <option value="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateDAOImpl.java" />
         <option value="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderAfterOperate.java" />
-        <option value="$PROJECT_DIR$/src/i18n/messageResource_en_US.properties" />
-        <option value="$PROJECT_DIR$/src/i18n/messageResource.properties" />
-        <option value="$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties" />
         <option value="$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" />
         <option value="$PROJECT_DIR$/src/admin/ru/own/www/util/Utility.java" />
-        <option value="$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java" />
         <option value="$PROJECT_DIR$/src/ru/own/www/util/UtilityInUser.java" />
         <option value="$PROJECT_DIR$/test/simple/test/test.java" />
         <option value="$PROJECT_DIR$/WebRoot/webIm/js/WebImChat.js" />
+        <option value="$PROJECT_DIR$/src/i18n/messageResource_en_US.properties" />
+        <option value="$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties" />
+        <option value="$PROJECT_DIR$/src/i18n/messageResource.properties" />
+        <option value="$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java" />
         <option value="$PROJECT_DIR$/WebRoot/webIm/adminWebIm.jsp" />
-        <option value="$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js" />
-        <option value="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/webIm/js/cookieOpertate.js" />
         <option value="$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css" />
+        <option value="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" />
+        <option value="$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js" />
       </list>
     </option>
   </component>
@@ -238,7 +343,7 @@
   <component name="NodePackageJsonFileManager">
     <packageJsonPaths />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="width" value="895" />
     <option name="height" value="728" />
   </component>
@@ -259,6 +364,17 @@
             <path>
               <item name="OWN" type="b2602c69:ProjectViewProjectNode" />
               <item name="OWN" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OWN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OWN" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="OWN" type="b2602c69:ProjectViewProjectNode" />
+              <item name="OWN" type="462c0819:PsiDirectoryNode" />
+              <item name="WebRoot" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -581,12 +697,12 @@
       <workItem from="1564994973838" duration="4329000" />
       <workItem from="1565085554616" duration="14472000" />
       <workItem from="1565148512343" duration="22908000" />
-      <workItem from="1565228995745" duration="32828000" />
+      <workItem from="1565228995745" duration="55691000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="140504000" />
+    <option name="totallyTimeSpent" value="163367000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -599,7 +715,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="bottom" id="Event Log" order="0" sideWeight="0.5014641" side_tool="true" weight="0.5214521" />
@@ -620,7 +735,7 @@
       <window_info id="Image Layers" order="2" />
       <window_info anchor="bottom" id="Java Enterprise" order="7" weight="0.32673267" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49853587" weight="0.29372936" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49853587" weight="0.65841585" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32673267" />
       <window_info anchor="bottom" id="Spring" order="14" weight="0.32673267" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32673267" />
@@ -643,7 +758,7 @@
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="bottom" id="Spring" order="14" weight="0.32673267" />
       <window_info id="Image Layers" order="2" />
-      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49853587" weight="0.29372936" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.49853587" weight="0.65841585" />
       <window_info anchor="bottom" id="Cvs" order="12" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="9" weight="0.25" />
       <window_info id="UI Designer" order="3" />
@@ -719,55 +834,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/CategoryMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="53" column="46" selection-start-line="53" selection-start-column="25" selection-end-line="53" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/WebRoot/WEB-INF/lib/struts2-core-2.2.1.jar!/org/apache/struts2/interceptor/debugging/DebuggingInterceptor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="227" selection-start-line="227" selection-end-line="227" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/WebRoot/WEB-INF/lib/xwork-core-2.2.1.jar!/com/opensymphony/xwork2/interceptor/ExceptionMappingInterceptor.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/WebRoot/WEB-INF/lib/struts2-core-2.2.1.jar!/org/apache/struts2/dispatcher/Dispatcher.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="392" selection-start-line="392" selection-end-line="392" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/WebRoot/WEB-INF/lib/struts2-core-2.2.1.jar!/org/apache/struts2/impl/StrutsActionProxy.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$PROJECT_DIR$/WebRoot/WEB-INF/lib/xwork-core-2.2.1.jar!/com/opensymphony/xwork2/DefaultActionInvocation.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="87">
-          <caret line="232" selection-start-line="232" selection-end-line="232" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/admin/ru/own/www/entity/Category.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1157">
-          <caret line="144" lean-forward="true" selection-start-line="144" selection-end-line="144" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ru/own/www/logic/CategoryOperate.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="43">
@@ -934,13 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/webIm/js/cookieOpertate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27">
-          <caret line="14" column="9" selection-start-line="14" selection-start-column="9" selection-end-line="14" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/webIm/js/reconnecting-websocket.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -980,13 +1039,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="27">
           <caret line="1" lean-forward="true" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="123">
-          <caret line="361" column="61" selection-start-line="361" selection-start-column="61" selection-end-line="361" selection-end-column="61" />
         </state>
       </provider>
     </entry>
@@ -1036,13 +1088,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/webIm/adminWebIm.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/usermanage/js/express.join.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -1057,10 +1102,111 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/admin/ru/own/www/util/Utility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-10285">
+          <caret line="368" selection-start-line="368" selection-end-line="368" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-270">
+          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/i18n/messageResource.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="11" column="39" selection-start-line="11" selection-start-column="39" selection-end-line="11" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/i18n/messageResource_en_US.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="12" column="39" selection-start-line="12" selection-start-column="39" selection-end-line="12" selection-end-column="39" />
+        </state>
+      </provider>
+      <provider editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/i18n/messageResource_zh_CN.properties">
+      <provider selected="true" editor-type-id="text-editor" />
+      <provider editor-type-id="ResourceBundle" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="83" column="52" selection-start-line="83" selection-start-column="52" selection-end-line="83" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/webIm/img/chat-icon-online.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/js/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3400">
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/js/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-673" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/webIm/adminWebIm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="77">
+          <caret line="45" column="6" selection-start-line="45" selection-start-column="6" selection-end-line="45" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="246">
+          <caret line="260" column="20" lean-forward="true" selection-start-line="260" selection-start-column="20" selection-end-line="260" selection-end-column="20" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#a#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#2;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="e#12592#12613#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WebRoot/webIm/js/cookieOpertate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-584">
+          <caret line="6" column="28" selection-start-line="6" selection-start-column="28" selection-end-line="6" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="610" column="9" lean-forward="true" selection-start-line="610" selection-start-column="9" selection-end-line="610" selection-end-column="9" />
+        <state relative-caret-position="348">
+          <caret line="785" column="32" selection-start-line="785" selection-start-column="26" selection-end-line="785" selection-end-column="32" />
           <folding>
             <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#em#0;n#!!top" expanded="true" />
@@ -1069,53 +1215,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="32" column="12" selection-start-line="32" selection-start-column="12" selection-end-line="32" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/admin/ru/own/www/util/Utility.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10285">
-          <caret line="368" selection-start-line="368" selection-end-line="368" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="448" column="24" lean-forward="true" selection-start-line="448" selection-start-column="24" selection-end-line="448" selection-end-column="24" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#0;n#div#1;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#em#3;n#div#2;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#1;n#div#1;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#2;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#div#2;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#1;n#div#2;n#div#0;n#div#3;n#div#0;n#div#1;n#div#3;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#0;n#div#2;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#a#0;n#div#3;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#3;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#4;n#div#4;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WebRoot/webIm/css/WebImChat.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="1371" column="22" selection-start-line="1371" selection-start-column="22" selection-end-line="1371" selection-end-column="22" />
+        <state relative-caret-position="124">
+          <caret line="642" column="28" lean-forward="true" selection-start-line="642" selection-start-column="28" selection-end-line="642" selection-end-column="28" />
         </state>
       </provider>
     </entry>

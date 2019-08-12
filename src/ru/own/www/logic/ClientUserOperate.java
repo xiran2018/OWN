@@ -80,8 +80,11 @@ public class ClientUserOperate extends ActionSupport implements SessionAware
 			UserOperateImpl uoim = new UserOperateImpl();
 			String encodePasString = Encrypt.StringEncrypt(password, "");
 			boolean flag = uoim.resetPassword(id, encodePasString);
-			if (flag)
+			if (flag){
+				session.remove("customeruserToken");
+				session.put("customeruserToken",UtilityInUser.generateToken(password));
 				return "success";
+			}
 			else
 				return "error";
 		} else

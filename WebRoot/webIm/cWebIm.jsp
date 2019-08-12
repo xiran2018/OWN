@@ -36,7 +36,12 @@
     });
 </script>
 <body>
-	<div id="webim2" class="imjs-open">
+	<div id="chat-icon">
+		<div id="restoreDiolag" href="#"  style="">
+			<img name="psxyztimage" src="webIm/img/chat-icon-online.png" style="display:block;border:0">
+		</div>
+	</div>
+	<div id="webim2" class="display:none">
 		<div class="dingdongadpop" id="webim-show-edv-div"
 			style="display:none">
 			<a class="close" style="cursor:pointer"> x</a>
@@ -51,7 +56,7 @@
 				<span style="display: none;" class="webim-msg-count"
 					data-allnewmsg="0">0</span>
 			</div>
-			<div class="webim-body-comtent-header" style="display: block;">
+			<div class="webim-body-comtent-header" style="display: none;">
 				<div class="webim-icon-setting-tips" style="display:none">
 					<a href="javascript:;">自动收起</a> <a class="imjs-unfold"
 						href="javascript:;">保持展开</a>
@@ -60,23 +65,28 @@
 					class="webim-icon-setting" title="设置">&nbsp;</em> <em
 					class="webim-icon-mini" title="最小化">&nbsp;</em> <em
 					class="webim-icon-close" title="关闭">&nbsp;</em>
-				</span> <em class="imjs-userstatus adminStatusEm webim-username-offline">&nbsp;</em> <em
-					class="imjs-username"><strong><s:text
-							name="www.webIm.SystemInfo"></s:text></strong></em>
+				</span>
+				<em class="imjs-userstatus adminStatusEm webim-username-offline">&nbsp;</em>
+				<em class="imjs-username">
+					<strong>
+						<s:text 	name="www.webIm.SystemInfo"></s:text>
+					</strong></em>
 			</div>
-			<div id="imjs-lianxiren" class="webim-lianxiren">
+			<div id="imjs-lianxiren" class="webim-lianxiren" style="display: none;">
 				<!-- webim-comming-msg-->
 				<!--<span class="imjs-allnewmsg-count">0</span>-->
 				<span class="imjs-lianxiren-tip" style="display: inline;">
-					<s:text 	name="www.webIm.LinkMan"></s:text>[<span
-					class="fc-green">1</span>/<em class="imjs-lianxiren-count">2</em>]
-				</span> <span class="imjs-newmsgcount-tip" style="display: none;">您有<em
+					<s:text 	name="www.webIm.LinkMan"></s:text>
+
+				</span>
+				<span class="imjs-newmsgcount-tip" style="display: none;">您有<em
 					class="imjs-newmsg-count">1</em>条新消息
-				</span> <span class="imjs-talk-tip" style="display:none"> <em
+				</span>
+				<span class="imjs-talk-tip" style="display:none"> <em
 					class="imjs-username">于女士</em>-对话中
 				</span>
 			</div>
-			<div class="webim-user-list" style="display: block;">
+			<div class="webim-user-list" style="display: none;">
 				<div>
 					<div id="imjs-myfriends" class="webim-myfriends c-li">
 						<s:text name="www.webIm.webIMMyFriends"></s:text>
@@ -187,7 +197,7 @@
 			</div>
 			<!--左侧聊天窗口-->
 			<div class="webim-body-content imjs-body-content"
-				style="display: block;">
+				style="display: none;">
 				<div class="webim-body-comtent-talk-tips">
 					&nbsp;&nbsp;
 					<%--<s:text name="www.webIm.webIMSource"></s:text>:--%>
@@ -247,8 +257,7 @@
 								class="webim-quick-submit-arrow">&nbsp;</span>
 						</div>
 						<div id="imjs-emotion" class="ePanel" style="display:none">
-							<div class="ePdefault"
-								style="left: 3px; right: auto;display: none;">
+							<div class="ePdefault" style="left: 3px; right: auto;display: none;">
 								<img
 									src="http://sta.ganjistatic1.com/src/tool/webim/image/emotions/79.gif">
 								<span>强</span>

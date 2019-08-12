@@ -19,6 +19,14 @@ function setCookie(c_name, value, expiredays) {
 			+ ((expiredays == null) ? "" : "; expires=" + exdate.toGMTString())
 }
 
+function removeCookie(name) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 1);
+    var cval=getCookie(name);
+    if(cval!=null)
+        document.cookie= name + "="+cval+";expires="+exp.toGMTString();
+}
+
 function checkCookie() {
 	username = getCookie('username')
 	if (username != null && username != "") {

@@ -44,6 +44,11 @@
     });
 </script>
 <body>
+	<div id="chat-icon">
+		<div id="restoreDiolag" href="#"  style="">
+			<img name="psxyztimage" src="webIm/img/chat-icon-online.png" style="display:block;border:0">
+		</div>
+	</div>
 	<div id="webim2" class="imjs-open">
 		<div class="dingdongadpop" id="webim-show-edv-div"
 			style="display:none">

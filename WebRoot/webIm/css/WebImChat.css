@@ -1,11 +1,19 @@
 @charset "UTF-8";
+
+#chat-icon{
+    position: fixed;
+    right: 0;
+    bottom: 20px;
+    z-index: 29900;
+}
+
 #webim2 {
     z-index: 2001;
     font: 12px/1.5 arial,\5b8b\4f53;
     color: rgb(75, 75, 75);
     position: fixed;
     right: 0;
-    bottom: 0;
+    bottom: 5px;
     /*top: 50%;*/
     _position: absolute;
     _top: expression(documentElement.scrollTop+documentElement.clientHeight-this.offsetHeight);
@@ -150,7 +158,7 @@ strong, b {
 
 /*联系人*/
 .webim-lianxiren {
-    text-indent: 28px;
+    text-indent: 4px;
     cursor: pointer;
     background-position: 5px 0;
     background-color: rgb(246, 246, 246);
@@ -517,8 +525,8 @@ a {
 }
 
 
-
-.webim-myfriends, .webim-myfriends-close, .webim-lianxiren, .webim-system-info, .webim-close, .webim-msg-count, .webim-body-comtent-msg-left s, .webim-body-comtent-msg-right s, .icon-emotions, .icon-quicktalk, .icon-images, .icon-history, .webim-body-footer-tips s, .webim-body-comtent-header, .webim-header-minibar em, .webim-icon-setting-tips a.active, .webim-icon-setting-active, .webim-comming-msg, .icon-ddonline, .icon-mobionline, .webim-body-content-talk-tips, .webim-body-content-talk-mobitips, .webim-quick-submit-arrow, .left-arrow, .right-arrow, .left-arrow-no, .right-arrow-no, .webim-system-msg-icon, .webim-icon-fdb, .webim-lianliankan-title, .webim-lianliankan-close, .webim-lianliankan-icon-hi, .webim-lianliankan-icon-no, .webim-lianliankan-icon-ok {
+/*.webim-lianxiren,*/
+.webim-myfriends, .webim-myfriends-close,  .webim-system-info, .webim-close, .webim-msg-count, .webim-body-comtent-msg-left s, .webim-body-comtent-msg-right s, .icon-emotions, .icon-quicktalk, .icon-images, .icon-history, .webim-body-footer-tips s, .webim-body-comtent-header, .webim-header-minibar em, .webim-icon-setting-tips a.active, .webim-icon-setting-active, .webim-comming-msg, .icon-ddonline, .icon-mobionline, .webim-body-content-talk-tips, .webim-body-content-talk-mobitips, .webim-quick-submit-arrow, .left-arrow, .right-arrow, .left-arrow-no, .right-arrow-no, .webim-system-msg-icon, .webim-icon-fdb, .webim-lianliankan-title, .webim-lianliankan-close, .webim-lianliankan-icon-hi, .webim-lianliankan-icon-no, .webim-lianliankan-icon-ok {
     background-image: url(../img/bg.png);
     background-repeat: no-repeat;
 }
@@ -991,6 +999,7 @@ ul.eDefault li .eDefault_89 {
 #webim2 .webim-body-comtent-footer a.webim-body-comtent-submit, #webim2 .webim-body-comtent-footer a.webim-body-comtent-submit:hover {
     color: rgb(255, 255, 255);
     text-decoration: none;
+    line-height: 24px;
 }
 /*提示发送内容不能为空*/
 .webim-body-footer-tips {
