@@ -9,6 +9,9 @@ import admin.ru.own.www.entity.EditBrandMultiLanguage;
 
 public interface BrandSeriesMapper 
 {
+
+	public abstract List brandFetchByAllCategoryIds(List list);
+
 	public List brandFetchByCategoryId(int id);
 
 	public void insertForeignBrand(BrandMultiLanguage bml);

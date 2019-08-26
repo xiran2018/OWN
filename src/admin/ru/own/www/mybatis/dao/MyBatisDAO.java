@@ -83,6 +83,32 @@ public class MyBatisDAO
 		return listlan;
 	}
 
+	public static List selectBrandByAllCategoryIds(List categoryIds)
+	{
+		List list;
+		SqlSession sqlSession;
+		list = null;
+		sqlSession = MybatisSessionFactory.sqlSessionFactory.openSession();
+		try
+		{
+			BrandSeriesMapper relativeMapper = (BrandSeriesMapper)sqlSession.getMapper(BrandSeriesMapper.class);
+			list = relativeMapper.brandFetchByAllCategoryIds(categoryIds);
+//	        System.out.println("数量："+list.size());
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return list;
+		}
+
+		finally
+		{
+			sqlSession.commit();
+			sqlSession.close();
+		}
+		return list;
+	}
+
 	public static List<BrandShow> selectBrandByCategoryId(int id) 
 	{
 		List<BrandShow> list = null;
