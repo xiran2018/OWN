@@ -1,4 +1,5 @@
 ///////////////////////////////////////////////global variables
+var p_minbuyamount=1;//最小购买量，默认为1
 //the following variables is for shipping-show
 var countryIdNameMap={}; //save the map of countryId and Name
 
@@ -38,7 +39,8 @@ function shopCartQuanityClickEventRegister()
 {
 	
 	$(".item-group-wrapper").on("click",".product-quantity-input",function(){
-		
+
+
 		
 		updateDlgEditQuantityInfo(this);  //更新数量信息
 		
@@ -127,7 +129,7 @@ function updateDlgEditQuantityInfo(ele)
 	var shopCartId=$.trim($(ele).siblings(".hid-shopcart-id").val()); //购物车Id
 	$("#cartid").val(shopCartId);
 	
-	var p_minbuyamount=$.trim($(ele).siblings(".hid-minbuyamount").val()); //最少购买数量
+	p_minbuyamount=$.trim($(ele).siblings(".hid-minbuyamount").val()); //最少购买数量
 	$("#hid-product-minbuyamount").val(p_minbuyamount);
 	
 	
@@ -304,7 +306,7 @@ function insertShopCartItemsInPage(shopCartList)
 		//最少购买数量
 		insertHtml+="<input class='hid-minbuyamount' type='hidden' value='"+pbvo.p_minbuyamount+"'>";
 		
-		insertHtml+="<span class='stock-tips'>"+messageResourceStockTips+"</span>";
+		// insertHtml+="<span class='stock-tips'>"+messageResourceStockTips+"</span>";
 		insertHtml+=" </td>";
 		
 		//price

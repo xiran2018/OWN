@@ -39,6 +39,8 @@
 
             //about token
             var customeruserToken = '<%=session.getAttribute("customeruserToken")%>';
+
+
         </script>
         <script type="text/javascript" src="common/header/js/language.js"></script>
         <script type="text/javascript" src="common/header/js/currency.js"></script>
@@ -198,7 +200,7 @@
 			     </div><!-- end of 搜索 -->
 			     <!-- 购物车 -->
 			     <div class="nav-cart">
-			     	<a href="shopcart/cart.jsp" data-spm-anchor-id="2114.11010108.0.26">
+			     	<a href="shopcart/cart.action" data-spm-anchor-id="2114.11010108.0.26">
 			     		<span class="text"><s:text name="www.web.shopcart"></s:text></span>
 			     	</a>
 			     	<span id="nav-cart-num" class="cart-number shop-cart-number">0</span>

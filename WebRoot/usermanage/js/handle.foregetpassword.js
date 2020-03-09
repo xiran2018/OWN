@@ -64,7 +64,7 @@ function resetPassword()
 			else if(data=="2")
 			{
 				alert("Sorry,the Link has expired. Please request again！");
-				window.location="usermanage/foreget-password.jsp";
+				window.location="foregetPassword.action";
 			}
 			else
 			{//data=="3"

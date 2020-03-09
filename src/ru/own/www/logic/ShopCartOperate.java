@@ -81,6 +81,14 @@ public class ShopCartOperate extends ActionSupport implements SessionAware
 	
 	
 	private int cartTotal=0;//获取购物车总数
+
+	/**
+	 * 转到购物车页面
+	 */
+	public String turnToCart()
+	{
+		return SUCCESS;
+	}
 	
 	/**
 	 *获取购物车总数

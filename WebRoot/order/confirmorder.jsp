@@ -59,6 +59,9 @@
 	var redirctURL='<s:property value="redirctURL"  escape="false" />';
 	
 	var availableProductShopcartIds='<s:property value="availableProductShopcartIds"  escape="false" />';
+
+
+
 </script>
 
 
@@ -365,7 +368,9 @@
 							 </div>
 						</div>
 						<div class="coupon-box userCoupon-box">
-							 <label class="ui-label"><input type="checkbox" data-type="select" class="ui-checkbox ui-checkbox-system">Apply  Coupon:</label>
+							 <label class="ui-label">
+								 <input type="checkbox" data-type="select" class="ui-checkbox ui-checkbox-system"><s:text name="www.confirmOrder.applyCoupon"></s:text>:
+							 </label>
 							 <div class="coupon-main-box">
 								<span class="coupon-title disabled" data-type="select-drop">
 							 	<s:text name="www.confirmOrder.couponTitleDisabled"></s:text>

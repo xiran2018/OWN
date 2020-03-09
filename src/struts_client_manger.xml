@@ -274,6 +274,11 @@
             <result name="error" type="redirect">/error.jsp</result>
             <result name="loginJson" type="json"></result>
         </global-results>
+
+        <!-- 改变相应产品的物流信息-->
+        <action name="cart" class="ru.own.www.logic.ShopCartOperate" method="turnToCart">
+            <result name="success">/shopcart/cart.jsp</result>
+        </action>
         
                 <!-- 加载购物车信息-->
         <action name="getCartShowDetailedInfo" class="ru.own.www.logic.ShopCartOperate" method="getCartShowDetailedInfo">

@@ -26,13 +26,13 @@ public class EmailHtmlObject
 	{
 		HashMap registerHtmlMap = new HashMap();
 		EmailHtmlRegister ruEmailHtmlRegister = new EmailHtmlRegister();
-		ruEmailHtmlRegister.setSubject("������ѧߧ�ӧݧ֧ߧڧ� ��ѧ��ݧ�");
+		ruEmailHtmlRegister.setSubject("Востановление пароля");
 		ruEmailHtmlRegister.setHeader(((EmailHtmlCommon) (emailHtmlCommonHashMap.get(Integer.valueOf(8)))).getHeader());
 		ruEmailHtmlRegister.setHello(((EmailHtmlCommon) (emailHtmlCommonHashMap.get(Integer.valueOf(8)))).getHello());
 		ruEmailHtmlRegister.setWelcome(((EmailHtmlCommon) (emailHtmlCommonHashMap.get(Integer.valueOf(8)))).getWelcome());
 		ruEmailHtmlRegister.setBaseURL(((EmailHtmlCommon) (emailHtmlCommonHashMap.get(Integer.valueOf(8)))).getBaseUrl());
-		ruEmailHtmlRegister.setEmail("���ѧ� �ݧ�ԧڧ� �էݧ� �ӧ��է� �ߧ� ��ѧۧ�");
-		ruEmailHtmlRegister.setActivate("����اѧݧ�ۧ���, �ߧѧاާڧ�� �ߧ� �����ݧܧ� �ߧڧا�, ����ҧ� �ѧܧ�ڧӧڧ��ӧѧ�� �ߧ�ާ֧� ���֧��");
+		ruEmailHtmlRegister.setEmail("Ваш логин для входа на сайт");
+		ruEmailHtmlRegister.setActivate("Пожалуйста, нажмите на ссылку ниже, чтобы активировать номер счета");
 		ruEmailHtmlRegister.setRegards(((EmailHtmlCommon) (emailHtmlCommonHashMap.get(Integer.valueOf(8)))).getRegards());
 		ruEmailHtmlRegister.setCompany(((EmailHtmlCommon) (emailHtmlCommonHashMap.get(Integer.valueOf(8)))).getCompany());
 		ruEmailHtmlRegister.setTag(((EmailHtmlCommon) (emailHtmlCommonHashMap.get(Integer.valueOf(8)))).getTag());
@@ -57,12 +57,12 @@ public class EmailHtmlObject
 		HashMap emailHtmlCommonMap = new HashMap();
 		EmailHtmlCommon ruEmailHtmlCommon = new EmailHtmlCommon();
 		EmailHtmlCommon.setBaseUrl("http://www.999own.ru");
-		EmailHtmlCommon.setHello("���է�ѧӧ��ӧ�ۧ��");
-		EmailHtmlCommon.setWelcome("����ҧ�� ���اѧݧ�ӧѧ�� �ߧ� ��ҧ�ӧߧ�� �ڧߧ�֧�ߧ֧� �����ѧ� QIFA.ru");
+		EmailHtmlCommon.setHello("Здравствуйте");
+		EmailHtmlCommon.setWelcome("Добро пожаловать на обувной интернет портал QIFA.ru");
 		String ruheaderString = (new StringBuilder("<a href='")).append(EmailHtmlCommon.getBaseUrl()).append("'>www.999own.ru - <img src='images/logo.jpg'></a>").toString();
 		EmailHtmlCommon.setHeader(ruheaderString);
-		EmailHtmlCommon.setRegards("�� ���ӧѧا֧ߧڧ֧� �� ���ѧ� �� ���ѧ�֧ާ� �ҧڧ٧ߧ֧��,");
-		EmailHtmlCommon.setCompany("����ާ�ѧߧڧ� 999OWN ( '999OWN' - �ߧ�ݧ֧ӧѧ� �էڧ��ѧߧ�ڧ� �� ����ڧ٧ӧ�էڧ�֧ݧ֧�!)");
+		EmailHtmlCommon.setRegards("С Уважением к Вам и Вашему бизнесу,");
+		EmailHtmlCommon.setCompany("Компания 999OWN ( '999OWN' - нулевая дистанция с производителем!)");
 		String tag = "<a href='http://www.999own.ru/' target='_blank'>WWW.999OWN.RU</a><br>13436838059<br><a href='mailto:info@999own.ru' target='_blank'>info@999won.ru</a>";
 		EmailHtmlCommon.setTag(tag);
 		emailHtmlCommonMap.put(Integer.valueOf(8), ruEmailHtmlCommon);

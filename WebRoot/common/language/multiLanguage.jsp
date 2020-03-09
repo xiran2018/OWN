@@ -70,6 +70,14 @@
 			/////////////////////////////////////////聊天窗口语言/////////////////////////////////////////////////////
            	var webIMSource='<s:text name="www.webIm.webIMSource"></s:text>';
            	var webIMSystemInfo='<s:text name="www.webIm.SystemInfo"></s:text>';
+
+           	//////////////////////////////////////confirmorder.jsp
+			//字数的提示
+			var alphaTips = '<s:text name="www.web.alphaTips"></s:text>';
+
+			//留言提示
+			var leaveMessageTips = '<s:text name="www.web.leaveMessTips"></s:text>';
+
         </script>
         
 	</head>

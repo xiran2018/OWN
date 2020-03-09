@@ -124,7 +124,7 @@ margin: 0 0 0 285px;
 border-radius: 0 3px 0 3px;
 }
 .index-floor .floor-12 .floor-right{
-    background: url('images/floor_long.png') repeat;
+    /*background: url('images/floor_long.png') repeat;*/
 }
 .index-floor .floor-items-list .floor-right .floor-right-item {
 float: left;
@@ -185,7 +185,8 @@ overflow: hidden;
 #foot ul li{width:150px;/*height:160px;*/ float:left;margin-right: 30px;}
 #foot ul li a{ display:block; line-height:20px;}
 #foot ul li a.current{ font-size:14px; font-weight:bold; line-height:24px;}
-#foot-c{width:1190px;border-top:2px solid #FF4300; background:url(../images/bottom-kt.png) no-repeat right 10px; margin:0 auto;margin-top: 10px;}
+#foot-c{width:1190px;border-top:2px solid #FF4300; margin:0 auto;margin-top: 10px;}
+/*background:url(../images/bottom-kt.png) no-repeat right 10px;*/
 .foot-c1{width:1190px;margin-top: 10px;}
 
 

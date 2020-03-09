@@ -2,19 +2,19 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="mybatis-jdbc-core" uuid="beeebba8-d1b0-4ca7-9dd7-743bcca03961">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
-      <first-sync>true</first-sync>
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="EXASOL" exact-version="0" />
       <user-name>root</user-name>
+      <schema-mapping />
     </data-source>
     <data-source name="configfile:hibernate.cfg.xml/Hibernate" uuid="46d71d21-e47a-4c9b-8e5e-df03b7cebb37">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
-      <first-sync>true</first-sync>
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <user-name>root</user-name>
+      <schema-mapping />
     </data-source>
     <data-source name="dataSource" uuid="c221d465-84f5-4544-a25c-00a053f2b4f1">
-      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
-      <first-sync>true</first-sync>
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
       <user-name>root</user-name>
+      <schema-mapping />
     </data-source>
   </component>
 </project>

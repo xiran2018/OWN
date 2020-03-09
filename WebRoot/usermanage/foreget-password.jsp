@@ -1,5 +1,7 @@
 <%@ page language="java" import="java.util.*"
     contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
+
 <%
 	String path = request.getContextPath();
 	String basePath = request.getScheme() + "://"
@@ -55,15 +57,17 @@
 		<div id="lagout-three">
 			<div id="forgotYourPassword">
 				<div class="inner-box">
-					<h2>Request a Password Change</h2>
-					<div class="suggest-words">To change your password, please enter either the email address currently associated with your  account.</div>
+					<h2><s:text name="www.user.reqPassChange"></s:text></h2>
+					<div class="suggest-words">
+						<s:text name="www.user.reqPassTips"></s:text>
+					</div>
 					  				
 									
 					<div class="input-box">		
 						<table border="0" cellpadding="0" cellspacing="0" width="100%" class="input-box">
 							<tbody>
 								<tr>
-									<th width="42%">Email  ID:</th>
+									<th width="42%"><s:text name="www.user.emailID"></s:text>:</th>
 								    <td style="padding-left:5px;">
 								    <input class="enterText" id="mail" name="mail"  type="text" maxlength="128" value=""></td>
 								</tr>

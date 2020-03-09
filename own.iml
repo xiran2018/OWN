@@ -414,7 +414,7 @@
       </library>
     </orderEntry>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
-    <orderEntry type="library" name="weblib" level="project" />
     <orderEntry type="library" name="Spring-4.3.18.RELEASE" level="project" />
+    <orderEntry type="library" name="weblib" level="project" />
   </component>
 </module>

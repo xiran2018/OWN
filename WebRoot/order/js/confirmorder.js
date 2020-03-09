@@ -966,11 +966,11 @@ function insertShopCartItemsInPage(shopCartList)
 		
 		//留言信息
 		insertHtml+="<div class='p-message'>";
-		insertHtml+="<div class='p-message-title'>Leave a message for this seller:</div>";
+		insertHtml+="<div class='p-message-title'>"+leaveMessageTips+":</div>";
 		
 		var tempId="messageToSupplier-item-"+cartid;
 		insertHtml+="<textarea name='messageToSupplier-item' id='"+tempId+"' cols='100' rows='2' class='message-text no-hit ui-textfield ui-textfield-system multiple'></textarea>";
-		insertHtml+="<p class='message-text-tip'>Max. 1,000 English characters or Arabic numerals only. No HTML codes.</p>";
+		insertHtml+="<p class='message-text-tip'>"+alphaTips+"</p>";
 		insertHtml+="</div>";
 		
 		//<!-- product item end-->

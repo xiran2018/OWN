@@ -79,7 +79,7 @@
 	                        	</div>
 	                            <div class="field pwd-field">
 	                                <label id="password-label" for="TPL_password_1"><s:text name="www.login.password"></s:text>:</label>
-	                                <a href="usermanage/foreget-password.jsp" target="_blank" id="forget-pw-safe" class="forget-pw">
+	                                <a href="foregetPassword.action" target="_blank" id="forget-pw-safe" class="forget-pw">
 	                                	<s:text name="www.login.forgotPassword"></s:text>? 
 	                                </a>
 	                                <span id="J_StandardPwd">

@@ -7,6 +7,10 @@ public class Login extends ActionSupport {
     String userName;
     String password;
 
+    public String foregetPassword(){
+        return SUCCESS;
+    }
+
     public String execute()
     {
 //		System.out.print(getUserName());

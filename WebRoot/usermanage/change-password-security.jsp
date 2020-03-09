@@ -106,7 +106,9 @@
 					
 										<div id="pwSecurityId" style="color:green"></div>
 										<div id="password_info_new" class="dpl-board-error" style="display:none"></div>
-										<div class="dpl-board-notice">Please use both letters and numbers in your password to improve account security. Enter between 6 and 20 characters (A-Z, a-z, 0-9, no spaces).<br> Password Tips<br> Do not use the following information as your password:<br> -Your Member ID or email address<br> -Your Tel/Fax/Mobile numbers or Zip/Postal code<br> -Consecutive or repeated numbers and letters - e.g. 123456, abcdef, aaaaaa, 888888, 789456<br></div>
+										<div class="dpl-board-notice">
+											<s:text name="www.changePassword.newPasswordTips"></s:text>
+										</div>
 									</td>
 								</tr>
 								<tr>

@@ -75,15 +75,16 @@
 										</span>
 									</div>
 									<div class="personal-feedback">
-										<a href="http://feedback.aliexpress.com/display/detail.htm?ownerMemberId=191553310&amp;companyId=182413540&amp;memberType=buyer">
-											<label>Feedback Score:</label>
+										<a href="#">
+											<%--<label>Feedback Score:</label>--%>
+											<label><s:text name="www.user.feedbackScore"></s:text>:</label>
 											<span> 0 </span>								
 										</a>
 									</div>
 									<div class="personal-messages">
-										<a href="http://message.aliexpress.com/message/messagecenter_list.htm">
+										<a href="#">
 											<img src="http://gtms04.alicdn.com/tps/i4/TB15a4NHpXXXXX8XVXXxPfUFXXX-16-16.gif" align="absmiddle">
-											<span>Unread Messages:  
+											<span><s:text name="www.user.UnreadMessages"></s:text>:
 											  <em>0</em> 										
 											 </span>
 										</a>

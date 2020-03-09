@@ -13,6 +13,9 @@
 		<action name="login" class="ru.own.www.logic.Login">
 			<result name="success">/login.jsp</result>
 		</action>
+		<action name="foregetPassword" class="ru.own.www.logic.Login"  method="foregetPassword">
+			<result name="success">/usermanage/foreget-password.jsp</result>
+		</action>
 	</package>
 
 </struts>    

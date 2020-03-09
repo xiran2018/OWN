@@ -13,7 +13,7 @@ public class FilterAction
 {
 	//包含需要重新定向的jsp或者aciton请求，客户端获取前一次请求的url，从而用户可以变换语言或者货币的时候，可以准确的定向到当前页面
 	public static String [] filterRedirctJSPAction={
-			"login.action", "newCustomerRegister.action", "index.action", "cart.jsp", "modifyMailAddress.action", "addMailAddress.action", "category_showAll.action", "productShow.action", "confirmorder.action", "checkout.action",
+			"cart.action","confirmorder.action","foregetPassword.action","login.action", "newCustomerRegister.action", "index.action", "cart.jsp", "modifyMailAddress.action", "addMailAddress.action", "category_showAll.action", "productShow.action", "confirmorder.action", "checkout.action",
 			"showAllOrders.action", "orderDetail.action", "userinfo.action", "changePasswordSecurity.action", "buyerIndex.action", "shippingAddressShow.action"
 	};
 	

