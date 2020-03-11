@@ -8,27 +8,19 @@
   <component name="ChangeListManager">
     <list default="true" id="b4d3fc76-35aa-4430-9376-34289a819ae0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/common/footer/js/template.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/footer/js/template.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/common/header/js/currency.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/header/js/currency.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/common/header/js/language.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/header/js/language.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/foregroundproductshow/js/productshow.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/foregroundproductshow/js/productshow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/js/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/order/js/confirmorder.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/confirmorder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/order/js/order-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/order-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/order/js/order-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/order-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/payment/js/checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/payment/js/checkout.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderAfterOperate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderAfterOperate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateDAOImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateDAOImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/LanguageDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/LanguageDAOImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/MybatisSessionFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/MybatisSessionFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configfile/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/configfile/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configfile/mybatis-configure.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/configfile/mybatis-configure.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configfile/mybatis-jdbc-core.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/configfile/mybatis-jdbc-core.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/entity/Order.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/entity/OrderShowVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/entity/OrderShowVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/filter/QequestURLFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/filter/QequestURLFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/logic/OrderOperate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/logic/OrderOperate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/mybatis/dao/OrderOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/mybatis/dao/OrderOperateMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/util/FilterAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/util/FilterAction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/struts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/shopcart/js/shopcart.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/shopcart/js/shopcart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/userlogin/js/getLanguage.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/userlogin/js/getLanguage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/js/addMailAddress.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/js/addMailAddress.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/js/change.password.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/js/change.password.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/js/foregetpassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/js/foregetpassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/js/handle.foregetpassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/js/handle.foregetpassword.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -364,7 +356,7 @@
       <workItem from="1583637349815" duration="1465000" />
       <workItem from="1583671699415" duration="6603000" />
       <workItem from="1583752366802" duration="36557000" />
-      <workItem from="1583889303443" duration="11405000" />
+      <workItem from="1583889303443" duration="12698000" />
     </task>
     <servers />
   </component>

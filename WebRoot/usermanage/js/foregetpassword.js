@@ -61,7 +61,7 @@ function getPassword()
 			}
 			else if(data.status=="500")
 			{	
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 		},
 		success : function(data) 

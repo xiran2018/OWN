@@ -101,7 +101,7 @@ function resetPassword()
 		dataType : "json",
 		error : function(data) 
 		{
-			alert(messageResourceErrorTips);
+			// alert(messageResourceErrorTips);
 		},
 		success : function(data) 
 		{

@@ -165,11 +165,11 @@ function generateOrder(params)
 			{
 				if(data.status=="200")
 				{
-					alert(messageResourceErrorTips);
+					// alert(messageResourceErrorTips);
 				}
 				else if(data.status=="500")
 				{	
-					alert(messageResourceErrorTips);
+					// alert(messageResourceErrorTips);
 				}
 				
 			},
@@ -469,11 +469,11 @@ function updateMailAddressInfo(params)
 		{
 			if(data.status=="200")
 			{
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -500,11 +500,11 @@ function addMailAddressInfo(params)
 		{
 			if(data.status=="200")
 			{
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			
 		},

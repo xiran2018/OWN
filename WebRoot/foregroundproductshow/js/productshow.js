@@ -68,11 +68,11 @@ function loadProductBasicInfo(id)
 		{
 			if(data.status=="200")
 			{
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -727,11 +727,11 @@ function loadProductImages(id)
 		{
 			if(data.status=="200")
 			{
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			
 		},
@@ -883,7 +883,7 @@ function addToCartRegister()
 			dataType : "json",
 			error : function(data) 
 			{
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			},
 			success : function(data) 
 			{
@@ -983,7 +983,7 @@ function userLogin()
 		dataType : "json",
 		error : function(data) 
 		{
-			alert(messageResourceErrorTips);
+			// alert(messageResourceErrorTips);
 		},
 		success : function(data) 
 		{

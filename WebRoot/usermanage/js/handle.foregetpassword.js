@@ -47,7 +47,7 @@ function resetPassword()
 			}
 			else if(data.status=="500")
 			{	
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 		},
 		success : function(data) 

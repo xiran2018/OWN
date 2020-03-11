@@ -18,11 +18,11 @@ function getShowCurrency()
 		{
 			if(data.status=="200")
 			{
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			else if(data.status=="500")
 			{	
-				alert(messageResourceErrorTips);
+				// alert(messageResourceErrorTips);
 			}
 			
 		},
