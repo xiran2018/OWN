@@ -66,7 +66,7 @@ public class CustomerAuthFilter implements Filter
 				{//未登录
 					 //设置客户原来请求的url地址   
 		            session.setAttribute("customerPrePage",Utility.getGoingURL(req));
-					res.sendRedirect(req.getContextPath() + "/login.jsp"); 
+					res.sendRedirect(req.getContextPath() + "/login.action");
 					return;
 				}
 		}

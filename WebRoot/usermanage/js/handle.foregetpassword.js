@@ -55,7 +55,7 @@ function resetPassword()
 			if(data=="0")
 			{
 				alert("Success！");
-				window.location="login.jsp";
+				window.location="login.action";
 			}
 			else if(data=="1")
 			{

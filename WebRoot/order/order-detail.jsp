@@ -30,8 +30,10 @@
 <!--去小数点等-->
 <script type="text/javascript" src="js/math.js"></script>
 <script type="text/javascript">
-$(function() {
-  });
+	var devilyTime = '<s:text name="www.999own.devilyTime"></s:text>';
+	var days = '<s:text name="www.999own.days"></s:text>';
+	$(function() {
+	  });
   //订单内容
   var orderList=<s:property value="orderListString" escape="false"/>;
 </script>
@@ -61,7 +63,13 @@ $(function() {
 		<div id="lagout-three">
 			<div class="grid-c aliexpress">
 			 <!-- start: 你的内容从这里开始 -->
-			 <div class="position-tips"><a class="alink" href="http://us.ae.alibaba.com/">My AliExpress</a> &gt; <a class="alink" href="http://trade.aliexpress.com/orderList.htm">Order List </a> &gt; Order Detail</div>
+			 <div class="position-tips">
+				 <a class="alink" href="http://us.ae.alibaba.com/">
+				 	<s:text name="www.999own.myorder"></s:text>
+				 </a> &gt;
+				 <a class="alink" href="#">
+					 <s:text name="www.999own.orderList"></s:text>
+				 </a> &gt; <s:text name="www.999own.orderDetail"></s:text></div>
 			 <!-- 详情 -->
 			 <div id="reminder-section" class="ui-box ui-box-primary ui-box-primary-system reminder-section">
 					<div class="ui-box-content">

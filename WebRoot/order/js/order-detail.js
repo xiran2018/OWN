@@ -178,7 +178,7 @@ function generateXiangXiInfo(order,odsvoList,currencyArgs)
 			shiptime="15-60";
 		}
 		html+="<p class='ship-info'>";
-		html+="Estimated Delivery Time:<span class='ship-value'>"+shiptime+" Days</span>";
+		html+=devilyTime+":<span class='ship-value'>"+shiptime+" "+days+"</span>";
 		html+="</p>";
 		//process time
 		html+="<p class='ship-info'>";

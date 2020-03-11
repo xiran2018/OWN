@@ -69,7 +69,7 @@
 				<em class="imjs-userstatus adminStatusEm webim-username-offline">&nbsp;</em>
 				<em class="imjs-username">
 					<strong>
-						<s:text 	name="www.webIm.SystemInfo"></s:text>
+						<s:text name="www.webIm.adminUser"></s:text>
 					</strong></em>
 			</div>
 			<div id="imjs-lianxiren" class="webim-lianxiren" style="display: none;">
@@ -106,7 +106,7 @@
 								class="webim-username-n"><s:text name="www.webIm.adminUser"></s:text></em>
 							<em style="display:none" class="webim-msg-count"></em>
 						</div>
-						<div id="imjs-main-0-0_0_0_0" style="cursor:pointer;margin-left: 5px;"
+						<div id="imjs-main-0-0_0_0_0" style="cursor:pointer;margin-left: 5px;overflow: hidden;"
 							 class="webim-system-info c-li"
 							 data-username='<s:text name="www.webIm.SystemInfo"></s:text>'
 							 data-userstatus="1" data-postid="0_0_0_0" data-posttitle="">
@@ -116,20 +116,24 @@
 						<div id="imjs-main-default" class="c-li"
 							style="cursor:pointer;display:none">
 							<em title="删除" class="webim-close">&nbsp;</em> <a
-								style="display:none" title="删除" class="webim-close-enter"> <s:text
-									name="www.webIm.closeEnter"></s:text>
+								style="display:none" title="删除" class="webim-close-enter">
+								<s:text	name="www.webIm.closeEnter"></s:text>
 							</a> <em class="webim-status">&nbsp;</em> <em
 								class="webim-username-n"></em> <em style="display:none"
 								class="webim-msg-count"></em>
 						</div>
 						<div id="inputTips" class="" style="cursor:pointer;display:block;padding-top: 5px;">
-								<span>In order to facilitate contact, please provide the following information for unregistered users.</span>
+								<span>
+									<s:text	name="www.webIm.inputTips"></s:text>
+								</span>
 						</div>
 						<div class="ContactFormBorder" style="padding-left: 3px;">
 							<div id="formContent">
 								<div id="13821main" class="g-FormField2 FormFieldTypeT g-FormField2-empty g-FormField2-Error" style="">
 									<div id="13821label" class="g-FormField2-Label g-FormField2-Label-mandatory g-FormField2-Label-Number" style="">
-										<label for="13821input">Name:</label>
+										<label for="13821input">
+											<s:text	name="www.webIm.name"></s:text>:
+										</label>
 									</div>
 									<div class="g-FormField2-InputContainer">
 										<div id="13821inputPanel" class="g-FormField2-InputPanel">
@@ -161,7 +165,9 @@
 								</div>
 								<div id="13823main" class="g-FormField2 FormFieldTypeT g-FormField2-empty g-FormField2-Error" style="">
 									<div id="13823label" class="g-FormField2-Label g-FormField2-Label-mandatory g-FormField2-Label-Number" style="">
-										<label for="13823input">Telephone:</label>
+										<label for="13823input">
+											<s:text	name="www.webIm.Telephone"></s:text>:
+										</label>
 									</div>
 
 									<div class="g-FormField2-InputContainer">
@@ -201,7 +207,7 @@
 				<div class="webim-body-comtent-talk-tips">
 					&nbsp;&nbsp;
 					<%--<s:text name="www.webIm.webIMSource"></s:text>:--%>
-					Email: 999own.com
+					Email: info@999own.ru
 					<a style="" class="imjs-link" target="_blank" title=" "> </a>
 				</div>
 				<div id="imjs-body-content-talk"

@@ -7,20 +7,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4d3fc76-35aa-4430-9376-34289a819ae0" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/common/footer/js/template.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/footer/js/template.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/common/header/js/currency.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/header/js/currency.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/common/header/js/language.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/header/js/language.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/foregroundproductshow/js/productshow.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/foregroundproductshow/js/productshow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/js/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/order/js/confirmorder.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/confirmorder.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/shopcart/js/shopcart.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/shopcart/js/shopcart.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/userlogin/js/getLanguage.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/userlogin/js/getLanguage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/js/addMailAddress.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/js/addMailAddress.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/js/change.password.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/js/change.password.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/js/foregetpassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/js/foregetpassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/usermanage/js/getuserpassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/usermanage/js/getuserpassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/order/js/order-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/order-detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/order/js/order-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/order-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/order/order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/order-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/order/order-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/order-list.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/active/reSendActivateEmailError.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/active/reSendActivateEmailError.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/active/reSendActivateEmailSuccess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/active/reSendActivateEmailSuccess.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/js/handle.foregetpassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/js/handle.foregetpassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/register/registerSuccess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/register/registerSuccess.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/messageResource_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/messageResource_en_US.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/own/www/filter/CustomerAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/filter/CustomerAuthFilter.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -60,6 +64,7 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/entity/OrderShowVO.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/order/js/order-list.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/util/Encrypt.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/util/FilterAction.java" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js" root0="SKIP_HIGHLIGHTING" />
@@ -72,6 +77,9 @@
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/LanguageDAOImp.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/filter/QequestURLFilter.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/order/order-list.jsp" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" root2="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/jqladmin/order/order-list.jsp" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" root2="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/order/order-detail.jsp" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" root2="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/UserOperate.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/struts_foreground_manger.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/UserOperateImpl.java" root0="SKIP_INSPECTION" />
@@ -356,7 +364,8 @@
       <workItem from="1583637349815" duration="1465000" />
       <workItem from="1583671699415" duration="6603000" />
       <workItem from="1583752366802" duration="36557000" />
-      <workItem from="1583889303443" duration="12698000" />
+      <workItem from="1583889303443" duration="13684000" />
+      <workItem from="1583915621139" duration="9485000" />
     </task>
     <servers />
   </component>

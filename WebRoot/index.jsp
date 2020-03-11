@@ -12,7 +12,7 @@
   <head>
     	<base href="<%=basePath%>">
 		<meta charset="UTF-8">
-		<title>999OWN.RU - ÐÐ¿ÑÐ¾Ð²ÑÐ¹ Ð¸Ð½ÑÐµÑÐ½ÐµÑ-Ð¼Ð°Ð³Ð°Ð·Ð¸Ð½ Ð¿Ð¾ Ð¿ÑÐ¾Ð´Ð°Ð¶Ðµ Ð¾Ð±ÑÐ²Ð¸ Ð¸ ÑÑÐ¼Ð¾Ðº</title>
+		<title>999OWN.RU</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="0">

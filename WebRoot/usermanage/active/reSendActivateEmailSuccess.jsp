@@ -56,7 +56,7 @@
 						<div class="suggest-words">
 							<s:text name="www.registerSuccess.SuggestWords.0"></s:text>
 							<span>
-								<a target= _blank href="login.jsp">
+								<a target= _blank href="login.action">
 									<s:text name="www.registerSuccess.SuggestWords.1"></s:text>
 								</a> 999OWN.
 							</span>

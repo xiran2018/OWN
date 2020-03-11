@@ -557,12 +557,12 @@ function generateBasicInfo(order,currency)
 	//订单编号
 	html+="<span class='no'>";
 	html+="<label>";
-	html+="Order NO:<span class='order-num'>";
+	html+=orderNO+":<span class='order-num'>";
 	html+="<a id='order-number' target='_blank' href='javascript:void(0)'>"+order.ordernumber+ "</a>";
 	html+="</span> ";
 	html+=" </label></span>";
 	//订单时间
-	html+="<span class='deal-time'> Order Time: "+timeStamp2String(order.ordercreatetime.time)+"</span> ";
+	html+="<span class='deal-time'> "+orderTime+": "+timeStamp2String(order.ordercreatetime.time)+"</span> ";
 	
 	//销售者
 	html+="<span class='seller'>999OWN";
@@ -571,12 +571,12 @@ function generateBasicInfo(order,currency)
 	//留言信息
 	html+="<span class='order-message'>";
 	html+=" <a class='message'  target='_blank' href=''>";
-	html+="<strong class='none'>0</strong>New Messages";
+	html+="<strong class='none'>0</strong>"+newMessages;
 	html+="</a> ";
 	html+="</span>";
 	//contact
 	html+=" <span class='separator'>|</span>";
-	html+="<a href='javascript:void(0)' class='feedback'>Contact</a>";
+	html+="<a href='javascript:void(0)' class='feedback'>"+contactUs+"</a>";
 	html+="</span>";
 	//amount
 	html+="<span class='amount'>";
@@ -585,7 +585,7 @@ function generateBasicInfo(order,currency)
 	var ordercurrencyRate = order.currencyrate;
 
 	var tempprice=orderCurrencyShowSymbol+" "+calculateFeeByExchangeRate(order.countprice,ordercurrencyRate);//calculateFeeByExchangeRate in math.js
-	html+="Amount: <strong>"+tempprice+"</strong>";
+	html+=amount+": <strong>"+tempprice+"</strong>";
 	html+=" </span>";
 	
 	html+="</td>";
@@ -623,7 +623,7 @@ function generateXiangXiInfo(order,odsvoList,currencyArgs)
 		html+="</div>";
 		
 		//属性信息
-		html+="<div class='spec'>Properties: ";
+		html+="<div class='spec'>"+properties+": ";
 		html+=getProductProperties(odsvo.odpa);//商品属性信息
 		html+="</div>";
 		//seller info
@@ -648,15 +648,15 @@ function generateXiangXiInfo(order,odsvoList,currencyArgs)
 			html+="<td rowspan='"+len+"' class='trade-status'>";
 			html+="<span class='f-left'>";
 			html+=orderState(order.orderstate)+"</span>";
-			html+="<span> <a class='detail-link TP_MakePoint' target='_blank' href='order/orderDetail.action?orderId="+order.id+"'>View Detail</a> </span>";
+			html+="<span> <a class='detail-link TP_MakePoint' target='_blank' href='order/orderDetail.action?orderId="+order.id+"'>"+orderDetail+"</a> </span>";
 			html+="</td>";
 			//operate
 			html+="<td rowspan='"+len+"' class='operate'>";
 			html+="<a href='payment-control/checkout.action?orderId="+order.id+"' style='width: 75px;height: 15px;' class='ui-button ui-button-normal-s button_reAddToCart' button_action='Payment' orderid='30066712523310' type='button'>";
-			html+="Payment</a>";
+			html+=payment+"</a>";
 			
 			html+="<div>";
-			html+="<a href='http://www.facebook.com' target='_blank' rel='nofollow' target='_blank'>Share on  <span style='color: #db6e53;'>www.facebook.com</span></a>";
+			html+="<a href='http://www.vk.com/website_999own_ru' target='_blank' rel='nofollow' target='_blank'>"+shareon+"  <span style='color: #db6e53;'>www.vk.com</span></a>";
 			html+="</div>";
 			html+="</td>";
 		}
@@ -705,10 +705,10 @@ function getProductProperties(attrList)
 function convertPayment(paymenttype)
 {
 	if(paymenttype==0||paymenttype==null||paymenttype==""||paymenttype==undefined)
-		return "No Payment";
+		return noPayment;
 		//return '<s:text name="www.order.noPayment" default="No Payment"></s:text>';
 	else if(paymenttype==1)
-		return "PayPal Payment";
+		return "PayPal";
 }
 
 /**

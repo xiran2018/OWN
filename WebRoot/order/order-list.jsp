@@ -40,27 +40,42 @@
 <link href="order/css/pagination.css" rel="stylesheet" type="text/css" />
 
 <script type="text/javascript">
-$(function() {
-    $( "#gmtBeginDate" ).datepicker({
-        showOn: "button",
-        //dateFormat:"yy-mm-dd",
-        buttonImage: "images/calendar.gif",
-        buttonImageOnly: true,
-        changeMonth: true,
-        changeYear: true,
-        buttonText: "Select date"
+	var properties='<s:text name="www.999own.Properties"></s:text>';
+	var orderTime='<s:text name="www.order.orderTime"></s:text>';
+	var newMessages='<s:text name="www.999own.newMessages"></s:text>';
+	var amount='<s:text name="www.999own.amount"></s:text>';
+	var payment='<s:text name="www.confirmOrder.payment"></s:text>';
+	var shareon='<s:text name="www.999own.shareon"></s:text>';
+	var contactUs='<s:text name="www.web.contact.us"></s:text>';
+	var orderNO='<s:text name="www.order.orderNO"></s:text>';
+	var orderDetail='<s:text name="www.order.detail"></s:text>';
+	var noPayment ='<s:text name="www.order.noPayment"></s:text>';
 
-    });
-    
-    $( "#gmtEndDate" ).datepicker({
-        showOn: "button",
-        //dateFormat:"yy-mm-dd",
-        buttonImage: "images/calendar.gif",
-        buttonImageOnly: true,
-        changeMonth: true,
-        changeYear: true,
-        buttonText: "Select date"
-    });
+	var selectDate = '<s:text name="www.999own.selectDate"></s:text>';
+	$(function() {
+
+		$( "#gmtBeginDate" ).datepicker({
+			showOn: "button",
+			//dateFormat:"yy-mm-dd",
+			buttonImage: "images/calendar.gif",
+			buttonImageOnly: true,
+			changeMonth: true,
+			changeYear: true,
+			buttonText: selectDate
+			// buttonText: "Select date"
+
+		});
+
+		$( "#gmtEndDate" ).datepicker({
+			showOn: "button",
+			//dateFormat:"yy-mm-dd",
+			buttonImage: "images/calendar.gif",
+			buttonImageOnly: true,
+			changeMonth: true,
+			changeYear: true,
+			buttonText: selectDate
+			// buttonText: "Select date"
+		});
   });
   //订单内容
   var orderList=<s:property value="orderListString" escape="false"/>;

@@ -69,7 +69,7 @@ function getPassword()
 //			window.opener = null;
 //			window.open(' ','_self');
 //			window.close();
-			window.location="login.jsp";
+			window.location="login.action";
 		}
 	});// end of ajax
 

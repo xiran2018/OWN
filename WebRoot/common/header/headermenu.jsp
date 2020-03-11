@@ -223,7 +223,7 @@
 								<div class="user-account-info" data-role="user-account-top">
 									<div class="user-account-inner hidden-sm">
 										<span class="account-unsigned" data-role="unsigned">
-											<a rel="nofollow" href="login.jsp" data-role="sign-link"><s:text name="www.web.login"></s:text></a>
+											<a rel="nofollow" href="login.action" data-role="sign-link"><s:text name="www.web.login"></s:text></a>
 											<span class="ua-line">|</span>
 											<a rel="nofollow" href="client/newCustomerRegister" data-role="join-link"><s:text name="www.web.register"></s:text></a>
 										</span>
@@ -242,7 +242,7 @@
 									<div class="flyout-user-signIn" data-role="user-signIn" style="display: block;">
 										<p class="flyout-welcome-text" data-role="flyout-welcome" style="display: none;">Welcome back</p>
 										<p>
-											<a rel="nofollow" href="login.jsp" class="sign-btn" data-role="sign-link">
+											<a rel="nofollow" href="login.action" class="sign-btn" data-role="sign-link">
 												<s:text name="www.web.login"></s:text>
 											</a>
 										</p>
