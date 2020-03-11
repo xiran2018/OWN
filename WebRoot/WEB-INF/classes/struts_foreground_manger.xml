@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<include file="struts-default.xml" />
+
+    <package name="foreground-management"  namespace="/category" extends="all">
+    	<default-interceptor-ref name="mydefault" /><!-- 使用语言拦截器 -->
+    	<action name="category_*" class="admin.ru.own.www.logic.foreground.SecondForegroundPageManagementAction" method="{1}">
+    		<result name="showAll">/foreground/ocategory.jsp</result>
+    		<result name="getSecondLevelNavigation" type="json" >
+    			 <param name="root">navigation</param>
+    		</result>
+    		<result name="getSecondLevelCategoryRollImage" type="json" >
+    			<param name="root">categoryImages</param>
+    		</result>
+    		<result name="getAllAttribute" type="json">
+    			<param name="root">allAttributes</param>
+    		</result>
+    	</action>
+    	
+    	<action name="productfilter_*" class="admin.ru.own.www.logic.foreground.ProductFilterManagementAction" method="{1}">
+    		<result name="getProducts" type="json">
+    			<param name="root">productsVOs</param>     	
+    		</result>
+    		<result name="getExhibitionProducts" type="json">
+    			<param name="root">productsVOs</param>     	
+    		</result>
+    		<result name="getHotProducts" type="json">
+				<param name="root">productsVOs</param>      		
+    		</result>
+    		<result name="getRecommendProducts" type="json">
+    			<param name="root">productsVOs</param>      	
+    		</result>
+    		<result name="getNewProducts" type="json">
+    			<param name="root">productsVOs</param>    	
+    		</result>
+    		<result name="returnTotalNumber" type="json">
+    			<param name="root">totalNumber</param>
+    		</result>
+    	</action>
+    	
+    	<action name="thirdforegroundpage_*" class="admin.ru.own.www.logic.foreground.ThirdForegroundPageManagementAction" method="{1}">
+    		<result name="showAll">/foreground/thirdlevelpage.jsp</result>
+    		<result name="findNewProducts">/foreground/newpage.jsp</result>
+    		<result name="findRecommendProducts">/foreground/recommendpage.jsp</result>
+    		<result name="findHotProducts">/foreground/hotpage.jsp</result>
+    	</action>
+    	
+    	<action name="searchcommodity_*" class="admin.ru.own.www.logic.foreground.SearchCommodityAction" method="{1}">
+    		<result name="showAll">/foreground/searchproductresult.jsp</result>
+    		<result name="getSearchCommodity" type="json">
+    			<param name="root">productsVOs</param>
+    		</result>
+    		<result name="returnTotalNumber" type="json">
+    			<param name="root">totalNumber</param>
+    		</result>
+    	</action>
+    </package>
+
+</struts>    

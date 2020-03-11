@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.AtrValueMultiLangDAO">
+	<resultMap type="admin.ru.own.www.entity.AttributeValueMultiLanguage" id="atrvml">
+		<id property="id" column="id"/>
+		<result property="lan_id" column="lan_id"/>
+		<result property="attrvalue_id" column="attr_value_id"/>
+		<result property="name" column="foreign_name"/>
+		<result property="title" column="foreign_title"/>
+		<result property="keywords" column="foreign_keywords"/>
+		<result property="description" column="foreign_description"/>
+	</resultMap>
+	<select id="getAttrValueByAtrIDAndPIDAndAttrValueId" parameterType="Map" resultMap="atrvml">
+		select avm.* from product_basic_attr pba,own.attribute_valuemultilanguage avm,own.attribute_value av 
+		where pba.p_id=#{p_id} and pba.attr_name_id=#{atrName_id} and  pba.attr_value_id=#{attrValue_id} and av.attr_id=pba.attr_name_id and av.attr_value_id=pba.attr_value_id 	and  avm.attr_value_id=av.attr_value_id;
+	</select>
+	<select id="getAttrValueByAtrID" parameterType="int" resultMap="atrvml">
+		SELECT avm.*
+		from own.attribute_valuemultilanguage avm,own.attribute_value av 
+		where av.attr_id=#{atrName_id} and av.attr_value_id=avm.attr_value_id; 
+	</select>
+	<select id="getAttrValueByID" parameterType="int" resultMap="atrvml">
+		SELECT * from own.attribute_valuemultilanguage where id=#{id}; 
+	</select>
+	<insert id="insertAttrValue" parameterType="admin.ru.own.www.entity.AttributeValueMultiLanguage" useGeneratedKeys="true" keyProperty="id">
+		insert into own.attribute_valuemultilanguage(lan_id, attr_value_id,foreign_name,foreign_title,foreign_keywords,foreign_description)
+		values (#{lan_id},#{attrvalue_id},#{name},#{title},#{keywords},#{description});
+	</insert>
+	<delete id="delAttrValueByAttrVauleID" parameterType="int">
+    	delete from own.attribute_valuemultilanguage where attr_value_id=#{atrVauleID}; 
+    </delete>
+    <update id="update" parameterType="admin.ru.own.www.entity.AttributeValueMultiLanguage" flushCache="true"  timeout="20">
+	    update attribute_valuemultilanguage  set foreign_name=#{name},foreign_title=#{title},foreign_keywords=#{keywords},foreign_description=#{description} where id=#{id}
+  	</update>
+</mapper>

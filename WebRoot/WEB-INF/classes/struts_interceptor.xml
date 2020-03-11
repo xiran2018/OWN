@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 配置客户端全局拦截器 -->
+    <package name="all" extends="json-default">
+        <interceptors>
+        
+        	<!--定义一个xss拦截器-->
+	       <interceptor class="admin.ru.own.www.xss.XssInterceptor" name="XssInterceptor">
+	       </interceptor>
+        
+	        <!--定义一个语言拦截器-->
+	       <interceptor class="ru.own.www.interceptor.LanguageInterceptor" name="languageInterceptor">
+	       </interceptor>
+	       
+	        <!--定义一个货运国家的的拦截器-->
+            <interceptor class="ru.own.www.interceptor.ShipCountryInterceptor" name="shipCountryInterceptor">
+            </interceptor>
+            
+            <!--定义一个权限控制的拦截器-->
+            <interceptor class="ru.own.www.interceptor.AuthorityInterceptor" name="AuthorityInterceptor">
+            </interceptor>
+	       
+	        <!--配置自定义的语言拦截器栈-->
+	        <interceptor-stack name="mydefault">
+	            <!--配置自定义的语言拦截器-->
+	            <interceptor-ref name="XssInterceptor" /> 
+	            <interceptor-ref name="languageInterceptor" />
+	            <interceptor-ref name="defaultStack" />
+	        </interceptor-stack>
+	        
+	       <!--定义一个包含货运国家的拦截器栈-->
+            <interceptor-stack name="mydefault1">
+                <!--配置自定义的语言拦截器-->
+                <interceptor-ref name="XssInterceptor" /> 
+                <interceptor-ref name="languageInterceptor" />
+                <interceptor-ref name="shipCountryInterceptor" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+            
+	       <!--定义一个包含权限检查的拦截器栈-->
+            <interceptor-stack name="mydefault2">
+                <!--配置自定义的语言拦截器-->
+                <interceptor-ref name="XssInterceptor" /> 
+                <interceptor-ref name="AuthorityInterceptor" />
+                <interceptor-ref name="languageInterceptor" />
+                <interceptor-ref name="shipCountryInterceptor" />
+                <interceptor-ref name="defaultStack" />
+            </interceptor-stack>
+        </interceptors>
+        
+    
+    </package>
+</struts>    

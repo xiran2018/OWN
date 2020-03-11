@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.ProductBasicAttrDAO">
+	<resultMap type="pbavo" id="pbavomap">
+		<result property="attr_value_name" column="attr_value_name"/>
+		<result property="attr_name" column="attr_name"/>
+		<result property="input_style" column="input_style"/>
+		<association property="pba" resultMap="pbamap"></association>
+	</resultMap>
+	<resultMap type="pba" id="pbamap">
+		<id property="p_basic_attr_id" column="p_basic_attr_id"/>
+		<result property="p_id" column="p_id"/>
+		<result property="attr_name_id" column="attr_name_id"/>
+		<result property="attr_value_id" column="attr_value_id"/>
+		<result property="is_sku" column="is_sku"/>
+		<result property="sku_id" column="sku_id"/>
+		<result property="create_time" column="create_time"/>	
+	</resultMap>	
+	<delete id="deleteBasicAttr" parameterType="pba" >  
+		delete from product_basic_attr where p_id=#{p_id} and attr_value_id=#{attr_value_id}    
+	</delete>
+	
+	<delete id="deleteBasicAttr13" parameterType="pba" >  
+		delete from product_basic_attr where p_id=#{p_id} and attr_name_id=#{attr_name_id} and attr_value_id=#{attr_value_id};
+		delete from attribute_value where  attr_id=#{attr_name_id} and attr_value_id=#{attr_value_id};   
+		delete from attribute_valuemultilanguage where  attr_value_id=#{attr_value_id};   
+	</delete>
+	
+	<delete id="deleteBasicAttrByP_id" parameterType="int" >  
+		delete from product_basic_attr where p_id=#{p_id}    
+	</delete>
+	
+	<insert id="insertBasicAttr" parameterType="pba" useGeneratedKeys="true" keyProperty="p_basic_attr_id">  
+    	insert into product_basic_attr (p_id, attr_name_id,attr_value_id,is_sku) values (#{p_id},#{attr_name_id},#{attr_value_id},#{is_sku})  
+    </insert>
+    
+	<select id="getOneProductBasicAttrVO" parameterType="pba" resultMap="pbavomap">  
+		SELECT b.*,k.attr_name,k.input_style,v.attr_value_name FROM own.product_basic_attr as b,own.attribute as k ,own.attribute_value as v where b.p_id=#{id} and k.attr_id = b.attr_name_id and v.attr_value_id=b.attr_value_id;  
+	</select> 
+	
+	<select id="getAttrValueIDListByPIDAndAttrNameID" parameterType="pba" resultType="int">  
+		SELECT b.attr_value_id FROM own.product_basic_attr as b where 
+		b.p_id=#{p_id} and b.attr_name_id =#{attr_name_id}  
+	</select> 
+    
+    <select id="getTextAttrValueIdsByProduct_id" resultType="int" parameterType="int">
+    	select distinct attribute_value.attr_value_id from own.product_basic_attr,own.attribute,own.attribute_value where own.product_basic_attr.attr_name_id = own.attribute.attr_id and (attribute.input_style=3 or attribute.input_style=1) and own.attribute_value.attr_id=own.attribute.attr_id and own.product_basic_attr.p_id=#{product_id}
+    </select>
+    
+    <select id="getOneProductBasicAttr4VOByPidAndLanId"  resultMap="pbavbypidandlanid13">
+		select  pba.attr_name_id,pba.p_id,pba.is_sku,pba.attr_value_id attrValueId,
+		attrmu.foreign_name,attrmu.lan_id,at.input_style,attrvalumu.foreign_name attrValueName 
+		from product_basic_attr pba, attribute at,attributemultilanguage attrmu,attribute_valuemultilanguage attrvalumu 
+		where p_id=#{0}  and at.attr_status=1  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id 
+		and attrmu.lan_id=#{1} and attrvalumu.attr_value_id=pba.attr_value_id and attrvalumu.lan_id=#{1}
+		and at.input_style=4;
+    </select>
+    
+    <select id="getOneProductBasicAttr13VOByPidAndLanId"  resultMap="pbavbypidandlanid13">
+    	<!--  属性值为多语言时的情形 -->
+		select  pba.p_basic_attr_id,pba.attr_name_id,pba.p_id,pba.is_sku,pba.attr_value_id attrValueId,
+		attrmu.foreign_name,attrmu.lan_id,at.input_style,at.is_popup,attrvalumu.foreign_name attrValueName 
+		from product_basic_attr pba, attribute at,attributemultilanguage attrmu,attribute_valuemultilanguage attrvalumu 
+		where p_id=#{0}  and at.attr_status=1  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id 
+		and attrmu.lan_id=#{1} and attrvalumu.attr_value_id=pba.attr_value_id and attrvalumu.lan_id=#{1}
+		and at.input_style in (1,3);  
+		<!-- 属性值就只有一个语言而已 
+		select  pba.p_basic_attr_id,pba.attr_name_id,pba.p_id,pba.is_sku,pba.attr_value_id attrValueId,
+		attrmu.foreign_name,attrmu.lan_id,at.input_style,attrvalue.attr_value_name attrValueName 
+		from product_basic_attr pba, attribute at,attributemultilanguage attrmu,attribute_value attrvalue
+		where p_id=#{0} and attrmu.lan_id=#{1}  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id 
+		and attrvalue.attr_value_id=pba.attr_value_id and at.input_style in (1,3);  -->
+    </select>
+    
+    
+    <resultMap type="ru.own.www.entity.Product_Basic_Attr13_ShowVO" id="pbavbypidandlanid13">
+		<id  property="p_basic_attr_id"   column="p_basic_attr_id"/> 
+		<result property="attrId" column="attr_name_id"/>
+		<result property="attrName" column="foreign_name"/>
+		<result property="is_sku" column="is_sku"/>
+		<result property="input_style" column="input_style"/>
+		<result property="is_popup" column="is_popup"/>
+		<association property="attrValues" javaType="admin.ru.own.www.entity.AttributeValue">
+			  <id property="attrValueId" column="attrValueId"/>
+  			  <result property="attrValueName" column="attrValueName"/>
+		</association>
+	</resultMap>
+	
+    
+    <select id="getOneProductBasicAttrVOByPidAndLanId"  resultMap="pbavbypidandlanid">
+		select  distinct  pba.attr_name_id,pba.p_id,pba.is_sku,attrmu.foreign_name,attrmu.lan_id,at.input_style from product_basic_attr pba, attribute at,attributemultilanguage attrmu 
+		where p_id=#{0} and at.attr_status=1  and pba.attr_name_id=at.attr_id  and attrmu.attr_id=pba.attr_name_id and attrmu.lan_id=#{1} and at.input_style=2;
+    </select>
+    
+    <resultMap type="ru.own.www.entity.Product_Basic_Attr_ShowVO" id="pbavbypidandlanid">
+		<result property="attrId" column="attr_name_id"/>
+		<result property="attrName" column="foreign_name"/>
+		<result property="is_sku" column="is_sku"/>
+		<result property="input_style" column="input_style"/>
+		<collection property="attrValues"  column="{attrNameId=attr_name_id,pId=p_id,lanId=lan_id}"  ofType="admin.ru.own.www.entity.AttributeValue" select="selectAttrValueList"></collection>
+	</resultMap>
+    
+    <select id="selectAttrValueList" resultType="admin.ru.own.www.entity.AttributeValue">
+        select pba.attr_value_id attrValueId,attrvalumu.foreign_name attrValueName from own.product_basic_attr pba,own.attribute_valuemultilanguage attrvalumu 
+        where pba.p_id=#{pId} and pba.attr_name_id = #{attrNameId} and attrvalumu.attr_value_id=pba.attr_value_id and attrvalumu.lan_id=#{lanId}
+    </select>
+    
+    <update id="updateAttrValueId" parameterType="pba" flushCache="true" timeout="20">
+	    update own.product_basic_attr set attr_value_id=#{attr_value_id} where p_id=#{p_id} and attr_name_id=#{attr_name_id};
+	  </update>
+</mapper>

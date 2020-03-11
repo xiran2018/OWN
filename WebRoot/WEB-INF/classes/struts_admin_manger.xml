@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	
+	<include file="struts-default.xml" />
+	
+	<!-- 配置全局拦截器 -->
+    <package name="jqladmin-all" extends="json-default">
+        <interceptors>
+	                    <!--定义一个拦截器-->
+            <interceptor class="admin.ru.own.www.logic.AdminAuthorityInterceptor" name="sessionNull">
+            </interceptor>
+            <!--定义一个包含权限检查的拦截器栈-->
+            <interceptor-stack name="mydefault">
+                <interceptor-ref name="defaultStack" />
+                <!--配置自定义的拦截器-->
+                <interceptor-ref name="sessionNull" />
+            </interceptor-stack>
+
+            
+	
+        </interceptors>
+        
+    
+    </package>
+
+    <package name="struts2" namespace="/" extends="json-default">
+        
+        <interceptors>
+            <!--定义一个拦截器-->
+            <interceptor class="admin.ru.own.www.logic.AdminAuthorityInterceptor" name="sessionNull">
+            </interceptor>
+            <!--定义一个包含权限检查的拦截器栈-->
+            <interceptor-stack name="mydefault">
+                <interceptor-ref name="defaultStack" />
+                <!--配置自定义的拦截器-->
+                <interceptor-ref name="sessionNull" />
+            </interceptor-stack>
+        </interceptors>
+        <default-interceptor-ref name="mydefault" />
+      
+        <!-- ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！经过我修改之后的文件上传类别，可以较好的支持juery1.10.2！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！-->
+        <action name="uploadFileJson" class="admin.ru.own.www.fileupload.UploadUtilActionJson" method="uploadFile">
+            <result name="success"  type="json" >
+             <param name="root">resultString</param>
+            </result>
+        </action>  
+        <action name="showImageJson" class="admin.ru.own.www.fileupload.UploadUtilActionJson" method="showImage">
+             <result name="success"  type="json" >
+             <param name="root">resultString</param>
+            </result>
+        </action>
+        
+        <!-- 修改图片的action -->
+        <action name="uploadModifyFileJson" class="admin.ru.own.www.fileupload.UploadUtilActionJson" method="modifyFile">
+            <result name="success"  type="json" >
+             <param name="root">resultString</param>
+            </result>
+        </action>
+        <!-- ！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！end of-经过我修改之后的文件上传类别，可以较好的支持juery1.10.2！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！ -->
+        <!-- 上传图片的action -->
+        <action name="uploadFile" class="admin.ru.own.www.fileupload.UploadUtilAction" method="uploadFile"></action>  
+        <action name="uploadCategoryIcon" class="admin.ru.own.www.fileupload.UploadUtilAction" method="uploadCategoryIcon"></action>  
+        <!-- 显示图片的action -->
+        <action name="showImage" class="admin.ru.own.www.fileupload.UploadUtilAction" method="showImage"></action>
+        <!-- 修改图片的action -->
+        <action name="uploadModifyFile" class="admin.ru.own.www.fileupload.UploadUtilAction" method="modifyFile"></action>
+        <action name="iconModify" class="admin.ru.own.www.fileupload.UploadUtilAction" method="modifyIcon"></action>
+        
+        <action name="productuploadimage" class="admin.ru.own.www.fileupload.ProductUploadImageAction" method="uploadFile"></action>
+        <action name="foregrounduploadimage" class="admin.ru.own.www.fileupload.ProductUploadImageAction" method="uploadForegroundImage"></action>
+        <action name="categoryuploadimage" class="admin.ru.own.www.fileupload.ProductUploadImageAction" method="uploadCategoryImage"></action>
+        <action name="productshowImage" class="admin.ru.own.www.fileupload.ProductUploadImageAction" method="showImage"></action>
+    </package> 
+    
+	<!--系统管理员可以做的操作，受权限控制的Action请求配置-->
+	<package name="admin_manager" extends="json-default">
+		<interceptors>
+			<!--定义一个拦截器-->
+			<interceptor class="admin.ru.own.www.logic.AdminAuthorityInterceptor" name="sessionNull">
+			</interceptor>
+			<!--定义一个包含权限检查的拦截器栈-->
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<!--配置自定义的拦截器-->
+				<interceptor-ref name="sessionNull" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mydefault" />
+		<!--定义全局Result-->
+		<global-results>
+			<result name="login" type="redirect">/admin_relogin.jsp</result>
+		</global-results>
+		
+		
+		
+		<!--商品类目功能-->
+		<action name="category_show" class="admin.ru.own.www.logic.Category_Show">
+			<result name="success" type="json" >  
+			</result>
+		</action>
+		<action name="category_insert" class="admin.ru.own.www.logic.Category_Insert">
+			<result name="success" type="json" >  
+			</result>
+		</action>
+		<action name="category_fecth" class="admin.ru.own.www.logic.Category_Fetch">
+            <result name="success" type="json" >  
+            </result>
+        </action>
+        <action name="category_modify" class="admin.ru.own.www.logic.Category_Modify">
+            <result name="success" type="json" >  
+            </result>
+        </action>
+        
+        <action name="category_modify_basic" class="admin.ru.own.www.logic.Category_Modify" method="basicModify">
+            <result name="success" type="json" >  
+            </result>
+        </action>
+        
+       <action name="category_modify_xiangxi" class="admin.ru.own.www.logic.Category_Modify" method="xiangxiModify">
+            <result name="success" type="json" >  
+            </result>
+        </action>
+        
+        <action name="category_delete" class="admin.ru.own.www.logic.Category_Delete">
+            <result name="success" type="json" >  
+            </result>
+        </action>
+        
+        <action name="addCategoryImage" class="admin.ru.own.www.logic.CategoryImageManagementAction" method="add">
+            <result name="success">/jqladmin/product_category/insertcategoryimage.jsp</result>
+        </action>
+        
+        
+        <action name="categoryimage_*" class="admin.ru.own.www.logic.CategoryImageManagementAction" method="{1}">
+            <result name="showAll">/jqladmin/product_category/showcategoryimageall.jsp</result>
+            <result name="showInfo">/jqladmin/product_category/showcategoryimageinfo.jsp</result>
+            <result name="delete" type="chain">categoryimage_showAll</result>
+            <result name="update" type="chain">categoryimage_showAll</result>
+            <result name="insert" type="chain">categoryimage_showAll</result>
+            <result name="insertfail">/jqladmin/product_category/insertcategoryimage.jsp</result>
+        </action>
+        
+        
+        <!--商品品牌功能-->
+        <action name="brand_fecth" class="admin.ru.own.www.logic.Brand_Fetch">
+            <result name="success" type="json" >  
+             <param name="root">result</param>
+            </result>
+        </action>
+        <action name="brand_series_insert" class="admin.ru.own.www.logic.Brand_Insert">
+			<result name="success" type="json" >  
+			</result>
+		</action>
+		
+		 <action name="brand_fecth_byBrandId" class="admin.ru.own.www.logic.Brand_Fetch_byID">
+            <result name="success" type="json" >  
+             <!-- <param name="root">brand</param> -->
+            </result>
+        </action>
+        
+         <action name="brand_modify_basic" class="admin.ru.own.www.logic.Brand_Modify">
+            <result name="success" type="json" ></result>
+        </action>
+        
+        <action name="brand_modify_xiangxi" class="admin.ru.own.www.logic.Brand_Modify" method="modifyXiangxi">
+            <result name="success" type="json" ></result>
+        </action>
+        
+        <action name="brand_delete" class="admin.ru.own.www.logic.Brand_Delete">
+            <result name="success" type="json" >  
+            </result>
+        </action>
+        
+        <!--商品属性功能-->
+        <action name="product_attr_insert" class="admin.ru.own.www.logic.Attribute_Insert">
+            <result name="success" type="json" >  
+            </result>
+        </action>
+        
+        <action name="attribute_delete_byAttrId" class="admin.ru.own.www.logic.Attribute_Modify" method="attribute_delete_byAttrId">
+            <result name="success" type="json" >  
+            </result>
+        </action>
+        
+        <action name="attr_modify_basic" class="admin.ru.own.www.logic.Attribute_Modify" method="updateBasicInfo">
+            <result name="success" type="json" >  
+            </result>
+        </action>
+        
+        <action name="attr_modify_xiangxi" class="admin.ru.own.www.logic.Attribute_Modify" method="updateXiangXiInfo">
+            <result name="success" type="json" > 
+            </result>
+        </action>
+        
+        <action name="attribute_fecth" class="admin.ru.own.www.logic.Attribute_Fetch_By_CategoryId">
+            <result name="success" type="json" >  
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="attribute_global_fecth" class="admin.ru.own.www.logic.Attribute_Fetch_By_CategoryId" method="fecthGlobalAttr">
+            <result name="success" type="json" >  
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+        <action name="attribute_fecth_byAttrId" class="admin.ru.own.www.logic.Attribute_Fetch_By_AttrId">
+            <result name="success" type="json" >  
+                <!-- 
+                
+                <param name="root">attribute</param>
+                 -->
+            </result>
+        </action>
+        
+        <action name="attributeValues_fecth_byAttrId" class="admin.ru.own.www.logic.AttributeValuesDAO" method="multiAttributeValues_fecth_byAttrId">
+            <result name="success" type="json" >  
+                
+            </result>
+        </action>
+        
+         <action name="editAttrValues" class="admin.ru.own.www.logic.AttributeValuesDAO">
+            <result name="success" >  
+				/jqladmin/product_attr/editattributevalues.jsp
+            </result>
+        </action>
+        
+        
+        <action name="delAttrValueById" class="admin.ru.own.www.logic.AttributeValuesDAO" method="delAttrValue">
+            <result name="success" type="json" >  
+                <param name="root">id</param>
+            </result>
+        </action>
+        
+       <action name="attrValue_modify_basic" class="admin.ru.own.www.logic.AttributeValuesDAO" method="attrValue_modify_basic">
+            <result name="success" type="json" >  
+                <param name="root">id</param>
+            </result>
+        </action>
+        
+        <action name="attrValue_modify_xiangxi" class="admin.ru.own.www.logic.AttributeValuesDAO" method="attrValue_modify_xiangxi">
+            <result name="success" type="json" >  
+                <param name="root">id</param>
+            </result>
+        </action>
+        
+        
+        <action name="product_attrValues_insert" class="admin.ru.own.www.logic.AttributeValuesDAO" method="attrValue_insert">
+            <result name="success" type="json" >  
+                <param name="root">id</param>
+            </result>
+        </action>
+        
+        <!-- 批量添加商品 -->
+       <action name="product_upload" class="admin.ru.own.www.productup.ProductUP">
+            <result name="success" type="json" >  
+                <!-- 
+                
+                <param name="root">attribute</param>
+                 -->
+            </result>
+        </action>
+        
+        <!-- 添加语言 -->
+        <action name="add_language" class="admin.ru.own.www.language.AddLanguage">
+            <result name="success" type="json" >  
+                <param name="root">result</param>
+            </result>
+        </action>
+        
+         <!-- 取语言 -->
+        <action name="getAllLanguage" class="admin.ru.own.www.language.GetAllLanguage">
+            <result name="success" type="json" >  
+                <param name="root">multiLanguage</param>
+            </result>
+        </action>
+		<!-- 通过category id取brand -->
+        <action name="brand_show_by_categoryId" class="admin.ru.own.www.logic.brand_fetch_by_categoryId">
+            <result name="success" type="json" >  
+            </result>
+        </action>
+        
+        <!-- 物流信息相关操作 -->
+        <action name="add_shipping" class="admin.ru.own.www.logic.ShipOperate" method="addShipping">
+            <result name="success" type="json" >  
+             <param name="root">id</param>
+            </result>
+        </action>
+        
+        <action name="get_shipping" class="admin.ru.own.www.logic.ShipOperate" method="getShipping">
+            <result name="success" type="json" >  
+             
+            </result>
+        </action>
+        
+        <action name="getShippingById" class="admin.ru.own.www.logic.ShipOperate" method="getShippingById">
+            <result name="success" type="json" >  
+                <param name="root">ship</param>
+            </result>
+        </action>
+		
+		<action name="modify_shipping" class="admin.ru.own.www.logic.ShipOperate" method="modify_shipping">
+            <result name="success" type="json" >  
+                <param name="root">id</param>
+            </result>
+        </action>
+        
+        <action name="deleteShippingById" class="admin.ru.own.www.logic.ShipOperate" method="deleteShippingById">
+            <result name="success" type="json" >  
+                <param name="root">id</param>
+            </result>
+        </action>
+		
+		<action name="getAllShipping" class="admin.ru.own.www.logic.ShipOperate" method="getAllShipping">
+            <result name="success" type="json" >  
+             
+            </result>
+        </action>
+        
+        <!-- 物流到达国家相关操作 -->
+        <action name="add_shipcountry" class="admin.ru.own.www.logic.ShipCountryOperate" method="addShippingCountry">
+            <result name="success" type="json" >  
+             <param name="root">id</param>
+            </result>
+        </action>
+        
+        <action name="get_shippingcountry" class="admin.ru.own.www.logic.ShipCountryOperate" method="fetchShippingCountry">
+            <result name="success" type="json" >  
+             
+            </result>
+        </action>
+        
+        <action name="getShippingCountryById" class="admin.ru.own.www.logic.ShipCountryOperate" method="getShippingCountryById">
+            <result name="success" type="json" >  
+                <param name="root">ship</param>
+            </result>
+        </action>
+        
+        <action name="modify_shippingcountry" class="admin.ru.own.www.logic.ShipCountryOperate" method="modify_ShippingCountry">
+            <result name="success" type="json" >  
+                <param name="root">id</param>
+            </result>
+        </action>
+        
+        <action name="deleteShippingCountryById" class="admin.ru.own.www.logic.ShipCountryOperate" method="deleteShippingCountryById">
+            <result name="success" type="json" >  
+                <param name="root">id</param>
+            </result>
+        </action>
+        
+        <action name="getAllShippingCountry" class="admin.ru.own.www.logic.ShipCountryOperate" method="fetchAllShippingCountry">
+            <result name="success" type="json" >  
+             
+            </result>
+        </action>
+        
+        <!-- 物流管理  -->
+        <action name="saveAllShipTemplate" class="admin.ru.own.www.logic.ShipTemplateOperate" method="saveAllShipTemplate">
+            <result name="success" type="json" >  
+             
+            </result>
+        </action>
+        
+        <action name="modifyShipTemplate" class="admin.ru.own.www.logic.ShipTemplateOperate" method="modifyShipTemplate">
+            <result name="success" type="json" >  
+             
+            </result>
+        </action>
+        
+        <action name="get_allshippingtemplate" class="admin.ru.own.www.logic.ShipTemplateOperate" method="getAllShipTemplate">
+            <result name="success" type="json" >  
+             <param name="root">stlist</param>
+            </result>
+        </action>
+        
+        <action name="deleteShippingTemplateById" class="admin.ru.own.www.logic.ShipTemplateOperate" method="deleteShippingTemplateById">
+            <result name="success" type="json" >  
+             <param name="root">id</param>
+            </result>
+        </action>
+        
+        <action name="shipTemplateEdit" class="admin.ru.own.www.logic.ShipTemplateOperate" method="shipTemplateEdit">
+            <result name="success" > /jqladmin/storemange/shippingtemplateOperate.jsp </result>
+        </action>
+        
+                <!-- 【订单相关操作】 -->
+        
+         <!-- 展示所有的订单信息-->
+        <action name="showAllOrdersForRoot" class="admin.ru.own.www.logic.order.OrderAfterOperate" method="showAllOrdersForRoot">
+            <result name="success"> 
+				/jqladmin/order/order-list.jsp
+            </result>
+            <result name="jsonResult" type="json"> 
+				<param name = "includeProperties">orderList.*,errCode,totalNumberPage</param > 
+            </result>
+            
+        </action>
+        
+         <!-- 获取某一个订单的详细信息-->
+        <action name="orderDetailForRoot" class="admin.ru.own.www.logic.order.OrderAfterOperate" method="showOrderDetailForRoot">
+            <result name="success"> 
+				/jqladmin/order/order-detail.jsp
+            </result>
+        </action>
+        
+         <!-- 保存订单的打折信息-->
+        <action name="saveDiscountInfoForOrder" class="admin.ru.own.www.logic.order.OrderAfterOperate" method="saveDiscountInfoForOrder">
+            <result name="success" type="json"> 
+				<param name = "includeProperties">errCode</param > 
+            </result>
+        </action>
+        
+
+	</package>
+	
+	<!-- 后台首页 -->
+	<package name="jqladmin-index" namespace="/jqladmin/jqladmin-index" extends="jqladmin-all">
+		<default-interceptor-ref name="mydefault" />
+		<!--定义全局Result-->
+		<global-results>
+			<result name="login" type="redirect">/admin_relogin.jsp</result>
+		</global-results>
+		
+		 <!-- 首页需要显示的信息-->
+        <action name="admin-index" class="admin.ru.own.www.logic.Index" method="index">
+            <result name="success"> 
+				/jqladmin/admin-index/index.jsp
+            </result>
+        </action>
+		
+	</package>
+	
+</struts>    

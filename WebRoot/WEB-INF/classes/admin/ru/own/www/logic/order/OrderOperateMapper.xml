@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="admin.ru.own.www.logic.order.OrderOperateMapper">
+
+  
+   <!-- 修改打折信息-->
+    <update id="saveDiscountInfoForOrder"  parameterType="ru.own.www.entity.Order" flushCache="true">
+        update  own.order set reducefee=#{reducefee},reducefeereason=#{reducefeereason} where id=#{id}
+    </update>
+  
+    
+
+
+
+        <!-- 获取 某一个用户的所有订单数量   -->
+    <select id="getTotalOrderCountByUserId"   resultType="int">
+     	select count(*) from own.order ord  where ord.userid=#{userid}
+
+    </select>
+
+
+            <!-- 获取 某一个用户的没有付款的所有订单数量   -->
+    <select id="getAwaitingPaymentCountByUserId"   resultType="int" parameterType="ru.own.www.entity.QueryParameters">
+     	select count(*) from own.order ord  where orderstate=0
+		 <if test="userid != null  and userid != ''" >
+			    and   ord.userid=#{userid}
+		</if>
+    </select>
+
+    <!-- 获取 当天 订单中的信息   -->
+    <select id="getCurrentDayOrder"   resultMap="orderItemForRoot" >
+          select * from  own.order ord where date(orderpaytime) = curdate()
+
+    </select>
+
+     <!-- 根据用户id和订单id查询订单-->
+     <select id="getOrderShowVOByOrderIdAndUserId"  resultMap="orderItemForRoot"   parameterType="ru.own.www.entity.QueryParameters">
+          select * from  own.order ord
+          <where>
+          	   <if test="id != null  and id != ''" >
+			       ord.id = #{id}
+			   </if>
+          	   <if test="userid != null  and userid != ''" >
+			       and ord.userid=#{userid}
+			   </if>
+          </where>
+
+    </select>
+
+    <!-- 根据相应的条件，查找相应订单的总数量 ，这个查询和getOrderShowVOByParameters是直接相关的，因为决定着显示的多少-->
+     <select id="getTotalNumberOrderByParameters"  resultType="int"  parameterType="ru.own.www.entity.QueryParameters">
+          select count(DISTINCT ord.id) from  own.order ord,orderdetail odetail,user where ord.id=odetail.orderid and ord.userid=user.userid
+	           <if test="userid != null  and userid != ''" >
+			      and ord.userid=#{userid}
+			   </if>
+			   <if test="productName != null  and productName != ''" >
+			      and odetail.productname like CONCAT(CONCAT('%', #{productName}), '%')
+			   </if>
+			   <if test="orderNo != null  and orderNo != ''" >
+			      and ord.ordernumber like CONCAT(CONCAT('%', #{orderNo}), '%')
+			   </if>
+			   <if test="orderStatus != null  and orderStatus != ''" >
+			      and ord.orderstate=#{orderStatus}
+			   </if>
+			   <if test="buyerName != null  and buyerName != ''" >
+			      and user.username like CONCAT(CONCAT('%', #{buyerName}), '%')
+			   </if>
+	           <if test="id != null  and id != ''" >
+			     and ord.id = #{id}
+			   </if>
+			   <if test="gmtBeginDate != null  and gmtBeginDate != '' and gmtEndDate != null  and gmtEndDate != '' " >
+			     and date(ord.ordercreatetime) between date(#{gmtBeginDate}) and date(#{gmtEndDate})
+			   </if>
+    </select>
+
+    <!-- 根据相应的条件，获取订单中的信息   -->
+    <select id="getOrderShowVOByParameters"   resultMap="orderItemForRoot" parameterType="ru.own.www.entity.QueryParameters">
+          select DISTINCT ord.id muid,ord.* from  own.order ord,orderdetail odetail,user  where ord.id=odetail.orderid  and ord.userid=user.userid
+	           <if test="userid != null  and userid != ''" >
+			      and ord.userid=#{userid}
+			   </if>
+			   <if test="productName != null  and productName != ''" >
+			      and odetail.productname like CONCAT(CONCAT('%', #{productName}), '%')
+			   </if>
+			   <if test="orderNo != null  and orderNo != ''" >
+			      and ord.ordernumber like CONCAT(CONCAT('%', #{orderNo}), '%')
+			   </if>
+			   <if test="orderStatus != null  and orderStatus != ''" >
+			      and ord.orderstate=#{orderStatus}
+			   </if>
+			    <if test="buyerName != null  and buyerName != ''" >
+			      and user.username like CONCAT(CONCAT('%', #{buyerName}), '%')
+			   </if>
+	           <if test="id != null  and id != ''" >
+			     and ord.id = #{id}
+			   </if>
+			   <if test="gmtBeginDate != null  and gmtBeginDate != '' and gmtEndDate != null  and gmtEndDate != '' " >
+			     and date(ord.ordercreatetime) between date(#{gmtBeginDate}) and date(#{gmtEndDate})
+			   </if>
+		  order by ordercreatetime Desc limit #{offset},#{numberInPage}
+    </select>
+
+
+
+    <!-- 获取订单中的信息 -->
+    <select id="getOrderShowVOByOrderId"   resultMap="orderItemForRoot">
+          select * from  own.order ord  where ord.id=#{0}
+    </select>
+
+     <resultMap type="ru.own.www.entity.OrderShowVO" id="orderItemForRoot">
+     	<!-- 订单基本信息 -->
+        <association property="order" javaType="ru.own.www.entity.Order" >
+        	<id property="id" column="id"/>
+		    <result property="ordernumber" column="ordernumber"/>
+		    <result property="userid" column="userid"/>
+		    <result property="ordercreatetime" column="ordercreatetime"/>
+		    <result property="orderpaytime" column="orderpaytime"/>
+		    <result property="orderstate" column="orderstate"/>
+		    <result property="paymenttype" column="paymenttype"/>
+		    <result property="countprice" column="countprice"/>
+		    <result property="realpay" column="realpay"/>
+		    <result property="reducefee" column="reducefee"/>
+		    <result property="mailfee" column="mailfee"/>
+			<result property="currencyId" column="currencyId"/>
+			<result property="currencyrate" column="currencyrate"/>
+		    <result property="usejifen" column="usejifen"/>
+		    <result property="givejifen" column="givejifen"/>
+		    <result property="userip" column="userip"/>
+		    <result property="useraddressid" column="useraddressid"/>
+		    <result property="reducefeereason" column="reducefeereason"/>
+		    <result property="beizhu" column="beizhu"/>
+        </association>
+
+        <!-- 获取用户信息 -->
+        <association property="uinfo" javaType="admin.ru.own.www.entity.User" column="{userid=userid}" select="getUserById"></association>
+
+		<!-- 邮寄地址信息 -->
+		<association property="mailAddressVO" javaType="ru.own.www.entity.MailAddressShowVO" column="{useraddressid=useraddressid}" select="getMailAddressById"></association>
+
+        <!-- 具体的商品信息  -->
+        <collection property="odsvo"  column="{id=id}"  ofType="ru.own.www.entity.OrderDetailShowVO" select="selectOrderDetail"></collection>
+
+		 <!-- 具体的汇率等信息  -->
+		 <collection property="currency"  column="{idcurrency=currencyId}"  javaType="admin.ru.own.www.entity.Currency" select="selectCurrency"></collection>
+
+
+
+	 </resultMap>
+
+	<select id="selectCurrency" resultType="admin.ru.own.www.entity.Currency">
+	  	select * from currency where idcurrency=#{idcurrency}
+	</select>
+
+     <select id="getUserById" resultType="admin.ru.own.www.entity.User">
+        select userid,username,userrealname,usertel,usermail,userlevel,sex,totalbuycount,status,createtime,lasttime,jifen from user where userid=#{userid}
+     </select>
+
+
+     <select id="getMailAddressById" resultMap="mailAddressVOForRoot">
+        select * from mail_address where id=#{useraddressid}
+    </select>
+
+    <resultMap type="ru.own.www.entity.MailAddressShowVO" id="mailAddressVOForRoot">
+    	<!-- 地址信息 -->
+        <association property="mailAddress" javaType="ru.own.www.entity.MailAddress">
+        	<id property="id" column="id"/>
+        	<id property="userId" column="userId"/>
+		    <result property="contactName" column="contactName"/>
+		    <result property="countryId" column="countryId"/>
+		    <result property="streetAddress" column="streetAddress"/>
+		    <result property="streetAddressOther" column="streetAddressOther"/>
+		    <result property="city" column="city"/>
+		    <result property="zipCode" column="zipCode"/>
+		    <result property="countryNumber" column="countryNumber"/>
+		    <result property="areaNumber" column="areaNumber"/>
+		    <result property="localNumber" column="localNumber"/>
+		    <result property="mobile" column="mobile"/>
+        </association>
+        <!-- 国家信息 -->
+        <association property="shppingCountry" javaType="admin.ru.own.www.entity.ShippingCountry" column="{countryid=countryId}" select="selectCountry"></association>
+    </resultMap>
+
+    <select id="selectCountry" resultMap="allShippingCountryForRoot">
+	  	select id,name from shipping_country where id=#{countryid}
+	</select>
+
+	<!--配置一个resultMap 指定返回的类型    -->
+    <resultMap id="allShippingCountryForRoot" type="admin.ru.own.www.entity.ShippingCountry">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+    </resultMap>
+
+
+         <!-- 获取订单中的信息 -->
+    <select id="selectOrderDetail"   resultMap="orderDetailForRoot">
+          select * from  orderdetail od  where od.orderid=#{id}
+    </select>
+
+
+     <resultMap type="ru.own.www.entity.OrderDetailShowVO" id="orderDetailForRoot">
+     	<!-- 订单基本信息 -->
+        <association property="od" javaType="ru.own.www.entity.Orderdetail">
+        	<id property="id" column="id"/>
+		    <result property="orderid" column="orderid"/>
+		    <result property="productid" column="productid"/>
+		    <result property="productname" column="productname"/>
+		    <result property="ordercount" column="ordercount"/>
+		    <result property="shipid" column="shipid"/>
+		    <result property="shipfee" column="shipfee"/>
+		    <result property="shiptime" column="shiptime"/>
+		    <result property="price" column="price"/>
+		    <result property="usermessage" column="usermessage"/>
+		    <result property="productimageaddrid" column="productimageaddrid"/>
+        </association>
+
+     	             <!-- 商品图片信息 -->
+        <association property="cpi" javaType="ru.own.www.entity.CartProductImage" column="{productimageaddrid=productimageaddrid}" select="selectImage"></association>
+
+
+ 			<!-- 物流信息  -->
+        <association property="ship" javaType="admin.ru.own.www.entity.Shipping" column="{shipid=shipid}" select="selectShip"></association>
+
+        	<!-- 具体的商品属性信息  -->
+        <collection property="odpa"  column="{id=id}"  ofType="ru.own.www.entity.Orderdetailproductattr" select="selectOrderdetailproductattr"></collection>
+
+
+     </resultMap>
+
+           <!-- 获取订单中商品的属性信息 -->
+    <select id="selectOrderdetailproductattr"   resultType="ru.own.www.entity.Orderdetailproductattr">
+          select odeattr.id,odeattr.attrvalueid attrvalueId,attrv.attr_value_name attrvalue,attr.attr_name attrname  from  orderdetailproductattr odeattr,attribute_value attrv,attribute attr
+          where odeattr.orderdetailid=#{id} and attrv.attr_value_id=odeattr.attrvalueid and attr.attr_id=attrv.attr_id
+    </select>
+
+    		<!-- 获取图片信息 -->
+    <select id="selectImage"   resultType="ru.own.www.entity.CartProductImage">
+          select id,productimageaddr from  cartproductimage img where img.id=#{productimageaddrid}
+    </select>
+
+        		<!-- 获取货运信息 -->
+    <select id="selectShip"   resultType="admin.ru.own.www.entity.Shipping">
+          select id,name,beizhu from  shipping  where id=#{shipid}
+    </select>
+
+
+</mapper>

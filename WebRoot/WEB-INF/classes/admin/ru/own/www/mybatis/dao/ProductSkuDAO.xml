@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.ProductSkuDAO">
+
+   
+    <select id="getOneProductSkusVOByPid" parameterType="int" resultMap="sku-show-vo">
+        select ps.*,pi.image_addr from own.product_sku as ps,product_image as pi  where  ps.product_id=#{pid} and ps.image=pi.id
+    </select>
+    
+    
+    <resultMap type="ru.own.www.entity.Product_SKU_ShowVO" id="sku-show-vo">
+        <association property="psku" javaType="admin.ru.own.www.entity.ProductSku">
+            <result column="sku_id" property="sku_id"/>
+            <result column="product_id" property="product_id"/>
+            <result column="count" property="count"/>
+            <result column="price" property="price"/>
+            <result column="status" property="status"/>
+            <result column="sku_name" property="sku_name"/>
+            <result column="image" property="image"/>
+            <result column="image_addr" property="image_addr"/>
+        </association>
+        <collection property="skuAttrValues" ofType="admin.ru.own.www.entity.SKU_AtrValue"  column="{skuid=sku_id}" select="selectSkuAttrValue">
+        </collection>
+    </resultMap>
+    
+    <select id="selectSkuAttrValue" resultType="admin.ru.own.www.entity.SKU_AtrValue">
+        select sa.* from own.sku_atrvalue as sa where sa.sku_id=#{skuid}
+    </select>
+
+	<resultMap type="admin.ru.own.www.vo.SkuVO" id="skuvo">
+		<association property="sku" javaType="admin.ru.own.www.entity.ProductSku">
+			<result column="sku_id" property="sku_id"/>
+			<result column="product_id" property="product_id"/>
+			<result column="count" property="count"/>
+			<result column="price" property="price"/>
+			<result column="status" property="status"/>
+			<result column="sku_name" property="sku_name"/>
+			<result column="image" property="image"/>
+			<result column="create_time" property="create_time"/>
+		</association>
+		<collection property="atrValues" ofType="admin.ru.own.www.entity.AttributeValue" javaType="java.util.LinkedList"  column="sku_id" resultMap="atrvalue">
+		</collection>
+	</resultMap>
+	
+	 <resultMap type="admin.ru.own.www.entity.AttributeValue" id="atrvalue">
+    	<id property="attrValueId" column="attr_value_id"/>
+    	<result property="attrValueName" column="attr_value_name"/>
+    	<result property="attrId" column="attr_id"/>
+    	<result property="categoryId" column="category_id"/>
+    </resultMap>
+    
+    <update id="update" parameterType="admin.ru.own.www.entity.ProductSku">
+    	update own.product_sku set
+    	product_id = #{product_id},
+    	count = #{count},
+    	price= #{price},
+    	status= #{status},
+    	sku_name= #{sku_name},
+    	image= #{image}
+    	where sku_id=#{sku_id}
+    </update>
+    
+    <delete id="delete" parameterType="admin.ru.own.www.entity.ProductSku">
+    	delete from own.product_sku where sku_id=#{sku_id} and product_id=#{product_id}    
+    </delete>
+    
+    
+    <select id="getSku_idsByProduct_id" parameterType="int" resultType="int">
+    	select distinct own.sku_atrvalue.sku_id from own.sku_atrvalue,own.product_sku where sku_atrvalue.sku_id = own.product_sku.sku_id and product_sku.product_id=#{product_id}
+    </select>
+    <delete id="deleteByProduct_id" parameterType="int">
+    	delete from own.product_sku where product_id=#{product_id}
+    </delete>
+    
+	<select id="getSKUValues" parameterType="int" resultMap="atrvalue">
+		SELECT av.* FROM own.sku_atrvalue as sa,own.attribute_value as av where sa.attr_value_id = av.attr_value_id and sa.sku_id =#{sku_id};
+	</select>
+
+	<select id="getOneProductSKUs" parameterType="int" resultMap="skuvo">
+		select ps.*,av.* 
+		from own.product_sku as ps ,own.sku_atrvalue as sa,own.attribute_value as av
+		where  ps.product_id=#{product_id} and sa.attr_value_id = av.attr_value_id and sa.sku_id=ps.sku_id
+	</select>
+	
+	<insert id="insert" parameterType="admin.ru.own.www.entity.ProductSku" useGeneratedKeys="true" keyProperty="sku_id">
+		insert into product_sku (product_id, count,price,status,sku_name,image,create_time)
+		values (#{product_id},#{count},#{price},#{status},#{sku_name},#{image},#{create_time})
+	</insert>
+</mapper>

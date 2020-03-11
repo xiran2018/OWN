@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.ShippingCountryMapper">
+
+	  <insert id="insertShippingCountry" useGeneratedKeys="true" keyProperty="id" parameterType="admin.ru.own.www.entity.ShippingCountry">
+	     insert  into shipping_country(name,status,beizhu,createtime)values(#{name},#{status},#{beizhu},now())
+	  </insert>
+
+       <!--配置一个resultMap 指定返回的类型    -->
+    <resultMap id="allShippingCountry" type="admin.ru.own.www.entity.ShippingCountry">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="status" property="status" />
+        <result column="beizhu" property="beizhu" />
+        <result column="createtime" property="createTime" />
+    </resultMap>
+
+    <select id="getShippingCountryByPageNum" resultMap="allShippingCountry" parameterType="admin.ru.own.www.entity.Pagination">
+        select id,name,status,beizhu,createtime from shipping_country limit #{offset},#{numberInPage}
+    </select>
+
+    <select id="getAllShippingCountry" resultMap="allShippingCountry">
+        select id,name,status,beizhu,createtime from shipping_country
+    </select>
+
+
+    <select id="getAllShowShippingCountry" resultMap="allShippingCountry">
+        select id,name,status,beizhu,createtime from shipping_country where status=1;
+    </select>
+
+    <select id="getTotalNumberOfShippingCountry" resultType="int">
+        select count(*) from shipping_country
+    </select>
+
+    <select id="getShippingCountryById" resultType="admin.ru.own.www.entity.ShippingCountry" parameterType="int">
+        select id,name,status,beizhu,createtime createTime from shipping_country where id=#{id}
+    </select>
+
+    <update id="modifyShippingCountry" parameterType="admin.ru.own.www.entity.ShippingCountry" flushCache="true"  timeout="20">
+	    update shipping_country  set name=#{name},status=#{status},
+	    beizhu=#{beizhu},createtime=now() where id=#{id}
+  	</update>
+
+     <delete id="deleteShippingCountryById" parameterType="int">
+  	  	delete from shipping_country where id=#{id}    
+    </delete>
+</mapper>

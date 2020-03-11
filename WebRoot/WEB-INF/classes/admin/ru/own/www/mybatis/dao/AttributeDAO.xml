@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.AttributeDAO">
+	<resultMap type="admin.ru.own.www.vo.AttributeVO" id="atrv">
+		<result property="catecoryName" column="category_name"/>
+		<association property="atr" resultMap="atr"/>
+		<collection property="valueList" javaType="ArrayList" column="attr_id"  ofType="AttributeValueVO" select="admin.ru.own.www.mybatis.dao.AttrValueMapper.getAttributeValues"></collection>
+	</resultMap>
+	
+	<resultMap type="admin.ru.own.www.vo.AttributeVO" id="atrmv">
+		<result property="catecoryName" column="category_name"/>
+		<association property="atr" resultMap="atr"/>
+		<!-- 调用另一个类中的select语句 -->
+		<collection property="valueList" javaType="ArrayList" column="{lanID=lan_id,attrID=attr_id}"  ofType="AttributeValueVO" select="admin.ru.own.www.mybatis.dao.AttrValueMapper.getMultiAttributeValues"></collection>
+	</resultMap>
+	
+	<resultMap type="admin.ru.own.www.entity.Attribute" id="atr">
+		<id property="attrId" column="attr_id"/>
+		<result property="attrName" column="attr_name"/>
+		<result property="attrOtherName" column="attr_other_name"/>
+		<result property="categoryId" column="category_id"/>
+		<result property="inputStyle" column="input_style"/>
+		<result property="isPopup" column="is_popup"/>
+	</resultMap>
+	
+	<select id="getOneCategoryAttribute" parameterType="int" resultMap="atrv">
+		SELECT a.*,c.category_name FROM own.attribute a,own.category c where a.category_id = c.category_id and a.category_id = #{cid}
+	</select>
+	
+	<select id="getOneMultiCategoryAttribute" parameterType="Map" resultMap="atrmv">
+		SELECT DISTINCT a.attr_id,a.category_id,a.input_style,am.foreign_name as attr_name,
+		c.category_name,
+		am.lan_id
+		FROM own.attribute as a,
+		own.category as c ,
+		own.attributemultilanguage as am
+		where a.category_id = c.category_id
+		and am.attr_id = a.attr_id
+		and am.lan_id = #{lanID}
+		and a.category_id = #{categoryID}
+	</select>
+	
+	<select id="getOneMultiCategorySearchAttribute" parameterType="Map" resultMap="atrmv">
+		SELECT DISTINCT a.attr_id,a.category_id,a.input_style,am.foreign_name as attr_name,
+		c.category_name,
+		am.lan_id
+		FROM own.attribute as a,
+		own.category as c ,
+		own.attributemultilanguage as am
+		where a.is_search_attr = 1
+		and a.category_id = #{categoryID}
+		and a.category_id = c.category_id
+		and am.attr_id = a.attr_id
+		and am.lan_id = #{lanID}
+	</select>
+	
+	<select id="getOneAttribute" parameterType="int" resultMap="atr">
+		SELECT * FROM own.attribute where attr_id = #{cid}
+	</select>
+</mapper>

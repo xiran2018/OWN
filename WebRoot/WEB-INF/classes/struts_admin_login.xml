@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+	<include file="struts-default.xml" />
+
+	<!-- 登陆，不受权限控制的Action请求配置-->
+	<package name="admin_loginpackage"  extends="json-default">
+		<global-results>
+			<result name="error">/admin_loginerror.jsp</result>
+		</global-results>
+		<action name="admin_login" class="admin.ru.own.www.logic.Login">
+			<result name="success" type="redirect">${prePage}</result>
+            <result name="home">/jqladmin/product.jsp</result>
+			<result name="input">/admin_relogin.jsp</result>
+			<result name="jsonResult" type="json" > 
+			 <param name="root">userName</param>
+			</result> 
+			
+		</action>
+		
+		<action name="admin_logout" class="admin.ru.own.www.logic.logout">
+			<result name="success">/admin_relogin.jsp</result>
+			<result name="error">/admin_relogin.jsp</result>
+		</action>
+	</package>
+	
+	<package name="Security" namespace="/Security" extends="struts-default">
+        <action name="SecurityCodeImageAction" class="admin.ru.own.www.validcode.SecurityCodeImageAction">
+            <result name="success" type="stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">imageStream</param>
+                <param name="bufferSize">2048</param>
+            </result>
+        </action>
+    </package>
+
+</struts>    

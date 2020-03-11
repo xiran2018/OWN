@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="admin.ru.own.www.mybatis.dao.ProductsDAO">
+
+	<resultMap type="pdtvo" id="pdtivomap"><!-- product img vo map -->
+		<id property="products.p_id" column="p_id"/>
+		<result property="category" column="category_name"/>
+		<result property="brand" column="brand_name"/>
+		<result property="shippingTemplateName" column="shippingTemplateName"/>
+		<association property="products" resultMap="pdtmap"></association>
+		<collection property="imageURLs" javaType="ArrayList" column="p_id"  ofType="productImage" select="admin.ru.own.www.mybatis.dao.ProductImageDAO.getImg"></collection>
+	</resultMap>
+	<!-- 得到一件产品的具体信息，包括属性等 -->
+	<resultMap type="pdtvo" id="pdtcvomap"><!-- product concrete vo map -->
+		<id property="products.p_id" column="p_id"/>
+		<result property="category" column="category_name"/>
+		<result property="brand" column="brand_name"/>
+		<result property="shippingTemplateName" column="shippingTemplateName"/>
+		<association property="products" resultMap="pdtmap"></association>
+		<collection property="pBasic_Attrs" javaType="ArrayList" column="p_id" ofType="Product_Basic_Attr" select="admin.ru.own.www.mybatis.dao.ProductBasicAttrDAO.getOneProductBasicAttrVO"></collection>
+	</resultMap>
+	
+	<resultMap type="pdt" id="pdtmap">
+		<id property="p_id" column="p_id"/>
+		<result property="p_name" column="p_name"/>
+		<result property="p_purchaprice" column="p_purchaprice"/>
+		<result property="p_originprice" column="p_originprice"/>
+		<result property="p_nowprice" column="p_nowprice"/>
+		<result property="p_brandid" column="p_brandid"/>
+		<result property="p_categoryid" column="p_categoryid"/>
+		<result property="p_fromcompany" column="p_fromcompany"/>
+		<result property="p_companyserinum" column="p_companyserinum"/>
+		<result property="p_myserialnumber" column="p_myserialnumber"/>
+		<result property="p_fromnetaddress" column="p_fromnetaddress"/>
+		<result property="p_storenumber" column="p_storenumber"/>
+		<result property="p_minbuyamount" column="p_minbuyamount"/>
+		<result property="p_freemail" column="p_freemail"/>
+		<result property="p_jifen" column="p_jifen"/>
+		<result property="p_hot" column="p_hot"/>
+		<result property="p_recommend" column="p_recommend"/>
+		<result property="p_new" column="p_new"/>
+		<result property="p_date_added" column="p_date_added"/>
+		<result property="p_last_modified" column="p_last_modified"/>
+		<result property="p_status" column="p_status"/>
+		<result property="p_beizhu" column="p_beizhu"/>
+		<result property="p_weight" column="p_weight"/>
+		<result property="p_freight_templet" column="p_freight_templet"/>
+	</resultMap>
+	
+	<sql id="productinfo">
+	SELECT p.*,c.category_name,b.brand_name 
+	FROM own.products as p, own.category as c,own.brand_series as b 
+	where p.p_brandid = b.brand_id and c.category_id = p.p_categoryid and p.p_id=#{pid};
+	</sql>
+	  
+	<!-- DAO中存在的方法 -->
+	
+	<update id="update" parameterType="pdt" >
+		UPDATE products SET 
+		p_name = #{p_name}, p_purchaprice = #{p_purchaprice},
+		p_originprice=#{p_originprice},p_nowprice=#{p_nowprice},
+		p_brandid=#{p_brandid},p_categoryid=#{p_categoryid},
+		p_fromcompany = #{p_fromcompany},p_companyserinum = #{p_companyserinum},
+		p_myserialnumber = #{p_myserialnumber},p_fromnetaddress = #{p_fromnetaddress},
+		p_storenumber = #{p_storenumber},p_minbuyamount = #{p_minbuyamount},
+		p_freemail = #{p_freemail},p_jifen = #{p_jifen},p_hot = #{p_hot},
+		p_recommend = #{p_recommend},p_new = #{p_new},
+		p_date_added = #{p_date_added},p_last_modified = #{p_last_modified},
+		p_status = #{p_status},p_beizhu = #{p_beizhu},
+		p_weight = #{p_weight},
+		p_freight_templet = #{p_freight_templet}   
+		WHERE p_id = #{p_id};  	
+	</update>
+	
+	<select id="getInfo" parameterType="int" resultMap="pdtcvomap">
+		<include refid="productinfo"/> 
+	</select>
+	
+	<select id="getImg" parameterType="int" resultMap="pdtivomap">
+		<include refid="productinfo"/> 
+	</select>
+	
+	<select id="getProductsCountByCategory"  resultType="int" parameterType="list"> 
+		SELECT count(1) FROM own.products as p where p.p_status=1 and p.p_categoryid in
+		<foreach item="item" collection="list" open="(" separator="," close=")">
+		#{item}
+		</foreach> 
+	</select>
+	
+	<select id="getCount" resultType="int"> 
+		SELECT count(1) FROM own.products as p;
+	</select>
+	
+	<select id="getAllVOLimit" resultMap="pdtivomap" parameterType="map"> 
+		SELECT p.*,c.category_name,b.brand_name FROM own.products as p, own.category as c,own.brand_series as b 
+		where p.p_brandid = b.brand_id and c.category_id = p.p_categoryid 
+		<if test="productName != null  and productName != ''" > 
+	      and p.p_name like CONCAT(CONCAT('%', #{productName}), '%')
+	   </if>  
+	    <if test="brandName != null  and brandName != ''" > 
+	      and b.brand_name like #{brandName} 
+	   </if>
+       <if test="productStatus != null  and productStatus != ''" > 
+	     and  p.p_status=#{productStatus}
+	   </if>
+  		<if test="p_myserialnumber != null  and p_myserialnumber != ''" > 
+	     and  p.p_myserialnumber=#{p_myserialnumber}
+	   </if>
+	   <if test="gmtBeginDate != null  and gmtBeginDate != '' and gmtEndDate != null  and gmtEndDate != '' " > 
+	     and date(p.p_date_added) between date(#{gmtBeginDate}) and date(#{gmtEndDate})
+	   </if>
+	   order by p_id desc limit #{begain},#{size};
+	</select>
+	
+	<select id="getTotalNumberProductByParameters"  resultType="int" parameterType="map"> 
+		SELECT count(*) FROM own.products as p, own.category as c,own.brand_series as b 
+		where p.p_brandid = b.brand_id and c.category_id = p.p_categoryid
+		 	   <if test="productName != null  and productName != ''" > 
+			      and p.p_name like CONCAT(CONCAT('%', #{productName}), '%')
+			   </if>  
+			    <if test="brandName != null  and brandName != ''" > 
+			      and b.brand_name like #{brandName} 
+			      <!--user.username like CONCAT(CONCAT('%', #{buyerName}), '%')   -->
+			   </if>
+	           <if test="productStatus != null  and productStatus != ''" > 
+			     and  p.p_status=#{productStatus}
+			   </if>
+			   <if test="p_myserialnumber != null  and p_myserialnumber != ''" > 
+			     and  p.p_myserialnumber=#{p_myserialnumber}
+			   </if>
+			   <if test="gmtBeginDate != null  and gmtBeginDate != '' and gmtEndDate != null  and gmtEndDate != '' " > 
+			     and date(p.p_date_added) between date(#{gmtBeginDate}) and date(#{gmtEndDate})
+			   </if>
+			    order by p_id desc
+	</select>
+	
+	
+	<select id="getProductsByLanguangeID" resultMap="pdtivomap" parameterType="map">
+		SELECT p.p_id, 
+			pm.product_name as p_name,
+			p.p_purchaprice,  
+			p.p_originprice,
+			p.p_nowprice,
+			p.p_brandid,
+			p.p_categoryid,   
+			p.p_fromcompany,   
+			p.p_companyserinum,   
+			p.p_myserialnumber,  
+			p.p_fromnetaddress,  
+			p.p_storenumber,  
+			p.p_minbuyamount,   
+			p.p_freemail,   
+			p.p_jifen, 
+			p.p_hot, 
+			p.p_recommend,   
+			p.p_new,  
+			p.p_date_added,  
+			p.p_last_modified,   
+			p.p_status,  
+			p.p_beizhu,
+			p.p_weight,  
+			p.p_freight_templet, 
+			c.category_name,b.brand_name 
+		FROM own.products as p, own.category as c,own.brand_series as b,own.productmultilanguage as pm 
+		where p.p_brandid = b.brand_id and c.category_id = p.p_categoryid 
+		and pm.product_id = p.p_id and pm.lan_id=#{lanid}
+		and p.p_id in
+		<foreach item="item" collection="list" open="(" separator="," close=")">
+		#{item}
+		</foreach>  
+		 ORDER BY p_id DESC;
+	</select>
+	
+	<delete id="deleteProductByProduct_id" parameterType="int">
+		delete from own.products where p_id=#{product_id};
+		delete from own.productmultilanguage where product_id=#{product_id};
+	</delete>
+	
+</mapper>

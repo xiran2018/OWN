@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+	<include file="struts-default.xml" />
+	<!-- 登陆，不受权限控制的Action请求配置-->
+	<package name="loginpackage" extends="all">
+        <default-interceptor-ref name="mydefault" /> <!-- 使用语言拦截器 -->
+		<global-results>
+			<result name="error">/loginerror.jsp</result>
+		</global-results>
+		<action name="login" class="ru.own.www.logic.Login">
+			<result name="success">/login.jsp</result>
+		</action>
+		<action name="foregetPassword" class="ru.own.www.logic.Login"  method="foregetPassword">
+			<result name="success">/usermanage/foreget-password.jsp</result>
+		</action>
+	</package>
+
+</struts>    

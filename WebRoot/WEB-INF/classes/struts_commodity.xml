@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8"></constant>
+
+	<include file="struts-default.xml" />
+	
+	<!--商品的展示等，不受权限控制的Action请求配置-->
+	<package name="non-authority" extends="struts-default">
+		<global-results>
+			<result name="error">/showcommodityerror.jsp</result>
+		</global-results>
+		<action name="showcommodity" class="ru.own.www.logic.CommodityShow">
+			<result name="success">/realTime.jsp</result>
+		</action>
+	</package>
+
+	<!--商品的订购，加入购物车，受权限控制的Action请求配置-->
+	<package name="commodity-order" extends="struts-default">
+		<interceptors>
+			<!--定义一个拦截器-->
+			<interceptor class="ru.own.www.interceptor.AuthorityInterceptor"
+				name="sessionNull">
+			</interceptor>
+			<!--定义一个包含权限检查的拦截器栈-->
+			<interceptor-stack name="mydefault">
+				<interceptor-ref name="defaultStack" />
+				<!--配置自定义的拦截器-->
+				<interceptor-ref name="sessionNull" />
+			</interceptor-stack>
+		</interceptors>
+		<default-interceptor-ref name="mydefault" />
+		<!--定义全局Result-->
+		<global-results>
+			<result name="login" type="redirect">/login.jsp</result>
+		</global-results>
+
+	</package>
+	
+
+</struts>    
