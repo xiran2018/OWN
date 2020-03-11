@@ -553,8 +553,8 @@ function  buildUpInformation(entireTransInfoArgs)
 		var allInfo=entireTransInfo[i1];
 		var transInfo=allInfo;
 		//add the td's info
-		html+=generateBasicInfo(transInfo.order,transInfo.uinfo);//获取订单基本信息
-		html+=generateXiangXiInfo(transInfo.order,transInfo.odsvo,transInfo.uinfo);//获取订单的详细信息（主要是商品信息），参数是一个list，代表各个商品
+		html+=generateBasicInfo(transInfo.order,transInfo.uinfo,transInfo.currency);//获取订单基本信息
+		html+=generateXiangXiInfo(transInfo.order,transInfo.odsvo,transInfo.uinfo,transInfo.currency);//获取订单的详细信息（主要是商品信息），参数是一个list，代表各个商品
 	}//end of for
 	return html;
 }
@@ -562,7 +562,7 @@ function  buildUpInformation(entireTransInfoArgs)
 /**
  * 获取订单基本信息
  */
-function generateBasicInfo(order,uinfo)
+function generateBasicInfo(order,uinfo,currencyArgs)
 {
 	var html = "<tr class='order-hd'>";
 	html+=" <td colspan='7'>";
@@ -593,7 +593,9 @@ function generateBasicInfo(order,uinfo)
 	//amount
 	html+="<span class='amount'>";
 	//currencyShowSymbol is in common/js/product.price.js
-	var tempprice=currencyShowSymbol+" "+calculateFeeByExchangeRate(order.countprice,currencyRate);//calculateFeeByExchangeRate in math.js
+	var orderCurrencyShowSybol = currencyArgs.currencyname + " "+currencyArgs.currencysymbol;
+	var orderCurrencyRate = order.currencyrate;
+	var tempprice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(order.countprice,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
 	html+="Amount: <strong>"+tempprice+"</strong>";
 	html+=" </span>";
 	
@@ -606,7 +608,7 @@ function generateBasicInfo(order,uinfo)
  * 生成需要在表格中显示的具体信息
  * 参数格式为：
  */
-function generateXiangXiInfo(order,odsvoList,uinfo)
+function generateXiangXiInfo(order,odsvoList,uinfo,currencyArgs)
 {
 	var html="";
 	var len=odsvoList.length;
@@ -640,7 +642,9 @@ function generateXiangXiInfo(order,odsvoList,uinfo)
 		html+="<div class='other-info'></div>";
 		html+="</td>";
 		//price
-		var tempprice=currencyShowSymbol+" "+calculateFeeByExchangeRate(od.price,currencyRate);//calculateFeeByExchangeRate in math.js
+		var orderCurrencyShowSybol = currencyArgs.currencyname + " "+currencyArgs.currencysymbol;
+		var orderCurrencyRate = order.currencyrate;
+		var tempprice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(od.price,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
 		html+="<td  class='price'>"+tempprice+"</td>";
 		//数量
 		html+="<td  class='quantity'>"+od.ordercount+"</td>";

@@ -15,9 +15,9 @@
 			<!--  jdbc:mysql://159.226.40.82:44480/own
 			jdbc:mysql://localhost:3306/own  123456
 			jdbc:mysql://13.113.239.251:33070/own  880309jQl
-			
+			  54.238.98.28:33070
 			 -->
-			jdbc:mysql://159.226.41.21:555/own
+			jdbc:mysql://3.115.196.71:33070/own
 		</property>
 		<property name="connection.username">root</property>
 		<property name="connection.password">880309jQl</property>

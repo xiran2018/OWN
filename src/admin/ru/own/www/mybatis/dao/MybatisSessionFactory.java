@@ -11,19 +11,28 @@ import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
 public class MybatisSessionFactory {
-	public final static SqlSessionFactory sqlSessionFactory = getSessionFactory();
-	private final static TransactionFactory transactionFactory = new JdbcTransactionFactory();
+	public static final SqlSessionFactory sqlSessionFactory = getSessionFactory();
+	private static final TransactionFactory transactionFactory = new JdbcTransactionFactory();
 
-	public final static Transaction getTranscation(SqlSession sqlSession) {
+	public MybatisSessionFactory()
+	{
+	}
+
+	public static final Transaction getTranscation(SqlSession sqlSession)
+	{
 		return transactionFactory.newTransaction(sqlSession.getConnection());
 	}
 
-	private static SqlSessionFactory getSessionFactory() {
+	private static SqlSessionFactory getSessionFactory()
+	{
 		SqlSessionFactory sqlSessionFactory = null;
 		String resource = "configfile/mybatis-configure.xml";
-		try {
-			sqlSessionFactory = new SqlSessionFactoryBuilder().build(Resources.getResourceAsReader(resource));
-		} catch (IOException e) {
+		try
+		{
+			sqlSessionFactory = (new SqlSessionFactoryBuilder()).build(Resources.getResourceAsReader(resource));
+		}
+		catch (IOException e)
+		{
 			e.printStackTrace();
 		}
 		return sqlSessionFactory;

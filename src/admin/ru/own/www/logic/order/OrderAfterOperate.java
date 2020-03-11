@@ -94,7 +94,7 @@ public class OrderAfterOperate extends ActionSupport
 		if (orderList == null)
 		{
 			errCode = "100";
-			errMessage = "æœåŠ¡å™¨å¼‚å¸¸ï¼Œè¯·ç¨åå†è¯•";
+			errMessage = "·şÎñÆ÷Òì³££¬ÇëÉÔºóÔÙÊÔ";
 		} else
 		{
 			if (orderList != null)

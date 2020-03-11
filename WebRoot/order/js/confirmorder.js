@@ -141,7 +141,9 @@ function placeOrder()
 				"shippingPrice":shippingPrice,
 				"availableProductShopcartIds":availableProductShopcartIds,
 				"leaveMessageString":messageArrayString,
-				"usejifen":usejifen
+				"usejifen":usejifen,
+				"currencyId":selectCurrencyId,
+				"currencyRate":currencyRate
 				
 		};
 		generateOrder(params);

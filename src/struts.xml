@@ -7,7 +7,7 @@
 	<include file="struts_interceptor.xml" /> <!-- 配置客户端全局拦截器 -->
 	
 	<!--设置开发模式-->
-	<constant name="struts.devMode" value="false"/>
+	<constant name="struts.devMode" value="true"/>
 	
 	<!--设置编码形式为UTF-8-->
 	<constant name="struts.i18n.encoding" value="UTF-8"/>

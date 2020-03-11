@@ -1,15 +1,22 @@
 package admin.ru.own.www.mybatis.dao;
 
-import java.util.List;
-
-import org.apache.ibatis.session.SqlSession;
-
 import admin.ru.own.www.entity.Language;
-import admin.ru.own.www.entity.ProductMultiLanguage;
+import java.io.PrintStream;
+import java.util.List;
+import org.apache.ibatis.session.SqlSession;
+import org.apache.ibatis.session.SqlSessionFactory;
 
 public class LanguageDAOImp implements LanguageMapper{
-	private SqlSession session = MybatisSessionFactory.sqlSessionFactory.openSession();
-	private LanguageMapper mapper = session.getMapper(LanguageMapper.class);
+
+	private SqlSession session;
+	private LanguageMapper mapper;
+
+	public LanguageDAOImp()
+	{
+		session = MybatisSessionFactory.sqlSessionFactory.openSession();
+		mapper = (LanguageMapper)session.getMapper(LanguageMapper.class);
+	}
+
 	@Override
 	public void insertLanguage(Language lan) {
 		mapper.insertLanguage(lan);

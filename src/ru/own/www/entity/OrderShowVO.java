@@ -2,6 +2,7 @@ package ru.own.www.entity;
 
 import java.util.List;
 
+import admin.ru.own.www.entity.Currency;
 import org.apache.ibatis.session.SqlSession;
 
 import ru.own.www.mybatis.dao.OrderOperateDAOImpl;
@@ -14,6 +15,8 @@ public class OrderShowVO
 	User  uinfo;//用户信息
 	MailAddressShowVO mailAddressVO;//邮寄地址信息
 	List<OrderDetailShowVO> odsvo;//订单详情
+	Currency currency; //汇率等信息
+
 	public Order getOrder() {
 		return order;
 	}
@@ -26,7 +29,15 @@ public class OrderShowVO
 	public void setOdsvo(List<OrderDetailShowVO> odsvo) {
 		this.odsvo = odsvo;
 	}
-	
+
+	public Currency getCurrency() {
+		return currency;
+	}
+
+	public void setCurrency(Currency currency) {
+		this.currency = currency;
+	}
+
 	public User getUinfo() {
 		return uinfo;
 	}

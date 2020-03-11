@@ -10,11 +10,13 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import ru.own.www.entity.*;
+import admin.ru.own.www.logic.order.OrderOperateMapper;
 
 // Referenced classes of package admin.ru.own.www.logic.order:
 //			OrderOperateMapper
 
-public class OrderOperateDAOImpl implements OrderOperateMapper
+public class OrderOperateDAOImpl
+	implements OrderOperateMapper
 {
 
 	private SqlSession sqlSession;

@@ -37,6 +37,8 @@ public class Order implements java.io.Serializable {
 	private String userip;
 	private String beizhu;//备注信息
 	private Integer useraddressid;//邮寄地址id
+	private Integer currencyId; //货币的id
+	private Double currencyrate;
 
 	// Constructors
 
@@ -119,7 +121,13 @@ public class Order implements java.io.Serializable {
 		this.id = id;
 	}
 
+	public Double getCurrencyrate() {
+		return this.currencyrate;
+	}
 
+	public void setCurrencyrate(final Double currencyrate) {
+		this.currencyrate = currencyrate;
+	}
 
 	public String getOrdernumber() {
 		return ordernumber;
@@ -194,8 +202,13 @@ public class Order implements java.io.Serializable {
 	}
 
 
+	public Integer getCurrencyId() {
+		return this.currencyId;
+	}
 
-
+	public void setCurrencyId(final Integer currencyId) {
+		this.currencyId = currencyId;
+	}
 
 	public String getReducefee() {
 		return reducefee;

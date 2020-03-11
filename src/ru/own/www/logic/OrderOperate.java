@@ -122,7 +122,10 @@ public class OrderOperate extends ActionSupport implements SessionAware
 	
 	private List<shopCartShowVO> shopCartList;
 	private String returnJsonString;  //商品信息
-	
+
+	private int currencyId;  //使用的货币信息，货币的主键
+	private Double currencyRate;
+
 	private List<ShippingCountry> sc;//货运国家信息
 	private String returnCountryJsonString;//国家信息
 	
@@ -155,7 +158,7 @@ public class OrderOperate extends ActionSupport implements SessionAware
 			if(hasCartItem)
 			{
 				String orderIdString=generateOrderId();//订单编号
-				Order order=generateOrder(subtotalPrice,shippingPrice,mailAddressId,orderIdString,cpid,sqlSession);
+				Order order=generateOrder(subtotalPrice,shippingPrice,mailAddressId,currencyId,orderIdString,cpid,sqlSession);
 				orderId=order.getId();
 				generateOrderDetail(order,leaveMessageString,availableProductShopcartIds,cpid,sqlSession); //生成订单详情表
 				//changeJiFen(order,cpid,sqlSession); //改变用户积分，包括使用的积分和本次购买获取的积分,因为没有支付成功，所以不再这个地方改变用户积分
@@ -368,7 +371,7 @@ public class OrderOperate extends ActionSupport implements SessionAware
 	 * @param sqlSession
 	 * @return
 	 */
-	public Order generateOrder(float stotalPrice,float sPrice,int addressId,String ordernumber,OrderOperateMapper cpid,SqlSession sqlSession) 
+	public Order generateOrder(float stotalPrice,float sPrice,int addressId,int currencyId,String ordernumber,OrderOperateMapper cpid,SqlSession sqlSession)
 	{
 		float totalPrice=Utility.floatAdd(stotalPrice, sPrice);//所有的总价格=商品价格+运费
 		float tempSubPrice=Utility.floatMultiply(usejifen, (float)0.01);
@@ -380,6 +383,9 @@ public class OrderOperate extends ActionSupport implements SessionAware
 		order.setUserid(userId);
 		order.setUseraddressid(addressId);//邮寄地址的id
 		order.setOrderstate((short)0);//表示没有支付
+
+		order.setCurrencyId(currencyId);
+		order.setCurrencyrate(currencyRate);
 		
 		order.setCountprice(totalPrice);
 		order.setRealpay(realPrice);  //减去积分之后的价格
@@ -907,7 +913,19 @@ public class OrderOperate extends ActionSupport implements SessionAware
 		this.orderId = orderId;
 	}
 
+	public int getCurrencyId() {
+		return currencyId;
+	}
 
-	
-	
+	public void setCurrencyId(int currencyId) {
+		this.currencyId = currencyId;
+	}
+
+	public Double getCurrencyRate() {
+		return currencyRate;
+	}
+
+	public void setCurrencyRate(Double currencyRate) {
+		this.currencyRate = currencyRate;
+	}
 }

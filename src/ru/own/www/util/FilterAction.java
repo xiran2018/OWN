@@ -19,13 +19,13 @@ public class FilterAction
 	
 	//相应的页面或者action需要有货运国家session信息，从而在filter中可以保证该session的信息是存在的
 	public static String [] shipCountryJSPAction={
-			"productShow.action", "cart.jsp", "confirmorder.action"
+			"productShow.action", "cart.jsp", "confirmorder.action","cart.action"
 	};
 	
 	
 	//验证是否已经登陆的页面或者action请求
 	public static String [] loginAuthFilterJSPAction={
-			"checkout.jsp", "cart.jsp", "confirmorder.action", "checkout.action"
+			"checkout.jsp", "cart.jsp", "confirmorder.action", "checkout.action","cart.action"
 	};
 	
 	public static boolean containsRedirctJSPAction(String actionArgs)
