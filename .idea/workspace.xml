@@ -7,28 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b4d3fc76-35aa-4430-9376-34289a819ae0" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/entity/CartProductAttrShowVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/entity/CartProductAttrShowVO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/entity/Orderdetailproductattr.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/entity/Orderdetailproductattr.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/logic/OrderOperate.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/logic/OrderOperate.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/mybatis/dao/CartOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/mybatis/dao/CartOperateMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/mybatis/dao/OrderOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/mybatis/dao/OrderOperateMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/index.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/common/js/product.ship.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/js/product.ship.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/admin-index/js/confirmorder.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/admin-index/js/confirmorder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-detail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/order/order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/order/order-detail.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/order/confirmorder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/confirmorder.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/order/js/confirmorder.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/confirmorder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/order/js/order-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/order-detail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/order/js/order-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/order-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderAfterOperate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderAfterOperate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/entity/CartProductAttrShowVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/entity/CartProductAttrShowVO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/entity/Orderdetailproductattr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/entity/Orderdetailproductattr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/payment/js/checkout.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/payment/js/checkout.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/shopcart/js/shopcart.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/shopcart/js/shopcart.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/own/www/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/entity/Order.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/own/www/logic/OrderOperate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/logic/OrderOperate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/mybatis/dao/CartOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/mybatis/dao/CartOperateMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ru/own/www/mybatis/dao/OrderOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/mybatis/dao/OrderOperateMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/struts_client_manger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/struts_client_manger.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -395,7 +390,7 @@
       <workItem from="1583752366802" duration="36557000" />
       <workItem from="1583889303443" duration="13684000" />
       <workItem from="1583915621139" duration="11793000" />
-      <workItem from="1583977391658" duration="15740000" />
+      <workItem from="1583977391658" duration="29700000" />
     </task>
     <servers />
   </component>
@@ -422,6 +417,11 @@
           <url>file://$PROJECT_DIR$/src/ru/own/www/logic/CategoryOperate.java</url>
           <line>45</line>
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/ru/own/www/logic/OrderOperate.java</url>
+          <line>149</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

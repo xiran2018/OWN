@@ -110,7 +110,7 @@
 				
 				<!-- all select product items -->
 				
-				<form name="orderForm" id="place-order-form" method="post" action='/shopcart/place-order.action?availableProductShopcartIds=<s:property value="availableProductShopcartIds"  escape="false" />'>
+				<form name="orderForm" id="place-order-form" method="post" action='/shopcart/placeOrder.action?availableProductShopcartIds=<s:property value="availableProductShopcartIds"  escape="false" />'>
 				
 					<!-- 邮寄地址相关 -->
 					<input id="place-order-change-address" type="hidden" name="changeAddressPage" value="false">

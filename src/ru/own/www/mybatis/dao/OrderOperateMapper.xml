@@ -15,7 +15,7 @@
     </update>
   
     <insert id="insertOrder" useGeneratedKeys="true" keyProperty="id" parameterType="ru.own.www.entity.Order"  flushCache="true">
-      insert into own.order(ordernumber,userid,ordercreatetime,orderstate,countprice,realpay,reducefee,mailfee,currencyId,currencyrate,usejifen,givejifen,userip,useraddressid) values (#{ordernumber},#{userid},now(),#{orderstate},#{countprice},#{realpay},#{reducefee},#{mailfee},#{currencyId},#{currencyrate},#{usejifen},#{givejifen},#{userip},#{useraddressid})
+      insert into own.order(ordernumber,userid,ordercreatetime,orderstate,countprice,realpay,reducefee,mailfee,currencyId,productCurrencyRate,usejifen,givejifen,userip,useraddressid) values (#{ordernumber},#{userid},now(),#{orderstate},#{countprice},#{realpay},#{reducefee},#{mailfee},#{currencyId},#{productCurrencyRate},#{usejifen},#{givejifen},#{userip},#{useraddressid})
       
      <!-- order是数据库的关键字，所以必须加上own，数据库的名字 -->
     </insert>
@@ -142,6 +142,7 @@
 		    <result property="mailfee" column="mailfee"/>
 			<result property="currencyId" column="currencyId"/>
 			<result property="currencyrate" column="currencyrate"/>
+			<result property="productCurrencyRate" column="productCurrencyRate"/>
 		    <result property="usejifen" column="usejifen"/>
 		    <result property="givejifen" column="givejifen"/>
 		    <result property="userip" column="userip"/>

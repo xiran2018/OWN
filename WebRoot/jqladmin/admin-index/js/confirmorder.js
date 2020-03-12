@@ -129,7 +129,7 @@ function placeOrder()
  */
 function generateOrder(params)
 {
-		var actionUrl = "shopcart/place-order.action";
+		var actionUrl = "shopcart/placeOrder.action";
 		$.ajax( { 
 			url : actionUrl,
 			type : "post",

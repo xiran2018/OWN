@@ -21,7 +21,7 @@ function calculateShipFeeInpage(selectShipFee,products,selectNumber)
 	{
 		realFee=calculateShippingFeeByExchangeRate(realFee);		
 	}
-	return realFee;
+	return parseFloat(realFee).toFixed(2);
 }
 
 /**

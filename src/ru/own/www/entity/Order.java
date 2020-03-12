@@ -39,6 +39,7 @@ public class Order implements java.io.Serializable {
 	private Integer useraddressid;//邮寄地址id
 	private Integer currencyId; //货币的id
 	private Double currencyrate;
+	private Double productCurrencyRate; //加入订单时的商品价格
 
 	// Constructors
 
@@ -273,7 +274,12 @@ public class Order implements java.io.Serializable {
 	public void setPaymenttype(Short paymenttype) {
 		this.paymenttype = paymenttype;
 	}
-	
-	
 
+	public Double getProductCurrencyRate() {
+		return this.productCurrencyRate;
+	}
+
+	public void setProductCurrencyRate(final Double productCurrencyRate) {
+		this.productCurrencyRate = productCurrencyRate;
+	}
 }

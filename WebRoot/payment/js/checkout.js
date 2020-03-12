@@ -30,7 +30,8 @@ function insertOrderBasicInfo(orderInfoParams)
 	
 	var realpay=order.realpay; //实际付款的价格=所有价格（商品价格+运费）-积分,这个实际价格已经在生成订单的时候算好了，所以这里可以直接使用
 
-	var orderCurrencyRate = order.currencyrate;
+	// var orderCurrencyRate = order.currencyrate;
+	var orderCurrencyRate = 1;
 	var orderCurrencyShowSymbol = orderInfoParams.currency.currencysymbol
 
 	var	reduceFee=order.reducefee;
@@ -67,7 +68,7 @@ function insertOrderBasicInfo(orderInfoParams)
 	totalPaymentAmount=realpay;
 	totalPaymentAmountByExchangeRate=calculateFeeByExchangeRate(totalPaymentAmount,orderCurrencyRate);
 	//calculateFeeByExchangeRate in math.js  and currencyShowSymbol is in common/js/product.price.js
-	var tempprice=orderCurrencyShowSymbol+" "+totalPaymentAmountByExchangeRate;
+	var tempprice=orderCurrencyShowSymbol+" "+parseFloat(totalPaymentAmountByExchangeRate).toFixed(2);
 	
 	$(".order-total-amount").html(tempprice);
 	$(".order-item-r").html(tempprice);

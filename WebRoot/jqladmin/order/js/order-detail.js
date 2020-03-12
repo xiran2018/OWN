@@ -161,15 +161,21 @@ function totalAmountInPage(orderShowvo)
 	var orderCurrencyShowSybol = currencyele.currencyname + " "+currencyele.currencysymbol;
 	// var orderCurrencyRate = orderShowvo.order.currencyrate;
 	var orderCurrencyRate = 1;
-
-	var productAmountToShow=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(productAmount,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
+	productAmount = (parseFloat(orderShowvo.order.countprice)-parseFloat(orderShowvo.order.mailfee)).toFixed(2)
+	// var productAmountToShow=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(productAmount,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
+	var productAmountToShow=orderCurrencyShowSybol+" "+productAmount
 	$(".ProductAmount").html(productAmountToShow);
-	var shippingCostToShow=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(shippingCost,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
+	// var shippingCostToShow=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(shippingCost,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
+	shippingCost = parseFloat(orderShowvo.order.mailfee).toFixed(2)
+	var shippingCostToShow=orderCurrencyShowSybol+" "+shippingCost
 	$(".ShippingCost").html(shippingCostToShow);
-	var allTempTotal=productAmount+shippingCost; //商品费用+运费
-	var allTotalToShow=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(allTempTotal,orderCurrencyRate);
+	var allTotal=parseFloat(productAmount)+parseFloat(shippingCost); //商品费用+运费
+	// var allTotalToShow=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(allTotal,orderCurrencyRate);
+	var allTotalToShow=orderCurrencyShowSybol+" "+parseFloat(allTotal).toFixed(2)
 	$(".TotalAmount").html(allTotalToShow);
 }
+
+
 
 /**
  * 该函数的作用是构建具体需要显示的信息
@@ -194,7 +200,8 @@ function generateXiangXiInfo(order,odsvoList,uinfo,currencyArgs)
 	var len=odsvoList.length;
 	var orderCurrencyShowSybol = currencyArgs.currencyname + " "+currencyArgs.currencysymbol;
 	// var orderCurrencyRate = order.currencyrate;
-	var orderCurrencyRate = 1;
+	// var orderCurrencyRate = 1;
+	var orderCurrencyRate = order.productCurrencyRate;
 	for(var i=0;i<len;i++)
 	{
 		odsvo=odsvoList[i];//商品详情
@@ -234,16 +241,23 @@ function generateXiangXiInfo(order,odsvoList,uinfo,currencyArgs)
 		html+="</td>";
 		//price
 
-		var tempprice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(od.price,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
+		// var tempprice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(od.price,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
+
+		var productPrice = parseFloat(calculateFeeByExchangeRate(od.price,orderCurrencyRate)).toFixed(2)
+		var tempprice=orderCurrencyShowSybol+" "+productPrice;//calculateFeeByExchangeRate in math.js
+
 		html+="<td  class='price'>"+tempprice+"</td>";
 		//数量
 		html+="<td  class='quantity'>"+od.ordercount+"</td>";
 		
 		//支付总金额
 		//price
-		var tempAmount=od.price*od.ordercount;
+		// var tempAmount=od.price*od.ordercount;
+		var tempAmount=productPrice*od.ordercount;
 		productAmount=productAmount+tempAmount//商品总价格
-		var tempAmountPrice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(tempAmount,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
+		var tempAmountEx= parseFloat(calculateFeeByExchangeRate(tempAmount,orderCurrencyRate)).toFixed(2)
+		var tempAmountPrice=orderCurrencyShowSybol+" "+tempAmountEx;//calculateFeeByExchangeRate in math.js
+		// var tempAmountPrice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(tempAmount,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
 		html+="<td class='amount'>";
 		html+="<span>"+tempAmountPrice+"</span>";
 		html+="</td>";
@@ -275,7 +289,9 @@ function generateXiangXiInfo(order,odsvoList,uinfo,currencyArgs)
 		if(shipfee!=""&&shipfee!=null)
 		{
 			shippingCost=shippingCost+shipfee;//货运总价格
-			tempShipFeePrice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(shipfee,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
+			// tempShipFeePrice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(shipfee,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
+			var tempShipEx=parseFloat(calculateFeeByExchangeRate(shipfee,orderCurrencyRate)).toFixed(2);
+			tempShipFeePrice=orderCurrencyShowSybol+" "+tempShipEx
 		}
 		html+="<p class='ship-price'>";
 		html+="<span class='ship-free'>"+tempShipFeePrice+"</span>";
@@ -355,7 +371,8 @@ function getProductProperties(attrList)
  */
 function paymentDetail(olistInfo)
 {
-	allTotal=productAmount+shippingCost; //商品费用+运费
+	// allTotal=productAmount+shippingCost; //商品费用+运费
+	var allTotal=parseFloat(productAmount)+parseFloat(shippingCost); //商品费用+运费
 
 	//汇率等信息
 	currencyele = olistInfo.currency;

@@ -124,7 +124,7 @@ public class OrderOperate extends ActionSupport implements SessionAware
 	private String returnJsonString;  //商品信息
 
 	private int currencyId;  //使用的货币信息，货币的主键
-	private Double currencyRate;
+	private double currencyRate;
 
 	private List<ShippingCountry> sc;//货运国家信息
 	private String returnCountryJsonString;//国家信息
@@ -387,7 +387,8 @@ public class OrderOperate extends ActionSupport implements SessionAware
 		order.setOrderstate((short)0);//表示没有支付
 
 		order.setCurrencyId(currencyId);
-		order.setCurrencyrate(currencyRate);
+		order.setProductCurrencyRate(currencyRate);  //商品的汇率
+//		order.setCurrencyrate(currencyRate);
 		
 		order.setCountprice(totalPrice);
 		order.setRealpay(realPrice);  //减去积分之后的价格
@@ -923,11 +924,11 @@ public class OrderOperate extends ActionSupport implements SessionAware
 		this.currencyId = currencyId;
 	}
 
-	public Double getCurrencyRate() {
+	public double getCurrencyRate() {
 		return currencyRate;
 	}
 
-	public void setCurrencyRate(Double currencyRate) {
+	public void setCurrencyRate(double currencyRate) {
 		this.currencyRate = currencyRate;
 	}
 }

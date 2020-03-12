@@ -331,7 +331,7 @@
        
         
         <!-- 确认订单页面中，生成订单-->
-        <action name="place-order" class="ru.own.www.logic.OrderOperate" method="placeOrder">
+        <action name="placeOrder" class="ru.own.www.logic.OrderOperate" method="placeOrder">
              <result name="success" type="json">
              	<param name = "includeProperties">orderId</param > 
              </result>

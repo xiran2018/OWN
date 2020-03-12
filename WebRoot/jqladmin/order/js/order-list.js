@@ -645,8 +645,10 @@ function generateXiangXiInfo(order,odsvoList,uinfo,currencyArgs)
 		//price
 		var orderCurrencyShowSybol = currencyArgs.currencyname + " "+currencyArgs.currencysymbol;
 		// var orderCurrencyRate = order.currencyrate;
-		var orderCurrencyRate = 1;
-		var tempprice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(od.price,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
+		// var orderCurrencyRate = 1;
+		var orderCurrencyRate = order.productCurrencyRate;
+		var productPrice = parseFloat(calculateFeeByExchangeRate(od.price,orderCurrencyRate)).toFixed(2)
+		var tempprice=orderCurrencyShowSybol+" "+productPrice;//calculateFeeByExchangeRate in math.js
 		html+="<td  class='price'>"+tempprice+"</td>";
 		//数量
 		html+="<td  class='quantity'>"+od.ordercount+"</td>";

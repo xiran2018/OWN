@@ -137,7 +137,7 @@ function placeOrder()
 		}
 		
 		var params={
-				"mailAddressId":defaultMailAddressId,//邮寄地址
+				"mailAddressId":parseInt(defaultMailAddressId),//邮寄地址
 				"subtotalPrice":subtotalPriceInExchange,
 				"shippingPrice":shippingPrice,
 				"availableProductShopcartIds":availableProductShopcartIds,
@@ -156,7 +156,7 @@ function placeOrder()
  */
 function generateOrder(params)
 {
-		var actionUrl = "shopcart/place-order.action";
+		var actionUrl = "shopcart/placeOrder.action";
 		$.ajax( { 
 			url : actionUrl,
 			type : "post",
@@ -705,16 +705,17 @@ function insertCouponInfo()
 function insertPriceInfo()
 {
 	// var tempprice=currencyShowSymbol+" "+calculateFeeByExchangeRate(subtotalPrice,currencyRate);//calculateFeeByExchangeRate in math.js
-	var tempprice=currencyShowSymbol+" "+subtotalPriceInExchange
+	var tempprice=currencyShowSymbol+" "+subtotalPriceInExchange.toFixed(2)
 	$(".subtotal-price").html(tempprice);
 
 	// var tempShippPrice = calculateFeeByExchangeRate(shippingPrice,currencyRate)
 	
-	tempprice=currencyShowSymbol+" "+shippingPrice;
+	tempprice=currencyShowSymbol+" "+shippingPrice.toFixed(2);
 	$(".shipping-price").html(tempprice);
 	
 	var totalprice=calculateFeeByExchangeRate(subtotalPriceInExchange+shippingPrice,1);
 	// tempprice=currencyShowSymbol+" "+calculateFeeByExchangeRate(totalprice,currencyRate);
+	totalprice= parseFloat(totalprice).toFixed(2)
 	$("#totalprice").html(totalprice);
 	$("#all-totalfee-show").html(totalprice);
 }
@@ -956,7 +957,7 @@ function insertShopCartItemsInPage(shopCartList)
 		var tempItemPriceNo=quantity*(parseFloat(originPrice)); //没有汇率转变之前的费用
 		// subtotalPrice+=tempItemPriceNo;
 
-		subtotalPriceInExchange=quantity*nowPrice //用汇率改了之后总的费用，商品数量*商品单价（这个单价用汇率改了）
+		subtotalPriceInExchange+=quantity*parseFloat(nowPrice) //用汇率改了之后总的费用，商品数量*商品单价（这个单价用汇率改了）
 
 		
 		//购物车id 
@@ -1012,12 +1013,13 @@ function insertShopCartItemsInPage(shopCartList)
 				
 				// shippingPrice+=parseFloat(tempRealFee); //没有汇率转变之前的费用
 				tempRealFee=calculateShippingFeeByExchangeRate(tempRealFee);
+				tempRealFee = parseFloat(tempRealFee)
 				shippingPrice+=tempRealFee;
 				
 				//计算总邮费
 				
 				//具体的费用
-				insertHtml+="<p><span class='order-target notranslate'>"+currencyShowSymbol+" "+tempRealFee+"</span></P>";//currencyShowSymbol in product.price.js
+				insertHtml+="<p><span class='order-target notranslate'>"+currencyShowSymbol+" "+tempRealFee.toFixed(2)+"</span></P>";//currencyShowSymbol in product.price.js
 			}
 			
 			

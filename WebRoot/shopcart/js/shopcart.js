@@ -577,7 +577,7 @@ function getOriginPrice(cartvo,pbvo,skuvo)
 	price=Digit.round(price, 2);
 	price=Digit.changeTwoDecimal(price);
 	
-	return price;
+	return parseFloat(price).toFixed(2);
 }
 
 /**
@@ -607,7 +607,7 @@ function getNowPrice(cartvo,pbvo,skuvo)
 	price=Digit.round(price, 2);
 	price=Digit.changeTwoDecimal(price);
 	
-	return price;
+	return parseFloat(price).toFixed(2);
 }
 
 /**
