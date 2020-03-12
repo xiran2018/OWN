@@ -321,10 +321,12 @@ public class OrderOperate extends ActionSupport implements SessionAware
 			CartProductAttrShowVO productAttr=pAttrShowVOs.get(i);
 			String attrName=productAttr.getAttrName(); //属性名称
 			String attrValueName=productAttr.getAttrValueName();//属性值名称
+			int attrvalueId = productAttr.getAttrvalueid();
 			Orderdetailproductattr opa=new Orderdetailproductattr();
 			opa.setOrderdetailid(od.getId());
 			opa.setAttrname(attrName);
 			opa.setAttrvalue(attrValueName);
+			opa.setAttrvalueId(Integer.valueOf(attrvalueId));
 			cpid.insertOrderProductAttr(opa);
 		}
 	}

@@ -3,7 +3,9 @@
   <component name="WebContextManager">
     <option name="state">
       <map>
+        <entry key="file://$PROJECT_DIR$/WebRoot/foreground/ocategory.jsp" value="file://$PROJECT_DIR$/WebRoot/foreground" />
         <entry key="file://$PROJECT_DIR$/WebRoot/jqladmin/order/order-list.jsp" value="file://$PROJECT_DIR$/WebRoot/jqladmin/order" />
+        <entry key="file://$PROJECT_DIR$/WebRoot/order/confirmorder.jsp" value="file://$PROJECT_DIR$/WebRoot/order" />
         <entry key="file://$PROJECT_DIR$/WebRoot/order/order-detail.jsp" value="file://$PROJECT_DIR$/WebRoot/order" />
         <entry key="file://$PROJECT_DIR$/WebRoot/order/order-list.jsp" value="file://$PROJECT_DIR$/WebRoot/order" />
         <entry key="file://$PROJECT_DIR$/WebRoot/usermanage/buyerIndex.jsp" value="file://$PROJECT_DIR$/WebRoot/usermanage" />

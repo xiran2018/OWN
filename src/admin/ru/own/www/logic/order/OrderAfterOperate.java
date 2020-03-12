@@ -5,6 +5,9 @@
 
 package admin.ru.own.www.logic.order;
 
+import admin.ru.own.www.entity.Currency;
+import admin.ru.own.www.mybatis.dao.CurrencyDAO;
+import admin.ru.own.www.mybatis.dao.factory.DAOFactory;
 import admin.ru.own.www.util.Utility;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.List;
@@ -23,6 +26,7 @@ public class OrderAfterOperate extends ActionSupport
 
 	private Map session;
 	private int orderId;
+	private int currencyId;
 	private String reduceFee;
 	private String discountReason;
 	private OrderShowVO orderShowVO;
@@ -94,7 +98,7 @@ public class OrderAfterOperate extends ActionSupport
 		if (orderList == null)
 		{
 			errCode = "100";
-			errMessage = "·þÎñÆ÷Òì³££¬ÇëÉÔºóÔÙÊÔ";
+			errMessage = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½ï¿½ï¿½ï¿½Ôºï¿½ï¿½ï¿½ï¿½ï¿½";
 		} else
 		{
 			if (orderList != null)
@@ -141,10 +145,37 @@ public class OrderAfterOperate extends ActionSupport
 
 	public String saveDiscountInfoForOrder()
 	{
+		CurrencyDAO dao = (CurrencyDAO) DAOFactory.getInstance().getDAOImp(CurrencyDAO.class.getName());
+		Currency currency = dao.getCurrencyById(currencyId);
+		Double curate = currency.getCurrencyrate();
+		Double realreducefee = 0D;
+		String realstr;
+		if(reduceFee.contains("+")){
+			String[] a= reduceFee.split("\\+");
+			realreducefee = Double.parseDouble(a[1]);
+			Double real = realreducefee * curate;
+			real = (double) Math.round(real*100) / 100;
+			realstr = "+"+real;
+		}
+		else if(reduceFee.contains("-")){
+			String[] a= reduceFee.split("-");
+			realreducefee = Double.parseDouble(a[1]);
+			Double real = realreducefee * curate;
+			real = (double) Math.round(real*100) / 100;
+			realstr = "-"+real;
+		}
+		else{
+			errCode = "100";
+			return "success";
+		}
+
+
+
 		Order odOrder = new Order();
 		odOrder.setId(Integer.valueOf(orderId));
 		odOrder.setReducefeereason(discountReason);
-		odOrder.setReducefee(reduceFee);
+		odOrder.setReducefee(realstr);
+		odOrder.setCurrencyrate(currency.getCurrencyrate()); //è®¾ç½®çŽ°åœ¨çš„æ±‡çŽ‡
 		int count = 0;
 		OrderOperateMapper oom = new OrderOperateDAOImpl();
 		oom.openSession();
@@ -356,5 +387,13 @@ public class OrderAfterOperate extends ActionSupport
 	public void setDiscountReason(String discountReason)
 	{
 		this.discountReason = discountReason;
+	}
+
+	public int getCurrencyId() {
+		return currencyId;
+	}
+
+	public void setCurrencyId(int currencyId) {
+		this.currencyId = currencyId;
 	}
 }

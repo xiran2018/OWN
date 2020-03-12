@@ -594,7 +594,8 @@ function generateBasicInfo(order,uinfo,currencyArgs)
 	html+="<span class='amount'>";
 	//currencyShowSymbol is in common/js/product.price.js
 	var orderCurrencyShowSybol = currencyArgs.currencyname + " "+currencyArgs.currencysymbol;
-	var orderCurrencyRate = order.currencyrate;
+	// var orderCurrencyRate = order.currencyrate;
+	var orderCurrencyRate = 1;
 	var tempprice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(order.countprice,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
 	html+="Amount: <strong>"+tempprice+"</strong>";
 	html+=" </span>";
@@ -643,7 +644,8 @@ function generateXiangXiInfo(order,odsvoList,uinfo,currencyArgs)
 		html+="</td>";
 		//price
 		var orderCurrencyShowSybol = currencyArgs.currencyname + " "+currencyArgs.currencysymbol;
-		var orderCurrencyRate = order.currencyrate;
+		// var orderCurrencyRate = order.currencyrate;
+		var orderCurrencyRate = 1;
 		var tempprice=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(od.price,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
 		html+="<td  class='price'>"+tempprice+"</td>";
 		//数量

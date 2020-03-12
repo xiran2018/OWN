@@ -12,7 +12,7 @@
   <head>
     	<base href="<%=basePath%>">
 		<meta charset="UTF-8">
-		<title>999OWN.RU</title>
+		<title>999OWN.RU Сумки оптом купить по низкой цене от производителя</title>
 		<meta http-equiv="pragma" content="no-cache">
 		<meta http-equiv="cache-control" content="no-cache">
 		<meta http-equiv="expires" content="0">

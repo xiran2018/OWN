@@ -8,7 +8,7 @@
   
    <!-- 修改打折信息-->
     <update id="saveDiscountInfoForOrder"  parameterType="ru.own.www.entity.Order" flushCache="true">
-        update  own.order set reducefee=#{reducefee},reducefeereason=#{reducefeereason} where id=#{id}
+        update  own.order set currencyrate=#{currencyrate},reducefee=#{reducefee},reducefeereason=#{reducefeereason} where id=#{id}
     </update>
   
     

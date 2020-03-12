@@ -61,14 +61,15 @@
      </resultMap>
      
      <select id="getCartProductAttrs"  resultMap="productAttrList">
-        select attrmuv.foreign_name attrvaluename , attrmu.foreign_name attrname
+        select cpa.attrvalueid attrvalueid,attrmuv.foreign_name attrvaluename , attrmu.foreign_name attrname
         from cartproductattr cpa,attribute_value attrv,attribute_valuemultilanguage attrmuv,attributemultilanguage attrmu
         where cpa.cartid=#{0} and attrmuv.lan_id=#{1}   and  cpa.attrvalueid=attrmuv.attr_value_id and  
-        attrv.attr_value_id=cpa.attrvalueid and attrmu.lan_id=7 and attrmu.attr_id=attrv.attr_id;
+        attrv.attr_value_id=cpa.attrvalueid and attrmu.lan_id=#{1} and attrmu.attr_id=attrv.attr_id;
      </select>
      <resultMap type="ru.own.www.entity.CartProductAttrShowVO" id="productAttrList"><!--cart product attr -->
         <result property="attrName" column="attrname"/>
         <result property="attrValueName" column="attrvaluename"/>
+        <result property="attrvalueid" column="attrvalueid"/>
      </resultMap>
      
      

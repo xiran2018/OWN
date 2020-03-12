@@ -350,53 +350,53 @@
 					 <a class="return-btn" href="/shopcart/cart.jsp">
 					 	<s:text name="www.confirmOrder.returnShopCart"></s:text>
 					 </a>
-					 <div class="coupon-wrapper-inner util-clearfix">
-						<div class="coupon-box userCoupon-box">
-							 <label class="ui-label">
-							 	<s:text name="www.confirmOrder.applyInteral"></s:text>:
-							 </label>
-							 <div class="coupon-main-box">
-								<input onKeyUp="changeValue(this)" name="costTjb" type="text" class="text tbGold-usePoint J_MakePoint c2c-text-default"   id="J_tjbToUse">
-							  </div>
-							 <span class="coupon-price selectCoupon-price notranslate">- USD $0.00</span>
-							 <div class="tbGold-useTip J-hide ">
-							 
-							    (<s:text name="www.confirmOrder.totalPoints"></s:text>:<em id="J_AvailableTjb"></em>
-							    ，<s:text name="www.confirmOrder.aviavlePoints"></s:text>:<em class="point-available" id="J_MaxUsableTJB"></em>
-							    )
-							    
-							 </div>
-						</div>
-						<div class="coupon-box userCoupon-box">
-							 <label class="ui-label">
-								 <input type="checkbox" data-type="select" class="ui-checkbox ui-checkbox-system"><s:text name="www.confirmOrder.applyCoupon"></s:text>:
-							 </label>
-							 <div class="coupon-main-box">
-								<span class="coupon-title disabled" data-type="select-drop">
-							 	<s:text name="www.confirmOrder.couponTitleDisabled"></s:text>
-								</span>
-							  </div>
-							 <span class="coupon-price selectCoupon-price notranslate">- USD $0.00</span>
-						</div>
-						 <div class="coupon-box couponCode-box">
-							 <label class="ui-label">
-							 	<input type="checkbox" data-type="select" class="ui-checkbox ui-checkbox-system">
-							 	<s:text name="www.confirmOrder.couponCodeBox"></s:text>:
-							 </label>
-							 <span class="coupon-main">
-							 <input type="text" class="ui-textfield ui-textfield-system" disabled="disabled">
-							 <a data-type="apply-couponcode" class="ui-button ui-button-normal ui-button-medium disabled" href="javascript:;">
-							 	<s:text name="www.confirmOrder.applyCouponCode"></s:text>
-							 </a>
-							 </span>
-							 <span class="coupon-price couponCode-price notranslate">- USD $0.00</span>
-						 </div>
-						  <input type="hidden" name="order-cluster-fix-discount" class="order-cluster-fix-discount" value="">
-						 <div class="ae-fix-discount-wrapper util-clearfix hidden">
-							 <label class="ui-label"></label>
-							 <span class="ae-fix-discount-price"></span>
-						 </div>
-				    </div>
+<%--					 <div class="coupon-wrapper-inner util-clearfix">--%>
+<%--						<div class="coupon-box userCoupon-box">--%>
+<%--							 <label class="ui-label">--%>
+<%--							 	<s:text name="www.confirmOrder.applyInteral"></s:text>:--%>
+<%--							 </label>--%>
+<%--							 <div class="coupon-main-box">--%>
+<%--								<input onKeyUp="changeValue(this)" name="costTjb" type="text" class="text tbGold-usePoint J_MakePoint c2c-text-default"   id="J_tjbToUse">--%>
+<%--							  </div>--%>
+<%--							 <span class="coupon-price selectCoupon-price notranslate">- USD $0.00</span>--%>
+<%--							 <div class="tbGold-useTip J-hide ">--%>
+<%--							 --%>
+<%--							    (<s:text name="www.confirmOrder.totalPoints"></s:text>:<em id="J_AvailableTjb"></em>--%>
+<%--							    ，<s:text name="www.confirmOrder.aviavlePoints"></s:text>:<em class="point-available" id="J_MaxUsableTJB"></em>--%>
+<%--							    )--%>
+<%--							    --%>
+<%--							 </div>--%>
+<%--						</div>--%>
+<%--						<div class="coupon-box userCoupon-box">--%>
+<%--							 <label class="ui-label">--%>
+<%--								 <input type="checkbox" data-type="select" class="ui-checkbox ui-checkbox-system"><s:text name="www.confirmOrder.applyCoupon"></s:text>:--%>
+<%--							 </label>--%>
+<%--							 <div class="coupon-main-box">--%>
+<%--								<span class="coupon-title disabled" data-type="select-drop">--%>
+<%--							 	<s:text name="www.confirmOrder.couponTitleDisabled"></s:text>--%>
+<%--								</span>--%>
+<%--							  </div>--%>
+<%--							 <span class="coupon-price selectCoupon-price notranslate">- USD $0.00</span>--%>
+<%--						</div>--%>
+<%--						 <div class="coupon-box couponCode-box">--%>
+<%--							 <label class="ui-label">--%>
+<%--							 	<input type="checkbox" data-type="select" class="ui-checkbox ui-checkbox-system">--%>
+<%--							 	<s:text name="www.confirmOrder.couponCodeBox"></s:text>:--%>
+<%--							 </label>--%>
+<%--							 <span class="coupon-main">--%>
+<%--							 <input type="text" class="ui-textfield ui-textfield-system" disabled="disabled">--%>
+<%--							 <a data-type="apply-couponcode" class="ui-button ui-button-normal ui-button-medium disabled" href="javascript:;">--%>
+<%--							 	<s:text name="www.confirmOrder.applyCouponCode"></s:text>--%>
+<%--							 </a>--%>
+<%--							 </span>--%>
+<%--							 <span class="coupon-price couponCode-price notranslate">- USD $0.00</span>--%>
+<%--						 </div>--%>
+<%--						  <input type="hidden" name="order-cluster-fix-discount" class="order-cluster-fix-discount" value="">--%>
+<%--						 <div class="ae-fix-discount-wrapper util-clearfix hidden">--%>
+<%--							 <label class="ui-label"></label>--%>
+<%--							 <span class="ae-fix-discount-price"></span>--%>
+<%--						 </div>--%>
+<%--				    </div>--%>
 				 </div>
 				<!-- AE Coupon or CouponCode NewAdd end -->
 				

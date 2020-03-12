@@ -52,7 +52,8 @@ function totalAmountInPage(orderShowvo)
 	//汇率等信息
 	currencyele = orderShowvo.currency;
 	var orderCurrencyShowSybol = currencyele.currencyname + " "+currencyele.currencysymbol;
-	var orderCurrencyRate = orderShowvo.order.currencyrate;
+	// var orderCurrencyRate = orderShowvo.order.currencyrate;
+	var orderCurrencyRate = 1;
 
 	var productAmountToShow=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(productAmount,orderCurrencyRate);//calculateFeeByExchangeRate in math.js
 	$(".ProductAmount").html(productAmountToShow);
@@ -85,7 +86,8 @@ function generateXiangXiInfo(order,odsvoList,currencyArgs)
 	var html="";
 	var len=odsvoList.length;
 	var orderCurrencyShowSybol = currencyArgs.currencyname + " "+currencyArgs.currencysymbol;
-	var orderCurrencyRate = order.currencyrate;
+	// var orderCurrencyRate = order.currencyrate;
+	var orderCurrencyRate = 1;
 	for(var i=0;i<len;i++)
 	{
 		odsvo=odsvoList[i];//商品详情
@@ -251,7 +253,9 @@ function paymentDetail(olistInfo)
 	//汇率等信息
 	currencyele = olistInfo.currency;
 	var orderCurrencyShowSybol = currencyele.currencyname + " "+currencyele.currencysymbol;
-	var orderCurrencyRate = olistInfo.order.currencyrate;
+	var orderCurrencyRate = 1;
+	// var orderCurrencyRate = olistInfo.order.currencyrate;
+	// var orderCurrencyRate = olistInfo.currency.currencyrate;
 	
 	//使用的积分
 	var jifen=olistInfo.order.usejifen;
@@ -295,6 +299,7 @@ function paymentDetail(olistInfo)
 	}
 
 	//所有的总价格
+	var orderCurrencyRate =1
 	var allTotalToShow=orderCurrencyShowSybol+" "+calculateFeeByExchangeRate(allTotal,orderCurrencyRate);
 	$(".Total-Amount").html(allTotalToShow);
 	

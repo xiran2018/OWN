@@ -10,17 +10,38 @@ public class CartProductAttrShowVO
 {
 	private String attrName;  //属性名
 	private String attrValueName; //属性值名称
-	public String getAttrName() {
+	private int attrvalueid;
+	public CartProductAttrShowVO()
+	{
+	}
+
+	public String getAttrName()
+	{
 		return attrName;
 	}
-	public void setAttrName(String attrName) {
+
+	public void setAttrName(String attrName)
+	{
 		this.attrName = attrName;
 	}
-	public String getAttrValueName() {
+
+	public String getAttrValueName()
+	{
 		return attrValueName;
 	}
-	public void setAttrValueName(String attrValueName) {
+
+	public void setAttrValueName(String attrValueName)
+	{
 		this.attrValueName = attrValueName;
 	}
-	
+
+	public int getAttrvalueid()
+	{
+		return attrvalueid;
+	}
+
+	public void setAttrvalueid(int attrvalueid)
+	{
+		this.attrvalueid = attrvalueid;
+	}
 }

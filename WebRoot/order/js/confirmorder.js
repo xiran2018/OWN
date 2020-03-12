@@ -14,7 +14,8 @@ var selectShip;  //货运名称
 var selectShipFee;//货运费用
 var selectShipTime;  //货运时间
 
-var subtotalPrice=0;//货物（商品）的总价格
+var subtotalPrice=0;//货物（商品）的总价格，这个以前是没有改变汇率之前的费用，现在不用了
+var subtotalPriceInExchange=0;
 var shippingPrice=0;//货运的总价格
 
 var messageArray={};//用户留言信息，key为商品id，value为留言信息	
@@ -51,7 +52,7 @@ function couponClickEventRegister()
 function  changeValue(ele)
 {
 	var tempValue=$(ele).val(); //输入的积分
-	var tempTotalprice=subtotalPrice+shippingPrice; //商品价格+运费；
+	var tempTotalprice=subtotalPriceInExchange+shippingPrice; //商品价格+运费；
 	var maxUseJifen=tempTotalprice/0.01; //可以使用的最多积分，是商品的总价
 	var allHaveJifen=parseInt(jifen);
 	
@@ -92,7 +93,7 @@ function  changeValue(ele)
 function changeTotalPriceInPage(usejifen)
 {
 	var subPrice=0.01*usejifen;  //使用积分之后，需要减免的费用
-	var tempTotalprice=subtotalPrice+shippingPrice; //商品价格+运费；
+	var tempTotalprice=subtotalPriceInExchange+shippingPrice; //商品价格+运费；
 	var allTotalFee=tempTotalprice-subPrice; //减去使用积分之后的费用
 	
 	var tempprice=currencyShowSymbol+" "+calculateFeeByExchangeRate(allTotalFee,currencyRate);//calculateFeeByExchangeRate in math.js
@@ -137,7 +138,7 @@ function placeOrder()
 		
 		var params={
 				"mailAddressId":defaultMailAddressId,//邮寄地址
-				"subtotalPrice":subtotalPrice,
+				"subtotalPrice":subtotalPriceInExchange,
 				"shippingPrice":shippingPrice,
 				"availableProductShopcartIds":availableProductShopcartIds,
 				"leaveMessageString":messageArrayString,
@@ -703,16 +704,19 @@ function insertCouponInfo()
  */
 function insertPriceInfo()
 {
-	var tempprice=currencyShowSymbol+" "+calculateFeeByExchangeRate(subtotalPrice,currencyRate);//calculateFeeByExchangeRate in math.js
+	// var tempprice=currencyShowSymbol+" "+calculateFeeByExchangeRate(subtotalPrice,currencyRate);//calculateFeeByExchangeRate in math.js
+	var tempprice=currencyShowSymbol+" "+subtotalPriceInExchange
 	$(".subtotal-price").html(tempprice);
+
+	// var tempShippPrice = calculateFeeByExchangeRate(shippingPrice,currencyRate)
 	
-	tempprice=currencyShowSymbol+" "+calculateFeeByExchangeRate(shippingPrice,currencyRate);
+	tempprice=currencyShowSymbol+" "+shippingPrice;
 	$(".shipping-price").html(tempprice);
 	
-	var totalprice=subtotalPrice+shippingPrice;
-	tempprice=currencyShowSymbol+" "+calculateFeeByExchangeRate(totalprice,currencyRate);
-	$("#totalprice").html(tempprice);
-	$("#all-totalfee-show").html(tempprice);
+	var totalprice=calculateFeeByExchangeRate(subtotalPriceInExchange+shippingPrice,1);
+	// tempprice=currencyShowSymbol+" "+calculateFeeByExchangeRate(totalprice,currencyRate);
+	$("#totalprice").html(totalprice);
+	$("#all-totalfee-show").html(totalprice);
 }
 
 /**
@@ -949,8 +953,11 @@ function insertShopCartItemsInPage(shopCartList)
 		insertHtml+="<span>"+currencyShowSymbol+" "+nowPrice+"</span>";  //currencyShowSymbol is in common/js/product.price.js
 		
 		//计算物品总价格
-		var tempItemPrice=quantity*(parseFloat(originPrice)); //没有汇率转变之前的费用
-		subtotalPrice+=tempItemPrice;
+		var tempItemPriceNo=quantity*(parseFloat(originPrice)); //没有汇率转变之前的费用
+		// subtotalPrice+=tempItemPriceNo;
+
+		subtotalPriceInExchange=quantity*nowPrice //用汇率改了之后总的费用，商品数量*商品单价（这个单价用汇率改了）
+
 		
 		//购物车id 
 		insertHtml+="<input class='hid-shopcart-id' type='hidden' value='"+cartid+"' name='id'>";
@@ -1003,8 +1010,9 @@ function insertShopCartItemsInPage(shopCartList)
 			else
 			{
 				
-				shippingPrice+=parseFloat(tempRealFee); //没有汇率转变之前的费用
+				// shippingPrice+=parseFloat(tempRealFee); //没有汇率转变之前的费用
 				tempRealFee=calculateShippingFeeByExchangeRate(tempRealFee);
+				shippingPrice+=tempRealFee;
 				
 				//计算总邮费
 				

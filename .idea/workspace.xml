@@ -9,22 +9,26 @@
     <list default="true" id="b4d3fc76-35aa-4430-9376-34289a819ae0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/entity/CartProductAttrShowVO.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/entity/CartProductAttrShowVO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/entity/Orderdetailproductattr.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/entity/Orderdetailproductattr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/logic/OrderOperate.class" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/logic/OrderOperate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/mybatis/dao/CartOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/mybatis/dao/CartOperateMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/mybatis/dao/OrderOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/WEB-INF/classes/ru/own/www/mybatis/dao/OrderOperateMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/usermanage/js/getuserpassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/usermanage/js/getuserpassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-detail.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/order/order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/order/order-detail.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/order/confirmorder.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/confirmorder.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WebRoot/order/js/confirmorder.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/confirmorder.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/order/js/order-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/order-detail.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/WebRoot/order/js/order-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/order-list.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/order/order-detail.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/order-detail.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/order/order-list.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/order-list.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/active/reSendActivateEmailError.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/active/reSendActivateEmailError.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/active/reSendActivateEmailSuccess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/active/reSendActivateEmailSuccess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/js/handle.foregetpassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/js/handle.foregetpassword.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/usermanage/register/registerSuccess.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/usermanage/register/registerSuccess.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18n/messageResource_en_US.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/messageResource_en_US.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/i18n/messageResource_ru_RU.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ru/own/www/filter/CustomerAuthFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/filter/CustomerAuthFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderAfterOperate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderAfterOperate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/own/www/entity/CartProductAttrShowVO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/entity/CartProductAttrShowVO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/own/www/entity/Orderdetailproductattr.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/entity/Orderdetailproductattr.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/own/www/logic/OrderOperate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/logic/OrderOperate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/own/www/mybatis/dao/CartOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/mybatis/dao/CartOperateMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ru/own/www/mybatis/dao/OrderOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ru/own/www/mybatis/dao/OrderOperateMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,9 +67,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/ru/own/www/entity/OrderShowVO.java" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WebRoot/order/js/order-list.js" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/util/Encrypt.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/util/ParameterUtil.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/util/FilterAction.java" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebRoot/webIm/js/webSocketForOf.js" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/interceptor/LanguageInterceptor.java" root0="SKIP_HIGHLIGHTING" />
@@ -73,38 +75,50 @@
     <setting file="file://$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" root2="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/logic/ProductOperate.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/entity/User.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/test/simple/test/test.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/LanguageDAOImp.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ru/own/www/filter/QequestURLFilter.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/order/confirmorder.jsp" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" root2="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/WebRoot/order/order-list.jsp" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" root2="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/WebRoot/jqladmin/order/order-list.jsp" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" root2="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/WebRoot/order/order-detail.jsp" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" root2="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/struts_client_manger.xml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/UserOperate.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/struts_foreground_manger.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/UserOperateImpl.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mail/EmailHtmlObject.java" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WebRoot/usermanage/foreget-password.jsp" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/foreground/SecondForegroundPageManagementAction.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mail/EmailStaticArgs.java" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/ru/own/www/mybatis/dao/OrderOperateMapper.xml" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/LanguageMapper.xml" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mail/EmailHtmlRegister.java" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/WebRoot/usermanage/buyerIndex.jsp" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/foreground/ProductFilterImp.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mail/emailOperate.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/MyBatisDAO.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/util/Utility.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mail/password/EmailHtmlPassword.java" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/filter/MyRequestWrapper.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java" root0="SKIP_INSPECTION" />
-    <setting file="file://$PROJECT_DIR$/src/ru/own/www/payment/PaymentOperate.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/CategoryDAOImp.java" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebRoot/payment/js/checkout.js" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/logic/OrderAfterOperate.java" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateDAOImpl.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderAfterOperate.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/logic/OrderOperate.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ru/own/www/entity/OrderShowVO.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/order/js/order-list.js" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/order/js/order-detail.js" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/util/Encrypt.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/order/js/confirmorder.js" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/test/simple/test/test.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/LanguageDAOImp.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ru/own/www/filter/QequestURLFilter.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/jqladmin/order/order-list.jsp" root0="SKIP_INSPECTION" root1="FORCE_HIGHLIGHTING" root2="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/admin/test/Test.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/usermanage/foreget-password.jsp" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/ru/own/www/mybatis/dao/CartOperateMapper.xml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/foreground/SecondForegroundPageManagementAction.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/ru/own/www/mybatis/dao/OrderOperateMapper.xml" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/factory/DAOFactory.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/LanguageMapper.xml" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/usermanage/buyerIndex.jsp" root0="SKIP_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/WebRoot/foreground/ocategory.jsp" root0="SKIP_INSPECTION" root1="SKIP_INSPECTION" root2="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/foreground/ProductFilterImp.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/util/Utility.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/ru/own/www/payment/PaymentOperate.java" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="JspContextManager">
     <jsp-to-context jsp-file="file://$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" context-file="file://$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" />
@@ -151,13 +165,27 @@
     </option>
   </component>
   <component name="RunManager" selected="Tomcat Server.tomcat 7.0.56-2">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="admin.test.Test" />
+      <module name="own" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="admin.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="test" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="simple.test.test" />
       <module name="own" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -336,10 +364,11 @@
     <list>
       <item itemvalue="Application.test" />
       <item itemvalue="Tomcat Server.tomcat 7.0.56-2" />
+      <item itemvalue="Application.Test" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.test" />
+        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
@@ -365,7 +394,8 @@
       <workItem from="1583671699415" duration="6603000" />
       <workItem from="1583752366802" duration="36557000" />
       <workItem from="1583889303443" duration="13684000" />
-      <workItem from="1583915621139" duration="9485000" />
+      <workItem from="1583915621139" duration="11793000" />
+      <workItem from="1583977391658" duration="15740000" />
     </task>
     <servers />
   </component>

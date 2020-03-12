@@ -12,6 +12,7 @@ public class Orderdetailproductattr implements java.io.Serializable {
 	private Integer orderdetailid;
 	private String attrname;
 	private String attrvalue;
+	private Integer attrvalueId;
 
 	// Constructors
 
@@ -66,4 +67,11 @@ public class Orderdetailproductattr implements java.io.Serializable {
 		this.attrvalue = attrvalue;
 	}
 
+	public Integer getAttrvalueId() {
+		return this.attrvalueId;
+	}
+
+	public void setAttrvalueId(final Integer attrvalueId) {
+		this.attrvalueId = attrvalueId;
+	}
 }

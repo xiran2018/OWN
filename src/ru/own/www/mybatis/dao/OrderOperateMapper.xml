@@ -26,8 +26,8 @@
     </insert>
     
     <insert id="insertOrderProductAttr" useGeneratedKeys="true" keyProperty="id" parameterType="ru.own.www.entity.Orderdetailproductattr"  flushCache="true">
-     insert into orderdetailproductattr (orderdetailid,attrname,attrvalue)
-        values(#{orderdetailid},#{attrname},#{attrvalue})
+      insert into orderdetailproductattr (orderdetailid,attrname,attrvalue,attrvalueid)
+        values(#{orderdetailid},#{attrname},#{attrvalue},#{attrvalueId})
     </insert>
     
     

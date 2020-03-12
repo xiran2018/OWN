@@ -433,8 +433,9 @@
 		<div id="modifyw" class="main-box ui-widget" title="修改价格">
 			<div class="ui-window-bd">
 				<div id="price-form-tpl">
-				        <input type="hidden" name="orderId" id="orderId" value="<s:property value='orderShowVO.order.id' escape='false'/>">
-				    	<table class="form-table" cellpadding="0" cellspacing="0" id="adjust-price-table">
+					<input type="hidden" name="orderId" id="orderId" value="<s:property value='orderShowVO.order.id' escape='false'/>">
+					<input type="hidden" name="currencyId" id="currencyId" value="<s:property value='orderShowVO.order.currencyId' escape='false'/>">
+					<table class="form-table" cellpadding="0" cellspacing="0" id="adjust-price-table">
 				    		<tbody>
 				    			<tr>
 				    				<th>调整前金额:</th>
