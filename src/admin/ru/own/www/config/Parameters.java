@@ -8,6 +8,7 @@ package admin.ru.own.www.config;
 public class Parameters 
 {
 	//商店信息配置文件所在路径"
-	public static String configPath = "ConfigFile/StoreConfig.xml";
+//	public static String configPath = "ConfigFile/StoreConfig.xml";
+	public static String configPath = "ConfigFile/StoreConfig.properties";
 	public static String log4j2ConfigPath = "ConfigFile/log4j2.xml";
 }

@@ -1,13 +1,6 @@
 package admin.ru.own.www.util;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.math.BigDecimal;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
@@ -142,11 +135,27 @@ public class Utility {
 	 */
 	public static void writeXML(String path, Document document) 
 	{
-		try 
+
+
+
+		try
 		{
+//			OutputFormat format = OutputFormat.createPrettyPrint();
+//			format.setEncoding("UTF-8");
+			OutputFormat of = new OutputFormat();
+			of.setEncoding("gb2312"); //改变编码方式
+//			XMLWriter writer = new XMLWriter(new FileWriter(path),of);
+//			XMLWriter writer = new XMLWriter(new FileOutputStream(path));
+
 			OutputFormat format = OutputFormat.createPrettyPrint();
-//			format.setEncoding("gbk");
-			XMLWriter writer = new XMLWriter(new FileWriter(path), format);
+			format.setEncoding("utf-8");
+			format.setNewlines(false);
+			format.setTrimText(false);
+			FileOutputStream fos = new FileOutputStream(path);
+			BufferedWriter bw1 = new BufferedWriter(new OutputStreamWriter(fos,"utf-8"));
+
+
+			XMLWriter writer =  new XMLWriter(bw1, format);
 			writer.write(document);
 			writer.close();
 		} catch (IOException e) {

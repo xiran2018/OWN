@@ -1,4 +1,4 @@
-function checkIsMail(mail)
+function checkMail(mail)
 {
 	var flag=isEmail(mail);
 	if(!flag)
@@ -40,7 +40,7 @@ function getPassword()
 		 return;
 	}
 	 
-	if(!checkIsMail(mail))//不是一个邮箱地址
+	if(!checkMail(mail))//不是一个邮箱地址
 		return;
 	 
 	 var params=

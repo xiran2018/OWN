@@ -17,12 +17,12 @@ public class emailUtility
 	public static boolean insertEmailInfo(String configFilePath, String elementName, String values)
 	{
 		String selectNodesString = (new StringBuilder("/Config/Email/")).append(elementName).toString();
-		return Dom4JUtility.insertInfo(configFilePath, selectNodesString, values);
+		return Dom4JUtility.insertInfo(configFilePath, elementName, values);
 	}
 
 	public static String getEmailInfo(String configFilePath, String elementName)
 	{
-		String selectNodesString = (new StringBuilder("/Config/Email/")).append(elementName).toString();
-		return Dom4JUtility.getInfo(configFilePath, selectNodesString);
+//		String selectNodesString = (new StringBuilder("/Config/Email/")).append(elementName).toString();
+		return Dom4JUtility.getInfo(configFilePath, elementName);
 	}
 }

@@ -51,7 +51,7 @@
         <!-- 在页面元素中添加关于多国语言的信息 -->
         <script type="text/javascript" src="jqladmin/js/insertBrandSeriesMultiLanEditHtml.js"></script>
         
-        <!-- 添加品牌系列时的事件 -->.js
+        <!-- 添加品牌系列时的事件 -->
         <script type="text/javascript" src="jqladmin/js/iframe_mange_brand-series.js"></script>
         
         <!-- 修改品牌系列时的事件 -->

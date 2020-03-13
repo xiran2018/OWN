@@ -37,12 +37,19 @@
 
 <script src="usermanage/js/foregetpassword.js" type="text/javascript"></script>
 <!-- ------------------------------和本网页相关--------------------------------------- -->
+<script type="text/javascript">
 
+
+</script>
 
 
 </head>
 
 <body>
+
+	<div style="display: none">
+		<%@ include file="../common/language/multiLanguage.jsp" %>
+	</div>
 
 	<div id="header">
         <%@ include file="../common/header/headermenu.jsp" %>

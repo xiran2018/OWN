@@ -8,8 +8,7 @@ import java.util.Iterator;
 import java.util.List;
 
 
-
-
+import admin.ru.own.www.util.Dom4JUtility;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.apache.logging.log4j.core.config.ConfigurationSource;
@@ -270,20 +269,22 @@ public class StoreOperate extends ActionSupport
 		    String rootPath=Utility.getRootPath();
 		    
 		    configFilePath=rootPath+"/"+configFilePath;
+
+			content = Dom4JUtility.getInfo(configFilePath, "footer");
 		
-			SAXReader saxReader = new SAXReader();
-			Document document = saxReader.read(new File(configFilePath));
-			Iterator<?> iter;
-			String value = null;
-			// 初始化接收报文的服务器所在的IP地址
-			iter = document.selectNodes("/Config/StoreConfig/Footer").iterator();
-			while (iter.hasNext()) {
-				Element ip = (Element) iter.next();
-				value = ip.getText();
-			}
-			content = value;
+//			SAXReader saxReader = new SAXReader();
+//			Document document = saxReader.read(new File(configFilePath));
+//			Iterator<?> iter;
+//			String value = null;
+//			// 初始化接收报文的服务器所在的IP地址
+//			iter = document.selectNodes("/Config/StoreConfig/Footer").iterator();
+//			while (iter.hasNext()) {
+//				Element ip = (Element) iter.next();
+//				value = ip.getText();
+//			}
+//			content = value;
 		
-		} catch (DocumentException e)
+		} catch (Exception e)
 		{
 			Log.log4jLogError(StoreOperate.class, "Parse the config file is wrong!!!!!!");
 //			logger.error("Parse the config file is wrong!!!!!!");
@@ -300,30 +301,30 @@ public class StoreOperate extends ActionSupport
 	    
 	    configFilePath=rootPath+"/"+configFilePath;
 	    
-	    Document document ;
+//	    Document document ;
 		try 
 		{
+			Dom4JUtility.insertInfo(configFilePath, "footer", info);
+//			SAXReader saxReader = new SAXReader();
+//			document = saxReader.read(new File(configFilePath));
+//			Iterator<?> iter;
+//			String value = null;
+//			// 初始化接收报文的服务器所在的IP地址
+//			iter = document.selectNodes("/Config/StoreConfig/Footer").iterator();
+//			while (iter.hasNext())
+//			{
+//				Element ip = (Element) iter.next();
+//				ip.setText(info);
+//			}
 		
-			SAXReader saxReader = new SAXReader();
-			document = saxReader.read(new File(configFilePath));
-			Iterator<?> iter;
-			String value = null;
-			// 初始化接收报文的服务器所在的IP地址
-			iter = document.selectNodes("/Config/StoreConfig/Footer").iterator();
-			while (iter.hasNext()) 
-			{
-				Element ip = (Element) iter.next();
-				ip.setText(info);
-			}
-		
-		} catch (DocumentException e)
+		} catch (Exception e)
 		{
 			Log.log4jLogTrace(StoreOperate.class, "Parse the config file is wrong when set config value!!!!!!");
 //			logger.error("Parse the config file is wrong!!!!!!");
 			e.printStackTrace();
 			return ERROR;
 		}
-		Utility.writeXML(configFilePath, document);
+//		Utility.writeXML(configFilePath, document);
 //		Log.log4jLog(StoreOperate.class, "set config file is right!!!!!!");
 		return SUCCESS;
 		
