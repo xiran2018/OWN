@@ -141,9 +141,11 @@ function generateXiangXiInfo(order,odsvoList,currencyArgs)
 		//支付总金额
 		//price
 		// var tempAmount=od.price*od.ordercount;
+		productPrice = parseFloat(productPrice)
 		var tempAmount=productPrice*od.ordercount;
 		productAmount=productAmount+tempAmount//商品总价格
-		var tempAmountEx= parseFloat(calculateFeeByExchangeRate(tempAmount,orderCurrencyRate)).toFixed(2)
+		// var tempAmountEx= parseFloat(calculateFeeByExchangeRate(tempAmount,orderCurrencyRate)).toFixed(2)
+		var tempAmountEx= parseFloat(tempAmount).toFixed(2)
 		var tempAmountPrice=orderCurrencyShowSybol+" "+tempAmountEx;//calculateFeeByExchangeRate in math.js
 		html+="<td class='amount'>";
 		html+="<span>"+tempAmountPrice+"</span>";

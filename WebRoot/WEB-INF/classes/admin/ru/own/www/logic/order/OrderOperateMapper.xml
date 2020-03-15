@@ -126,6 +126,7 @@
 		    <result property="mailfee" column="mailfee"/>
 			<result property="currencyId" column="currencyId"/>
 			<result property="currencyrate" column="currencyrate"/>
+			<result property="productCurrencyRate" column="productCurrencyRate"/>
 		    <result property="usejifen" column="usejifen"/>
 		    <result property="givejifen" column="givejifen"/>
 		    <result property="userip" column="userip"/>
