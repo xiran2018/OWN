@@ -92,7 +92,7 @@
 	
 	
 	<select id="getAllCategoryWithMultilanguage" resultMap="category" parameterType="int">
-		SELECT category.category_id,category.category_father_id,category.is_father,categorymultilanguage.foreign_name as category_name FROM own.categorymultilanguage right join  own.category on category.category_id = categorymultilanguage.category_id and lan_id = #{lanid};
+		SELECT category.category_id,category.category_father_id,category.is_father,categorymultilanguage.foreign_name as category_name FROM own.categorymultilanguage right join  own.category on category.category_id = categorymultilanguage.category_id and lan_id = #{lanid} where category.is_show=1;
 	</select>
 	
 	<select id="getSubCategoryID" resultType="int" parameterType="int">

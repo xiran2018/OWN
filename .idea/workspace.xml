@@ -8,10 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b4d3fc76-35aa-4430-9376-34289a819ae0" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/jqladmin/order/js/order-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/order/js/order-detail.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/order/js/order-detail.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/WebRoot/ueditor/ueditor.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/WebRoot/ueditor/ueditor.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/CategoryMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/CategoryMapper.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -79,6 +76,7 @@
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/logic/OrderAfterOperate.java" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderOperateDAOImpl.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/order/OrderAfterOperate.java" root0="SKIP_INSPECTION" />
+    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/mybatis/dao/CategoryMapper.xml" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/logic/OrderOperate.java" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/entity/OrderShowVO.java" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/WebRoot/order/js/order-list.js" root0="SKIP_INSPECTION" />
@@ -104,6 +102,7 @@
     <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/util/Utility.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/logic/ClientUserOperate.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/src/ru/own/www/payment/PaymentOperate.java" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/admin/ru/own/www/logic/foreground/SecondForegroundPageService.java" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="JspContextManager">
     <jsp-to-context jsp-file="file://$PROJECT_DIR$/WebRoot/webIm/cWebIm.jsp" context-file="file://$PROJECT_DIR$/WebRoot/common/header/headermenu.jsp" />
@@ -382,7 +381,8 @@
       <workItem from="1583977391658" duration="51878000" />
       <workItem from="1584177605854" duration="1398000" />
       <workItem from="1584180576804" duration="10000" />
-      <workItem from="1584243004028" duration="2656000" />
+      <workItem from="1584243004028" duration="3267000" />
+      <workItem from="1584528809414" duration="4762000" />
     </task>
     <servers />
   </component>
